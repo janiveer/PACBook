@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data:root xmlns:data="urn:x-pacbook:data">
+	<!-- UK English -->
+	<data:num-form lang="en-GB">#,###.#</data:num-form>
+	<data:phon-env lang="en-GB">following</data:phon-env>
+	<data:syn-head lang="en-GB">none</data:syn-head>
+	<data:abcupper lang="en-GB">ABCDEFGHIJKLMNOPQRSTUVWXYZ</data:abcupper>
+	<data:abclower lang="en-GB">abcdefghijklmnopqrstuvwxyz</data:abclower>
+	<data:abcorder lang="en-GB">abcdefghijklmnopqrstuvwxyz</data:abcorder>
+	<!-- US English -->
+	<data:num-form lang="en-US">#,###.#</data:num-form>
+	<data:phon-env lang="en-US">following</data:phon-env>
+	<data:syn-head lang="en-US">none</data:syn-head>
+	<data:abcupper lang="en-US">ABCDEFGHIJKLMNOPQRSTUVWXYZ</data:abcupper>
+	<data:abclower lang="en-US">abcdefghijklmnopqrstuvwxyz</data:abclower>
+	<data:abcorder lang="en-US">abcdefghijklmnopqrstuvwxyz</data:abcorder>
+	<!-- French -->
+	<data:num-form lang="fr"># ###,#</data:num-form>
+	<data:phon-env lang="fr">following</data:phon-env>
+	<data:syn-head lang="fr">following</data:syn-head>
+	<data:abcupper lang="fr">ABCDEFGHIJKLMNOPQRSTUVWXYZ</data:abcupper>
+	<data:abclower lang="fr">abcdefghijklmnopqrstuvwxyz</data:abclower>
+	<data:abcorder lang="fr">abcdefghijklmnopqrstuvwxyz</data:abcorder>
+	<!-- German -->
+	<data:num-form lang="de">#.###,#</data:num-form>
+	<data:phon-env lang="de">none</data:phon-env>
+	<data:syn-head lang="de">following</data:syn-head>
+	<data:abcupper lang="de">ABCDEFGHIJKLMNOPQRSTUVWXYZ</data:abcupper>
+	<data:abclower lang="de">abcdefghijklmnopqrstuvwxyz</data:abclower>
+	<data:abcorder lang="de">abcdefghijklmnopqrstuvwxyz</data:abcorder>
+	<!-- Dutch -->
+	<data:num-form lang="nl">#.###,#</data:num-form>
+	<data:phon-env lang="nl">none</data:phon-env>
+	<data:syn-head lang="nl">following</data:syn-head>
+	<data:abcupper lang="nl">ABCDEFGHIJKLMNOPQRSTUVWXYZ</data:abcupper>
+	<data:abclower lang="nl">abcdefghijklmnopqrstuvwxyz</data:abclower>
+	<data:abcorder lang="nl">abcdefghijklmnopqrstuvwxyz</data:abcorder>
+	<!-- Spanish -->
+	<data:num-form lang="es">#.###,#</data:num-form>
+	<data:phon-env lang="es">following</data:phon-env>
+	<data:syn-head lang="es">following</data:syn-head>
+	<data:abcupper lang="es">ABCDEFGHIJKLMNÑOPQRSTUVWXYZ</data:abcupper>
+	<data:abclower lang="es">abcdefghijklmnñopqrstuvwxyz</data:abclower>
+	<data:abcorder lang="es">x</data:abcorder>
+	<data:protect  lang="es">ñ</data:protect>
+	<data:replace  lang="es"></data:replace>
+	<!-- Swedish -->
+	<data:num-form lang="sv"># ###,#</data:num-form>
+	<data:phon-env lang="sv">none</data:phon-env>
+	<data:syn-head lang="sv">following</data:syn-head>
+	<data:abcupper lang="sv">ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ</data:abcupper>
+	<data:abclower lang="sv">abcdefghijklmnopqrstuvwxyzåäö</data:abclower>
+	<data:abcorder lang="sv">x</data:abcorder>
+	<data:protect  lang="sv">åäö</data:protect>
+	<data:replace  lang="sv"></data:replace>
+	<!-- Norwegian -->
+	<data:num-form lang="nb"># ###,#</data:num-form>
+	<data:phon-env lang="nb">none</data:phon-env>
+	<data:syn-head lang="nb">following</data:syn-head>
+	<data:abcupper lang="nb">ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ</data:abcupper>
+	<data:abclower lang="nb">abcdefghijklmnopqrstuvwxyzæøå</data:abclower>
+	<data:abcorder lang="nb">x</data:abcorder>
+	<data:protect  lang="nb">æøå</data:protect>
+	<data:replace  lang="nb"></data:replace>
+	<!-- Portuguese -->
+	<data:num-form lang="pt">#.###,#</data:num-form>
+	<data:phon-env lang="pt">none</data:phon-env>
+	<data:syn-head lang="pt">following</data:syn-head>
+	<data:abcupper lang="pt">ABCDEFGHIJKLMNOPQRSTUVWXYZ</data:abcupper>
+	<data:abclower lang="pt">abcdefghijklmnopqrstuvwxyz</data:abclower>
+	<data:abcorder lang="pt">abcdefghijklmnopqrstuvwxyz</data:abcorder>
+	<!-- Italian -->
+	<data:num-form lang="it">#.###,#</data:num-form>
+	<data:phon-env lang="it">following</data:phon-env>
+	<data:syn-head lang="it">following</data:syn-head>
+	<data:abcupper lang="it">ABCDEFGHIJKLMNOPQRSTUVWXYZ</data:abcupper>
+	<data:abclower lang="it">abcdefghijklmnopqrstuvwxyz</data:abclower>
+	<data:abcorder lang="it">abcdefghijklmnopqrstuvwxyz</data:abcorder>
+	<!-- Other -->
+	<data:num-form lang="fi"># ###,#</data:num-form>
+	<data:num-form lang="zh">#,###.#</data:num-form>
+	<data:num-form lang="und">#,###.#</data:num-form>
+	<data:num-form lang="mul">#,###.#</data:num-form>
+	<data:num-form lang="mis">#,###.#</data:num-form>
+	<data:num-form lang="zxx">#,###.#</data:num-form>
+</data:root>

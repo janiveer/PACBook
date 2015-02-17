@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- PACBook v2.0 Relax NG Schema                                             -->
+<!-- ======================================================================== -->
+<!-- This is a custom extension to the Docbook v5.0 schema                    -->
+<!-- ======================================================================== -->
+<!-- $Revision: #14 $ | $DateTime: 2014/10/14 10:44:33 $ | $Author: SimonD $  -->
+
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+<!-- Import DocBook and modify existing elements -->
+	<include href="http://docbook.org/xml/5.0/rng/docbookxi.rng">
+		<define name="db.extendedlink" ns="http://docbook.org/ns/docbook">
+			<element name="extendedlink">
+				<ref name="db.extendedlink.attlist"/>
+				<optional>
+					<ref name="pac.title"/>
+				</optional>
+				<oneOrMore>
+					<choice>
+						<ref name="pac.resource"/>
+						<ref name="db.locator"/>
+						<ref name="db.arc"/>
+					</choice>
+				</oneOrMore>
+			</element>
+		</define>
+	</include>
+
+<!-- Add new common attributes -->
+	<define name="db.common.attributes" combine="interleave">
+		<ref name="its.attributes"/>
+		<ref name="pac.attributes"/>
+		<ref name="tei.attributes"/>
+	</define>
+
+<!-- Define pac.title element -->
+	<define name="pac.title">
+		<element name="title" ns="http://docbook.org/ns/docbook">
+			<ref name="pac.title.attlist"/>
+			<zeroOrMore>
+				<ref name="db.all.inlines"/>
+			</zeroOrMore>
+		</element>
+	</define>
+	<define name="pac.title.attlist">
+		<interleave>
+			<optional>
+				<ref name="pac.title.role.attribute"/>
+			</optional>
+			<ref name="db.common.attributes"/>
+			<optional>
+				<attribute name="type" ns="http://www.w3.org/1999/xlink">
+					<value>title</value>
+				</attribute>
+			</optional>
+		</interleave>
+	</define>
+	<define name="pac.title.role.attribute">
+		<attribute name="role"/>
+	</define>
+
+<!-- Define pac.resource element -->
+	<define name="pac.resource">
+		<element name="resource" ns="http://docbook.org/ns/docbook">
+			<ref name="pac.resource.attlist"/>
+			<choice>
+				<zeroOrMore>
+					<ref name="db.all.blocks"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="db.all.inlines"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="db._any"/>
+				</zeroOrMore>
+			</choice>
+		</element>
+	</define>
+	<define name="pac.resource.attlist">
+		<interleave>
+			<optional>
+				<ref name="pac.resource.role.attribute"/>
+			</optional>
+			<ref name="db.common.attributes"/>
+			<optional>
+				<attribute name="type" ns="http://www.w3.org/1999/xlink">
+					<value>resource</value>
+				</attribute>
+			</optional>
+			<optional>
+				<ref name="db.xlink.role.attribute"/>
+			</optional>
+			<optional>
+				<ref name="db.xlink.title.attribute"/>
+			</optional>
+			<optional>
+				<ref name="db.xlink.label.attribute"/>
+			</optional>
+		</interleave>
+	</define>
+	<define name="pac.resource.role.attribute">
+		<attribute name="role"/>
+	</define>
+
+<!-- Define ITS attributes -->
+	<define name="its.attributes">
+		<ref name="its.attribute.translate"/>
+		<ref name="its.attribute.locNote"/>
+		<ref name="its.attribute.locNoteType"/>
+		<ref name="its.attribute.term"/>
+		<ref name="its.attribute.termRef"/>
+	</define>
+	<define name="its.attribute.translate">
+		<optional>
+			<attribute name="translate" ns="http://www.w3.org/2005/11/its">
+				<choice>
+					<value>yes</value>
+					<value>no</value>
+				</choice>
+			</attribute>
+		</optional>
+	</define>
+	<define name="its.attribute.locNote">
+		<optional>
+			<attribute name="locNote" ns="http://www.w3.org/2005/11/its">
+				<text/>
+			</attribute>
+		</optional>
+	</define>
+	<define name="its.attribute.locNoteType">
+		<optional>
+			<attribute name="locNoteType" ns="http://www.w3.org/2005/11/its">
+				<choice>
+					<value>alert</value>
+					<value>description</value>
+				</choice>
+			</attribute>
+		</optional>
+	</define>
+	<define name="its.attribute.term">
+		<optional>
+			<attribute name="term" ns="http://www.w3.org/2005/11/its">
+				<value>yes</value>
+			</attribute>
+		</optional>
+	</define>
+	<define name="its.attribute.termRef">
+		<optional>
+			<attribute name="termRef" ns="http://www.w3.org/2005/11/its">
+				<data type="anyURI"/>
+			</attribute>
+		</optional>
+	</define>
+
+<!-- Define PAC attributes -->
+	<define name="pac.attributes">
+		<ref name="xlf.attribute.id"/>
+		<ref name="dita.attribute.conref"/>
+		<ref name="db.attribute.outputformat"/>
+	</define>
+	<define name="xlf.attribute.id">
+		<optional>
+			<attribute name="id" ns="urn:oasis:names:tc:xliff:document:1.2">
+				<data type="NMTOKEN"/>
+			</attribute>
+		</optional>
+	</define>
+	<define name="dita.attribute.conref">
+		<optional>
+			<attribute name="conref" ns="http://dita.oasis-open.org/architecture/2005">
+				<data type="NMTOKEN"/>
+			</attribute>
+		</optional>
+	</define>
+	<define name="db.attribute.outputformat">
+		<optional>
+			<attribute name="outputformat">
+				<data type="NMTOKEN"/>
+			</attribute>
+		</optional>
+	</define>
+
+<!-- Define TEI attributes -->
+	<define name="tei.attributes">
+		<ref name="tei.attribute.pron"/>
+		<ref name="tei.attribute.gen"/>
+		<ref name="tei.attribute.num"/>
+		<ref name="tei.attribute.case"/>
+		<ref name="tei.attribute.oVar"/>
+		<ref name="tei.attribute.oRef"/>
+	</define>
+	<define name="tei.attribute.pron">
+		<optional>
+			<attribute name="pron" ns="http://www.tei-c.org/ns/1.0">
+				<data type="NMTOKEN"/>
+			</attribute>
+		</optional>
+	</define>
+	<define name="tei.attribute.gen">
+		<optional>
+			<attribute name="gen" ns="http://www.tei-c.org/ns/1.0">
+				<data type="NMTOKEN"/>
+			</attribute>
+		</optional>
+	</define>
+	<define name="tei.attribute.num">
+		<optional>
+			<attribute name="num" ns="http://www.tei-c.org/ns/1.0">
+				<data type="NMTOKEN"/>
+			</attribute>
+		</optional>
+	</define>
+	<define name="tei.attribute.case">
+		<optional>
+			<attribute name="case" ns="http://www.tei-c.org/ns/1.0">
+				<data type="NMTOKEN"/>
+			</attribute>
+		</optional>
+	</define>
+	<define name="tei.attribute.oVar">
+		<optional>
+			<attribute name="oVar" ns="http://www.tei-c.org/ns/1.0">
+				<data type="NMTOKEN"/>
+			</attribute>
+		</optional>
+	</define>
+	<define name="tei.attribute.oRef">
+		<optional>
+			<attribute name="oRef" ns="http://www.tei-c.org/ns/1.0">
+				<data type="NMTOKEN"/>
+			</attribute>
+		</optional>
+	</define>
+</grammar>

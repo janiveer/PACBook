@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE root [
+	<!ENTITY PAC_Tel "+44 (0) 161 406 3400">
+	<!ENTITY PAC_Fax "+44 (0) 161 430 8658">
+	<!ENTITY PAC_Web "www.stanleysecurityproducts.co.uk">
+	<!ENTITY SSS_Tel "1793 692401">
+	<!ENTITY SSS_Fax "1793 615848">
+	<!ENTITY SSS_Web "www.stanleysecuritysolutions.eu">
+]>
+<data:root xmlns:data="urn:x-pacbook:data">
+	<data:vendor name="PAC">
+		<!-- Brand Name -->
+		<data:branding name="Brand">PAC</data:branding>
+		<!-- Website -->
+		<data:branding name="Website">&PAC_Web;</data:branding>
+		<!-- Address -->
+		<data:branding name="Art_Address">PAC — A STANLEY Security Business, 1 Park Gate Close, Bredbury, Stockport SK6 2SZ, U.K.
+		Tel: &PAC_Tel; Fax: &PAC_Fax; Web: &PAC_Web;</data:branding>
+		<data:branding name="Man_Address">PAC — A STANLEY Security Business, 1 Park Gate Close, Bredbury, Stockport SK6 2SZ, U.K.
+		Tel: &PAC_Tel; Fax: &PAC_Fax; Web: &PAC_Web;</data:branding>
+		<data:branding name="Web_Address">PAC — A STANLEY Security Business, 1 Park Gate Close, Bredbury, Stockport SK6 2SZ, U.K.<br/>Tel: &PAC_Tel;   Fax: &PAC_Fax;   Web: &PAC_Web;</data:branding>
+		<data:branding name="Old_Address">PAC — A STANLEY Security Business
+		1 Park Gate Close, Bredbury, Stockport, Cheshire, SK6 2SZ
+		 
+		Contact:
+		Tel: &PAC_Tel;
+		Fax: &PAC_Fax;
+		E-mail: customerservices@stanleysecurityproducts.com
+		Web: &PAC_Web;
+		 
+		Technical Support:
+		Tel: (U.K.) 0845 206 3400 (Int.) +44 (0) 161 430 1340
+		Fax: +44 (0) 161 406 6749
+		E-mail: pacsupp@sbdinc.com
+		Knowledge Base: www.stanleysecurityproducts.co.uk/support</data:branding>
+		<data:branding name="QSG_Address">United Kingdom:
+		PAC — A STANLEY Security Business
+		1 Park Gate Close, Bredbury, Stockport, Cheshire, SK6 2SZ
+		 
+		Contact:
+		Tel: &PAC_Tel;
+		Fax: &PAC_Fax;
+		E-mail: customerservices@stanleysecurityproducts.com
+		Web: &PAC_Web;
+		 
+		Technical Support:
+		Tel: (U.K.) 0845 206 3400 (Int.) +44 (0) 161 430 1340
+		Fax: +44 (0) 161 406 6749
+		E-mail: pacsupp@sbdinc.com
+		Knowledge Base: www.stanleysecurityproducts.co.uk/support
+		 
+		United States of America:
+		STANLEY Security
+		 
+		Contact / Technical Support:
+		Tel: 800 414-3038
+		Fax: 800 414-3039
+		E-mail: support@stanleypac.com
+		Web: www.stanleysecurityproducts.com
+		Knowledge Base: www.stanleysecurityproducts.co.uk/support</data:branding>
+		<!-- Branding Logo -->
+		<data:branding name="Brand_Logo">Yellow_PAC.svg</data:branding>
+		<data:branding name="Brand_Mono">PAC.svg</data:branding>
+		<data:branding name="Brand_Colour">white</data:branding>
+		<data:branding name="Brand_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Brand_Height">1.68cm</data:branding>
+		<data:branding name="Brand_Width">3.37cm</data:branding>
+		<!-- Parent Logo -->
+		<data:branding name="Parent_Exists">true</data:branding>
+		<data:branding name="Parent_Logo">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Parent_Mono">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Parent_Colour">rgb-icc(255,219,10,#CMYK,0,0.16,0.98,0)</data:branding>
+		<data:branding name="Parent_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Parent_Height">1.55cm</data:branding>
+		<data:branding name="Parent_Width">3.92cm</data:branding>
+		<!-- Back Logo -->
+		<data:branding name="Back_Logo">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Back_Mono">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Back_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Back_Height">1.55cm</data:branding>
+		<data:branding name="Back_Width">3.92cm</data:branding>
+		<!-- Web Logo -->
+		<data:branding name="Web_Logo">STN_security_r_mono.png</data:branding>
+		<!-- EPS Logo -->
+		<data:branding name="EPS_Logo">STN_security_r_mono.eps</data:branding><!-- FIXME: -->
+	</data:vendor>
+	<data:vendor name="USA">
+		<!-- Brand Name -->
+		<data:branding name="Brand">STANLEY PAC</data:branding>
+		<!-- Website -->
+		<data:branding name="Website">www.stanleysecuritysolutions.com</data:branding>
+		<!-- Address -->
+		<data:branding name="Art_Address">U.K.: PAC — A STANLEY Security Business, 1 Park Gate Close, Bredbury, Stockport, SK6 2SZ
+		Tel: &PAC_Tel; Fax: +44 (0) 161 406 8658 Web: www.stanleysecuritysolutions.co.uk
+
+		U.S.: STANLEY Security E-mail: support@stanleypac.com
+		Tel: 800 414-3038 Fax: 800 414-3039 Web: www.stanleysecurityproducts.com</data:branding>
+		<data:branding name="Man_Address">U.K.: PAC — A STANLEY Security Business, 1 Park Gate Close, Bredbury, Stockport, SK6 2SZ
+		Tel: &PAC_Tel; Fax: &PAC_Fax; Web: www.stanleysecuritysolutions.co.uk
+		U.S.: STANLEY Security E-mail: support@stanleypac.com
+		Tel: 800 414-3038 Fax: 800 414-3039 Web: www.stanleysecurityproducts.com</data:branding>
+		<data:branding name="Web_Address">U.K.: PAC — A STANLEY Security Business, 1 Park Gate Close, Bredbury, Stockport, SK6 2SZ<br/>Tel: &PAC_Tel;   Fax: +44 (0) 161 406 8658   Web: www.stanleysecuritysolutions.co.uk<br/><br/>U.S.: STANLEY Security   E-mail: support@stanleypac.com<br/>Tel: 800 414-3038   Fax: 800 414-3039   Web: www.stanleysecurityproducts.com</data:branding>
+		<data:branding name="QSG_Address">United Kingdom:
+		PAC — A STANLEY Security Business
+		1 Park Gate Close, Bredbury, Stockport, Cheshire, SK6 2SZ
+		 
+		Contact:
+		Tel: &PAC_Tel;
+		Fax: &PAC_Fax;
+		E-mail: customerservices@stanleysecurityproducts.com
+		Web: &PAC_Web;
+		 
+		Technical Support:
+		Tel: (U.K.) 0845 206 3400 (Int.) +44 (0) 161 430 1340
+		Fax: +44 (0) 161 406 6749
+		E-mail: pacsupp@sbdinc.com
+		Knowledge Base: www.stanleysecurityproducts.co.uk/support
+		 
+		United States of America:
+		STANLEY Security
+		 
+		Contact / Technical Support:
+		Tel: 800 414-3038
+		Fax: 800 414-3039
+		E-mail: support@stanleypac.com
+		Web: www.stanleysecurityproducts.com
+		Knowledge Base: www.stanleysecurityproducts.co.uk/support</data:branding>
+		<!-- Branding Logo -->
+		<data:branding name="Brand_Logo">Yellow_PAC.svg</data:branding>
+		<data:branding name="Brand_Mono">PAC.svg</data:branding>
+		<data:branding name="Brand_Colour">white</data:branding>
+		<data:branding name="Brand_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Brand_Height">1.68cm</data:branding>
+		<data:branding name="Brand_Width">3.37cm</data:branding>
+		<!-- Parent Logo -->
+		<data:branding name="Parent_Exists">true</data:branding>
+		<data:branding name="Parent_Logo">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Parent_Mono">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Parent_Colour">rgb-icc(255,219,10,#CMYK,0,0.16,0.98,0)</data:branding>
+		<data:branding name="Parent_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Parent_Height">1.55cm</data:branding>
+		<data:branding name="Parent_Width">3.92cm</data:branding>
+		<!-- Back Logo -->
+		<data:branding name="Back_Logo">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Back_Mono">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Back_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Back_Height">1.55cm</data:branding>
+		<data:branding name="Back_Width">3.92cm</data:branding>
+		<!-- Web Logo -->
+		<data:branding name="Web_Logo">STN_security_r_mono.png</data:branding>
+		<!-- EPS Logo -->
+		<data:branding name="EPS_Logo">STN_security_r_mono.eps</data:branding><!-- FIXME: -->
+	</data:vendor>
+	<data:vendor name="Stanley">
+		<!-- Brand Name -->
+		<data:branding name="Brand">STANLEY Security</data:branding>
+		<!-- Website -->
+		<data:branding name="Website">&SSS_Web;</data:branding>
+		<!-- Address -->
+		<data:branding name="Art_Address">Stanley Security Solutions — Europe Ltd, Stanley House, Bramble Road, Swindon SN2 8ER
+		Tel: +44 &SSS_Tel;
+
+		Stanley Security Solutions, Pegasus Park De Kleetlaan 5BC, B-1831 Diegem, Belgium
+
+		Stanley Technology Co Ltd, 1/F, Building E, Zone A, Hongfa Industrial Park,
+		Shi Yan Bao’an District, Shenzhen 518108
+		Tel: +86 755 29833111
+		&SSS_Web;</data:branding>
+		<data:branding name="Man_Address">Stanley Security Solutions — Europe Ltd, Stanley House, Bramble Road, Swindon SN2 8ER, U.K.
+		Tel: +44 (0) &SSS_Tel;  Fax +44 (0) &SSS_Fax;  Web: &SSS_Web;</data:branding>
+		<data:branding name="Web_Address">Stanley Security Solutions — Europe Ltd, Stanley House, Bramble Road, Swindon SN2 8ER, U.K.<br/>Tel: +44 (0) &SSS_Tel;   Fax: +44 (0) &SSS_Fax;   Web: &SSS_Web;</data:branding>
+		<data:branding name="QSG_Address">Stanley Convergent Security Solutions
+		Technical Support: 1-800-654-6061
+		Web: www.stanleycss.com
+
+		Stanley Security Solutions — Europe Ltd
+		Stanley House, Bramble Road, Swindon SN2 8ER
+		Tel: +44 &SSS_Tel;
+
+		Stanley Security Solutions
+		Pegasus Park De Kleetlaan 5BC, B-1831 Diegem, Belgium
+
+		Stanley Technology Co Ltd
+		1/F, Building E, Zone A, Hongfa Industrial Park,
+		Shi Yan Bao’an District, Shenzhen 518108
+		Tel: +86 755 29833111
+
+		&SSS_Web;</data:branding>
+		<data:branding name="Old_Address">Stanley Security Solutions — Europe Ltd
+		Stanley House, Bramble Road, Swindon SN2 8ER
+		Tel: +44 &SSS_Tel;
+
+		Stanley Security Solutions — Europe Ltd
+		Blick France, 15 rue du 1er Mai, 92752 Nanterre Cedex
+		Tél: 01 47 60 02 70
+
+		Stanley Technology Co Ltd
+		1/F, Building E, Zone A, Hongfa Industrial Park,
+		Shi Yan Bao’an District, Shenzhen 518108
+		Tel: +86 755 29833111
+
+		www.stanleysecuritysolutions.co.uk</data:branding>
+		<!-- Branding Logo -->
+		<data:branding name="Brand_Logo">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Brand_Mono">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Brand_Colour">rgb-icc(255,219,10,#CMYK,0,0.16,0.98,0)</data:branding>
+		<data:branding name="Brand_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Brand_Height">1.69cm</data:branding>
+		<data:branding name="Brand_Width">3.93cm</data:branding>
+		<!-- Parent Logo -->
+		<data:branding name="Parent_Exists">false</data:branding>
+		<data:branding name="Parent_Logo">blank.svg</data:branding>
+		<data:branding name="Parent_Mono">blank.svg</data:branding>
+		<data:branding name="Parent_Colour">white</data:branding>
+		<data:branding name="Parent_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Parent_Height">1.68cm</data:branding>
+		<data:branding name="Parent_Width">3.37cm</data:branding>
+		<!-- Back Logo -->
+		<data:branding name="Back_Logo">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Back_Mono">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Back_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Back_Height">1.69cm</data:branding>
+		<data:branding name="Back_Width">3.93cm</data:branding>
+		<!-- Web Logo -->
+		<data:branding name="Web_Logo">STN_security_r_mono.png</data:branding>
+		<!-- EPS Logo -->
+		<data:branding name="EPS_Logo">STN_security_r_mono.eps</data:branding><!-- FIXME: -->
+	</data:vendor>
+	<data:vendor name="Best">
+		<!-- Brand Name -->
+		<data:branding name="Brand">STANLEY Security</data:branding>
+		<!-- Website -->
+		<data:branding name="Website">www.stanleysecuritysolutions.com</data:branding>
+		<!-- Address -->
+		<data:branding name="Art_Address">Stanley Security Solutions, Inc., 6161 E 75th Street, Indianapolis IN 46250, U.S.A.
+		Tel: 317 849-2250  Fax 317 806-3528  Web: www.stanleysecuritysolutions.com</data:branding>
+		<data:branding name="Man_Address">Stanley Security Solutions, Inc., 6161 E 75th Street, Indianapolis IN 46250, U.S.A.
+		Tel: 317 849-2250  Fax 317 806-3528  Web: www.stanleysecuritysolutions.com</data:branding>
+		<data:branding name="Web_Address">Stanley Security Solutions, Inc., 6161 E 75th Street, Indianapolis IN 46250, U.S.A.<br/>Tel: 317 849-2250   Fax: 317 806-3528   Web: www.stanleysecuritysolutions.com</data:branding>
+		<data:branding name="QSG_Address">Stanley Security Solutions, Inc.
+		6161 E 75th Street
+		Indianapolis IN 46250
+		U.S.A.
+
+		Tel: 317 849-2250
+		Fax: 317 806-3528
+		Web: www.stanleysecuritysolutions.com</data:branding>
+		<!-- Branding Logo -->
+		<data:branding name="Brand_Logo">blank.svg</data:branding>
+		<data:branding name="Brand_Mono">blank.svg</data:branding>
+		<data:branding name="Brand_Colour">white</data:branding>
+		<data:branding name="Brand_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Brand_Height">1.68cm</data:branding>
+		<data:branding name="Brand_Width">3.37cm</data:branding>
+		<!-- Parent Logo -->
+		<data:branding name="Parent_Exists">true</data:branding>
+		<data:branding name="Parent_Logo">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Parent_Mono">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Parent_Colour">rgb-icc(255,219,10,#CMYK,0,0.16,0.98,0)</data:branding>
+		<data:branding name="Parent_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Parent_Height">1.69cm</data:branding>
+		<data:branding name="Parent_Width">3.93cm</data:branding>
+		<!-- Back Logo -->
+		<data:branding name="Back_Logo">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Back_Mono">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Back_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Back_Height">1.69cm</data:branding>
+		<data:branding name="Back_Width">3.93cm</data:branding>
+		<!-- Web Logo -->
+		<data:branding name="Web_Logo">STN_security_r_mono.png</data:branding>
+		<!-- EPS Logo -->
+		<data:branding name="EPS_Logo">STN_security_r_mono.eps</data:branding><!-- FIXME: -->
+	</data:vendor>
+	<data:vendor name="Blick">
+		<!-- Brand Name -->
+		<data:branding name="Brand">STANLEY Security</data:branding>
+		<!-- Website -->
+		<data:branding name="Website">www.stanleysecuritysolutions.com</data:branding>
+		<!-- Address -->
+		<data:branding name="Art_Address">Stanley Security Solutions, 15 Cofton Road, Marsh Barton, Exeter, Devon EX2 8QW, U.K.
+		Tel: +44 (0) 1392 204100  Fax: +44 (0) 1392 204170  Web: www.stanleysecuritysolutions.com</data:branding>
+		<data:branding name="Man_Address">Stanley Security Solutions, 15 Cofton Road, Marsh Barton, Exeter, Devon EX2 8QW, U.K.
+		Tel: +44 (0) 1392 204100  Fax: +44 (0) 1392 204170  Web: www.stanleysecuritysolutions.com</data:branding>
+		<data:branding name="Web_Address">Stanley Security Solutions, 15 Cofton Road, Marsh Barton, Exeter, Devon EX2 8QW, U.K.<br/>Tel: +44 (0) 1392 204100&#xa0;&#xa0;&#xa0;Fax: +44 (0) 1392 204170&#xa0;&#xa0;&#xa0;Web: www.stanleysecuritysolutions.com</data:branding>
+		<data:branding name="QSG_Address">Stanley Security Solutions
+		15 Cofton Road
+		Marsh Barton
+		Exeter
+		Devon
+		EX2 8QW
+		U.K.
+		Tel: +44 (0) 1392 204100
+		Fax: +44 (0) 1392 204170
+		Web: www.stanleysecuritysolutions.com</data:branding>
+		<!-- Branding Logo -->
+		<data:branding name="Brand_Logo">blank.svg</data:branding>
+		<data:branding name="Brand_Mono">blank.svg</data:branding>
+		<data:branding name="Brand_Colour">white</data:branding>
+		<data:branding name="Brand_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Brand_Height">1.68cm</data:branding>
+		<data:branding name="Brand_Width">3.37cm</data:branding>
+		<!-- Parent Logo -->
+		<data:branding name="Parent_Exists">true</data:branding>
+		<data:branding name="Parent_Logo">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Parent_Mono">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Parent_Colour">rgb-icc(255,219,10,#CMYK,0,0.16,0.98,0)</data:branding>
+		<data:branding name="Parent_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Parent_Height">1.69cm</data:branding>
+		<data:branding name="Parent_Width">3.93cm</data:branding>
+		<!-- Back Logo -->
+		<data:branding name="Back_Logo">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Back_Mono">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Back_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Back_Height">1.69cm</data:branding>
+		<data:branding name="Back_Width">3.93cm</data:branding>
+		<!-- Web Logo -->
+		<data:branding name="Web_Logo">STN_security_r_mono.png</data:branding>
+		<!-- EPS Logo -->
+		<data:branding name="EPS_Logo">STN_security_r_mono.eps</data:branding>
+		<!-- Fallback -->
+		<data:branding name="">[Error!_Processing instruction not found]</data:branding>
+	</data:vendor>
+	<data:vendor name="SonUK">
+		<!-- Brand Name -->
+		<data:branding name="Brand">Sonitrol</data:branding>
+		<!-- Website -->
+		<data:branding name="Website">www.stanleysecuritysolutions.co.uk</data:branding>
+		<!-- Address -->
+		<data:branding name="Art_Address">Stanley Security Solutions — Europe Ltd, Stanley House, Bramble Road, Swindon SN2 8ER, U.K.
+		Tel: +44 (0) &SSS_Tel;  Fax +44 (0) &SSS_Fax;  Web: www.stanleysecuritysolutions.co.uk</data:branding>
+		<data:branding name="Man_Address">Stanley Security Solutions — Europe Ltd, Stanley House, Bramble Road, Swindon SN2 8ER, U.K.
+		Tel: +44 (0) &SSS_Tel;  Fax +44 (0) &SSS_Fax;  Web: www.stanleysecuritysolutions.co.uk</data:branding>
+		<data:branding name="Web_Address">Stanley Security Solutions — Europe Ltd, Stanley House, Bramble Road, Swindon SN2 8ER, U.K.<br/>Tel: +44 (0) &SSS_Tel;   Fax: +44 (0) &SSS_Fax;   Web: www.stanleysecuritysolutions.co.uk</data:branding>
+		<data:branding name="QSG_Address">Stanley Security Solutions — Europe Ltd
+		Stanley House
+		Bramble Road
+		Swindon
+		SN2 8ER
+		U.K.
+
+		Tel: +44 (0) &SSS_Tel;
+		Fax: +44 (0) &SSS_Fax;
+		Web: www.stanleysecuritysolutions.co.uk</data:branding>
+		<!-- Branding Logo -->
+		<data:branding name="Brand_Logo">Sonitrol_W_BW.svg</data:branding>
+		<data:branding name="Brand_Mono">Sonitrol_W_BW.svg</data:branding>
+		<data:branding name="Brand_Colour">white</data:branding>
+		<data:branding name="Brand_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Brand_Height">1.24cm</data:branding>
+		<data:branding name="Brand_Width">5.39cm</data:branding>
+		<!-- Parent Logo -->
+		<data:branding name="Parent_Exists">true</data:branding>
+		<data:branding name="Parent_Logo">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Parent_Mono">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Parent_Colour">rgb-icc(255,219,10,#CMYK,0,0.16,0.98,0)</data:branding>
+		<data:branding name="Parent_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Parent_Height">1.69cm</data:branding>
+		<data:branding name="Parent_Width">3.93cm</data:branding>
+		<!-- Back Logo -->
+		<data:branding name="Back_Logo">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Back_Mono">STN_security_r_mono.svg</data:branding>
+		<data:branding name="Back_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Back_Height">1.69cm</data:branding>
+		<data:branding name="Back_Width">3.93cm</data:branding>
+		<!-- Web Logo -->
+		<data:branding name="Web_Logo">STN_security_r_mono.png</data:branding>
+		<!-- EPS Logo -->
+		<data:branding name="EPS_Logo">STN_security_r_mono.eps</data:branding><!-- FIXME: -->
+	</data:vendor>
+	<data:vendor name="Sonitrol">
+		<!-- Brand Name -->
+		<data:branding name="Brand">Sonitrol</data:branding>
+		<!-- Website -->
+		<data:branding name="Website">www.sonitrol.com</data:branding>
+		<!-- Address -->
+		<data:branding name="Art_Address">Sonitrol, 1707 Orlando Central Pkwy — Suite 500, Orlando FL 32809, U.S.A.
+		Tel: 407-438-4445   Web www.sonitrol.com</data:branding>
+		<data:branding name="Man_Address">Sonitrol, 1707 Orlando Central Pkwy — Suite 500, Orlando FL 32809, U.S.A.
+		Tel: 407-438-4445   Web www.sonitrol.com</data:branding>
+		<data:branding name="Web_Address">Sonitrol, 1707 Orlando Central Pkwy — Suite 500, Orlando FL 32809, U.S.A.<br/>Tel: 407-438-4445   Web www.sonitrol.com</data:branding>
+		<data:branding name="Old_Address">Sonitrol Corporation, 211 North Union Street, Suite 350, Alexandria, VA 22314, U.S.A.
+		Tel +1 877 SONITROL (+1 877 766-4876)   Web www.sonitrol.com</data:branding>
+		<data:branding name="QSG_Address">Sonitrol
+		1707 Orlando Central Pkwy, Suite 500
+		Orlando, Florida 32809
+		U.S.A.
+
+		Tel: 407-438-4445
+		Web: www.sonitrol.com</data:branding>
+		<!-- Branding Logo -->
+		<data:branding name="Brand_Logo">Sonitrol_Wide.svg</data:branding>
+		<data:branding name="Brand_Mono">Sonitrol_W_BW.svg</data:branding>
+		<data:branding name="Brand_Colour">white</data:branding>
+		<data:branding name="Brand_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Brand_Height">1.24cm</data:branding>
+		<data:branding name="Brand_Width">5.39cm</data:branding>
+		<!-- Parent Logo -->
+		<data:branding name="Parent_Exists">false</data:branding>
+		<data:branding name="Parent_Logo">blank.svg</data:branding>
+		<data:branding name="Parent_Mono">blank.svg</data:branding>
+		<data:branding name="Parent_Colour">white</data:branding>
+		<data:branding name="Parent_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Parent_Height">1.69cm</data:branding>
+		<data:branding name="Parent_Width">3.93cm</data:branding>
+		<!-- Back Logo -->
+		<data:branding name="Back_Logo">Sonitrol_Tall.svg</data:branding>
+		<data:branding name="Back_Mono">Sonitrol_T_BW.svg</data:branding>
+		<data:branding name="Back_MIME">content-type:image/svg+xml</data:branding>
+		<data:branding name="Back_Height">4.56cm</data:branding>
+		<data:branding name="Back_Width">4.17cm</data:branding>
+		<!-- Web Logo -->
+		<data:branding name="Web_Logo">STN_security_r_mono.png</data:branding>
+		<!-- EPS Logo -->
+		<data:branding name="EPS_Logo">STN_security_r_mono.eps</data:branding><!-- FIXME: -->
+	</data:vendor>
+</data:root>

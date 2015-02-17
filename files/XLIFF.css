@@ -1,0 +1,43 @@
+/* Cascading Style Sheet for XLIFF files */
+/* $Revision$ | $DateTime$ | $Author$ */
+
+:root{
+	display: block;
+	font-family: Segoe UI, Arial, sans-serif;
+	font-size: 1pc;
+	margin-top: 0.25cm;
+	margin-bottom: 0.25cm;
+	margin-left: 0.25cm;
+	margin-right: 0.25cm
+}
+file, header, body{
+	display: block
+}
+trans-unit{
+	display: block;
+	margin-top: 1em;
+	margin-left: 3cm
+}
+trans-unit:before{
+	display: block;
+	font-weight: bold;
+	position: absolute;
+	left: 0.25cm;
+	content: attr(id)
+}
+source{
+	display: block;
+	padding: 1px;
+	border: thin gray dashed;
+	background-color: silver
+}
+target{
+	display: block;
+	padding: 1px
+}
+note{
+	display: block;
+	padding: 1px;
+	border: thin red dashed;
+	background-color: rgb(255,239,239)
+}

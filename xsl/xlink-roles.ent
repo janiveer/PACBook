@@ -1,0 +1,5 @@
+<!ENTITY db_xl   "db:extendedlink">
+<!ENTITY xl_defs "&db_xl;[@xl:role='http://docbook.org/docs/transclusion']">
+<!ENTITY xl_base "&db_xl;[@xl:role='http://www.w3.org/1999/xlink/properties/linkbase']">
+<!ENTITY xl_link "&db_xl;[@xl:role='http://schema.org/relatedLink']">
+<!ENTITY xl_part "&db_xl;[@xl:role='http://schema.org/isPartOf']">

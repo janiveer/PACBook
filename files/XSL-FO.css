@@ -1,0 +1,65 @@
+/* Cascading Style Sheet for XSL-FO */
+/* $Revision$ | $DateTime$ | $Author$ */
+
+@namespace fo url(http://www.w3.org/1999/XSL/Format);
+
+fo|root,
+fo|page-sequence,
+fo|static-content,
+fo|block{
+	display: block;
+}
+fo|declarations,
+fo|bookmark-tree,
+fo|static-content{
+	display: none;
+}
+fo|inline,
+fo|character{
+	display: inline;
+}
+/* Character Attributes */
+*[font-weight='bold']{
+	font-weight: bold;
+}
+*[text-decoration='underline']{
+	text-decoration: underline;
+}
+*[font-style="italic"]{
+	font-style: italic;
+}
+/* Colours */
+*[color='darkred']{
+	color: darkred;
+}
+*[color='blue']{
+	color: blue;
+}
+/* Fonts */
+*[font-family~='sans-serif']{
+	font-family: Helvetica, Arial, sans-serif;
+}
+*[font-family~='monospace']{
+	font-family: Courier, Courier New, monospace;
+}
+*[font-family='Symbol']{
+	font-family: Symbol;
+}
+*[font-size='10pt']{
+	font-size: 10pt;
+}
+*[font-size='12pt']{
+	font-size: 12pt;
+}
+*[font-size='14pt']{
+	font-size: 14pt;
+}
+*[font-size='16pt']{
+	font-size: 16pt;
+}
+*[font-size='18pt']{
+	font-size: 18pt;
+}
+fo|character:after{
+	content: attr(character);
+}

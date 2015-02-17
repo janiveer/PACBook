@@ -1,0 +1,76 @@
+<!-- PACBook v1.0 Document Type Definition                                    -->
+<!-- ======================================================================== -->
+<!-- This is a custom extension to the Docbook v4.5 DTD                       -->
+<!-- Public ID: -//PAC//DTD DocBook V4.5-Based Extension V1.0//EN             -->
+<!-- System ID: http://www.jabadaw.com/PAC/xsl/pacbook.dtd                    -->
+<!-- ======================================================================== -->
+<!-- $Revision: #5 $ | $DateTime: 2014/12/18 16:20:25 $ | $Author: SimonD $   -->
+
+<!-- Add new elements -->
+<!ENTITY % local.ndxterm.class "|pac:phrase|pac:word|pac:symbol|pac:ref">
+<!ENTITY % local.ndxterm.char.mix "|pac:phrase|pac:word|pac:symbol|pac:ref">
+<!ENTITY % local.info.class "|pac:translationset|pac:applicability|pac:definitions">
+
+<!-- Add new attributes -->
+<!ENTITY % local.common.attrib "xmlns:xi CDATA #IMPLIED
+                                xmlns:xlink CDATA #IMPLIED
+                                xmlns:pac CDATA #IMPLIED
+                                xlink:href CDATA #IMPLIED
+                                xlink:show CDATA #IMPLIED">
+
+<!-- Load the DocBook DTD -->
+<!ENTITY % docbook SYSTEM "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+%docbook;
+
+<!-- Define new elements -->
+<!ELEMENT pac:definitions (pac:def)*>
+<!ELEMENT pac:def ANY>
+<!ELEMENT pac:ref EMPTY>
+<!ELEMENT pac:translationset (pac:translation+)>
+<!ELEMENT pac:translation EMPTY>
+<!ELEMENT pac:applicability (pac:product+)>
+<!ELEMENT pac:product (pac:code, pac:name, pac:detail, pac:version)>
+<!ELEMENT pac:code (#PCDATA|pac:phrase|pac:word|pac:symbol)*>
+<!ELEMENT pac:name (#PCDATA|pac:phrase|pac:word|pac:symbol)*>
+<!ELEMENT pac:detail (#PCDATA|pac:phrase|pac:word|pac:symbol)*>
+<!ELEMENT pac:version (#PCDATA|pac:phrase|pac:word|pac:symbol)*>
+<!ELEMENT pac:phrase (#PCDATA)>
+<!ELEMENT pac:word (#PCDATA)>
+<!ELEMENT pac:symbol (#PCDATA)>
+
+<!-- Define new attributes -->
+<!ATTLIST set xml:lang NMTOKEN #IMPLIED>
+<!ATTLIST book xml:lang NMTOKEN #IMPLIED>
+<!ATTLIST article xml:lang NMTOKEN #IMPLIED>
+<!ATTLIST part xml:lang NMTOKEN #IMPLIED>
+<!ATTLIST chapter xml:lang NMTOKEN #IMPLIED>
+<!ATTLIST section xml:lang NMTOKEN #IMPLIED>
+<!ATTLIST simplesect xml:lang NMTOKEN #IMPLIED>
+<!ATTLIST pac:translationset %common.attrib;>
+<!ATTLIST pac:translation xml:lang NMTOKEN #REQUIRED
+                          href CDATA #REQUIRED
+                          %common.attrib;>
+<!ATTLIST pac:definitions definitionfile CDATA #IMPLIED
+                          xml:lang NMTOKEN #IMPLIED
+                          %common.attrib;>
+<!ATTLIST pac:def name NMTOKEN #REQUIRED
+                  xml:lang NMTOKEN #IMPLIED
+                  %common.attrib;>
+<!ATTLIST pac:ref name NMTOKEN #REQUIRED
+                  xml:lang NMTOKEN #IMPLIED
+                  %common.attrib;>
+
+<!-- Define character entities -->
+<!ENTITY tab "&#x2007;">
+<!ENTITY thinsp "&#x2009;">
+<!ENTITY hairsp "&#x200a;">
+<!ENTITY zwnj "&#x200c;">
+<!ENTITY nbhy "&#x2011;">
+<!ENTITY mdash "&#x2014;">
+<!ENTITY lsep "&#x2028;">
+<!ENTITY nnbsp "&#x202f;">
+<!ENTITY larr "&#x2190;">
+<!ENTITY rarr "&#x2192;">
+<!ENTITY crarr "&#x21b5;">
+<!ENTITY ground "&#x23da;">
+<!ENTITY xinc "http://www.w3.org/2001/XInclude">
