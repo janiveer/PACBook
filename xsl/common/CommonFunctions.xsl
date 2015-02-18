@@ -17,7 +17,7 @@
                 exclude-result-prefixes="func exsl date str pac data my db xl l dc rdf saxon"
                 version="1.0">
 	<xsl:variable name="strPath" select="'http://docbook.sourceforge.net/release/xsl-ns/current/common/'"/>
-	<xsl:variable name="Labels" select="'http://www.jabadaw.com/PAC/xsl/data/DataLabels.xml'"/>
+	<xsl:variable name="Labels" select="'../data/DataLabels.xml'"/>
 	<data:lang name="en-GB" fallback="en"/>
 	<data:lang name="en-US" fallback="en"/>
 	<data:lang name="mis"   fallback="en"/>
@@ -65,7 +65,7 @@
 	<func:function name="my:brand">
 		<xsl:param name="strVendor"/>
 		<xsl:param name="strBranding"/>
-		<xsl:variable name="Brands" select="'http://www.jabadaw.com/PAC/xsl/data/DataBrands.xml'"/>
+		<xsl:variable name="Brands" select="'../data/DataBrands.xml'"/>
 		<func:result select="document($Brands)//data:vendor[@name=$strVendor]/data:branding[@name=$strBranding]"/>
 	</func:function>
 
@@ -200,7 +200,7 @@
 	</pac:doc>
 	<func:function name="my:collate">
 		<xsl:param name="this"/>
-		<xsl:variable name="Locales" select="'http://www.jabadaw.com/PAC/xsl/data/DataLocales.xml'"/>
+		<xsl:variable name="Locales" select="'../data/DataLocales.xml'"/>
 		<xsl:variable name="thisLang" select="my:lang()"/>
 		<!-- Convert upper case to lower case (ignoring diacritics for now) -->
 		<xsl:variable name="thisABCUpper" select="document($Locales)//data:abcupper[@lang=$thisLang]"/>

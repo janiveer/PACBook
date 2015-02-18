@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE stylesheet [
-<!ENTITY % trans-units SYSTEM "http://www.jabadaw.com/PAC/xsl/trans-units.ent">
+<!ENTITY % trans-units SYSTEM "trans-units.ent">
 %trans-units;
 ]>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

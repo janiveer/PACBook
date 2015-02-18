@@ -7,10 +7,9 @@
                 exclude-result-prefixes="my"
                 version="1.1">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
-	<xsl:include href="http://www.jabadaw.com/PAC/xsl/common/CommonFunctions.xsl"/>
-	<xsl:include href="http://www.jabadaw.com/PAC/xsl/common/CommonParameters.xsl"/>
+	<xsl:include href="common/CommonFunctions.xsl"/>
 	<xsl:param name="Verbose" select="false()"/>
-	<xsl:param name="Dictionary" select="'http://www.jabadaw.com/PAC/xsl/data/DataSyntax.xml'"/>
+	<xsl:param name="Dictionary" select="'data/DataSyntax.xml'"/>
 
 	<pac:doc>
 		===========================================================

@@ -8,8 +8,7 @@
                 exclude-result-prefixes="my saxon str"
                 version="1.1">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="no"/>
-	<xsl:include href="http://www.jabadaw.com/PAC/xsl/common/CommonFunctions.xsl"/>
-	<xsl:include href="http://www.jabadaw.com/PAC/xsl/common/CommonParameters.xsl"/>
+	<xsl:include href="common/CommonFunctions.xsl"/>
 
 	<pac:doc>
 		===========================================================

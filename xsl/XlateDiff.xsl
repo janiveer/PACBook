@@ -14,7 +14,8 @@
                 exclude-result-prefixes="db xlf pac its xl"
                 version="1.0">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
-	<xsl:include href="http://www.jabadaw.com/PAC/xsl/common/CommonFunctions.xsl"/>
+	<xsl:include href="common/CommonFunctions.xsl"/>
+	<xsl:param name="Language" select="''"/>
 	<xsl:param name="Xliff" select="''"/>
 	<xsl:key name="trans_unit" match="xlf:trans-unit" use="@id"/>
 
@@ -114,7 +115,7 @@
 								</xsl:when>
 								<xsl:otherwise>
 									<!-- ... or has the source string been changed? -->
-									<xsl:if test="$LocalNorm != $SourceNorm and $SourceNorm != 'LINK with ENDTERM: leave blank' and $SourceNorm != 'XREF: leave blank'">
+									<xsl:if test="$LocalNorm != $SourceNorm">
 										<xsl:message terminate="no"> ... Changed</xsl:message>
 										<trans-unit xmlns="urn:oasis:names:tc:xliff:document:1.2">
 											<xsl:attribute name="id">

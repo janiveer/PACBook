@@ -19,8 +19,8 @@
 	     OLinks and ImageData are fixed up after translation.
 	-->
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
-	<xsl:include href="http://www.jabadaw.com/PAC/xsl/common/CommonFunctions.xsl"/>
-	<xsl:include href="http://www.jabadaw.com/PAC/xsl/common/CommonTemplates.xsl"/>
+	<xsl:include href="common/CommonFunctions.xsl"/>
+	<xsl:include href="common/CommonTemplates.xsl"/>
 
 	<pac:doc>
 		===========================

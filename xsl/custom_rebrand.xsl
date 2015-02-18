@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <!DOCTYPE stylesheet [
-	<!ENTITY % xlinkroles SYSTEM "http://www.jabadaw.com/PAC/xsl/xlink-roles.ent">
+	<!ENTITY % xlinkroles SYSTEM "xlink-roles.ent">
 	%xlinkroles;
 ]>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

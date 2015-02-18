@@ -9,7 +9,7 @@
                 extension-element-prefixes="my func"
                 version="1.0">
 	<xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/profiling/profile.xsl"/>
-	<xsl:include href="http://www.jabadaw.com/PAC/xsl/common/CommonFunctions.xsl"/>
+	<xsl:include href="common/CommonFunctions.xsl"/>
 
 	<pac:doc>
 		==================

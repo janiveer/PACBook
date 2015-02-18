@@ -32,7 +32,7 @@
 	     location, e.g. "../images/pic.svg". This will give the correct result.
 	-->
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
-	<xsl:include href="http://www.jabadaw.com/PAC/xsl/common/CommonTemplates.xsl"/>
+	<xsl:include href="common/CommonTemplates.xsl"/>
 
 	<pac:doc>
 		===========================

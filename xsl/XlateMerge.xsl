@@ -14,8 +14,10 @@
                 exclude-result-prefixes="db xlf pac its xl"
                 version="1.0">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
-	<xsl:include href="http://www.jabadaw.com/PAC/xsl/common/CommonFunctions.xsl"/>
+	<xsl:include href="common/CommonFunctions.xsl"/>
+	<xsl:param name="Language" select="''"/>
 	<xsl:param name="Xliff" select="''"/>
+	<xsl:param name="Diff" select="''"/>
 	<xsl:key name="trans_unit" match="xlf:trans-unit" use="@id"/>
 
 	<xsl:template match="/">
@@ -23,7 +25,7 @@
 			<xsl:message terminate="yes">Please specify $Language or $Xliff.</xsl:message>
 		</xsl:if>
 		<xsl:if test="$Diff = ''">
-			<xsl:message terminate="yes">Please specify $Diff: file name and path.</xsl:message>
+			<xsl:message terminate="yes">Please specify $Diff: file name and location.</xsl:message>
 		</xsl:if>
 		<xsl:apply-templates select="*" mode="root"/>
 	</xsl:template>

@@ -15,7 +15,7 @@
                 exclude-result-prefixes="xlf my"
                 version="1.0">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
-	<xsl:include href="http://www.jabadaw.com/PAC/xsl/common/CommonFunctions.xsl"/>
+	<xsl:include href="common/CommonFunctions.xsl"/>
 	<xsl:param name="Language"/>
 	<xsl:key name="xlate" match="xlf:trans-unit" use="@id"/>
 

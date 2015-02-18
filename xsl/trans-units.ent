@@ -1,37 +1,38 @@
-<!ENTITY % xlinkroles SYSTEM "http://www.jabadaw.com/PAC/xsl/xlink-roles.ent">
+<!ENTITY % xlinkroles SYSTEM "xlink-roles.ent">
 %xlinkroles;
 
 <!-- entities for translation -->
-<!ENTITY title "db:title">
-<!ENTITY titleabbrev "db:titleabbrev">
-<!ENTITY subtitle "db:subtitle">
-<!ENTITY bridgehead "db:bridgehead">
-<!ENTITY para "db:para">
-<!ENTITY primary "db:primary">
-<!ENTITY glossterm "db:glossterm[parent::db:glossentry]">
-<!ENTITY member "db:member[parent::db:simplelist[not(@type='inline')]]">
-<!ENTITY term "db:term">
-<!ENTITY image "db:imageobject[ancestor::db:mediaobject]">
-<!ENTITY def "db:resource[parent::&xl_defs;]">
-<!ENTITY keyword "db:keyword">
-<!ENTITY seg "db:seg">
-<!ENTITY oth "*[not(@xlf:id)][@its:translate='yes']">
+<!ENTITY title                "db:title">
+<!ENTITY titleabbrev          "db:titleabbrev">
+<!ENTITY subtitle             "db:subtitle">
+<!ENTITY bridgehead           "db:bridgehead">
+<!ENTITY para                 "db:para">
+<!ENTITY primary              "db:primary">
+<!ENTITY glossterm            "db:glossterm[parent::db:glossentry]">
+<!ENTITY member               "db:member[parent::db:simplelist[not(@type='inline')]]">
+<!ENTITY term                 "db:term">
+<!ENTITY image                "db:imageobject[ancestor::db:mediaobject]">
+<!ENTITY def                  "db:resource[parent::&xl_defs;]">
+<!ENTITY keyword              "db:keyword">
+<!ENTITY seg                  "db:seg">
+<!ENTITY oth                  "*[not(@xlf:id)][@its:translate='yes']">
 
 <!-- entities for markup -->
-<!ENTITY unmarked "[not(@xlf:id)][not(@its:translate='no')]">
-<!ENTITY unmarked_title "&title;&unmarked;">
+<!ENTITY unmarked             "[not(@xlf:id)][not(@its:translate='no')]">
+<!ENTITY unmarked_title       "&title;&unmarked;">
 <!ENTITY unmarked_titleabbrev "&titleabbrev;&unmarked;">
-<!ENTITY unmarked_subtitle "&subtitle;&unmarked;">
-<!ENTITY unmarked_bridgehead "&bridgehead;&unmarked;">
-<!ENTITY unmarked_para "&para;&unmarked;">
-<!ENTITY unmarked_primary "&primary;&unmarked;">
-<!ENTITY unmarked_glossterm "&glossterm;&unmarked;">
-<!ENTITY unmarked_member "&member;&unmarked;">
-<!ENTITY unmarked_term "&term;&unmarked;">
-<!ENTITY unmarked_image "&image;&unmarked;">
-<!ENTITY unmarked_def "&def;&unmarked;">
-<!ENTITY unmarked_keyword "&keyword;&unmarked;">
-<!ENTITY unmarked_seg "&seg;&unmarked;">
+<!ENTITY unmarked_subtitle    "&subtitle;&unmarked;">
+<!ENTITY unmarked_bridgehead  "&bridgehead;&unmarked;">
+<!ENTITY unmarked_para        "&para;&unmarked;">
+<!ENTITY unmarked_primary     "&primary;&unmarked;">
+<!ENTITY unmarked_glossterm   "&glossterm;&unmarked;">
+<!ENTITY unmarked_member      "&member;&unmarked;">
+<!ENTITY unmarked_term        "&term;&unmarked;">
+<!ENTITY unmarked_image       "&image;&unmarked;">
+<!ENTITY unmarked_def         "&def;&unmarked;">
+<!ENTITY unmarked_keyword     "&keyword;&unmarked;">
+<!ENTITY unmarked_seg         "&seg;&unmarked;">
+
 <!ENTITY unmarked_trans_units "&unmarked_title;|&unmarked_titleabbrev;|&unmarked_subtitle;|&unmarked_bridgehead;|&unmarked_para;|&unmarked_primary;|&unmarked_glossterm;|&unmarked_member;|&unmarked_term;|&unmarked_def;|&unmarked_keyword;|&unmarked_seg;|&oth;">
 <!ENTITY descendant_unmarked_trans_units "//&unmarked_title;|//&unmarked_titleabbrev;|//&unmarked_subtitle;|//&unmarked_bridgehead;|//&unmarked_para;|//&unmarked_primary;|//&unmarked_glossterm;|//&unmarked_member;|//&unmarked_term;|//&unmarked_def;|//&unmarked_keyword;|//&unmarked_seg;|//&oth;">
 <!ENTITY preceding_unmarked_trans_units "preceding::&unmarked_title;|preceding::&unmarked_titleabbrev;|preceding::&unmarked_subtitle;|preceding::&unmarked_bridgehead;|preceding::&unmarked_para;|preceding::&unmarked_primary;|preceding::&unmarked_glossterm;|preceding::&unmarked_member;|preceding::&unmarked_term;|preceding::&unmarked_def;|preceding::&unmarked_keyword;|preceding::&unmarked_seg;|preceding::&oth;">

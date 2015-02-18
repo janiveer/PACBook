@@ -1,9 +1,7 @@
 <?xml version='1.0'?>
 	<!DOCTYPE stylesheet [
-	<!ENTITY % xlinkroles SYSTEM "http://www.jabadaw.com/PAC/xsl/xlink-roles.ent">
-	<!ENTITY % elements   SYSTEM "http://www.jabadaw.com/PAC/xsl/elements.ent">
+	<!ENTITY % xlinkroles SYSTEM "xlink-roles.ent">
 	%xlinkroles;
-	%elements;
 	<!ENTITY applicability "/*/db:info/rdf:RDF/rdf:Description[@dc:type='applicability']">
 ]>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -18,9 +16,30 @@
                 exclude-result-prefixes="data my"
                 version="1.1">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
-	<xsl:include href="http://www.jabadaw.com/PAC/xsl/common/CommonFunctions.xsl"/>
-	<xsl:include href="http://www.jabadaw.com/PAC/xsl/common/CommonParameters.xsl"/>
+	<xsl:include href="common/CommonFunctions.xsl"/>
+
+	<!-- Parameters -->
+	<xsl:param name="docRoot" select="/"/>
+	<xsl:param name="DocBook" select="'http://docbook.org/ns/docbook'"/>
 	<xsl:param name="MaxRecurseDepth" select="8"/>
+
+	<!-- Decimal Formats -->
+	<xsl:decimal-format name="en-GB" grouping-separator="," decimal-separator="."/>
+	<xsl:decimal-format name="en-US" grouping-separator="," decimal-separator="."/>
+	<xsl:decimal-format name="mul"   grouping-separator="," decimal-separator="."/>
+	<xsl:decimal-format name="und"   grouping-separator="," decimal-separator="."/>
+	<xsl:decimal-format name="mis"   grouping-separator="," decimal-separator="."/>
+	<xsl:decimal-format name="zxx"   grouping-separator="," decimal-separator="."/>
+	<xsl:decimal-format name="zh"    grouping-separator="," decimal-separator="."/>
+	<xsl:decimal-format name="de"    grouping-separator="." decimal-separator=","/>
+	<xsl:decimal-format name="nl"    grouping-separator="." decimal-separator=","/>
+	<xsl:decimal-format name="es"    grouping-separator="." decimal-separator=","/>
+	<xsl:decimal-format name="pt"    grouping-separator="." decimal-separator=","/>
+	<xsl:decimal-format name="it"    grouping-separator="." decimal-separator=","/>
+	<xsl:decimal-format name="fr"    grouping-separator=" " decimal-separator=","/>
+	<xsl:decimal-format name="sv"    grouping-separator=" " decimal-separator=","/>
+	<xsl:decimal-format name="nb"    grouping-separator=" " decimal-separator=","/>
+	<xsl:decimal-format name="fi"    grouping-separator=" " decimal-separator=","/>
 
 	<pac:doc>
 		===========================================================
@@ -71,7 +90,7 @@
 	<xsl:template match="db:chapter|db:section|db:sect1|db:sect2|db:sect3|db:sect4">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="&title_elements;|&other_elements;|&other_nodes;"/>
+			<xsl:apply-templates select="db:title|db:subtitle|db:titleabbrev|db:info|db:para|db:formalpara|db:equation|db:informalequation|db:mediaobject|db:mediaobjectco|db:figure|db:informalfigure|db:screen|db:programlisting|db:indexterm|db:itemizedlist|db:orderedlist|db:simplelist|db:calloutlist|db:variablelist|db:segmentedlist|db:glosslist|db:qandaset|db:bridgehead|db:procedure|db:informaltable|db:table|db:informalexample|db:example|db:important|db:caution|db:note|db:tip|db:warning|db:sidebar|processing-instruction()|comment()"/>
 			<xsl:if test="db:info/&xl_link;">
 				<xsl:element name="para" namespace="{$DocBook}">
 					<xsl:choose>
@@ -251,7 +270,7 @@
 				<xsl:otherwise>
 					<xsl:variable name="my.lang" select="my:lang()"/>
 					<xsl:variable name="my.format">
-						<xsl:value-of select="document('http://www.jabadaw.com/PAC/xsl/data/DataLocales.xml')//data:num-form[@lang=$my.lang]"/>
+						<xsl:value-of select="document('data/DataLocales.xml')//data:num-form[@lang=$my.lang]"/>
 					</xsl:variable>
 					<xsl:value-of select="format-number(., $my.format, $my.lang)"/>
 				</xsl:otherwise>
