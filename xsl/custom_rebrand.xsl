@@ -1,6 +1,7 @@
 <?xml version='1.0'?>
 <!DOCTYPE stylesheet [
-	<!ENTITY % xlinkroles SYSTEM "xlink-roles.ent">
+	<!ENTITY % xlinkroles
+		SYSTEM "http://raw.github.com/STANLEYSecurity/PACBook/master/xsl/xlink-roles.ent">
 	%xlinkroles;
 ]>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

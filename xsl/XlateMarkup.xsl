@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE stylesheet [
-<!ENTITY % trans-units SYSTEM "trans-units.ent">
-%trans-units;
+	<!ENTITY % trans-units
+		SYSTEM "http://raw.github.com/STANLEYSecurity/PACBook/master/xsl/trans-units.ent">
+	%trans-units;
 ]>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"

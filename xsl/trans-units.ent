@@ -1,4 +1,5 @@
-<!ENTITY % xlinkroles SYSTEM "xlink-roles.ent">
+<!ENTITY % xlinkroles
+  SYSTEM "http://raw.github.com/STANLEYSecurity/PACBook/master/xsl/xlink-roles.ent">
 %xlinkroles;
 
 <!-- entities for translation -->

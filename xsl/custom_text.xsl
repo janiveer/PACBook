@@ -1,6 +1,7 @@
 <?xml version='1.0'?>
 	<!DOCTYPE stylesheet [
-	<!ENTITY % xlinkroles SYSTEM "xlink-roles.ent">
+	<!ENTITY % xlinkroles
+		SYSTEM "http://raw.github.com/STANLEYSecurity/PACBook/master/xsl/xlink-roles.ent">
 	%xlinkroles;
 	<!ENTITY applicability "/*/db:info/rdf:RDF/rdf:Description[@dc:type='applicability']">
 ]>
