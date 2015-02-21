@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-     Copies the content of the source DocBook file. Adds the
-     current language code to the end of all XML:ID, LinkEnd,
-     EndTerm, AreaRefs and XL:HRef attributes.
 
-     If you want xrefs or links which will not be fixed up, use
-     @xl:href with @xl:role='http://schema.org/significantLink'
+<!--
+    Copyright © 2015 Stanley Security Solutions Limited.
+
+    This file is part of PACBook.
+
+    PACBook is free software: you can redistribute it and/or modify it under the
+    terms of the GNU Lesser General Public License as published by the Free
+    Software Foundation, either version 3 of the License, or (at your option)
+    any later version.
+
+    PACBook is distributed in the hope that it will be useful, but WITHOUT ANY
+    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+    FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
+    more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with PACBook.  If not, see <http://www.gnu.org/licenses/>.
 -->
+
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -22,6 +34,16 @@
                 xmlns:saxon="http://icl.com/saxon"
                 exclude-result-prefixes="str saxon"
                 version="1.0">
+
+<!--
+     Copies the content of the source DocBook file. Adds the
+     current language code to the end of all XML:ID, LinkEnd,
+     EndTerm, AreaRefs and XL:HRef attributes.
+
+     If you want xrefs or links which will not be fixed up, use
+     @xl:href with @xl:role='http://schema.org/significantLink'
+-->
+
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:variable name="Lang" select="db:book/@xml:lang|db:article/@xml:lang"/>
 
@@ -50,10 +72,10 @@
 		<xsl:attribute name="{$Attribute}">
 			<xsl:choose>
 				<xsl:when test="$Attribute='xml:id' or
-                        $Attribute='linkend' or
-                        $Attribute='endterm' or
-                       ($Attribute='xl:href' and
-                        not(../@xl:role='http://schema.org/significantLink'))">
+				                $Attribute='linkend' or
+				                $Attribute='endterm' or
+				               ($Attribute='xl:href' and
+				                not(../@xl:role='http://schema.org/significantLink'))">
 					<xsl:value-of select="."/>
 					<xsl:text>.</xsl:text>
 					<xsl:value-of select="$Lang"/>

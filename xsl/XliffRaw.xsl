@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-     Turn xliff g, x, ph and mrk elements into escaped inline tags.
 
-     This is complicated because it processes (in one step) inline
-     tags in the target which get all their attributes from a tag in
-     the source with the same id. If I'd split it into two stylesheets
-     (one to copy source tags into the targets, the other to process
-     them) it would probably have been a lot more straightforward.
- -->
+<!--
+    Copyright © 2015 Stanley Security Solutions Limited.
+
+    This file is part of PACBook.
+
+    PACBook is free software: you can redistribute it and/or modify it under the
+    terms of the GNU Lesser General Public License as published by the Free
+    Software Foundation, either version 3 of the License, or (at your option)
+    any later version.
+
+    PACBook is distributed in the hope that it will be useful, but WITHOUT ANY
+    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+    FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
+    more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with PACBook.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
                 xmlns:pac="http://www.pac.co.uk"
@@ -17,7 +28,19 @@
                 xmlns:xl="http://www.w3.org/1999/xlink"
                 exclude-result-prefixes="xlf"
                 version="1.0">
+
+<!--
+     Turn xliff g, x, ph and mrk elements into escaped inline tags.
+
+     This is complicated because it processes (in one step) inline
+     tags in the target which get all their attributes from a tag in
+     the source with the same id. If I'd split it into two stylesheets
+     (one to copy source tags into the targets, the other to process
+     them) it would probably have been a lot more straightforward.
+ -->
+
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
+
 	<pac:doc>
 		==============
 		File structure
@@ -29,6 +52,7 @@
 			<xsl:apply-templates select="xlf:file"/>
 		</xliff>
 	</xsl:template>
+
 	<xsl:template match="xlf:file">
 		<file datatype="xml" xmlns="urn:oasis:names:tc:xliff:document:1.2">
 			<xsl:copy-of select="@*"/>
@@ -36,36 +60,42 @@
 			<xsl:apply-templates select="xlf:body"/>
 		</file>
 	</xsl:template>
+
 	<xsl:template match="xlf:body">
 		<body xmlns="urn:oasis:names:tc:xliff:document:1.2">
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="xlf:trans-unit"/>
 		</body>
 	</xsl:template>
+
 	<xsl:template match="xlf:trans-unit">
 		<trans-unit xmlns="urn:oasis:names:tc:xliff:document:1.2">
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="xlf:source|xlf:target|xlf:notes"/>
 		</trans-unit>
 	</xsl:template>
+
 	<xsl:template match="xlf:source">
 		<source xmlns="urn:oasis:names:tc:xliff:document:1.2">
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="il"/>
 		</source>
 	</xsl:template>
+
 	<xsl:template match="xlf:target">
 		<target xmlns="urn:oasis:names:tc:xliff:document:1.2">
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="xid"/>
 		</target>
 	</xsl:template>
+
 	<xsl:template match="xlf:notes">
 		<notes xmlns="urn:oasis:names:tc:xliff:document:1.2">
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="il"/>
 		</notes>
 	</xsl:template>
+
 	<pac:doc>
 		============
 		Source: Text
@@ -74,6 +104,7 @@
 	<xsl:template match="text()|comment()|processing-instruction()" mode="il">
 		<xsl:copy select="."/>
 	</xsl:template>
+
 	<pac:doc>
 		============================
 		Source: Generic placeholders
@@ -105,6 +136,7 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
+
 	<pac:doc>
 		==========================
 		Source: Group placeholders
@@ -133,6 +165,7 @@
 		<xsl:value-of select="$localname"/>
 		<xsl:text>&gt;</xsl:text>
 	</xsl:template>
+
 	<pac:doc>
 		===========================
 		Source: Phrase placeholders
@@ -168,6 +201,7 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
+
 	<pac:doc>
 		================
 		Target: Segments
@@ -176,6 +210,7 @@
 	<xsl:template match="xlf:mrk[@mtype='seg']" mode="xid">
 		<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="xid"/>
 	</xsl:template>
+
 	<pac:doc>
 		============
 		Target: Text
@@ -184,6 +219,7 @@
 	<xsl:template match="text()|comment()|processing-instruction()" mode="xid">
 		<xsl:copy select="."/>
 	</xsl:template>
+
 	<pac:doc>
 		============================
 		Target: Generic placeholders
@@ -221,6 +257,7 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
+
 	<pac:doc>
 		==========================
 		Target: Group placeholders
@@ -255,6 +292,7 @@
 		<xsl:value-of select="$localname"/>
 		<xsl:text>&gt;</xsl:text>
 	</xsl:template>
+
 	<pac:doc>
 		===========================
 		Target: Phrase placeholders
@@ -298,6 +336,7 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
+
 	<pac:doc>
 		=======
 		Markers
@@ -306,11 +345,13 @@
 	<xsl:template match="xlf:mrk[@mtype='term']" mode="at">
 		<xsl:text> its:term="yes"</xsl:text>
 	</xsl:template>
+
 	<xsl:template match="xlf:mrk[@mtype='phrase']" mode="at">
 		<xsl:text> its:locNote="</xsl:text>
 		<xsl:value-of select="@comment"/>
 		<xsl:text>"</xsl:text>
 	</xsl:template>
+
 	<pac:doc>
 		==========
 		Attributes
@@ -344,6 +385,7 @@
 			<xsl:text>"</xsl:text>
 		</xsl:if>
 	</xsl:template>
+
 	<pac:doc>
 		==========================
 		Set $namespace from @ctype
@@ -375,6 +417,7 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
+
 	<pac:doc>
 		==========================
 		Set $localname from @ctype
@@ -406,4 +449,5 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
+
 </xsl:stylesheet>
