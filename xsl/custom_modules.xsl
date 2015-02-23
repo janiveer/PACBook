@@ -23,9 +23,9 @@
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                xmlns:pac="http://www.pac.co.uk"
-                xmlns:my="urn:x-pacbook:functions"
-                exclude-result-prefixes="pac my"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                xmlns:pac="urn:x-pacbook:functions"
+                exclude-result-prefixes="xd pac"
                 version="1.1">
 	<!--
 	     Stylesheet for processing modular docbook documents.
@@ -42,11 +42,11 @@
 	<xsl:include href="common/CommonFunctions.xsl"/>
 	<xsl:include href="common/CommonTemplates.xsl"/>
 
-	<pac:doc>
+	<xd:doc>
 		===========================
 		Recurse through source file
 		===========================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:choose>
 			<xsl:when test="self::dc:relation">
@@ -67,11 +67,11 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		===================
 		Document Properties
 		===================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="Fix_Props">
 		<xsl:variable name="status" select="ancestor-or-self::*[@status][1]/@status"/>
 		<xsl:copy>
@@ -79,7 +79,7 @@
 				<xsl:when test="starts-with(., '#Build Number for ANT')">
 					<xsl:choose>
 						<xsl:when test="$status">
-							<xsl:value-of select="my:uc($status)"/>
+							<xsl:value-of select="pac:uc($status)"/>
 							<xsl:if test="contains($status, 'draft')">
 								<xsl:text> </xsl:text>
 								<xsl:value-of select="substring-before(substring-after(., 'build.number='), '&#10;')"/>
@@ -97,11 +97,11 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		===========
 		Translation
 		===========
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="Fix_Translation">
 		<xsl:element name="relation" namespace="http://purl.org/dc/elements/1.1/">
 			<xsl:if test="@rdf:resource">

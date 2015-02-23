@@ -23,13 +23,13 @@
                 xmlns:str="http://exslt.org/strings"
                 xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
                 xmlns:its="http://www.w3.org/2005/11/its"
-                xmlns:pac="http://www.pac.co.uk"
-                xmlns:my="urn:x-pacbook:functions"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                xmlns:pac="urn:x-pacbook:functions"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:saxon="http://icl.com/saxon"
-                exclude-result-prefixes="str xlf saxon"
+                exclude-result-prefixes="str xlf saxon xd pac"
                 version="1.0">
 
 <!--
@@ -86,7 +86,7 @@
 					<!-- Copy the current segment -->
 					<xsl:copy-of select="$thisNode/child::node()"/>
 					<!-- Get the separator text for this segment -->
-					<xsl:variable name="zxxFile" select="my:xliff('zxx')"/>
+					<xsl:variable name="zxxFile" select="pac:xliff('zxx')"/>
 					<xsl:variable name="zxxText">
 						<xsl:choose>
 							<xsl:when test="$zxxFile">
@@ -155,7 +155,7 @@
 		<xsl:value-of select="$zxxText" disable-output-escaping="yes"/>
 		<!-- Find the  .XLIFF file which matches the specified language -->
 		<xsl:for-each select="$thisNode">
-			<xsl:variable name="Xlate" select="my:xliff($thisLang)"/>
+			<xsl:variable name="Xlate" select="pac:xliff($thisLang)"/>
 			<!-- ... is the .XLIFF file specified? -->
 			<xsl:choose>
 				<xsl:when test="$Xlate">

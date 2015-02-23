@@ -20,14 +20,14 @@
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:my="urn:x-pacbook:functions"
+                xmlns:pac="urn:x-pacbook:functions"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
                 xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
-                xmlns:pac="http://www.pac.co.uk"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:its="http://www.w3.org/2005/11/its"
-                exclude-result-prefixes="xlf my"
+                exclude-result-prefixes="xlf pac xd"
                 version="1.0">
 
 <!--
@@ -91,7 +91,7 @@
 						<xsl:text> ... </xsl:text>
 					</xsl:variable>
 					<!-- Find the .XLIFF file which matches the specified language -->
-					<xsl:variable name="Xlate" select="my:xliff($Language)"/>
+					<xsl:variable name="Xlate" select="pac:xliff($Language)"/>
 					<!-- ... is the .XLIFF file specified? -->
 					<xsl:choose>
 						<xsl:when test="$Xlate">

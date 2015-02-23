@@ -21,12 +21,12 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
-                xmlns:pac="http://www.pac.co.uk"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:its="http://www.w3.org/2005/11/its"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns:xl="http://www.w3.org/1999/xlink"
-                exclude-result-prefixes="xlf"
+                exclude-result-prefixes="xlf xd"
                 version="1.0">
 
 <!--
@@ -41,11 +41,11 @@
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 
-	<pac:doc>
+	<xd:doc>
 		==============
 		File structure
 		==============
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="xlf:xliff">
 		<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
 			<xsl:copy-of select="@*"/>
@@ -96,20 +96,20 @@
 		</notes>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		============
 		Source: Text
 		============
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="text()|comment()|processing-instruction()" mode="il">
 		<xsl:copy select="."/>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		============================
 		Source: Generic placeholders
 		============================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="xlf:x" mode="il">
 		<xsl:variable name="namespace">
 			<xsl:call-template name="namespace-from-ctype">
@@ -137,11 +137,11 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		==========================
 		Source: Group placeholders
 		==========================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="xlf:g" mode="il">
 		<xsl:variable name="namespace">
 			<xsl:call-template name="namespace-from-ctype">
@@ -166,11 +166,11 @@
 		<xsl:text>&gt;</xsl:text>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		===========================
 		Source: Phrase placeholders
 		===========================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="xlf:ph" mode="il">
 		<xsl:variable name="namespace">
 			<xsl:call-template name="namespace-from-ctype">
@@ -202,29 +202,29 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		================
 		Target: Segments
 		================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="xlf:mrk[@mtype='seg']" mode="xid">
 		<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="xid"/>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		============
 		Target: Text
 		============
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="text()|comment()|processing-instruction()" mode="xid">
 		<xsl:copy select="."/>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		============================
 		Target: Generic placeholders
 		============================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="xlf:x" mode="xid">
 		<xsl:variable name="me" select="@id"/>
 		<xsl:variable name="ctype-from-source">
@@ -258,11 +258,11 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		==========================
 		Target: Group placeholders
 		==========================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="xlf:g" mode="xid">
 		<xsl:variable name="me" select="@id"/>
 		<xsl:variable name="ctype-from-source">
@@ -293,11 +293,11 @@
 		<xsl:text>&gt;</xsl:text>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		===========================
 		Target: Phrase placeholders
 		===========================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="xlf:ph" mode="xid">
 		<xsl:variable name="me" select="@id"/>
 		<xsl:variable name="ctype-from-source">
@@ -337,11 +337,11 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		=======
 		Markers
 		=======
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="xlf:mrk[@mtype='term']" mode="at">
 		<xsl:text> its:term="yes"</xsl:text>
 	</xsl:template>
@@ -352,11 +352,11 @@
 		<xsl:text>"</xsl:text>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		==========
 		Attributes
 		==========
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="@*" mode="at">
 		<xsl:if test="namespace-uri() != 'urn:oasis:names:tc:xliff:document:1.2' and
 		              namespace-uri() != ''">
@@ -386,11 +386,11 @@
 		</xsl:if>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		==========================
 		Set $namespace from @ctype
 		==========================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="namespace-from-ctype">
 		<xsl:param name="ctype"/>
 		<xsl:choose>
@@ -404,7 +404,7 @@
 				<xsl:text>xi:</xsl:text>
 			</xsl:when>
 			<xsl:when test="starts-with($ctype, 'x-pac-')">
-				<xsl:text>pac:</xsl:text>
+				<xsl:text>xd:</xsl:text>
 			</xsl:when>
 			<xsl:when test="starts-with($ctype, 'x-db-')">
 				<xsl:text></xsl:text>
@@ -418,11 +418,11 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		==========================
 		Set $localname from @ctype
 		==========================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="localname-from-ctype">
 		<xsl:param name="ctype"/>
 		<xsl:choose>

@@ -22,29 +22,29 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:tei="http://www.tei-c.org/ns/1.0"
-                xmlns:pac="http://www.pac.co.uk"
-                xmlns:my="urn:x-pacbook:functions"
-                exclude-result-prefixes="my"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                xmlns:pac="urn:x-pacbook:functions"
+                exclude-result-prefixes="xd pac"
                 version="1.1">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:include href="common/CommonFunctions.xsl"/>
 	<xsl:param name="Verbose" select="false()"/>
 	<xsl:param name="Dictionary" select="'data/DataSyntax.xml'"/>
 
-	<pac:doc>
+	<xd:doc>
 		===========================================================
 		Stylesheet for processing morphology in docbook documents.
 
 		This stylesheet inflects dependent words by phonological
 		environment, case, gender and number.
 		===========================================================
-	</pac:doc>
+	</xd:doc>
 
-	<pac:doc>
+	<xd:doc>
 		==============
 		Main recursion
 		==============
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:choose>
 			<xsl:when test="self::db:wordasword">
@@ -59,15 +59,15 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		============
 		Morphosyntax
 		============
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="Morphosyntax">
 		<xsl:variable name="my.word" select="text()"/>
-		<xsl:variable name="my.norm" select="my:lc($my.word)"/>
-		<xsl:variable name="my.lang" select="my:lang()"/>
+		<xsl:variable name="my.norm" select="pac:lc($my.word)"/>
+		<xsl:variable name="my.lang" select="pac:lang()"/>
 		<xsl:if test="$Verbose=true()">
 			<xsl:if test="not(document($Dictionary))">
 				<xsl:message terminate="no">
@@ -149,7 +149,7 @@
 							 capitalise the first letter of the returned word;
 							 otherwise give the returned word in lower case -->
 					<xsl:variable name="my.init" select="substring($my.word, 1, 1)"/>
-					<xsl:if test="$my.init = my:uc($my.init) and not(@tei:oRef)">
+					<xsl:if test="$my.init = pac:uc($my.init) and not(@tei:oRef)">
 						<xsl:attribute name="tei:oRef">
 							<xsl:value-of select="'initial'"/>
 						</xsl:attribute>
@@ -172,11 +172,11 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		=========
 		Phonology
 		=========
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="Phonology">
 		<xsl:param name="my.word"/>
 		<xsl:param name="my.tree"/>
@@ -217,11 +217,11 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		======
 		Number
 		======
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="Number">
 		<xsl:param name="my.word"/>
 		<xsl:param name="my.tree"/>
@@ -262,11 +262,11 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		====
 		Case
 		====
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="Case">
 		<xsl:param name="my.word"/>
 		<xsl:param name="my.tree"/>
@@ -307,11 +307,11 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		======
 		Gender
 		======
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="Gender">
 		<xsl:param name="my.word"/>
 		<xsl:param name="my.tree"/>
@@ -352,11 +352,11 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		============
 		Definiteness
 		============
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="Definiteness">
 		<xsl:param name="my.word"/>
 		<xsl:param name="my.tree"/>

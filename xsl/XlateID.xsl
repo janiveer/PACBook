@@ -23,7 +23,7 @@
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns:xl="http://www.w3.org/1999/xlink"
-                xmlns:pac="http://www.pac.co.uk"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:its="http://www.w3.org/2005/11/its"
                 xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
                 xmlns:dita="http://dita.oasis-open.org/architecture/2005"
@@ -32,7 +32,7 @@
                 xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:str="http://exslt.org/strings"
                 xmlns:saxon="http://icl.com/saxon"
-                exclude-result-prefixes="str saxon"
+                exclude-result-prefixes="str saxon xd"
                 version="1.0">
 
 <!--

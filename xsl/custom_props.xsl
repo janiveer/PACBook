@@ -20,8 +20,9 @@
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:pac="http://www.pac.co.uk"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:db="http://docbook.org/ns/docbook"
+                exclude-result-prefixes="xd"
                 version="1.1">
 	<!--
 	     This stylesheet exports various values from the document
@@ -31,21 +32,21 @@
 	-->
 	<xsl:output method="text" encoding="UTF-8"/>
 
-	<pac:doc>
+	<xd:doc>
 		=======
 		Edition
 		=======
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="/*/db:info/db:edition">
 		<xsl:text>edition=</xsl:text>
 		<xsl:value-of select="translate(., '.', '')"/>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		=================
 		Ignore other text
 		=================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="text()" />
 
 </xsl:stylesheet>

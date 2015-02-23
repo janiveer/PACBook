@@ -22,8 +22,8 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xl="http://www.w3.org/1999/xlink"
-                xmlns:pac="http://www.pac.co.uk"
-                exclude-result-prefixes="pac"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                exclude-result-prefixes="xd"
                 version="1.0">
 	<!--
 	     Stylesheet for fixing remote references in docbook documents.
@@ -54,11 +54,11 @@
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:include href="common/CommonTemplates.xsl"/>
 
-	<pac:doc>
+	<xd:doc>
 		===========================
 		Recurse through source file
 		===========================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:choose>
 			<xsl:when test="self::db:olink">

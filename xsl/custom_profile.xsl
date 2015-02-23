@@ -21,17 +21,17 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:func="http://exslt.org/functions"
-                xmlns:pac="http://www.pac.co.uk"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:db="http://docbook.org/ns/docbook"
-                xmlns:my="urn:x-pacbook:functions"
+                xmlns:pac="urn:x-pacbook:functions"
                 xmlns:xl="http://www.w3.org/1999/xlink"
-                exclude-result-prefixes="my func"
-                extension-element-prefixes="my func"
+                exclude-result-prefixes="pac func xd"
+                extension-element-prefixes="pac func"
                 version="1.0">
 	<xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/profiling/profile.xsl"/>
 	<xsl:include href="common/CommonFunctions.xsl"/>
 
-	<pac:doc>
+	<xd:doc>
 		==================
 		Profile parameters
 		==================
@@ -40,7 +40,7 @@
 		condition using the root document's xml:id attribute. Conditional text in
 		transcluded documents can thus be included / ignored based on the xml:id
 		(or condition attribute) of the including document.
-	</pac:doc>
+	</xd:doc>
 	<xsl:param name="profile.condition">
 		<xsl:choose>
 			<xsl:when test="/*/@condition">
@@ -52,18 +52,18 @@
 		</xsl:choose>
 	</xsl:param>
 
-	<pac:doc>
+	<xd:doc>
 		=========
 		Resources
 		=========
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="db:imagedata[starts-with(@fileref, '../')]|db:imagedata[contains(@fileref, '://')]" mode="profile">
 		<xsl:choose>
 			<xsl:when test="$profile.attribute='outputformat' and $profile.value='help'">
 				<xsl:element name="imagedata" namespace="http://docbook.org/ns/docbook">
 					<xsl:copy-of select="@*"/>
 					<xsl:attribute name="fileref">
-						<xsl:value-of select="my:resource(@fileref, 'resources', '__')"/>
+						<xsl:value-of select="pac:resource(@fileref, 'resources', '__')"/>
 					</xsl:attribute>
 				</xsl:element>
 			</xsl:when>

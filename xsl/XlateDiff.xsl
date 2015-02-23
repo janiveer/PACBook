@@ -23,10 +23,10 @@
                 xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
                 xmlns:its="http://www.w3.org/2005/11/its"
                 xmlns:xl="http://www.w3.org/1999/xlink"
-                xmlns:pac="http://www.pac.co.uk"
-                xmlns:my="urn:x-pacbook:functions"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                xmlns:pac="urn:x-pacbook:functions"
                 xmlns:db="http://docbook.org/ns/docbook"
-                exclude-result-prefixes="db xlf pac its xl"
+                exclude-result-prefixes="db xlf xd pac its xl"
                 version="1.0">
 
 <!--
@@ -91,7 +91,7 @@
 					<xsl:value-of select="$Xliff"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:value-of select="my:xliff($Language)"/>
+					<xsl:value-of select="pac:xliff($Language)"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>

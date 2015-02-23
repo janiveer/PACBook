@@ -20,9 +20,15 @@
 -->
 
 <tmx xmlns="http://www.lisa.org/tmx14" version="1.4">
-  <header/>
+  <header creationtool="undefined"
+          creationtoolversion="undefined"
+          datatype="xml"
+          segtype="phrase"
+          adminlang="en-GB"
+          srclang="en-GB"
+          o-tmf="undefined"/>
   <body>
-    <tu tuid="PAC.Links">
+    <tu tuid="links">
       <tuv xml:lang="de">
         <seg>Verweisen wir auf die folgenden Abschnitte:</seg>
       </tuv>
@@ -57,42 +63,42 @@
         <seg>FIXME: See the following sections:</seg>
       </tuv>
     </tu>
-    <tu tuid="Important">
+    <tu tuid="important">
       <tuv xml:lang="de">
-        <seg>TODO: Important</seg>
+        <seg>Wichtig</seg>
       </tuv>
       <tuv xml:lang="en-GB">
         <seg>Important</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>TODO: Important</seg>
+        <seg>Importante</seg>
       </tuv>
       <tuv xml:lang="fi">
-        <seg>TODO: Important</seg>
+        <seg>Tärkeää</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>TODO: Important</seg>
+        <seg>Important</seg>
       </tuv>
       <tuv xml:lang="it">
-        <seg>TODO: Important</seg>
+        <seg>Importante</seg>
       </tuv>
       <tuv xml:lang="nb">
-        <seg>TODO: Important</seg>
+        <seg>Viktig</seg>
       </tuv>
       <tuv xml:lang="nl">
-        <seg>TODO: Important</seg>
+        <seg>Belangrijk</seg>
       </tuv>
       <tuv xml:lang="pt">
-        <seg>TODO: Important</seg>
+        <seg>Importante</seg>
       </tuv>
       <tuv xml:lang="sv">
-        <seg>TODO: Important</seg>
+        <seg>Viktigt</seg>
       </tuv>
       <tuv xml:lang="zh">
-        <seg>TODO: Important</seg>
+        <seg>重要</seg>
       </tuv>
     </tu>
-    <tu tuid="Caution">
+    <tu tuid="caution">
       <tuv xml:lang="de">
         <seg>Vorsicht</seg>
       </tuv>
@@ -100,34 +106,34 @@
         <seg>Caution</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>TODO: Caution</seg>
+        <seg>Atención</seg>
       </tuv>
       <tuv xml:lang="fi">
-        <seg>TODO: Caution</seg>
+        <seg>Varo</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>TODO: Caution</seg>
+        <seg>Attention</seg>
       </tuv>
       <tuv xml:lang="it">
-        <seg>TODO: Caution</seg>
+        <seg>Attenzione</seg>
       </tuv>
       <tuv xml:lang="nb">
-        <seg>TODO: Caution</seg>
+        <seg>Obs</seg>
       </tuv>
       <tuv xml:lang="nl">
-        <seg>TODO: Caution</seg>
+        <seg>Let op</seg>
       </tuv>
       <tuv xml:lang="pt">
-        <seg>TODO: Caution</seg>
+        <seg>Cuidado</seg>
       </tuv>
       <tuv xml:lang="sv">
-        <seg>TODO: Caution</seg>
+        <seg>Observera</seg>
       </tuv>
       <tuv xml:lang="zh">
-        <seg>TODO: Caution</seg>
+        <seg>小心</seg>
       </tuv>
     </tu>
-    <tu tuid="PAC.Notes">
+    <tu tuid="notes">
       <tuv xml:lang="de">
         <seg>Hinweise</seg>
       </tuv>
@@ -162,7 +168,7 @@
         <seg>注意</seg>
       </tuv>
     </tu>
-    <tu tuid="Note">
+    <tu tuid="note">
       <tuv xml:lang="de">
         <seg>Hinweis</seg>
       </tuv>
@@ -173,31 +179,31 @@
         <seg>Nota</seg>
       </tuv>
       <tuv xml:lang="fi">
-        <seg>TODO: Note</seg>
+        <seg>Huomaa</seg>
       </tuv>
       <tuv xml:lang="fr">
         <seg>Remarque</seg>
       </tuv>
       <tuv xml:lang="it">
-        <seg>TODO: Note</seg>
+        <seg>Nota</seg>
       </tuv>
       <tuv xml:lang="nb">
         <seg>Merknad</seg>
       </tuv>
       <tuv xml:lang="nl">
-        <seg>TODO: Note</seg>
+        <seg>Opmerking</seg>
       </tuv>
       <tuv xml:lang="pt">
-        <seg>TODO: Note</seg>
+        <seg>Nota</seg>
       </tuv>
       <tuv xml:lang="sv">
         <seg>Anmärkning</seg>
       </tuv>
       <tuv xml:lang="zh">
-        <seg>TODO: Note</seg>
+        <seg>注意</seg>
       </tuv>
     </tu>
-    <tu tuid="PAC.Tips">
+    <tu tuid="tips">
       <tuv xml:lang="de">
         <seg>Tipps</seg>
       </tuv>
@@ -232,7 +238,7 @@
         <seg>提示</seg>
       </tuv>
     </tu>
-    <tu tuid="Tip">
+    <tu tuid="tip">
       <tuv xml:lang="de">
         <seg>Tipp</seg>
       </tuv>
@@ -243,64 +249,65 @@
         <seg>Consejo</seg>
       </tuv>
       <tuv xml:lang="fi">
-        <seg>TODO: Tip</seg>
+        <seg>Vihje</seg>
       </tuv>
       <tuv xml:lang="fr">
         <seg>Conseil</seg>
       </tuv>
       <tuv xml:lang="it">
-        <seg>TODO: Tip</seg>
+        <seg>Suggerimento</seg>
       </tuv>
       <tuv xml:lang="nb">
-        <seg>TODO: Tip</seg>
+        <seg>Tips</seg>
       </tuv>
       <tuv xml:lang="nl">
-        <seg>TODO: Tip</seg>
+        <seg>Tip</seg>
       </tuv>
       <tuv xml:lang="pt">
-        <seg>TODO: Tip</seg>
+        <seg>Dica</seg>
       </tuv>
       <tuv xml:lang="sv">
-        <seg>TODO: Tip</seg>
+        <seg>Tips</seg>
       </tuv>
       <tuv xml:lang="zh">
-        <seg>TODO: Tip</seg>
+        <seg>提示</seg>
       </tuv>
     </tu>
-    <tu tuid="WARNING">
+    <tu tuid="warning">
       <tuv xml:lang="de">
-        <seg>TODO: Warning</seg>
+        <seg>WARNUNG</seg>
       </tuv>
       <tuv xml:lang="en-GB">
         <seg>WARNING</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>TODO: Warning</seg>
+        <seg>AVISO</seg>
       </tuv>
       <tuv xml:lang="fi">
-        <seg>TODO: Warning</seg>
+        <seg>VAROITUS</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>TODO: Warning</seg>
+        <seg>AVERTISSEMENT</seg>
       </tuv>
       <tuv xml:lang="it">
-        <seg>TODO: Warning</seg>
+        <seg>AVVERTIMENTO</seg>
       </tuv>
       <tuv xml:lang="nb">
-        <seg>TODO: Warning</seg>
+        <seg>ADVARSEL</seg>
       </tuv>
       <tuv xml:lang="nl">
-        <seg>TODO: Warning</seg>
+        <seg>WAARSCHUWING</seg>
       </tuv>
       <tuv xml:lang="pt">
-        <seg>TODO: Warning</seg>
+        <seg>ATENÇÃO</seg>
       </tuv>
       <tuv xml:lang="sv">
-        <seg>TODO: Warning</seg>
+        <seg>VARNING</seg>
       </tuv>
       <tuv xml:lang="zh">
-        <seg>TODO: Warning</seg>
+        <seg>警告</seg>
       </tuv>
     </tu>
+    <!-- TODO: and, or -->
   </body>
 </tmx>

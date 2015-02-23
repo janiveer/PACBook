@@ -29,13 +29,13 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xl="http://www.w3.org/1999/xlink"
-                xmlns:pac="http://www.pac.co.uk"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:data="urn:x-pacbook:data"
-                xmlns:my="urn:x-pacbook:functions"
+                xmlns:pac="urn:x-pacbook:functions"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:dcterms="http://purl.org/dc/terms/"
-                exclude-result-prefixes="data my"
+                exclude-result-prefixes="data pac xd"
                 version="1.1">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:include href="common/CommonFunctions.xsl"/>
@@ -63,7 +63,7 @@
 	<xsl:decimal-format name="nb"    grouping-separator=" " decimal-separator=","/>
 	<xsl:decimal-format name="fi"    grouping-separator=" " decimal-separator=","/>
 
-	<pac:doc>
+	<xd:doc>
 		===========================================================
 		Stylesheet for processing autotext in docbook documents.
 
@@ -71,7 +71,7 @@
 		and builds glossary collections. The document is then
 		passed through for morphosyntactic processing.
 		===========================================================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="/">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
@@ -79,11 +79,11 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		==============
 		Main recursion
 		==============
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
@@ -92,7 +92,7 @@
 	</xsl:template>
 
 
-	<pac:doc>
+	<xd:doc>
 		=============
 		Related Links
 		=============
@@ -108,7 +108,7 @@
 		that element is used as the title of the list of links.
 		Otherwise the phrase called 'PAC.Links' is used as the title
 		of the list of links in the appropriate language.
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="db:chapter|db:section|db:sect1|db:sect2|db:sect3|db:sect4">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
@@ -123,7 +123,7 @@
 							<xsl:apply-templates select="db:info/&xl_link;/db:title/node()"/>
 						</xsl:when>
 						<xsl:otherwise>
-							<xsl:value-of select="my:text(my:lang(), 'PAC.Links')"/>
+							<xsl:value-of select="pac:label(pac:lang(), 'links')"/>
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:element>
@@ -152,11 +152,11 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		=========
 		Important
 		=========
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="db:title[parent::db:important]">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
@@ -165,17 +165,17 @@
 					<xsl:copy-of select="child::node()"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:value-of select="my:text(my:lang(), 'Important')"/>
+					<xsl:value-of select="pac:label(pac:lang(), 'important')"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:copy>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		=======
 		Caution
 		=======
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="db:title[parent::db:caution]">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
@@ -184,17 +184,17 @@
 					<xsl:copy-of select="child::node()"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:value-of select="my:text(my:lang(), 'Caution')"/>
+					<xsl:value-of select="pac:label(pac:lang(), 'caution')"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:copy>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		====
 		Note
 		====
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="db:title[parent::db:note]">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
@@ -203,13 +203,13 @@
 					<xsl:copy-of select="child::node()"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:variable name="AdLang" select="my:lang()"/>
+					<xsl:variable name="AdLang" select="pac:lang()"/>
 					<xsl:choose>
 						<xsl:when test="count(parent::db:note//db:para) &gt; 1">
-							<xsl:value-of select="my:text($AdLang, 'PAC.Notes')"/>
+							<xsl:value-of select="pac:label($AdLang, 'notes')"/>
 						</xsl:when>
 						<xsl:otherwise>
-							<xsl:value-of select="my:text($AdLang, 'Note')"/>
+							<xsl:value-of select="pac:label($AdLang, 'note')"/>
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:otherwise>
@@ -217,11 +217,11 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		===
 		Tip
 		===
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="db:title[parent::db:tip]">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
@@ -230,13 +230,13 @@
 					<xsl:copy-of select="child::node()"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:variable name="AdLang" select="my:lang()"/>
+					<xsl:variable name="AdLang" select="pac:lang()"/>
 					<xsl:choose>
 						<xsl:when test="count(parent::db:tip//db:para) &gt; 1">
-							<xsl:value-of select="my:text($AdLang, 'PAC.Tips')"/>
+							<xsl:value-of select="pac:label($AdLang, 'tips')"/>
 						</xsl:when>
 						<xsl:otherwise>
-							<xsl:value-of select="my:text($AdLang, 'Tip')"/>
+							<xsl:value-of select="pac:label($AdLang, 'tip')"/>
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:otherwise>
@@ -244,11 +244,11 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		=======
 		Warning
 		=======
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="db:title[parent::db:warning]">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
@@ -257,31 +257,33 @@
 					<xsl:copy-of select="child::node()"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:value-of select="my:text(my:lang(), 'WARNING')"/>
+					<xsl:value-of select="pac:label(pac:lang(), 'warning')"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:copy>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		=======
 		KeyCaps
+
+		TODO: Delete
 		=======
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="db:keycap[@function]">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:value-of select="my:local(my:lang(), 'keycap', @function)"/>
+			<xsl:value-of select="pac:local(pac:lang(), 'keycap', @function)"/>
 		</xsl:copy>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		=======
 		Numbers
 		=======
 		If the content of the element is a number,
 		reformat it using the local number format.
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="db:literal">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
@@ -290,9 +292,9 @@
 					<xsl:copy-of select="child::node()"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:variable name="my.lang" select="my:lang()"/>
+					<xsl:variable name="my.lang" select="pac:lang()"/>
 					<xsl:variable name="my.format">
-						<xsl:value-of select="document('data/DataLocales.xml')//data:num-form[@lang=$my.lang]"/>
+						<xsl:value-of select="document('../data/DataLocales.xml')//data:num-form[@lang=$my.lang]"/>
 					</xsl:variable>
 					<xsl:value-of select="format-number(., $my.format, $my.lang)"/>
 				</xsl:otherwise>
@@ -300,7 +302,7 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		========
 		Glossary
 		========
@@ -321,7 +323,7 @@
 		and looks at every glossentry again. If there is a
 		corresponding gloss id in the temporary list, the
 		glossentry is copied to the output.
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="db:glossary[@role='collection']">
 		<xsl:variable name="glossCompile">
 			<xsl:for-each select="db:glossentry">
@@ -348,11 +350,11 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		==================
 		Glossary recursion
 		==================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="db:glossdef" mode="recurse">
 		<xsl:param name="RecurseDepth"/>
 		<xsl:apply-templates select="db:glossseealso" mode="recurse">
@@ -377,11 +379,11 @@
 		</xsl:if>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		===========
 		Punctuation
 		===========
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="db:abbrev">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
@@ -399,17 +401,17 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		============
 		Simple Lists
 		============
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="db:simplelist[@type='inline']">
 		<xsl:variable name="Conjunction">
 			<xsl:choose>
 				<xsl:when test="@role='and' or @role='or'">
 					<xsl:text> </xsl:text>
-					<xsl:value-of select="my:text(my:lang(), @role)"/>
+					<xsl:value-of select="pac:label(pac:lang(), @role)"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:value-of select="','"/>
@@ -432,13 +434,13 @@
 		</xsl:for-each>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		================
 		Revision History
 		================
 		The hideous use of xsl:element and xsl:attribute gives
 		cleaner output with no unnecessary namespace prefixes.
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="processing-instruction('pac-revhistory')">
 		<xsl:if test="/*/db:info/db:revhistory">
 			<xsl:element name="informaltable" namespace="{$DocBook}">
@@ -518,13 +520,13 @@
 		</xsl:if>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		=============
 		Applicability
 		=============
 		The hideous use of xsl:element and xsl:attribute gives
 		cleaner output with no unnecessary namespace prefixes.
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="processing-instruction('pac-applicability')">
 		<xsl:if test="&applicability;">
 			<xsl:element name="informaltable" namespace="{$DocBook}">
@@ -604,20 +606,22 @@
 		</xsl:if>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		==================
 		Date / Time Stamps
+
+		TODO: Delete
 		==================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="processing-instruction('dbtimestamp')">
-		<xsl:value-of select="my:date(my:lang(), my:pseudo-attrib('format'))"/>
+		<xsl:value-of select="pac:date(pac:lang(), pac:pseudo-attrib('format'))"/>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		=============================
 		Other processing instructions
 		=============================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="processing-instruction('pac-pubsnumber')">
 		<xsl:value-of select="/*/db:info/db:biblioid[@class='pubsnumber']"/>
 	</xsl:template>

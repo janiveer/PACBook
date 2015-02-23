@@ -21,20 +21,20 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:str="http://exslt.org/strings"
-                xmlns:pac="http://www.pac.co.uk"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:saxon="http://icl.com/saxon"
-                exclude-result-prefixes="saxon str pac db xl"
+                exclude-result-prefixes="saxon str xd db xl"
                 version="1.0">
-	<pac:doc>
+	<xd:doc>
 		=========================================================
 		File_Reference
 		$refpath
 
 		Fixes relative file references to include all @xml:bases
 		=========================================================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="File_Reference">
 		<xsl:param name="refpath"/>
 		<xsl:choose>
@@ -171,14 +171,14 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		=========================================================
 		Fix_ID
 
 		Changes @xml:id to @xl:href of nearest locator with
 		matching @xl:label
 		=========================================================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="Fix_ID">
 		<xsl:variable name="pac.id" select="@xml:id"/>
 		<xsl:variable name="pac.locator" select="ancestor-or-self::*/db:info/db:extendedlink/db:locator[@xl:label=$pac.id]"/>

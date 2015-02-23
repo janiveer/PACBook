@@ -21,11 +21,11 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
-                xmlns:pac="http://www.pac.co.uk"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:its="http://www.w3.org/2005/11/its"
                 xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
                 xmlns:xl="http://www.w3.org/1999/xlink"
-                exclude-result-prefixes="db pac xlf xl its"
+                exclude-result-prefixes="db xd xlf xl its"
                 version="1.0">
 
 <!--

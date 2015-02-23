@@ -22,18 +22,18 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xl="http://www.w3.org/1999/xlink"
-                xmlns:pac="http://www.pac.co.uk"
-                exclude-result-prefixes="pac"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                exclude-result-prefixes="xd"
                 version="1.0">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="no"/>
 	<xsl:key name="Glossary" match="db:glossentry" use="@xml:id"/>
 
-	<pac:doc>
+	<xd:doc>
 		=================================================
 		Adds an xl:title to every glossterm in a document
 		containing a preview of that term’s definition.
 		=================================================
-	</pac:doc>
+	</xd:doc>
 
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:copy>

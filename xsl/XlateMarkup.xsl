@@ -31,8 +31,8 @@
                 xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
                 xmlns:its="http://www.w3.org/2005/11/its"
-                xmlns:pac="http://www.pac.co.uk"
-                exclude-result-prefixes="db data pac xlf its xl"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                exclude-result-prefixes="db data xd xlf its xl"
                 version="1.1">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="no"/>
 	<xsl:param name="Counter" select="''"/>
@@ -58,11 +58,11 @@
 		</xsl:choose>
 	</xsl:param>
 
-	<pac:doc>
+	<xd:doc>
 		=======================================
 		Marks up a DocBook file for translation
 		=======================================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="/">
 		<xsl:if test="$Counter = ''">
 			<xsl:message terminate="yes">
@@ -73,12 +73,12 @@
 		<xsl:call-template name="write_total"/>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		====================================
 		Finds unmarked translation units and
 		calls 'xliff_id' with current count
 		====================================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="&unmarked_trans_units;">
 		<xsl:variable name="element" select="local-name()"/>
 		<xsl:variable name="namespace" select="namespace-uri()"/>
@@ -94,11 +94,11 @@
 		</xsl:element>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		================================
 		Recursion through other elements
 		================================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
@@ -106,11 +106,11 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		===================================
 		Adds @xlf:id based on current count
 		===================================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="xliff_id">
 		<xsl:param name="prefix"/>
 		<xsl:param name="count"/>
@@ -122,11 +122,11 @@
 		</xsl:attribute>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		=====================
 		Writes out new totals
 		=====================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="write_total">
 		<xsl:variable name="total">
 			<xsl:for-each select="&descendant_unmarked_trans_units;">

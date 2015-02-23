@@ -24,9 +24,9 @@
                 xmlns:exsl="http://exslt.org/common"
                 xmlns:date="http://exslt.org/dates-and-times"
                 xmlns:str="http://exslt.org/strings"
-                xmlns:pac="http://www.pac.co.uk"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:data="urn:x-pacbook:data"
-                xmlns:my="urn:x-pacbook:functions"
+                xmlns:pac="urn:x-pacbook:functions"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0"
@@ -35,7 +35,7 @@
                 xmlns:tmx="http://www.lisa.org/tmx14"
                 xmlns:saxon="http://icl.com/saxon"
                 extension-element-prefixes="func"
-                exclude-result-prefixes="func exsl date str pac data my db xl l tmx dc rdf saxon"
+                exclude-result-prefixes="func exsl date str xd data pac db xl l tmx dc rdf saxon"
                 version="1.0">
 	<xsl:variable name="strPath" select="'http://docbook.sourceforge.net/release/xsl-ns/current/common/'"/>
 	<xsl:variable name="Labels" select="'../data/DataLabels.xml'"/>
@@ -48,33 +48,33 @@
 	<xsl:param name="abcBlock" select="'AÁÀÂÄÁÀÂÄÅÅÆÆBCÇÇDEÉÈÊËÉÈÊËFGHIÍÌÎÏÍÌÎÏJKLMNÑÑOÓÒÔÖÓÒÔÖØØŒŒPQRSTUÚÙÛÜÚÙÛÜVWXYÝỲŶŸÝỲŶŸZ'"/>
 	<xsl:param name="abcSmall" select="'aáàâäáàâäååææbcççdeéèêëéèêëfghiíìîïíìîïjklmnññoóòôöóòôöøøœœpqrstuúùûüúùûüvwxyýỳŷÿýỳŷÿz'"/>
 
-	<pac:doc>
+	<xd:doc>
 		*******************************************************
-		my:uc('text')
+		pac:uc('text')
 
 		Transforms text to uppercase.
 		*******************************************************
-	</pac:doc>
-	<func:function name="my:uc">
+	</xd:doc>
+	<func:function name="pac:uc">
 		<xsl:param name="strText"/>
 		<func:result select="translate($strText, $abcSmall, $abcBlock)"/>
 	</func:function>
 
-	<pac:doc>
+	<xd:doc>
 		*******************************************************
-		my:lc('text')
+		pac:lc('text')
 
 		Transforms text to lowercase.
 		*******************************************************
-	</pac:doc>
-	<func:function name="my:lc">
+	</xd:doc>
+	<func:function name="pac:lc">
 		<xsl:param name="strText"/>
 		<func:result select="translate($strText, $abcBlock, $abcSmall)"/>
 	</func:function>
 
-	<pac:doc>
+	<xd:doc>
 		*******************************************************
-		my:local('language', 'context', 'template')
+		pac:local('language', 'context', 'template')
 
 		Opens DataLabels.xml and the DocBook XSL localisation
 		file for the given language and returns the text
@@ -82,13 +82,13 @@
 
 		TODO: Delete
 		*******************************************************
-	</pac:doc>
-	<func:function name="my:local">
+	</xd:doc>
+	<func:function name="pac:local">
 		<xsl:param name="strLang"/>
 		<xsl:param name="strContext"/>
 		<xsl:param name="strTemplate"/>
 		<xsl:variable name="strName">
-			<xsl:value-of select="my:fallback($strLang)"/>
+			<xsl:value-of select="pac:fallback($strLang)"/>
 		</xsl:variable>
 		<xsl:variable name="strDoc">
 			<xsl:value-of select="concat($strPath, $strName, '.xml')"/>
@@ -115,57 +115,15 @@
 		<func:result select="$strResult"/>
 	</func:function>
 
-	<pac:doc>
+	<xd:doc>
 		*******************************************************
-		my:text('language', 'key')
-
-		Opens DataLabels.xml and the DocBook XSL localisation
-		file for the given language and returns the text
-		associated with the given key.
-
-		TODO: Delete
-		*******************************************************
-	</pac:doc>
-	<func:function name="my:text">
-		<xsl:param name="strLang"/>
-		<xsl:param name="strKey"/>
-		<xsl:variable name="strName">
-			<xsl:value-of select="my:fallback($strLang)"/>
-		</xsl:variable>
-		<xsl:variable name="strDoc">
-			<xsl:value-of select="concat($strPath, $strName, '.xml')"/>
-		</xsl:variable>
-		<xsl:variable name="strStock">
-			<xsl:value-of select="document($strDoc)//l:gentext[@key=$strKey]/@text"/>
-		</xsl:variable>
-		<xsl:variable name="strCustom">
-			<xsl:value-of select="document($Labels)//l:l10n[@language=$strName]/l:gentext[@key=$strKey]/@text"/>
-		</xsl:variable>
-		<xsl:variable name="strResult">
-			<xsl:choose>
-				<xsl:when test="not($strCustom='')">
-					<xsl:value-of select="$strCustom"/>
-				</xsl:when>
-				<xsl:when test="not($strStock='')">
-					<xsl:value-of select="$strStock"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="$strKey"/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
-		<func:result select="$strResult"/>
-	</func:function>
-
-	<pac:doc>
-		*******************************************************
-		my:label('language', 'tuid')
+		pac:label('language', 'tuid')
 
 		Opens DataLabels.xml and returns the segment
 		associated with the given translation unit ID.
 		*******************************************************
-	</pac:doc>
-	<func:function name="my:label">
+	</xd:doc>
+	<func:function name="pac:label">
 		<xsl:param name="strLang"/>
 		<xsl:param name="strTUID"/>
 		<xsl:variable name="strCustom">
@@ -184,15 +142,15 @@
 		<func:result select="$strResult"/>
 	</func:function>
 
-	<pac:doc>
+	<xd:doc>
 		*******************************************************
-		my:decode('uri')
+		pac:decode('uri')
 
 		Decodes a URI to a file path. The protocol and initial
 		double slashes are removed, encoded spaces are decoded
 		*******************************************************
-	</pac:doc>
-	<func:function name="my:decode">
+	</xd:doc>
+	<func:function name="pac:decode">
 		<xsl:param name="URI"/>
 		<xsl:variable name="noProto">
 			<xsl:choose>
@@ -226,22 +184,22 @@
 		<func:result select="$noEsc20"/>
 	</func:function>
 
-	<pac:doc>
+	<xd:doc>
 		*******************************************************
-		my:resource('path', 'prefix', 'parent')
+		pac:resource('path', 'prefix', 'parent')
 
 		Encodes a file path to a local resource path
 		* Path is the file path to encode
 		* Prefix is prepended to the local resource path
 		* Parent replaces '..' in the file path
 		*******************************************************
-	</pac:doc>
-	<func:function name="my:resource">
+	</xd:doc>
+	<func:function name="pac:resource">
 		<xsl:param name="Path"/>
 		<xsl:param name="Prefix"/>
 		<xsl:param name="Parent"/>
 		<xsl:variable name="Input">
-			<xsl:value-of select="my:decode($Path)"/>
+			<xsl:value-of select="pac:decode($Path)"/>
 		</xsl:variable>
 		<xsl:variable name="Result">
 			<xsl:value-of select="$Prefix"/>
@@ -249,14 +207,14 @@
 			<xsl:choose>
 				<xsl:when test="function-available('str:tokenize')">
 					<xsl:for-each select="str:tokenize($Input, '/')">
-						<xsl:call-template name="my:_resource">
+						<xsl:call-template name="pac:_resource">
 							<xsl:with-param name="Parent" select="$Parent"/>
 						</xsl:call-template>
 					</xsl:for-each>
 				</xsl:when>
 				<xsl:when test="function-available('saxon:tokenize')">
 					<xsl:for-each select="saxon:tokenize($Input, '/')">
-						<xsl:call-template name="my:_resource">
+						<xsl:call-template name="pac:_resource">
 							<xsl:with-param name="Parent" select="$Parent"/>
 						</xsl:call-template>
 					</xsl:for-each>
@@ -270,7 +228,7 @@
 		</xsl:variable>
 		<func:result select="$Result"/>
 	</func:function>
-	<xsl:template name="my:_resource">
+	<xsl:template name="pac:_resource">
 		<xsl:param name="Parent"/>
 		<xsl:choose>
 			<xsl:when test=".='..'">
@@ -285,30 +243,30 @@
 		</xsl:if>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		*******************************************************
-		my:xliff('language')
+		pac:xliff('language')
 
 		Finds the nearest ancestor of the current element which
 		has an RDF resource of type "translations", then from
 		there gets the uri of the .XLIFF file which matches
 		the specified language (whew!)
 		*******************************************************
-	</pac:doc>
-	<func:function name="my:xliff">
+	</xd:doc>
+	<func:function name="pac:xliff">
 		<xsl:param name="strLang"/>
 		<func:result select="ancestor-or-self::*[*/rdf:RDF/rdf:Description[@dc:type='translations']][1]/*/rdf:RDF/rdf:Description[@dc:type='translations'][1]/dc:relation[@xml:lang=$strLang]/@rdf:resource"/>
 	</func:function>
 
-	<pac:doc>
+	<xd:doc>
 		*******************************************************
-		my:lang()
+		pac:lang()
 
 		Finds language of the current node. If not specified,
 		returns "mis" (missing linguistic information).
 		*******************************************************
-	</pac:doc>
-	<func:function name="my:lang">
+	</xd:doc>
+	<func:function name="pac:lang">
 		<xsl:variable name="strLang" select="ancestor-or-self::*[@xml:lang][1]/@xml:lang"/>
 		<xsl:variable name="strResult">
 			<xsl:choose>
@@ -323,16 +281,16 @@
 		<func:result select="$strResult"/>
 	</func:function>
 
-	<pac:doc>
+	<xd:doc>
 		*******************************************************
-		my:fallback('language')
+		pac:fallback('language')
 
 		Replaces language name with fallback language name
 
 		TODO: Delete
 		*******************************************************
-	</pac:doc>
-	<func:function name="my:fallback">
+	</xd:doc>
+	<func:function name="pac:fallback">
 		<xsl:param name="strLang"/>
 		<xsl:variable name="strResult">
 			<xsl:choose>
@@ -347,30 +305,30 @@
 		<func:result select="$strResult"/>
 	</func:function>
 
-	<pac:doc>
+	<xd:doc>
 		*******************************************************
-		my:pseudo-attrib('name')
+		pac:pseudo-attrib('name')
 
 		Returns the value of the specified pseudo-attribute.
 		*******************************************************
-	</pac:doc>
-	<func:function name="my:pseudo-attrib">
+	</xd:doc>
+	<func:function name="pac:pseudo-attrib">
 		<xsl:param name="strName"/>
 		<xsl:variable name="strResult" select="substring-before(substring-after(., concat($strName, '=&quot;')), '&quot;')"/>
 		<func:result select="$strResult"/>
 	</func:function>
 
-	<pac:doc>
+	<xd:doc>
 		*******************************************************
-		my:date('language', 'format')
+		pac:date('language', 'format')
 
 		Renders the current date in the specified language
 		using the specified format.
 
 		TODO: Delete
 		*******************************************************
-	</pac:doc>
-	<func:function name="my:date">
+	</xd:doc>
+	<func:function name="pac:date">
 		<xsl:param name="strLang"/>
 		<xsl:param name="strFormat"/>
 		<xsl:variable name="strYear" select="date:year()"/>
@@ -382,7 +340,7 @@
 					<xsl:choose>
 						<xsl:when test="function-available('str:tokenize')">
 							<xsl:for-each select="str:tokenize($strFormat, ' ')">
-								<xsl:call-template name="my:_date">
+								<xsl:call-template name="pac:_date">
 									<xsl:with-param name="strLang" select="$strLang"/>
 									<xsl:with-param name="strYear" select="$strYear"/>
 									<xsl:with-param name="strMonth" select="$strMonth"/>
@@ -392,7 +350,7 @@
 						</xsl:when>
 						<xsl:when test="function-available('saxon:tokenize')">
 							<xsl:for-each select="saxon:tokenize($strFormat, ' ')">
-								<xsl:call-template name="my:_date">
+								<xsl:call-template name="pac:_date">
 									<xsl:with-param name="strLang" select="$strLang"/>
 									<xsl:with-param name="strYear" select="$strYear"/>
 									<xsl:with-param name="strMonth" select="$strMonth"/>
@@ -414,17 +372,17 @@
 		</xsl:variable>
 		<func:result select="$strResult"/>
 	</func:function>
-	<xsl:template name="my:_date">
+	<xsl:template name="pac:_date">
 		<xsl:param name="strLang"/>
 		<xsl:param name="strYear"/>
 		<xsl:param name="strMonth"/>
 		<xsl:param name="strAbbrev"/>
 		<xsl:choose>
 			<xsl:when test=".='b'">
-				<xsl:value-of select="my:local($strLang, 'datetime-abbrev', $strAbbrev)"/>
+				<xsl:value-of select="pac:local($strLang, 'datetime-abbrev', $strAbbrev)"/>
 			</xsl:when>
 			<xsl:when test=".='B'">
-				<xsl:value-of select="my:local($strLang, 'datetime-full', $strMonth)"/>
+				<xsl:value-of select="pac:local($strLang, 'datetime-full', $strMonth)"/>
 			</xsl:when>
 			<xsl:when test=".='Y'">
 				<xsl:value-of select="$strYear"/>
@@ -438,14 +396,14 @@
 		</xsl:if>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		*******************************************************
 		str:replace('string', 'search', 'replace')
 
 		by Jeni Tennison
 		http://www.exslt.org/str/functions/replace/index.html
 		*******************************************************
-	</pac:doc>
+	</xd:doc>
 	<func:function name="str:replace">
 		<xsl:param name="string" select="''" />
 		<xsl:param name="search" select="/.." />

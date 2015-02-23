@@ -22,11 +22,12 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:tei="http://www.tei-c.org/ns/1.0"
-                xmlns:pac="http://www.pac.co.uk"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                exclude-result-prefixes="xd"
                 version="1.0">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 
-	<pac:doc>
+	<xd:doc>
 		===========================================================
 		Stylesheet for processing declension in docbook documents.
 
@@ -34,13 +35,13 @@
 		based on the case and definiteness specified by the
 		nearest ancestor element.
 		===========================================================
-	</pac:doc>
+	</xd:doc>
 
-	<pac:doc>
+	<xd:doc>
 		==============
 		Main recursion
 		==============
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:choose>
 			<xsl:when test="self::db:token">
@@ -55,11 +56,11 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		==========
 		Declension
 		==========
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="Declension">
 		<xsl:variable name="req.case">
 			<xsl:choose>

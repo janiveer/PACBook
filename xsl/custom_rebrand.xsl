@@ -27,21 +27,21 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
-                xmlns:pac="http://www.pac.co.uk"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:dita="http://dita.oasis-open.org/architecture/2005"
                 xmlns:str="http://exslt.org/strings"
                 xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:saxon="http://icl.com/saxon"
-                exclude-result-prefixes="str db xl saxon dita"
+                exclude-result-prefixes="str db xl saxon dita xd"
                 version="1.0">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:strip-space elements="db:resource"/>
 
-	<pac:doc>
+	<xd:doc>
 		==============
 		Main recursion
 		==============
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:choose>
 			<xsl:when test="@dita:conref">
@@ -65,11 +65,11 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		==================
 		Resolve references
 		==================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="Reference">
 		<xsl:variable name="ref" select="@dita:conref"/>
 		<xsl:variable name="def" select="ancestor-or-self::*/db:info/&xl_defs;/db:resource[@xl:label=$ref]"/>
@@ -94,11 +94,11 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		===========================
 		Resolve linkends using arcs
 		===========================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="Fix_Linkend">
 		<xsl:variable name="pac.linkend" select="@linkend"/>
 		<xsl:variable name="pac.arc" select="ancestor-or-self::*/db:info/db:extendedlink/db:arc[@xl:from=$pac.linkend]"/>
@@ -114,11 +114,11 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		================================
 		Resolve simple xlinks using arcs
 		================================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="Fix_XLink">
 		<xsl:variable name="pac.linkend" select="substring-after(@xl:href, '#')"/>
 		<xsl:variable name="pac.arc" select="ancestor-or-self::*/db:info/db:extendedlink/db:arc[@xl:from=$pac.linkend]"/>
@@ -135,11 +135,11 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		===========================
 		Resolve arearefs using arcs
 		===========================
-	</pac:doc>
+	</xd:doc>
 	<xsl:template name="Fix_AreaRefs">
 		<xsl:variable name="pac.arearefs" select="@arearefs"/>
 		<xsl:attribute name="arearefs">

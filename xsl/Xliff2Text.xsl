@@ -21,15 +21,15 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
-                xmlns:pac="http://www.pac.co.uk"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 version="1.0">
 	<xsl:output method="text" encoding="UTF-8"/>
 	<xsl:param name="EOL" select="'&#x0d;&#x0a;'"/>
 	<xsl:param name="Tab" select="'&#x09;'"/>
-	<pac:doc>
+	<xd:doc>
 		Outputs an XLIFF file to a tab-delimited text file
 		with CRLF line endings.
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="xlf:xliff">
 		<xsl:apply-templates select="xlf:file"/>
 	</xsl:template>

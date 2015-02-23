@@ -21,16 +21,16 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:tei="http://www.tei-c.org/ns/1.0"
-                xmlns:pac="http://www.pac.co.uk"
-                xmlns:my="urn:x-pacbook:functions"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                xmlns:pac="urn:x-pacbook:functions"
                 xmlns:str="http://exslt.org/strings"
                 xmlns:saxon="http://icl.com/saxon"
-                exclude-result-prefixes="my saxon str"
+                exclude-result-prefixes="pac saxon str xd"
                 version="1.1">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="no"/>
 	<xsl:include href="common/CommonFunctions.xsl"/>
 
-	<pac:doc>
+	<xd:doc>
 		===========================================================
 		Stylesheet for processing orthography in docbook documents.
 
@@ -38,13 +38,13 @@
 		upper, lower, title or sentence. The document is then
 		passed through for final processing.
 		===========================================================
-	</pac:doc>
+	</xd:doc>
 
-	<pac:doc>
+	<xd:doc>
 		=========
 		Recursion
 		=========
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="*[@tei:oRef='uppercase']">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
@@ -76,11 +76,11 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		==========
 		Upper case
 		==========
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="*[@tei:oRef]|processing-instruction()|comment()" mode="uc">
 		<xsl:apply-templates select="."/>
 	</xsl:template>
@@ -91,14 +91,14 @@
 		</xsl:copy>
 	</xsl:template>
 	<xsl:template match="text()" mode="uc">
-		<xsl:value-of select="my:uc(string(.))"/>
+		<xsl:value-of select="pac:uc(string(.))"/>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		==========
 		Lower case
 		==========
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="*[@tei:oRef]|processing-instruction()|comment()" mode="lc">
 		<xsl:apply-templates select="."/>
 	</xsl:template>
@@ -109,14 +109,14 @@
 		</xsl:copy>
 	</xsl:template>
 	<xsl:template match="text()" mode="lc">
-		<xsl:value-of select="my:lc(string(.))"/>
+		<xsl:value-of select="pac:lc(string(.))"/>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		==========
 		Title case
 		==========
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="*[@tei:oRef]|processing-instruction()|comment()" mode="tc">
 		<xsl:apply-templates select="."/>
 	</xsl:template>
@@ -154,7 +154,7 @@
 	<xsl:template name="tc_token">
 		<xsl:choose>
 			<xsl:when test="not(contains($ShortWords, .))">
-				<xsl:value-of select="my:uc(substring(., 1, 1))"/>
+				<xsl:value-of select="pac:uc(substring(., 1, 1))"/>
 				<xsl:value-of select="substring(., 2)"/>
 			</xsl:when>
 			<xsl:otherwise>
@@ -166,11 +166,11 @@
 		</xsl:if>
 	</xsl:template>
 
-	<pac:doc>
+	<xd:doc>
 		=============
 		Sentence case
 		=============
-	</pac:doc>
+	</xd:doc>
 	<xsl:template match="*[@tei:oRef]|processing-instruction()|comment()" mode="sc">
 		<xsl:apply-templates select="."/>
 	</xsl:template>
@@ -187,7 +187,7 @@
 				<xsl:copy-of select="."/>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:value-of select="my:uc(substring(., 1, 1))"/>
+				<xsl:value-of select="pac:uc(substring(., 1, 1))"/>
 				<xsl:value-of select="substring(., 2)"/>
 			</xsl:otherwise>
 		</xsl:choose>
