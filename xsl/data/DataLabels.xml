@@ -1,424 +1,306 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<l:i18n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0">
-  <l:l10n language="de" english-language-name="German">
-    <l:gentext key="PAC.Blank" text="Diese Seite wurde absichtlich leer gelassen."/>
-    <l:gentext key="PAC.Links" text="Verweisen wir auf die folgenden Abschnitte:"/>
-    <l:gentext key="CAUTION" text="VORSICHT"/>
-    <l:gentext key="Caution" text="Vorsicht"/>
-    <l:gentext key="caution" text="Vorsicht"/>
-    <l:gentext key="NOTE" text="HINWEIS"/>
-    <l:gentext key="Note" text="Hinweis"/>
-    <l:gentext key="note" text="Hinweis"/>
-    <l:gentext key="PAC.Tips" text="Tipps"/>
-    <l:gentext key="PAC.Notes" text="Hinweise"/>
-    <l:gentext key="PAC.Page" text="Seite"/>
-    <l:gentext key="RefEntry" text="Seite"/>
-    <l:gentext key="refentry" text="Seite"/>
-    <l:gentext key="PAC.Tel" text="Tel:"/>
-    <l:dingbat key="PAC.separator" text=": "/>
-    <l:context name="keycap">
-      <l:template name="alt" text="Alt"/>
-      <l:template name="backspace" text="⌫"/>
-      <l:template name="command" text="⌘"/>
-      <l:template name="control" text="Strg"/>
-      <l:template name="delete" text="Löschen"/>
-      <l:template name="down" text="↓"/>
-      <l:template name="end" text="Ende"/>
-      <l:template name="enter" text="Eingabetaste"/>
-      <l:template name="escape" text="Esc"/>
-      <l:template name="home" text="Pos1"/>
-      <l:template name="insert" text="Einfügen"/>
-      <l:template name="left" text="←"/>
-      <l:template name="meta" text="Meta"/>
-      <l:template name="option" text="⌥"/>
-      <l:template name="pagedown" text="Bild ab"/>
-      <l:template name="pageup" text="Bild auf"/>
-      <l:template name="right" text="→"/>
-      <l:template name="shift" text="Umschalt"/>
-      <l:template name="space" text="Space"/>
-      <l:template name="tab" text="→|"/>
-      <l:template name="up" text="↑"/>
-    </l:context>
-  </l:l10n>
-  <l:l10n language="en" english-language-name="English">
-    <l:gentext key="PAC.Blank" text="This page left blank intentionally."/>
-    <l:gentext key="PAC.Links" text="See the following sections:"/>
-    <l:gentext key="PAC.Tips" text="Tips"/>
-    <l:gentext key="PAC.Notes" text="Notes"/>
-    <l:gentext key="PAC.Page" text="Page"/>
-    <l:gentext key="RefEntry" text="Page"/>
-    <l:gentext key="refentry" text="page"/>
-    <l:gentext key="revision" text="ver"/>
-    <l:gentext key="Revision" text="Ver"/>
-    <l:gentext key="PAC.Tel" text="Tel:"/>
-    <l:gentext key="GlossSeeAlso" text="See Also"/>
-    <l:gentext key="glossseealso" text="See also"/>
-    <l:dingbat key="PAC.separator" text=": "/>
-    <l:context name="glossary">
-      <l:template name="see" text="See %t."/>
-      <l:template name="seealso" text="See also %t."/>
-      <l:template name="seealso-separator" text=", "/>
-    </l:context>
-    <l:context name="keycap">
-      <l:template name="alt" text="Alt"/>
-      <l:template name="backspace" text="Backspace"/>
-      <l:template name="command" text="Command"/>
-      <l:template name="control" text="Ctrl"/>
-      <l:template name="delete" text="Delete"/>
-      <l:template name="down" text="Down"/>
-      <l:template name="end" text="End"/>
-      <l:template name="enter" text="Enter"/>
-      <l:template name="escape" text="Esc"/>
-      <l:template name="home" text="Home"/>
-      <l:template name="insert" text="Insert"/>
-      <l:template name="left" text="Left"/>
-      <l:template name="meta" text="Meta"/>
-      <l:template name="option" text="Opt"/>
-      <l:template name="pagedown" text="Page Down"/>
-      <l:template name="pageup" text="Page Up"/>
-      <l:template name="right" text="Right"/>
-      <l:template name="shift" text="Shift"/>
-      <l:template name="space" text="Space"/>
-      <l:template name="tab" text="Tab"/>
-      <l:template name="up" text="Up"/>
-    </l:context>
-  </l:l10n>
-  <l:l10n language="es" english-language-name="Spanish">
-    <l:gentext key="PAC.Blank" text="Esta página se dejó en blanco intencionalmente."/>
-    <l:gentext key="PAC.Links" text="Véase las secciones siguientes:"/>
-    <l:gentext key="tip" text="consejo"/>
-    <l:gentext key="TIP" text="CONSEJO"/>
-    <l:gentext key="Tip" text="Consejo"/>
-    <l:gentext key="PAC.Tips" text="Consejos"/>
-    <l:gentext key="PAC.Notes" text="Notas"/>
-    <l:gentext key="PAC.Page" text="Página"/>
-    <l:gentext key="RefEntry" text="Página"/>
-    <l:gentext key="refentry" text="página"/>
-    <l:gentext key="PAC.Tel" text="Tel:"/>
+
 <!--
-    <l:gentext key="GlossSee" text="Véanse"/>
-    <l:gentext key="glosssee" text="véanse"/>
-    <l:gentext key="GlossSeeAlso" text="Véase igualmente"/>
-    <l:gentext key="glossseealso" text="véase igualmente"/>
-    <l:gentext key="see" text="véanse"/>
-    <l:gentext key="See" text="Véanse"/>
-    <l:gentext key="seealso" text="véase igualmente"/>
-    <l:gentext key="Seealso" text="Véase igualmente"/>
-    <l:gentext key="SeeAlso" text="Véase igualmente"/>
-    <l:context name="glossary">
-      <l:template name="see" text="Véanse %t."/>
-      <l:template name="seealso" text="Véase igualmente %t."/>
-      <l:template name="seealso-separator" text=", "/>
-    </l:context>
+    Copyright © 2015 Stanley Security Solutions Limited.
+
+    This file is part of PACBook.
+
+    PACBook is free software: you can redistribute it and/or modify it under the
+    terms of the GNU Lesser General Public License as published by the Free
+    Software Foundation, either version 3 of the License, or (at your option)
+    any later version.
+
+    PACBook is distributed in the hope that it will be useful, but WITHOUT ANY
+    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+    FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
+    more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with PACBook.  If not, see <http://www.gnu.org/licenses/>.
 -->
-    <l:dingbat key="PAC.separator" text=": "/>
-    <l:dingbat key="startquote" text="«"/>
-    <l:dingbat key="endquote" text="»"/>
-    <l:dingbat key="nestedstartquote" text="“"/>
-    <l:dingbat key="nestedendquote" text="”"/>
-    <l:context name="keycap">
-      <l:template name="alt" text="Alt"/>
-      <l:template name="backspace" text="⌫"/>
-      <l:template name="command" text="⌘"/>
-      <l:template name="control" text="Ctrl"/>
-      <l:template name="delete" text="Borrar"/>
-      <l:template name="down" text="↓"/>
-      <l:template name="end" text="Fin"/>
-      <l:template name="enter" text="↩"/>
-      <l:template name="escape" text="Esc"/>
-      <l:template name="home" text="Inicio"/>
-      <l:template name="insert" text="Insertar"/>
-      <l:template name="left" text="←"/>
-      <l:template name="meta" text="Meta"/>
-      <l:template name="option" text="⌥"/>
-      <l:template name="pagedown" text="Bajar página"/>
-      <l:template name="pageup" text="Subir página"/>
-      <l:template name="right" text="→"/>
-      <l:template name="shift" text="Mayús"/>
-      <l:template name="space" text="Space"/>
-      <l:template name="tab" text="Tab"/>
-      <l:template name="up" text="↑"/>
-    </l:context>
-  </l:l10n>
-  <l:l10n language="fi" english-language-name="Finnish">
-    <l:gentext key="PAC.Blank" text="This page left blank intentionally." lang="en"/>
-    <l:gentext key="PAC.Links" text="See the following sections:" lang="en"/>
-    <l:gentext key="PAC.Tips" text="Vihjeet"/>
-    <l:gentext key="PAC.Notes" text="Huomaa"/>
-    <l:gentext key="PAC.Page" text="Sivu"/>
-    <l:gentext key="PAC.Tel" text="Tel:" lang="en"/>
-    <l:dingbat key="PAC.separator" text=": "/>
-    <l:context name="keycap">
-      <l:template name="alt" text="Alt"/>
-      <l:template name="backspace" text="⌫"/>
-      <l:template name="command" text="⌘"/>
-      <l:template name="control" text="Ctrl"/>
-      <l:template name="delete" text="⌦"/>
-      <l:template name="down" text="↓"/>
-      <l:template name="end" text="End"/>
-      <l:template name="enter" text="↩"/>
-      <l:template name="escape" text="Esc"/>
-      <l:template name="home" text="Home"/>
-      <l:template name="insert" text="Insert"/>
-      <l:template name="left" text="←"/>
-      <l:template name="meta" text="Meta"/>
-      <l:template name="option" text="⌥"/>
-      <l:template name="pagedown" text="Page Down"/>
-      <l:template name="pageup" text="Page Up"/>
-      <l:template name="right" text="→"/>
-      <l:template name="shift" text="⇧"/>
-      <l:template name="space" text="Space"/>
-      <l:template name="tab" text="Tab"/>
-      <l:template name="up" text="↑"/>
-    </l:context>
-  </l:l10n>
-  <l:l10n language="fr" english-language-name="French">
-    <l:gentext key="PAC.Blank" text="Cette page est laissée en blanc à dessein."/>
-    <l:gentext key="PAC.Links" text="Voir les sections suivantes :"/>
-    <l:gentext key="NOTE" text="Remarque"/>
-    <l:gentext key="Note" text="Remarque"/>
-    <l:gentext key="note" text="Remarque"/>
-    <l:gentext key="tip" text="conseil"/>
-    <l:gentext key="TIP" text="CONSEIL"/>
-    <l:gentext key="Tip" text="Conseil"/>
-    <l:gentext key="PAC.Tips" text="Conseils"/>
-    <l:gentext key="PAC.Notes" text="Remarques"/>
-    <l:gentext key="PAC.Page" text="Page"/>
-    <l:gentext key="RefEntry" text="Page"/>
-    <l:gentext key="refentry" text="page"/>
-    <l:gentext key="PAC.Tel" text="Tél :"/>
-    <l:dingbat key="PAC.separator" text=" : "/>
-    <l:dingbat key="startquote" text="« "/>
-    <l:dingbat key="endquote" text=" »"/>
-    <l:context name="keycap">
-      <l:template name="alt" text="Alt" lang="en"/>
-      <l:template name="backspace" text="⌫" lang="en"/>
-      <l:template name="command" text="⌘" lang="en"/>
-      <l:template name="control" text="Ctrl" lang="en"/>
-      <l:template name="delete" text="Supprimer"/>
-      <l:template name="down" text="↓" lang="en"/>
-      <l:template name="end" text="Fin"/>
-      <l:template name="enter" text="↩" lang="en"/>
-      <l:template name="escape" text="Esc" lang="en"/>
-      <l:template name="home" text="Origine"/>
-      <l:template name="insert" text="Ins"/>
-      <l:template name="left" text="←" lang="en"/>
-      <l:template name="meta" text="Meta" lang="en"/>
-      <l:template name="option" text="⌥" lang="en"/>
-      <l:template name="pagedown" text="Page bas"/>
-      <l:template name="pageup" text="Page haut"/>
-      <l:template name="right" text="→" lang="en"/>
-      <l:template name="shift" text="Maj"/>
-      <l:template name="space" text="Space" lang="en"/>
-      <l:template name="tab" text="→|" lang="en"/>
-      <l:template name="up" text="↑" lang="en"/>
-    </l:context>
-  </l:l10n>
-  <l:l10n language="it" english-language-name="Italian">
-    <l:gentext key="PAC.Blank" text="This page left blank intentionally." lang="en"/>
-    <l:gentext key="PAC.Links" text="See the following sections:" lang="en"/>
-    <l:gentext key="Copyright" text="Diritto d’autore"/>
-    <l:gentext key="copyright" text="Diritto d’autore"/>
-    <l:gentext key="PAC.Tips" text="Suggerimenti"/>
-    <l:gentext key="PAC.Page" text="Pagina"/>
-    <l:gentext key="PAC.Notes" text="Note"/>
-    <l:gentext key="PAC.Tel" text="Tel:" lang="en"/>
-    <l:dingbat key="PAC.separator" text=": "/>
-    <l:context name="keycap">
-      <l:template name="alt" text="Alt"/>
-      <l:template name="backspace" text="⌫"/>
-      <l:template name="command" text="⌘"/>
-      <l:template name="control" text="Ctrl"/>
-      <l:template name="delete" text="⌦"/>
-      <l:template name="down" text="↓"/>
-      <l:template name="end" text="End"/>
-      <l:template name="enter" text="↩"/>
-      <l:template name="escape" text="Esc"/>
-      <l:template name="home" text="Home"/>
-      <l:template name="insert" text="Insert"/>
-      <l:template name="left" text="←"/>
-      <l:template name="meta" text="Meta"/>
-      <l:template name="option" text="⌥"/>
-      <l:template name="pagedown" text="Page Down"/>
-      <l:template name="pageup" text="Page Up"/>
-      <l:template name="right" text="→"/>
-      <l:template name="shift" text="⇧"/>
-      <l:template name="space" text="Space"/>
-      <l:template name="tab" text="Tab"/>
-      <l:template name="up" text="↑"/>
-    </l:context>
-  </l:l10n>
-  <l:l10n language="nb" english-language-name="Norwegian">
-    <l:gentext key="PAC.Blank" text="Denne siden blank med hensikt."/>
-    <l:gentext key="PAC.Links" text="See the following sections:" lang="en"/>
-    <l:gentext key="PAC.Tips" text="Tips"/>
-    <l:gentext key="NOTE" text="MERKNAD"/>
-    <l:gentext key="Note" text="Merknad"/>
-    <l:gentext key="note" text="merknad"/>
-    <l:gentext key="PAC.Notes" text="Merknader"/>
-    <l:gentext key="PAC.Page" text="Side"/>
-    <l:gentext key="RefEntry" text="Side"/>
-    <l:gentext key="refentry" text="side"/>
-    <l:gentext key="Answer" text="Sv:"/>
-    <l:gentext key="answer" text="Sv:"/>
-    <l:gentext key="Question" text="Sp:"/>
-    <l:gentext key="question" text="Sp:"/>
-    <l:gentext key="PAC.Tel" text="Tel:"/>
-    <l:dingbat key="PAC.separator" text=": "/>
-    <l:context name="keycap">
-      <l:template name="alt" text="Alt"/>
-      <l:template name="backspace" text="⌫"/>
-      <l:template name="command" text="⌘"/>
-      <l:template name="control" text="Ktrl"/>
-      <l:template name="delete" text="⌦"/>
-      <l:template name="down" text="↓"/>
-      <l:template name="end" text="End"/>
-      <l:template name="enter" text="↩"/>
-      <l:template name="escape" text="Esc"/>
-      <l:template name="home" text="Home"/>
-      <l:template name="insert" text="Insert"/>
-      <l:template name="left" text="←"/>
-      <l:template name="meta" text="Meta"/>
-      <l:template name="option" text="⌥"/>
-      <l:template name="pagedown" text="Page Down"/>
-      <l:template name="pageup" text="Page Up"/>
-      <l:template name="right" text="→"/>
-      <l:template name="shift" text="Skift"/>
-      <l:template name="space" text="Space"/>
-      <l:template name="tab" text="Tab"/>
-      <l:template name="up" text="↑"/>
-    </l:context>
-  </l:l10n>
-  <l:l10n language="nl" english-language-name="Dutch">
-    <l:gentext key="PAC.Blank" text="Deze pagina is opzettelijk leeg gelaten."/>
-    <l:gentext key="PAC.Links" text="Raadpleeg de volgende gedeelten:"/>
-    <l:gentext key="Figure" text="Figuur"/>
-    <l:gentext key="figure" text="figuur"/>
-    <l:gentext key="PAC.Tips" text="Tips"/>
-    <l:gentext key="PAC.Notes" text="Opmerkingen"/>
-    <l:gentext key="PAC.Page" text="Pagina"/>
-    <l:gentext key="Answer" text="A:"/>
-    <l:gentext key="answer" text="A:"/>
-    <l:gentext key="Question" text="V:"/>
-    <l:gentext key="question" text="V:"/>
-    <l:gentext key="revision" text="versie"/>
-    <l:gentext key="Revision" text="Versie"/>
-    <l:gentext key="PAC.Tel" text="Tel:"/>
-    <l:dingbat key="PAC.separator" text=": "/>
-    <l:context name="keycap">
-      <l:template name="alt" text="Alt"/>
-      <l:template name="backspace" text="⌫"/>
-      <l:template name="command" text="⌘"/>
-      <l:template name="control" text="Ctrl"/>
-      <l:template name="delete" text="⌦"/>
-      <l:template name="down" text="↓"/>
-      <l:template name="end" text="End"/>
-      <l:template name="enter" text="↩"/>
-      <l:template name="escape" text="Esc"/>
-      <l:template name="home" text="Home"/>
-      <l:template name="insert" text="Insert"/>
-      <l:template name="left" text="←"/>
-      <l:template name="meta" text="Meta"/>
-      <l:template name="option" text="⌥"/>
-      <l:template name="pagedown" text="Page Down"/>
-      <l:template name="pageup" text="Page Up"/>
-      <l:template name="right" text="→"/>
-      <l:template name="shift" text="⇧"/>
-      <l:template name="space" text="Space"/>
-      <l:template name="tab" text="Tab"/>
-      <l:template name="up" text="↑"/>
-    </l:context>
-  </l:l10n>
-  <l:l10n language="pt" english-language-name="Portuguese">
-    <l:gentext key="PAC.Blank" text="This page left blank intentionally." lang="en"/>
-    <l:gentext key="PAC.Links" text="See the following sections:" lang="en"/>
-    <l:gentext key="PAC.Tips" text="Dicas"/>
-    <l:gentext key="PAC.Page" text="Página"/>
-    <l:gentext key="PAC.Notes" text="Notas"/>
-    <l:gentext key="PAC.Tel" text="Tel:" lang="en"/>
-    <l:dingbat key="PAC.separator" text=": "/>
-    <l:context name="keycap">
-      <l:template name="alt" text="Alt"/>
-      <l:template name="backspace" text="⌫"/>
-      <l:template name="command" text="⌘"/>
-      <l:template name="control" text="Ctrl"/>
-      <l:template name="delete" text="⌦"/>
-      <l:template name="down" text="↓"/>
-      <l:template name="end" text="End"/>
-      <l:template name="enter" text="↩"/>
-      <l:template name="escape" text="Esc"/>
-      <l:template name="home" text="Home"/>
-      <l:template name="insert" text="Insert"/>
-      <l:template name="left" text="←"/>
-      <l:template name="meta" text="Meta"/>
-      <l:template name="option" text="⌥"/>
-      <l:template name="pagedown" text="Page Down"/>
-      <l:template name="pageup" text="Page Up"/>
-      <l:template name="right" text="→"/>
-      <l:template name="shift" text="⇧"/>
-      <l:template name="space" text="Space"/>
-      <l:template name="tab" text="Tab"/>
-      <l:template name="up" text="↑"/>
-    </l:context>
-  </l:l10n>
-  <l:l10n language="sv" english-language-name="Swedish">
-    <l:gentext key="PAC.Blank" text="Denna sida lämnas tomt avsiktligt."/>
-    <l:gentext key="PAC.Links" text="Se följande avsnitt:"/>
-    <l:gentext key="PAC.Tips" text="Tips"/>
-    <l:gentext key="NOTE" text="ANMÄRKNING"/>
-    <l:gentext key="Note" text="Anmärkning"/>
-    <l:gentext key="note" text="anmärkning"/>
-    <l:gentext key="PAC.Notes" text="Anmärkningar"/>
-    <l:gentext key="PAC.Page" text="Sida"/>
-    <l:gentext key="RefEntry" text="Sida"/>
-    <l:gentext key="refentry" text="sida"/>
-    <l:gentext key="Answer" text="S:"/>
-    <l:gentext key="answer" text="S:"/>
-    <l:gentext key="Question" text="F:"/>
-    <l:gentext key="question" text="F:"/>
-    <l:gentext key="PAC.Tel" text="Tel:"/>
-    <l:gentext key="GlossSeeAlso" text="Se Även"/>
-    <l:gentext key="glossseealso" text="Se även"/>
-    <l:dingbat key="PAC.separator" text=": "/>
-    <l:context name="xref-number">
-      <l:template name="qandadiv" text="Fråga och Svar %n"/>
-    </l:context>
-    <l:context name="glossary">
-      <l:template name="see" text="Se %t."/>
-      <l:template name="seealso" text="Se även %t."/>
-      <l:template name="seealso-separator" text=", "/>
-    </l:context>
-    <l:context name="keycap">
-      <l:template name="alt" text="Alt"/>
-      <l:template name="backspace" text="⌫"/>
-      <l:template name="command" text="⌘"/>
-      <l:template name="control" text="Ctrl"/>
-      <l:template name="delete" text="⌦"/>
-      <l:template name="down" text="↓"/>
-      <l:template name="end" text="Slut"/>
-      <l:template name="enter" text="↩"/>
-      <l:template name="escape" text="Esc"/>
-      <l:template name="home" text="Hem"/>
-      <l:template name="insert" text="Infoga"/>
-      <l:template name="left" text="←"/>
-      <l:template name="meta" text="Meta"/>
-      <l:template name="option" text="⌥"/>
-      <l:template name="pagedown" text="Sida ner"/>
-      <l:template name="pageup" text="Sida upp"/>
-      <l:template name="right" text="→"/>
-      <l:template name="shift" text="Skift"/>
-      <l:template name="space" text="Space"/>
-      <l:template name="tab" text="Tab"/>
-      <l:template name="up" text="↑"/>
-    </l:context>
-  </l:l10n>
-  <l:l10n language="zh" english-language-name="Chinese">
-    <l:gentext key="PAC.Blank" text="This page left blank intentionally."/>
-    <l:gentext key="PAC.Links" text="See the following sections:"/>
-    <l:gentext key="PAC.Tips" text="提示"/>
-    <l:gentext key="PAC.Notes" text="注意"/>
-    <l:gentext key="PAC.Page" text=""/>
-    <l:gentext key="PAC.Tel" text="Tel:"/>
-    <l:dingbat key="PAC.separator" text=": "/>
-  </l:l10n>
-</l:i18n>
+
+<tmx xmlns="http://www.lisa.org/tmx14" version="1.4">
+  <header/>
+  <body>
+    <tu tuid="PAC.Links">
+      <tuv xml:lang="de">
+        <seg>Verweisen wir auf die folgenden Abschnitte:</seg>
+      </tuv>
+      <tuv xml:lang="en-GB">
+        <seg>See the following sections:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Véase las secciones siguientes:</seg>
+      </tuv>
+      <tuv xml:lang="fi">
+        <seg>See the following sections:</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Voir les sections suivantes :</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <seg>FIXME: See the following sections:</seg>
+      </tuv>
+      <tuv xml:lang="nb">
+        <seg>FIXME: See the following sections:</seg>
+      </tuv>
+      <tuv xml:lang="nl">
+        <seg>Raadpleeg de volgende gedeelten:</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>FIXME: See the following sections:</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Se följande avsnitt:</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>FIXME: See the following sections:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Important">
+      <tuv xml:lang="de">
+        <seg>TODO: Important</seg>
+      </tuv>
+      <tuv xml:lang="en-GB">
+        <seg>Important</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>TODO: Important</seg>
+      </tuv>
+      <tuv xml:lang="fi">
+        <seg>TODO: Important</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>TODO: Important</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <seg>TODO: Important</seg>
+      </tuv>
+      <tuv xml:lang="nb">
+        <seg>TODO: Important</seg>
+      </tuv>
+      <tuv xml:lang="nl">
+        <seg>TODO: Important</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>TODO: Important</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>TODO: Important</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>TODO: Important</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Caution">
+      <tuv xml:lang="de">
+        <seg>Vorsicht</seg>
+      </tuv>
+      <tuv xml:lang="en-GB">
+        <seg>Caution</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>TODO: Caution</seg>
+      </tuv>
+      <tuv xml:lang="fi">
+        <seg>TODO: Caution</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>TODO: Caution</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <seg>TODO: Caution</seg>
+      </tuv>
+      <tuv xml:lang="nb">
+        <seg>TODO: Caution</seg>
+      </tuv>
+      <tuv xml:lang="nl">
+        <seg>TODO: Caution</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>TODO: Caution</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>TODO: Caution</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>TODO: Caution</seg>
+      </tuv>
+    </tu>
+    <tu tuid="PAC.Notes">
+      <tuv xml:lang="de">
+        <seg>Hinweise</seg>
+      </tuv>
+      <tuv xml:lang="en-GB">
+        <seg>Notes</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Notas</seg>
+      </tuv>
+      <tuv xml:lang="fi">
+        <seg>Huomaa</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Remarques</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <seg>Note</seg>
+      </tuv>
+      <tuv xml:lang="nb">
+        <seg>Merknader</seg>
+      </tuv>
+      <tuv xml:lang="nl">
+        <seg>Opmerkingen</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>Notas</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Anmärkningar</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>注意</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Note">
+      <tuv xml:lang="de">
+        <seg>Hinweis</seg>
+      </tuv>
+      <tuv xml:lang="en-GB">
+        <seg>Note</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nota</seg>
+      </tuv>
+      <tuv xml:lang="fi">
+        <seg>TODO: Note</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Remarque</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <seg>TODO: Note</seg>
+      </tuv>
+      <tuv xml:lang="nb">
+        <seg>Merknad</seg>
+      </tuv>
+      <tuv xml:lang="nl">
+        <seg>TODO: Note</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>TODO: Note</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Anmärkning</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>TODO: Note</seg>
+      </tuv>
+    </tu>
+    <tu tuid="PAC.Tips">
+      <tuv xml:lang="de">
+        <seg>Tipps</seg>
+      </tuv>
+      <tuv xml:lang="en-GB">
+        <seg>Tips</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Consejos</seg>
+      </tuv>
+      <tuv xml:lang="fi">
+        <seg>Vihjeet</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Conseils</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <seg>Suggerimenti</seg>
+      </tuv>
+      <tuv xml:lang="nb">
+        <seg>Tips</seg>
+      </tuv>
+      <tuv xml:lang="nl">
+        <seg>Tips</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>Dicas</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Tips</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>提示</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Tip">
+      <tuv xml:lang="de">
+        <seg>Tipp</seg>
+      </tuv>
+      <tuv xml:lang="en-GB">
+        <seg>Tip</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Consejo</seg>
+      </tuv>
+      <tuv xml:lang="fi">
+        <seg>TODO: Tip</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Conseil</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <seg>TODO: Tip</seg>
+      </tuv>
+      <tuv xml:lang="nb">
+        <seg>TODO: Tip</seg>
+      </tuv>
+      <tuv xml:lang="nl">
+        <seg>TODO: Tip</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>TODO: Tip</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>TODO: Tip</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>TODO: Tip</seg>
+      </tuv>
+    </tu>
+    <tu tuid="WARNING">
+      <tuv xml:lang="de">
+        <seg>TODO: Warning</seg>
+      </tuv>
+      <tuv xml:lang="en-GB">
+        <seg>WARNING</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>TODO: Warning</seg>
+      </tuv>
+      <tuv xml:lang="fi">
+        <seg>TODO: Warning</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>TODO: Warning</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <seg>TODO: Warning</seg>
+      </tuv>
+      <tuv xml:lang="nb">
+        <seg>TODO: Warning</seg>
+      </tuv>
+      <tuv xml:lang="nl">
+        <seg>TODO: Warning</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>TODO: Warning</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>TODO: Warning</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>TODO: Warning</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

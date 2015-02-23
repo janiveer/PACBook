@@ -32,9 +32,10 @@
                 xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0"
                 xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                xmlns:tmx="http://www.lisa.org/tmx14"
                 xmlns:saxon="http://icl.com/saxon"
                 extension-element-prefixes="func"
-                exclude-result-prefixes="func exsl date str pac data my db xl l dc rdf saxon"
+                exclude-result-prefixes="func exsl date str pac data my db xl l tmx dc rdf saxon"
                 version="1.0">
 	<xsl:variable name="strPath" select="'http://docbook.sourceforge.net/release/xsl-ns/current/common/'"/>
 	<xsl:variable name="Labels" select="'../data/DataLabels.xml'"/>
@@ -44,11 +45,8 @@
 	<data:lang name="und"   fallback="en"/>
 	<data:lang name="mul"   fallback="en"/>
 	<data:lang name="zxx"   fallback="en"/>
-	<xsl:param name="abcInput" select="'aáàâäÁÀÂÄåÅæÆbcçÇdeéèêëÉÈÊËfghiíìîïÍÌÎÏjklmnñÑoóòôöÓÒÔÖøØœŒpqrstuúùûüÚÙÛÜvwxyýỳŷÿÝỲŶŸz'"/>
 	<xsl:param name="abcBlock" select="'AÁÀÂÄÁÀÂÄÅÅÆÆBCÇÇDEÉÈÊËÉÈÊËFGHIÍÌÎÏÍÌÎÏJKLMNÑÑOÓÒÔÖÓÒÔÖØØŒŒPQRSTUÚÙÛÜÚÙÛÜVWXYÝỲŶŸÝỲŶŸZ'"/>
 	<xsl:param name="abcSmall" select="'aáàâäáàâäååææbcççdeéèêëéèêëfghiíìîïíìîïjklmnññoóòôöóòôöøøœœpqrstuúùûüúùûüvwxyýỳŷÿýỳŷÿz'"/>
-	<xsl:param name="abcUpper" select="'AAAAAAAAAAAÆÆBCCCDEEEEEEEEEFGHIIIIIIIIIJKLMNNNOOOOOOOOOOOŒŒPQRSTUUUUUUUUUVWXYYYYYYYYYZ'"/>
-	<xsl:param name="abcLower" select="'aaaaaaaaaaaææbcccdeeeeeeeeefghiiiiiiiiijklmnnnoooooooooooœœpqrstuuuuuuuuuvwxyyyyyyyyyz'"/>
 
 	<pac:doc>
 		*******************************************************
@@ -76,26 +74,13 @@
 
 	<pac:doc>
 		*******************************************************
-		my:brand('vendor', 'branding')
-
-		Opens DataBrands.xml and returns the text associated
-		with the given branding.
-		*******************************************************
-	</pac:doc>
-	<func:function name="my:brand">
-		<xsl:param name="strVendor"/>
-		<xsl:param name="strBranding"/>
-		<xsl:variable name="Brands" select="'../data/DataBrands.xml'"/>
-		<func:result select="document($Brands)//data:vendor[@name=$strVendor]/data:branding[@name=$strBranding]"/>
-	</func:function>
-
-	<pac:doc>
-		*******************************************************
 		my:local('language', 'context', 'template')
 
 		Opens DataLabels.xml and the DocBook XSL localisation
 		file for the given language and returns the text
 		associated with the given context and given template.
+
+		TODO: Delete
 		*******************************************************
 	</pac:doc>
 	<func:function name="my:local">
@@ -137,6 +122,8 @@
 		Opens DataLabels.xml and the DocBook XSL localisation
 		file for the given language and returns the text
 		associated with the given key.
+
+		TODO: Delete
 		*******************************************************
 	</pac:doc>
 	<func:function name="my:text">
@@ -172,35 +159,22 @@
 
 	<pac:doc>
 		*******************************************************
-		my:dingbat('language', 'key')
+		my:label('language', 'tuid')
 
-		Opens DataLabels.xml and the DocBook XSL localisation
-		file for the given language and returns the dingbat
-		associated with the given key.
+		Opens DataLabels.xml and returns the segment
+		associated with the given translation unit ID.
 		*******************************************************
 	</pac:doc>
-	<func:function name="my:dingbat">
+	<func:function name="my:label">
 		<xsl:param name="strLang"/>
-		<xsl:param name="strKey"/>
-		<xsl:variable name="strName">
-			<xsl:value-of select="my:fallback($strLang)"/>
-		</xsl:variable>
-		<xsl:variable name="strDoc">
-			<xsl:value-of select="concat($strPath, $strName, '.xml')"/>
-		</xsl:variable>
-		<xsl:variable name="strStock">
-			<xsl:value-of select="document($strDoc)//l:dingbat[@key=$strKey]/@text"/>
-		</xsl:variable>
+		<xsl:param name="strTUID"/>
 		<xsl:variable name="strCustom">
-			<xsl:value-of select="document($Labels)//l:l10n[@language=$strName]/l:dingbat[@key=$strKey]/@text"/>
+			<xsl:value-of select="document($Labels)//tmx:tu[@tuid=$strTUID]/tmx:tuv[@xml:lang=$strLang]/tmx:seg"/>
 		</xsl:variable>
 		<xsl:variable name="strResult">
 			<xsl:choose>
 				<xsl:when test="not($strCustom='')">
 					<xsl:value-of select="$strCustom"/>
-				</xsl:when>
-				<xsl:when test="not($strStock='')">
-					<xsl:value-of select="$strStock"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:value-of select="$strKey"/>
@@ -208,94 +182,6 @@
 			</xsl:choose>
 		</xsl:variable>
 		<func:result select="$strResult"/>
-	</func:function>
-
-	<pac:doc>
-		*******************************************************
-		my:collate($collection)
-
-		Sorts collection according to the sort order specified
-		for the current language in DataLocales.xml
-		*******************************************************
-	</pac:doc>
-	<func:function name="my:collate">
-		<xsl:param name="this"/>
-		<xsl:variable name="Locales" select="'../data/DataLocales.xml'"/>
-		<xsl:variable name="thisLang" select="my:lang()"/>
-		<!-- Convert upper case to lower case (ignoring diacritics for now) -->
-		<xsl:variable name="thisABCUpper" select="document($Locales)//data:abcupper[@lang=$thisLang]"/>
-		<xsl:variable name="thisABCLower" select="document($Locales)//data:abclower[@lang=$thisLang]"/>
-		<xsl:variable name="thisLowerCase" select="translate($this, $thisABCUpper, $thisABCLower)"/>
-		<!-- Protect special alphabetic characters for this locale -->
-		<xsl:variable name="thisProtect" select="document($Locales)//data:protect[@lang=$thisLang]"/>
-		<xsl:variable name="thisReplace" select="document($Locales)//data:replace[@lang=$thisLang]"/>
-		<xsl:variable name="thisNormalized" select="translate($thisLowerCase, $thisProtect, $thisReplace)"/>
-		<!-- Convert accented characters to lower case and remove accents -->
-		<xsl:variable name="thisNoAccents" select="translate($thisNormalized, $abcInput, $abcLower)"/>
-		<!-- Convert ligatures to separate letters -->
-		<xsl:variable name="thisNoAE">
-			<xsl:value-of select="my:replace($thisNoAccents, 'æ', 'ae')"/>
-		</xsl:variable>
-		<xsl:variable name="thisNoOE">
-			<xsl:value-of select="my:replace($thisNoAE, 'œ', 'oe')"/>
-		</xsl:variable>
-		<xsl:variable name="thisNoSZ">
-			<xsl:value-of select="my:replace($thisNoOE, 'ß', 'ss')"/>
-		</xsl:variable>
-		<!-- Unprotect special characters -->
-		<xsl:variable name="thisUnsorted" select="translate($thisNoSZ, $thisReplace, $thisProtect)"/>
-		<!-- Convert to sort order for this locality -->
-		<xsl:variable name="thisABCOrder" select="document($Locales)//data:abcorder[@lang=$thisLang]"/>
-		<xsl:variable name="thisSortOrder" select="translate($thisUnsorted, $thisABCLower, $thisABCOrder)"/>
-		<!-- Return result -->
-		<func:result select="$thisSortOrder"/>
-	</func:function>
-
-	<pac:doc>
-		*******************************************************
-		my:replace('string', 'character', 'replacement')
-
-		Searches string and replaces character with replacement
-		*******************************************************
-	</pac:doc>
-	<func:function name="my:replace">
-		<xsl:param name="strText"/>
-		<xsl:param name="strReplace"/>
-		<xsl:param name="strBy"/>
-		<xsl:variable name="strResult">
-			<xsl:choose>
-				<xsl:when test="contains($strText, $strReplace)">
-					<xsl:variable name="strPadding" select="concat(' ', $strText, ' ')"/>
-					<xsl:choose>
-						<xsl:when test="function-available('str:tokenize')">
-							<xsl:for-each select="str:tokenize($strPadding, $strReplace)">
-								<xsl:value-of select="."/>
-								<xsl:if test="position() != last()">
-									<xsl:value-of select="$strBy"/>
-								</xsl:if>
-							</xsl:for-each>
-						</xsl:when>
-						<xsl:when test="function-available('saxon:tokenize')">
-							<xsl:for-each select="saxon:tokenize($strPadding, $strReplace)">
-								<xsl:value-of select="."/>
-								<xsl:if test="position() != last()">
-									<xsl:value-of select="$strBy"/>
-								</xsl:if>
-							</xsl:for-each>
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:message terminate="yes">
-								<xsl:text>ERROR: Tokenize function not available.</xsl:text>
-							</xsl:message>
-						</xsl:otherwise>
-					</xsl:choose>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="$strText"/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
-		<func:result select="normalize-space($strResult)"/>
 	</func:function>
 
 	<pac:doc>
@@ -442,6 +328,8 @@
 		my:fallback('language')
 
 		Replaces language name with fallback language name
+
+		TODO: Delete
 		*******************************************************
 	</pac:doc>
 	<func:function name="my:fallback">
@@ -474,44 +362,12 @@
 
 	<pac:doc>
 		*******************************************************
-		my:twips('length')
-
-		Converts the specified length to twips.
-		*******************************************************
-	</pac:doc>
-	<func:function name="my:twips">
-		<xsl:param name="strLength"/>
-		<xsl:variable name="strResult">
-			<xsl:choose>
-				<xsl:when test="substring($strLength, string-length($strLength) - 1, 2) = 'mm'">
-					<xsl:value-of select="number(substring-before($strLength, 'mm')) * 56.7"/>
-				</xsl:when>
-				<xsl:when test="substring($strLength, string-length($strLength) - 1, 2) = 'cm'">
-					<xsl:value-of select="number(substring-before($strLength, 'cm')) * 567"/>
-				</xsl:when>
-				<xsl:when test="substring($strLength, string-length($strLength) - 1, 2) = 'in'">
-					<xsl:value-of select="number(substring-before($strLength, 'in')) * 1440"/>
-				</xsl:when>
-				<xsl:when test="substring($strLength, string-length($strLength) - 1, 2) = 'pc'">
-					<xsl:value-of select="number(substring-before($strLength, 'pc')) * 6"/>
-				</xsl:when>
-				<xsl:when test="substring($strLength, string-length($strLength) - 1, 2) = 'pt'">
-					<xsl:value-of select="number(substring-before($strLength, 'pt')) * 20"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="$strLength"/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
-		<func:result select="round($strResult)"/>
-	</func:function>
-
-	<pac:doc>
-		*******************************************************
 		my:date('language', 'format')
 
 		Renders the current date in the specified language
 		using the specified format.
+
+		TODO: Delete
 		*******************************************************
 	</pac:doc>
 	<func:function name="my:date">
@@ -684,4 +540,5 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
+
 </xsl:stylesheet>
