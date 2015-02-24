@@ -321,7 +321,7 @@
         <seg>and</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>y</seg>
+        <seg><bpt x="1" i="1"><![CDATA[<wordasword>]]></bpt>y<ept x="1" i="1"><![CDATA[</wordasword>]]></ept></seg>
       </tuv>
       <tuv xml:lang="fi">
         <seg>ja</seg>
@@ -330,7 +330,7 @@
         <seg>et</seg>
       </tuv>
       <tuv xml:lang="it">
-        <seg>e</seg>
+        <seg><bpt x="1" i="1"><![CDATA[<wordasword>]]></bpt>e<ept x="1" i="1"><![CDATA[</wordasword>]]></ept></seg>
       </tuv>
       <tuv xml:lang="nb">
         <seg>og</seg>
@@ -356,7 +356,7 @@
         <seg>or</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>o</seg>
+        <seg><bpt x="1" i="1"><![CDATA[<wordasword>]]></bpt>o<ept x="1" i="1"><![CDATA[</wordasword>]]></ept></seg>
       </tuv>
       <tuv xml:lang="fi">
         <seg>tai</seg>
@@ -365,7 +365,7 @@
         <seg>ou</seg>
       </tuv>
       <tuv xml:lang="it">
-        <seg>o</seg>
+        <seg><bpt x="1" i="1"><![CDATA[<wordasword>]]></bpt>o<ept x="1" i="1"><![CDATA[</wordasword>]]></ept></seg>
       </tuv>
       <tuv xml:lang="nb">
         <seg>eller</seg>
