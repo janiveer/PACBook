@@ -438,40 +438,36 @@
 					<xsl:attribute name="cols">4</xsl:attribute>
 					<xsl:element name="colspec" namespace="{$DocBook}">
 						<xsl:attribute name="colwidth">14.5%</xsl:attribute>
-						<xsl:attribute name="colname">1</xsl:attribute>
 					</xsl:element>
 					<xsl:element name="colspec" namespace="{$DocBook}">
 						<xsl:attribute name="colwidth">14.5%</xsl:attribute>
-						<xsl:attribute name="colname">2</xsl:attribute>
 					</xsl:element>
 					<xsl:element name="colspec" namespace="{$DocBook}">
 						<xsl:attribute name="colwidth">14.5%</xsl:attribute>
-						<xsl:attribute name="colname">3</xsl:attribute>
 					</xsl:element>
 					<xsl:element name="colspec" namespace="{$DocBook}">
 						<xsl:attribute name="colwidth">55.5%</xsl:attribute>
-						<xsl:attribute name="colname">4</xsl:attribute>
 					</xsl:element>
 					<xsl:element name="thead" namespace="{$DocBook}">
 						<xsl:element name="row" namespace="{$DocBook}">
 							<xsl:element name="entry" namespace="{$DocBook}">
 								<xsl:element name="para" namespace="{$DocBook}">
-									<xsl:text>Version</xsl:text>
+									<xsl:value-of select="pac:label(pac:lang(), 'version')"/>
 								</xsl:element>
 							</xsl:element>
 							<xsl:element name="entry" namespace="{$DocBook}">
 								<xsl:element name="para" namespace="{$DocBook}">
-									<xsl:text>Date</xsl:text>
+									<xsl:value-of select="pac:label(pac:lang(), 'date')"/>
 								</xsl:element>
 							</xsl:element>
 							<xsl:element name="entry" namespace="{$DocBook}">
 								<xsl:element name="para" namespace="{$DocBook}">
-									<xsl:text>Author</xsl:text>
+									<xsl:value-of select="pac:label(pac:lang(), 'author')"/>
 								</xsl:element>
 							</xsl:element>
 							<xsl:element name="entry" namespace="{$DocBook}">
 								<xsl:element name="para" namespace="{$DocBook}">
-									<xsl:text>Details</xsl:text>
+									<xsl:value-of select="pac:label(pac:lang(), 'detail')"/>
 								</xsl:element>
 							</xsl:element>
 						</xsl:element>
@@ -524,40 +520,36 @@
 					<xsl:attribute name="cols">4</xsl:attribute>
 					<xsl:element name="colspec" namespace="{$DocBook}">
 						<xsl:attribute name="colwidth">19%</xsl:attribute>
-						<xsl:attribute name="colname">1</xsl:attribute>
 					</xsl:element>
 					<xsl:element name="colspec" namespace="{$DocBook}">
 						<xsl:attribute name="colwidth">27%</xsl:attribute>
-						<xsl:attribute name="colname">2</xsl:attribute>
 					</xsl:element>
 					<xsl:element name="colspec" namespace="{$DocBook}">
 						<xsl:attribute name="colwidth">42%</xsl:attribute>
-						<xsl:attribute name="colname">3</xsl:attribute>
 					</xsl:element>
 					<xsl:element name="colspec" namespace="{$DocBook}">
 						<xsl:attribute name="colwidth">12%</xsl:attribute>
-						<xsl:attribute name="colname">4</xsl:attribute>
 					</xsl:element>
 					<xsl:element name="thead" namespace="{$DocBook}">
 						<xsl:element name="row" namespace="{$DocBook}">
 							<xsl:element name="entry" namespace="{$DocBook}">
 								<xsl:element name="para" namespace="{$DocBook}">
-									<xsl:text>Product Code</xsl:text>
+									<xsl:value-of select="pac:label(pac:lang(), 'product')"/>
 								</xsl:element>
 							</xsl:element>
 							<xsl:element name="entry" namespace="{$DocBook}">
 								<xsl:element name="para" namespace="{$DocBook}">
-									<xsl:text>Name</xsl:text>
+									<xsl:value-of select="pac:label(pac:lang(), 'name')"/>
 								</xsl:element>
 							</xsl:element>
 							<xsl:element name="entry" namespace="{$DocBook}">
 								<xsl:element name="para" namespace="{$DocBook}">
-									<xsl:text>Detail</xsl:text>
+									<xsl:value-of select="pac:label(pac:lang(), 'detail')"/>
 								</xsl:element>
 							</xsl:element>
 							<xsl:element name="entry" namespace="{$DocBook}">
 								<xsl:element name="para" namespace="{$DocBook}">
-									<xsl:text>Version</xsl:text>
+									<xsl:value-of select="pac:label(pac:lang(), 'version')"/>
 								</xsl:element>
 							</xsl:element>
 						</xsl:element>
