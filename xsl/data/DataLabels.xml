@@ -385,8 +385,7 @@
     </tu>
     <tu tuid="product">
       <tuv xml:lang="de">
-        <note>FIXME:</note>
-        <seg>Product</seg>
+        <seg>Produkt-Code</seg>
       </tuv>
       <tuv xml:lang="en-GB">
         <seg>Product Code</seg>
@@ -400,8 +399,7 @@
         <seg>Product</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <note>FIXME:</note>
-        <seg>Product</seg>
+        <seg>Code produit</seg>
       </tuv>
       <tuv xml:lang="it">
         <note>FIXME:</note>
@@ -412,8 +410,7 @@
         <seg>Product</seg>
       </tuv>
       <tuv xml:lang="nl">
-        <note>FIXME:</note>
-        <seg>Product</seg>
+        <seg>Productcode</seg>
       </tuv>
       <tuv xml:lang="pt">
         <note>FIXME:</note>
@@ -454,8 +451,7 @@
         <seg>Name</seg>
       </tuv>
       <tuv xml:lang="nl">
-        <note>FIXME:</note>
-        <seg>Name</seg>
+        <seg>Naam</seg>
       </tuv>
       <tuv xml:lang="pt">
         <note>FIXME:</note>
@@ -493,7 +489,7 @@
         <seg>Revisjon</seg>
       </tuv>
       <tuv xml:lang="nl">
-        <seg>Herziening</seg>
+        <seg>Versie</seg>
       </tuv>
       <tuv xml:lang="pt">
         <seg>Revisão</seg>
@@ -507,7 +503,7 @@
     </tu>
     <tu tuid="date">
       <tuv xml:lang="de">
-        <seg>Veröffentlicht</seg>
+        <seg>Datum</seg>
       </tuv>
       <tuv xml:lang="en-GB">
         <seg>Date</seg>
@@ -519,7 +515,7 @@
         <seg>Julkaisupäivä</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Date de publication</seg>
+        <seg>Date</seg>
       </tuv>
       <tuv xml:lang="it">
         <seg>Data di pubblicazione</seg>
@@ -529,7 +525,7 @@
         <seg>Date</seg>
       </tuv>
       <tuv xml:lang="nl">
-        <seg>Publicatie datum</seg>
+        <seg>Datum</seg>
       </tuv>
       <tuv xml:lang="pt">
         <seg>Data de publicação</seg>
@@ -605,8 +601,7 @@
         <seg>Details</seg>
       </tuv>
       <tuv xml:lang="nl">
-        <note>FIXME:</note>
-        <seg>Details</seg>
+        <seg>Detail</seg>
       </tuv>
       <tuv xml:lang="pt">
         <note>FIXME:</note>
