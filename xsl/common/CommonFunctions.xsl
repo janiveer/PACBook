@@ -38,10 +38,9 @@
                 exclude-result-prefixes="func exsl date str xd data pac db xl l tmx dc rdf saxon"
                 version="1.0">
 
-	<xsl:variable name="strPath" select="'http://docbook.sourceforge.net/release/xsl-ns/current/common/'"/>
 	<xsl:variable name="Labels" select="'../data/DataLabels.xml'"/>
-	<xsl:param name="abcBlock" select="'AÁÀÂÄÁÀÂÄÅÅÆÆBCÇÇDEÉÈÊËÉÈÊËFGHIÍÌÎÏÍÌÎÏJKLMNÑÑOÓÒÔÖÓÒÔÖØØŒŒPQRSTUÚÙÛÜÚÙÛÜVWXYÝỲŶŸÝỲŶŸZ'"/>
-	<xsl:param name="abcSmall" select="'aáàâäáàâäååææbcççdeéèêëéèêëfghiíìîïíìîïjklmnññoóòôöóòôöøøœœpqrstuúùûüúùûüvwxyýỳŷÿýỳŷÿz'"/>
+	<xsl:param name="abcBlock" select="'AÁÀÂÄÅÆBCÇDEÉÈÊËFGHIÍÌÎÏJKLMNÑOÓÒÔÖØŒPQRSTUÚÙÛÜVWXYÝỲŶŸZ'"/>
+	<xsl:param name="abcSmall" select="'aáàâäåæbcçdeéèêëfghiíìîïjklmnñoóòôöøœpqrstuúùûüvwxyýỳŷÿz'"/>
 
 	<xd:doc>
 		*******************************************************
@@ -87,7 +86,7 @@
 					<xsl:value-of select="$strCustom"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:value-of select="$strKey"/>
+					<xsl:value-of select="$strTUID"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
