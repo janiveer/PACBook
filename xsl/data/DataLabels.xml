@@ -39,28 +39,33 @@
         <seg>Véase las secciones siguientes:</seg>
       </tuv>
       <tuv xml:lang="fi">
+        <note>FIXME:</note>
         <seg>See the following sections:</seg>
       </tuv>
       <tuv xml:lang="fr">
         <seg>Voir les sections suivantes :</seg>
       </tuv>
       <tuv xml:lang="it">
-        <seg>FIXME: See the following sections:</seg>
+        <note>FIXME:</note>
+        <seg>See the following sections:</seg>
       </tuv>
       <tuv xml:lang="nb">
-        <seg>FIXME: See the following sections:</seg>
+        <note>FIXME:</note>
+        <seg>See the following sections:</seg>
       </tuv>
       <tuv xml:lang="nl">
         <seg>Raadpleeg de volgende gedeelten:</seg>
       </tuv>
       <tuv xml:lang="pt">
-        <seg>FIXME: See the following sections:</seg>
+        <note>FIXME:</note>
+        <seg>See the following sections:</seg>
       </tuv>
       <tuv xml:lang="sv">
         <seg>Se följande avsnitt:</seg>
       </tuv>
       <tuv xml:lang="zh">
-        <seg>FIXME: See the following sections:</seg>
+        <note>FIXME:</note>
+        <seg>See the following sections:</seg>
       </tuv>
     </tu>
     <tu tuid="important">
@@ -308,6 +313,313 @@
         <seg>警告</seg>
       </tuv>
     </tu>
-    <!-- TODO: and, or -->
+    <tu tuid="and">
+      <tuv xml:lang="de">
+        <seg>und</seg>
+      </tuv>
+      <tuv xml:lang="en-GB">
+        <seg>and</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>y</seg>
+      </tuv>
+      <tuv xml:lang="fi">
+        <seg>ja</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>et</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <seg>e</seg>
+      </tuv>
+      <tuv xml:lang="nb">
+        <seg>og</seg>
+      </tuv>
+      <tuv xml:lang="nl">
+        <seg>en</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>e</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>och</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>和</seg>
+      </tuv>
+    </tu>
+    <tu tuid="or">
+      <tuv xml:lang="de">
+        <seg>oder</seg>
+      </tuv>
+      <tuv xml:lang="en-GB">
+        <seg>or</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>o</seg>
+      </tuv>
+      <tuv xml:lang="fi">
+        <seg>tai</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>ou</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <seg>o</seg>
+      </tuv>
+      <tuv xml:lang="nb">
+        <seg>eller</seg>
+      </tuv>
+      <tuv xml:lang="nl">
+        <seg>of</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>ou</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>eller</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>或</seg>
+      </tuv>
+    </tu>
+    <tu tuid="product">
+      <tuv xml:lang="de">
+        <note>FIXME:</note>
+        <seg>Product</seg>
+      </tuv>
+      <tuv xml:lang="en-GB">
+        <seg>Product Code</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <note>FIXME:</note>
+        <seg>Product</seg>
+      </tuv>
+      <tuv xml:lang="fi">
+        <note>FIXME:</note>
+        <seg>Product</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <note>FIXME:</note>
+        <seg>Product</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <note>FIXME:</note>
+        <seg>Product</seg>
+      </tuv>
+      <tuv xml:lang="nb">
+        <note>FIXME:</note>
+        <seg>Product</seg>
+      </tuv>
+      <tuv xml:lang="nl">
+        <note>FIXME:</note>
+        <seg>Product</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <note>FIXME:</note>
+        <seg>Product</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <note>FIXME:</note>
+        <seg>Product</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <note>FIXME:</note>
+        <seg>Product</seg>
+      </tuv>
+    </tu>
+    <tu tuid="name">
+      <tuv xml:lang="de">
+        <seg>Name</seg>
+      </tuv>
+      <tuv xml:lang="en-GB">
+        <seg>Name</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nombre</seg>
+      </tuv>
+      <tuv xml:lang="fi">
+        <note>FIXME:</note>
+        <seg>Name</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Nom</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <note>FIXME:</note>
+        <seg>Name</seg>
+      </tuv>
+      <tuv xml:lang="nb">
+        <note>FIXME:</note>
+        <seg>Name</seg>
+      </tuv>
+      <tuv xml:lang="nl">
+        <note>FIXME:</note>
+        <seg>Name</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <note>FIXME:</note>
+        <seg>Name</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <note>FIXME:</note>
+        <seg>Name</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <note>FIXME:</note>
+        <seg>Name</seg>
+      </tuv>
+    </tu>
+    <tu tuid="version">
+      <tuv xml:lang="de">
+        <seg>Version</seg>
+      </tuv>
+      <tuv xml:lang="en-GB">
+        <seg>Version</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Revisión</seg>
+      </tuv>
+      <tuv xml:lang="fi">
+        <seg>Versio</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Version</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <seg>Revisione</seg>
+      </tuv>
+      <tuv xml:lang="nb">
+        <seg>Revisjon</seg>
+      </tuv>
+      <tuv xml:lang="nl">
+        <seg>Herziening</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>Revisão</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Revision</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>修订</seg>
+      </tuv>
+    </tu>
+    <tu tuid="date">
+      <tuv xml:lang="de">
+        <seg>Veröffentlicht</seg>
+      </tuv>
+      <tuv xml:lang="en-GB">
+        <seg>Date</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Fecha de publicación</seg>
+      </tuv>
+      <tuv xml:lang="fi">
+        <seg>Julkaisupäivä</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Date de publication</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <seg>Data di pubblicazione</seg>
+      </tuv>
+      <tuv xml:lang="nb">
+        <note>FIXME:</note>
+        <seg>Date</seg>
+      </tuv>
+      <tuv xml:lang="nl">
+        <seg>Publicatie datum</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>Data de publicação</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <note>FIXME:</note>
+        <seg>Date</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>出版日期</seg>
+      </tuv>
+    </tu>
+    <tu tuid="author">
+      <tuv xml:lang="de">
+        <seg>Autor</seg>
+      </tuv>
+      <tuv xml:lang="en-GB">
+        <seg>Author</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Autor</seg>
+      </tuv>
+      <tuv xml:lang="fi">
+        <seg>Tekijä</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Auteur</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <seg>Autore</seg>
+      </tuv>
+      <tuv xml:lang="nb">
+        <note>FIXME:</note>
+        <seg>Author</seg>
+      </tuv>
+      <tuv xml:lang="nl">
+        <seg>Auteur</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>Autor</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <note>FIXME:</note>
+        <seg>Author</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>作者</seg>
+      </tuv>
+    </tu>
+    <tu tuid="detail">
+      <tuv xml:lang="de">
+        <seg>Beschreibung</seg>
+      </tuv>
+      <tuv xml:lang="en-GB">
+        <seg>Details</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Descripción</seg>
+      </tuv>
+      <tuv xml:lang="fi">
+        <note>FIXME:</note>
+        <seg>Details</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Description</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <note>FIXME:</note>
+        <seg>Details</seg>
+      </tuv>
+      <tuv xml:lang="nb">
+        <note>FIXME:</note>
+        <seg>Details</seg>
+      </tuv>
+      <tuv xml:lang="nl">
+        <note>FIXME:</note>
+        <seg>Details</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <note>FIXME:</note>
+        <seg>Details</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <note>FIXME:</note>
+        <seg>Details</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <note>FIXME:</note>
+        <seg>Details</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>

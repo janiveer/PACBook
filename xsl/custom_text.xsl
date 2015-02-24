@@ -37,6 +37,7 @@
                 xmlns:dcterms="http://purl.org/dc/terms/"
                 exclude-result-prefixes="data pac xd"
                 version="1.1">
+
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:include href="common/CommonFunctions.xsl"/>
 
@@ -265,20 +266,6 @@
 
 	<xd:doc>
 		=======
-		KeyCaps
-
-		TODO: Delete
-		=======
-	</xd:doc>
-	<xsl:template match="db:keycap[@function]">
-		<xsl:copy>
-			<xsl:copy-of select="@*"/>
-			<xsl:value-of select="pac:local(pac:lang(), 'keycap', @function)"/>
-		</xsl:copy>
-	</xsl:template>
-
-	<xd:doc>
-		=======
 		Numbers
 		=======
 		If the content of the element is a number,
@@ -294,7 +281,7 @@
 				<xsl:otherwise>
 					<xsl:variable name="my.lang" select="pac:lang()"/>
 					<xsl:variable name="my.format">
-						<xsl:value-of select="document('../data/DataLocales.xml')//data:num-form[@lang=$my.lang]"/>
+						<xsl:value-of select="document('data/DataFormats.xml')//data:num-form[@lang=$my.lang]"/>
 					</xsl:variable>
 					<xsl:value-of select="format-number(., $my.format, $my.lang)"/>
 				</xsl:otherwise>
@@ -604,17 +591,6 @@
 				</xsl:element>
 			</xsl:element>
 		</xsl:if>
-	</xsl:template>
-
-	<xd:doc>
-		==================
-		Date / Time Stamps
-
-		TODO: Delete
-		==================
-	</xd:doc>
-	<xsl:template match="processing-instruction('dbtimestamp')">
-		<xsl:value-of select="pac:date(pac:lang(), pac:pseudo-attrib('format'))"/>
 	</xsl:template>
 
 	<xd:doc>

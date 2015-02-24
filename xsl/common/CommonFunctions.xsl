@@ -37,14 +37,9 @@
                 extension-element-prefixes="func"
                 exclude-result-prefixes="func exsl date str xd data pac db xl l tmx dc rdf saxon"
                 version="1.0">
+
 	<xsl:variable name="strPath" select="'http://docbook.sourceforge.net/release/xsl-ns/current/common/'"/>
 	<xsl:variable name="Labels" select="'../data/DataLabels.xml'"/>
-	<data:lang name="en-GB" fallback="en"/>
-	<data:lang name="en-US" fallback="en"/>
-	<data:lang name="mis"   fallback="en"/>
-	<data:lang name="und"   fallback="en"/>
-	<data:lang name="mul"   fallback="en"/>
-	<data:lang name="zxx"   fallback="en"/>
 	<xsl:param name="abcBlock" select="'AÁÀÂÄÁÀÂÄÅÅÆÆBCÇÇDEÉÈÊËÉÈÊËFGHIÍÌÎÏÍÌÎÏJKLMNÑÑOÓÒÔÖÓÒÔÖØØŒŒPQRSTUÚÙÛÜÚÙÛÜVWXYÝỲŶŸÝỲŶŸZ'"/>
 	<xsl:param name="abcSmall" select="'aáàâäáàâäååææbcççdeéèêëéèêëfghiíìîïíìîïjklmnññoóòôöóòôöøøœœpqrstuúùûüúùûüvwxyýỳŷÿýỳŷÿz'"/>
 
@@ -70,49 +65,6 @@
 	<func:function name="pac:lc">
 		<xsl:param name="strText"/>
 		<func:result select="translate($strText, $abcBlock, $abcSmall)"/>
-	</func:function>
-
-	<xd:doc>
-		*******************************************************
-		pac:local('language', 'context', 'template')
-
-		Opens DataLabels.xml and the DocBook XSL localisation
-		file for the given language and returns the text
-		associated with the given context and given template.
-
-		TODO: Delete
-		*******************************************************
-	</xd:doc>
-	<func:function name="pac:local">
-		<xsl:param name="strLang"/>
-		<xsl:param name="strContext"/>
-		<xsl:param name="strTemplate"/>
-		<xsl:variable name="strName">
-			<xsl:value-of select="pac:fallback($strLang)"/>
-		</xsl:variable>
-		<xsl:variable name="strDoc">
-			<xsl:value-of select="concat($strPath, $strName, '.xml')"/>
-		</xsl:variable>
-		<xsl:variable name="strStock">
-			<xsl:value-of select="document($strDoc)//l:context[@name=$strContext]/l:template[@name=$strTemplate]/@text"/>
-		</xsl:variable>
-		<xsl:variable name="strCustom">
-			<xsl:value-of select="document($Labels)//l:l10n[@language=$strName]/l:context[@name=$strContext]/l:template[@name=$strTemplate]/@text"/>
-		</xsl:variable>
-		<xsl:variable name="strResult">
-			<xsl:choose>
-				<xsl:when test="not($strCustom='')">
-					<xsl:value-of select="$strCustom"/>
-				</xsl:when>
-				<xsl:when test="not($strStock='')">
-					<xsl:value-of select="$strStock"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="$strTemplate"/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
-		<func:result select="$strResult"/>
 	</func:function>
 
 	<xd:doc>
@@ -283,30 +235,6 @@
 
 	<xd:doc>
 		*******************************************************
-		pac:fallback('language')
-
-		Replaces language name with fallback language name
-
-		TODO: Delete
-		*******************************************************
-	</xd:doc>
-	<func:function name="pac:fallback">
-		<xsl:param name="strLang"/>
-		<xsl:variable name="strResult">
-			<xsl:choose>
-				<xsl:when test="document('')//data:lang[@name=$strLang]">
-					<xsl:value-of select="document('')//data:lang[@name=$strLang]/@fallback"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="$strLang"/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
-		<func:result select="$strResult"/>
-	</func:function>
-
-	<xd:doc>
-		*******************************************************
 		pac:pseudo-attrib('name')
 
 		Returns the value of the specified pseudo-attribute.
@@ -317,84 +245,6 @@
 		<xsl:variable name="strResult" select="substring-before(substring-after(., concat($strName, '=&quot;')), '&quot;')"/>
 		<func:result select="$strResult"/>
 	</func:function>
-
-	<xd:doc>
-		*******************************************************
-		pac:date('language', 'format')
-
-		Renders the current date in the specified language
-		using the specified format.
-
-		TODO: Delete
-		*******************************************************
-	</xd:doc>
-	<func:function name="pac:date">
-		<xsl:param name="strLang"/>
-		<xsl:param name="strFormat"/>
-		<xsl:variable name="strYear" select="date:year()"/>
-		<xsl:variable name="strMonth" select="date:month-name()"/>
-		<xsl:variable name="strAbbrev" select="date:month-abbreviation()"/>
-		<xsl:variable name="strResult">
-			<xsl:choose>
-				<xsl:when test="not($strFormat='')">
-					<xsl:choose>
-						<xsl:when test="function-available('str:tokenize')">
-							<xsl:for-each select="str:tokenize($strFormat, ' ')">
-								<xsl:call-template name="pac:_date">
-									<xsl:with-param name="strLang" select="$strLang"/>
-									<xsl:with-param name="strYear" select="$strYear"/>
-									<xsl:with-param name="strMonth" select="$strMonth"/>
-									<xsl:with-param name="strAbbrev" select="$strAbbrev"/>
-								</xsl:call-template>
-							</xsl:for-each>
-						</xsl:when>
-						<xsl:when test="function-available('saxon:tokenize')">
-							<xsl:for-each select="saxon:tokenize($strFormat, ' ')">
-								<xsl:call-template name="pac:_date">
-									<xsl:with-param name="strLang" select="$strLang"/>
-									<xsl:with-param name="strYear" select="$strYear"/>
-									<xsl:with-param name="strMonth" select="$strMonth"/>
-									<xsl:with-param name="strAbbrev" select="$strAbbrev"/>
-								</xsl:call-template>
-							</xsl:for-each>
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:message terminate="yes">
-								<xsl:text>ERROR: Tokenize function not available.</xsl:text>
-							</xsl:message>
-						</xsl:otherwise>
-					</xsl:choose>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="concat($strMonth, ' ', $strYear)"/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
-		<func:result select="$strResult"/>
-	</func:function>
-	<xsl:template name="pac:_date">
-		<xsl:param name="strLang"/>
-		<xsl:param name="strYear"/>
-		<xsl:param name="strMonth"/>
-		<xsl:param name="strAbbrev"/>
-		<xsl:choose>
-			<xsl:when test=".='b'">
-				<xsl:value-of select="pac:local($strLang, 'datetime-abbrev', $strAbbrev)"/>
-			</xsl:when>
-			<xsl:when test=".='B'">
-				<xsl:value-of select="pac:local($strLang, 'datetime-full', $strMonth)"/>
-			</xsl:when>
-			<xsl:when test=".='Y'">
-				<xsl:value-of select="$strYear"/>
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:value-of select="."/>
-			</xsl:otherwise>
-		</xsl:choose>
-		<xsl:if test="position() != last()">
-			<xsl:value-of select="' '"/>
-		</xsl:if>
-	</xsl:template>
 
 	<xd:doc>
 		*******************************************************
