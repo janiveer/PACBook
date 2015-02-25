@@ -3675,6 +3675,36 @@
       </div>
       <div xml:lang="es">
         <head>Español</head>
+        <entry n="y">
+          <note>Usage 'I' indicates form used before an initial 'I'</note>
+          <form>
+            <gramGrp>
+              <usg value="C A O"/>
+            </gramGrp>
+            <orth>y</orth>
+          </form>
+          <form>
+            <gramGrp>
+              <usg value="I"/>
+            </gramGrp>
+            <orth>e</orth>
+          </form>
+        </entry>
+        <entry n="o">
+          <note>Usage 'O' indicates form used before an initial 'O'</note>
+          <form>
+            <gramGrp>
+              <usg value="C A I"/>
+            </gramGrp>
+            <orth>o</orth>
+          </form>
+          <form>
+            <gramGrp>
+              <usg value="O"/>
+            </gramGrp>
+            <orth>u</orth>
+          </form>
+        </entry>
         <entry n="un">
           <form>
             <gramGrp>
@@ -3702,100 +3732,100 @@
           </form>
         </entry>
         <entry n="el">
-          <note>Usage 'V' indicates form used before a stressed initial 'A'</note>
+          <note>Usage 'A' indicates form used before a stressed initial 'A'</note>
           <form>
             <gramGrp>
-              <usg value="C V"/><gen value="m"/><num value="sg"/>
+              <usg value="C A I O"/><gen value="m"/><num value="sg"/>
             </gramGrp>
             <orth>el</orth>
           </form>
           <form>
             <gramGrp>
-              <usg value="C"/><gen value="f"/><num value="sg"/>
+              <usg value="C I O"/><gen value="f"/><num value="sg"/>
             </gramGrp>
             <orth>la</orth>
           </form>
           <form>
             <gramGrp>
-              <usg value="V"/><gen value="f"/><num value="sg"/>
+              <usg value="A"/><gen value="f"/><num value="sg"/>
             </gramGrp>
             <orth>el</orth>
           </form>
           <form>
             <gramGrp>
-              <usg value="C V"/><gen value="m"/><num value="pl"/>
+              <usg value="C A I O"/><gen value="m"/><num value="pl"/>
             </gramGrp>
             <orth>los</orth>
           </form>
           <form>
             <gramGrp>
-              <usg value="C V"/><gen value="f"/><num value="pl"/>
+              <usg value="C A I O"/><gen value="f"/><num value="pl"/>
             </gramGrp>
             <orth>las</orth>
           </form>
         </entry>
         <entry n="del">
-          <note>Usage 'V' indicates form used before a stressed initial 'A'</note>
+          <note>Usage 'A' indicates form used before a stressed initial 'A'</note>
           <form>
             <gramGrp>
-              <usg value="C V"/><gen value="m"/><num value="sg"/>
+              <usg value="C A I O"/><gen value="m"/><num value="sg"/>
             </gramGrp>
             <orth>del</orth>
           </form>
           <form>
             <gramGrp>
-              <usg value="C"/><gen value="f"/><num value="sg"/>
+              <usg value="C I O"/><gen value="f"/><num value="sg"/>
             </gramGrp>
             <orth>de la</orth>
           </form>
           <form>
             <gramGrp>
-              <usg value="V"/><gen value="f"/><num value="sg"/>
+              <usg value="A"/><gen value="f"/><num value="sg"/>
             </gramGrp>
             <orth>del</orth>
           </form>
           <form>
             <gramGrp>
-              <usg value="C V"/><gen value="m"/><num value="pl"/>
+              <usg value="C A I O"/><gen value="m"/><num value="pl"/>
             </gramGrp>
             <orth>de los</orth>
           </form>
           <form>
             <gramGrp>
-              <usg value="C V"/><gen value="f"/><num value="pl"/>
+              <usg value="C A I O"/><gen value="f"/><num value="pl"/>
             </gramGrp>
             <orth>de las</orth>
           </form>
         </entry>
         <entry n="al">
-          <note>Usage 'V' indicates form used before a stressed initial 'A'</note>
+          <note>Usage 'A' indicates form used before a stressed initial 'A'</note>
           <form>
             <gramGrp>
-              <usg value="C V"/><gen value="m"/><num value="sg"/>
+              <usg value="C A I O"/><gen value="m"/><num value="sg"/>
             </gramGrp>
             <orth>al</orth>
           </form>
           <form>
             <gramGrp>
-              <usg value="C"/><gen value="f"/><num value="sg"/>
+              <usg value="C I O"/><gen value="f"/><num value="sg"/>
             </gramGrp>
             <orth>a la</orth>
           </form>
           <form>
             <gramGrp>
-              <usg value="V"/><gen value="f"/><num value="sg"/>
+              <usg value="A"/><gen value="f"/><num value="sg"/>
             </gramGrp>
             <orth>al</orth>
           </form>
           <form>
             <gramGrp>
-              <usg value="C V"/><gen value="m"/><num value="pl"/>
+              <usg value="C A I O"/><gen value="m"/><num value="pl"/>
             </gramGrp>
             <orth>a los</orth>
           </form>
           <form>
             <gramGrp>
-              <usg value="C V"/><gen value="f"/><num value="pl"/>
+              <usg value="C A I O"/><gen value="f"/><num value="pl"/>
             </gramGrp>
             <orth>a las</orth>
           </form>
@@ -4862,6 +4892,36 @@
       </div>
       <div xml:lang="it">
         <head>Italiano</head>
+        <entry n="e">
+          <note>Usage 'S' indicates form used before an initial impure S</note>
+          <form>
+            <gramGrp>
+              <usg value="C S"/>
+            </gramGrp>
+            <orth>e</orth>
+          </form>
+          <form>
+            <gramGrp>
+              <usg value="V"/>
+            </gramGrp>
+            <orth>ed</orth>
+          </form>
+        </entry>
+        <entry n="o">
+          <note>Usage 'S' indicates form used before an initial impure S</note>
+          <form>
+            <gramGrp>
+              <usg value="C S"/>
+            </gramGrp>
+            <orth>o</orth>
+          </form>
+          <form>
+            <gramGrp>
+              <usg value="V"/>
+            </gramGrp>
+            <orth>od</orth>
+          </form>
+        </entry>
         <entry n="il">
           <note>For the singular form, there must be no space between the wordasword and the following word in the source document.</note>
           <form>
@@ -4884,13 +4944,7 @@
           </form>
           <form>
             <gramGrp>
-              <usg value="C"/><gen value="f"/><num value="sg"/>
-            </gramGrp>
-            <orth>la </orth>
-          </form>
-          <form>
-            <gramGrp>
-              <usg value="S"/><gen value="f"/><num value="sg"/>
+              <usg value="C S"/><gen value="f"/><num value="sg"/>
             </gramGrp>
             <orth>la </orth>
           </form>
@@ -4908,31 +4962,13 @@
           </form>
           <form>
             <gramGrp>
-              <usg value="S"/><gen value="m"/><num value="pl"/>
+              <usg value="S V"/><gen value="m"/><num value="pl"/>
             </gramGrp>
             <orth>gli</orth>
           </form>
           <form>
             <gramGrp>
-              <usg value="V"/><gen value="m"/><num value="pl"/>
-            </gramGrp>
-            <orth>gli</orth>
-          </form>
-          <form>
-            <gramGrp>
-              <usg value="C"/><gen value="f"/><num value="pl"/>
-            </gramGrp>
-            <orth>le</orth>
-          </form>
-          <form>
-            <gramGrp>
-              <usg value="S"/><gen value="f"/><num value="pl"/>
-            </gramGrp>
-            <orth>le</orth>
-          </form>
-          <form>
-            <gramGrp>
-              <usg value="V"/><gen value="f"/><num value="pl"/>
+              <usg value="C S V"/><gen value="f"/><num value="pl"/>
             </gramGrp>
             <orth>le</orth>
           </form>
