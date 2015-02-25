@@ -24,15 +24,15 @@
           creationtoolversion="undefined"
           datatype="xml"
           segtype="phrase"
-          adminlang="en-GB"
-          srclang="en-GB"
+          adminlang="en"
+          srclang="en"
           o-tmf="undefined"/>
   <body>
     <tu tuid="links">
       <tuv xml:lang="de">
         <seg>Verweisen wir auf die folgenden Abschnitte:</seg>
       </tuv>
-      <tuv xml:lang="en-GB">
+      <tuv xml:lang="en">
         <seg>See the following sections:</seg>
       </tuv>
       <tuv xml:lang="es">
@@ -72,7 +72,7 @@
       <tuv xml:lang="de">
         <seg>Wichtig</seg>
       </tuv>
-      <tuv xml:lang="en-GB">
+      <tuv xml:lang="en">
         <seg>Important</seg>
       </tuv>
       <tuv xml:lang="es">
@@ -107,7 +107,7 @@
       <tuv xml:lang="de">
         <seg>Vorsicht</seg>
       </tuv>
-      <tuv xml:lang="en-GB">
+      <tuv xml:lang="en">
         <seg>Caution</seg>
       </tuv>
       <tuv xml:lang="es">
@@ -142,7 +142,7 @@
       <tuv xml:lang="de">
         <seg>Hinweise</seg>
       </tuv>
-      <tuv xml:lang="en-GB">
+      <tuv xml:lang="en">
         <seg>Notes</seg>
       </tuv>
       <tuv xml:lang="es">
@@ -177,7 +177,7 @@
       <tuv xml:lang="de">
         <seg>Hinweis</seg>
       </tuv>
-      <tuv xml:lang="en-GB">
+      <tuv xml:lang="en">
         <seg>Note</seg>
       </tuv>
       <tuv xml:lang="es">
@@ -212,7 +212,7 @@
       <tuv xml:lang="de">
         <seg>Tipps</seg>
       </tuv>
-      <tuv xml:lang="en-GB">
+      <tuv xml:lang="en">
         <seg>Tips</seg>
       </tuv>
       <tuv xml:lang="es">
@@ -247,7 +247,7 @@
       <tuv xml:lang="de">
         <seg>Tipp</seg>
       </tuv>
-      <tuv xml:lang="en-GB">
+      <tuv xml:lang="en">
         <seg>Tip</seg>
       </tuv>
       <tuv xml:lang="es">
@@ -282,7 +282,7 @@
       <tuv xml:lang="de">
         <seg>WARNUNG</seg>
       </tuv>
-      <tuv xml:lang="en-GB">
+      <tuv xml:lang="en">
         <seg>WARNING</seg>
       </tuv>
       <tuv xml:lang="es">
@@ -317,11 +317,11 @@
       <tuv xml:lang="de">
         <seg>und</seg>
       </tuv>
-      <tuv xml:lang="en-GB">
+      <tuv xml:lang="en">
         <seg>and</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg><![CDATA[<wordasword>]]>y<![CDATA[</wordasword>]]></seg>
+        <seg><![CDATA[<wordasword>y</wordasword>]]></seg>
       </tuv>
       <tuv xml:lang="fi">
         <seg>ja</seg>
@@ -330,7 +330,7 @@
         <seg>et</seg>
       </tuv>
       <tuv xml:lang="it">
-        <seg><![CDATA[<wordasword>]]>e<![CDATA[</wordasword>]]></seg>
+        <seg><![CDATA[<wordasword>e</wordasword>]]></seg>
       </tuv>
       <tuv xml:lang="nb">
         <seg>og</seg>
@@ -352,11 +352,11 @@
       <tuv xml:lang="de">
         <seg>oder</seg>
       </tuv>
-      <tuv xml:lang="en-GB">
+      <tuv xml:lang="en">
         <seg>or</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg><![CDATA[<wordasword>]]>o<![CDATA[</wordasword>]]></seg>
+        <seg><![CDATA[<wordasword>o</wordasword>]]></seg>
       </tuv>
       <tuv xml:lang="fi">
         <seg>tai</seg>
@@ -365,7 +365,7 @@
         <seg>ou</seg>
       </tuv>
       <tuv xml:lang="it">
-        <seg><![CDATA[<wordasword>]]>o<![CDATA[</wordasword>]]></seg>
+        <seg><![CDATA[<wordasword>o</wordasword>]]></seg>
       </tuv>
       <tuv xml:lang="nb">
         <seg>eller</seg>
@@ -387,7 +387,7 @@
       <tuv xml:lang="de">
         <seg>Produkt-Code</seg>
       </tuv>
-      <tuv xml:lang="en-GB">
+      <tuv xml:lang="en">
         <seg>Product Code</seg>
       </tuv>
       <tuv xml:lang="es">
@@ -429,7 +429,7 @@
       <tuv xml:lang="de">
         <seg>Name</seg>
       </tuv>
-      <tuv xml:lang="en-GB">
+      <tuv xml:lang="en">
         <seg>Name</seg>
       </tuv>
       <tuv xml:lang="es">
@@ -470,7 +470,7 @@
       <tuv xml:lang="de">
         <seg>Version</seg>
       </tuv>
-      <tuv xml:lang="en-GB">
+      <tuv xml:lang="en">
         <seg>Version</seg>
       </tuv>
       <tuv xml:lang="es">
@@ -505,7 +505,7 @@
       <tuv xml:lang="de">
         <seg>Datum</seg>
       </tuv>
-      <tuv xml:lang="en-GB">
+      <tuv xml:lang="en">
         <seg>Date</seg>
       </tuv>
       <tuv xml:lang="es">
@@ -542,7 +542,7 @@
       <tuv xml:lang="de">
         <seg>Autor</seg>
       </tuv>
-      <tuv xml:lang="en-GB">
+      <tuv xml:lang="en">
         <seg>Author</seg>
       </tuv>
       <tuv xml:lang="es">
@@ -579,7 +579,7 @@
       <tuv xml:lang="de">
         <seg>Beschreibung</seg>
       </tuv>
-      <tuv xml:lang="en-GB">
+      <tuv xml:lang="en">
         <seg>Details</seg>
       </tuv>
       <tuv xml:lang="es">
