@@ -27,6 +27,7 @@
 ]>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:exsl="http://exslt.org/common"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
@@ -35,7 +36,7 @@
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:dcterms="http://purl.org/dc/terms/"
-                exclude-result-prefixes="data pac xd"
+                exclude-result-prefixes="data pac xd exsl"
                 version="1.1">
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>

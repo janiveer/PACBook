@@ -36,7 +36,7 @@
                 xmlns:saxon="http://icl.com/saxon"
                 extension-element-prefixes="func"
                 exclude-result-prefixes="func exsl date str xd data pac db xl l tmx dc rdf saxon"
-                version="1.0">
+                version="1.1">
 
 	<xsl:variable name="Labels" select="'../data/DataLabels.xml'"/>
 	<xsl:param name="abcBlock" select="'AÁÀÂÄÅÆBCÇDEÉÈÊËFGHIÍÌÎÏJKLMNÑOÓÒÔÖØŒPQRSTUÚÙÛÜVWXYÝỲŶŸZ'"/>
@@ -83,15 +83,15 @@
 			<xsl:value-of select="document($Labels)//tmx:header/@srclang"/>
 		</xsl:variable>
 		<xsl:variable name="rtfUnit">
-			<xsl:value-of select="document($Labels)//tmx:tu[@tuid=$strTUID]"/>
+			<xsl:copy-of select="document($Labels)//tmx:tu[@tuid=$strTUID]"/>
 		</xsl:variable>
 		<xsl:variable name="strCustom">
 			<xsl:choose>
-				<xsl:when test="$rtfUnit/tmx:tuv[@xml:lang=$strLang]">
-					<xsl:value-of select="$rtfUnit/tmx:tuv[@xml:lang=$strLang]/tmx:seg" disable-output-escaping="yes"/>
+				<xsl:when test="$rtfUnit//tmx:tuv[@xml:lang=$strLang]">
+					<xsl:value-of select="$rtfUnit//tmx:tuv[@xml:lang=$strLang]/tmx:seg"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:value-of select="$rtfUnit/tmx:tuv[@xml:lang=$srcLang]/tmx:seg" disable-output-escaping="yes"/>
+					<xsl:value-of select="$rtfUnit//tmx:tuv[@xml:lang=$srcLang]/tmx:seg"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
