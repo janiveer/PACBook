@@ -4893,7 +4893,7 @@
       <div xml:lang="it">
         <head>Italiano</head>
         <entry n="e">
-          <note>Usage 'S' indicates form used before an initial impure S</note>
+          <note>Usage 'S' indicates form used before an initial impure consonant</note>
           <form>
             <gramGrp>
               <usg value="C S"/>
@@ -4908,7 +4908,7 @@
           </form>
         </entry>
         <entry n="o">
-          <note>Usage 'S' indicates form used before an initial impure S</note>
+          <note>Usage 'S' indicates form used before an initial impure consonant</note>
           <form>
             <gramGrp>
               <usg value="C S"/>
