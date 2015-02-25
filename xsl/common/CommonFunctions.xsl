@@ -71,14 +71,29 @@
 		pac:label('language', 'tuid')
 
 		Opens DataLabels.xml and returns the segment
-		associated with the given translation unit ID.
+		associated with the given language and trans unit ID.
+		If the given trans unit does not have a variant
+		in the given language, the source language is used.
 		*******************************************************
 	</xd:doc>
 	<func:function name="pac:label">
 		<xsl:param name="strLang"/>
 		<xsl:param name="strTUID"/>
+		<xsl:variable name="srcLang">
+			<xsl:value-of select="document($Labels)//tmx:header/@srclang"/>
+		</xsl:variable>
+		<xsl:variable name="rtfUnit">
+			<xsl:value-of select="document($Labels)//tmx:tu[@tuid=$strTUID]"/>
+		</xsl:variable>
 		<xsl:variable name="strCustom">
-			<xsl:value-of select="document($Labels)//tmx:tu[@tuid=$strTUID]/tmx:tuv[@xml:lang=$strLang]/tmx:seg"/>
+			<xsl:choose>
+				<xsl:when test="$rtfUnit/tmx:tuv[@xml:lang=$strLang]">
+					<xsl:value-of select="$rtfUnit/tmx:tuv[@xml:lang=$strLang]/tmx:seg" disable-output-escaping="yes"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="$rtfUnit/tmx:tuv[@xml:lang=$srcLang]/tmx:seg" disable-output-escaping="yes"/>
+				</xsl:otherwise>
+			</xsl:choose>
 		</xsl:variable>
 		<xsl:variable name="strResult">
 			<xsl:choose>
