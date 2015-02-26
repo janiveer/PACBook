@@ -27,7 +27,6 @@
 ]>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:exsl="http://exslt.org/common"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
@@ -36,8 +35,8 @@
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:dcterms="http://purl.org/dc/terms/"
-                exclude-result-prefixes="data pac xd exsl"
-                version="1.1">
+                exclude-result-prefixes="data pac xd"
+                version="1.0">
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:include href="common/CommonFunctions.xsl"/>
@@ -393,6 +392,11 @@
 		============
 		Simple Lists
 		============
+		This uses disable-output-escaping to unescape the inline tags from DataLabels.
+		This is necessary because of the way TMX escapes inline markup. Saxon supports
+		disable-output-escaping only when writing to the final result tree. We know
+		that only conjunctions may contain inline markup, so it's only done here.
+		All in all, this is hideous. Need to move to XSLT 2.0 to get rid of this.
 	</xd:doc>
 	<xsl:template match="db:simplelist[@type='inline']">
 		<xsl:variable name="Conjunction">
@@ -410,7 +414,7 @@
 			<xsl:if test="position() != 1">
 				<xsl:choose>
 					<xsl:when test="position() = last()">
-						<xsl:value-of select="$Conjunction"/>
+						<xsl:value-of select="$Conjunction" disable-output-escaping="yes"/>
 						<xsl:text> </xsl:text>
 					</xsl:when>
 					<xsl:otherwise>
