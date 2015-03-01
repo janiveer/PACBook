@@ -27,12 +27,13 @@
                 xmlns:saxon="http://icl.com/saxon"
                 exclude-result-prefixes="pac saxon str xd"
                 version="1.1">
+
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="no"/>
 	<xsl:include href="common/CommonFunctions.xsl"/>
 
 	<xd:doc>
 		===========================================================
-		Stylesheet for processing orthography in docbook documents.
+		Stylesheet for processing orthography in XML documents.
 
 		This stylesheet sets marked text to the required case:
 		upper, lower, title or sentence. The document is then
@@ -44,6 +45,10 @@
 		=========
 		Recursion
 		=========
+		<xd:detail>Recurses through the document and copies each element. If any
+		element has the tei:oRef attribute, the respective mode templates are
+		applied to change the case of the text nodes in this element and all
+		descendent elements.</xd:detail>
 	</xd:doc>
 	<xsl:template match="*[@tei:oRef='uppercase']">
 		<xsl:copy>
@@ -80,6 +85,10 @@
 		==========
 		Upper case
 		==========
+		<xd:detail>Uses the pac:uc() function to change the case of text nodes to
+		upper case. This is applied to text in the current element and all
+		descendent elements, unless any descendent elements have a different
+		tei:oRef attribute.</xd:detail>
 	</xd:doc>
 	<xsl:template match="*[@tei:oRef]|processing-instruction()|comment()" mode="uc">
 		<xsl:apply-templates select="."/>
@@ -98,6 +107,10 @@
 		==========
 		Lower case
 		==========
+		<xd:detail>Uses the pac:lc() function to change the case of text nodes to
+		lower case. This is applied to text in the current element and all
+		descendent elements, unless any descendent elements have a different
+		tei:oRef attribute.</xd:detail>
 	</xd:doc>
 	<xsl:template match="*[@tei:oRef]|processing-instruction()|comment()" mode="lc">
 		<xsl:apply-templates select="."/>
@@ -116,6 +129,11 @@
 		==========
 		Title case
 		==========
+		<xd:detail>Splits the text into words (at spaces). If a word is not in the
+		$ShortWords list, uses the pac:uc() function to change the first character
+		of the word to upper case. This is applied to text nodes in the current
+		element and all descendent elements, unless any descendent elements have a
+		different tei:oRef attribute.</xd:detail>
 	</xd:doc>
 	<xsl:template match="*[@tei:oRef]|processing-instruction()|comment()" mode="tc">
 		<xsl:apply-templates select="."/>
@@ -170,6 +188,11 @@
 		=============
 		Sentence case
 		=============
+		<xd:detail>Finds the first text node child of the current element and uses
+		the pac:uc() function to change the first character of the word to upper
+		case. The rest of the text nodes in this element and all descendent elements
+		are left unchanged, unless any descendent elements have a different tei:oRef
+		attribute.</xd:detail>
 	</xd:doc>
 	<xsl:template match="*[@tei:oRef]|processing-instruction()|comment()" mode="sc">
 		<xsl:apply-templates select="."/>
@@ -193,6 +216,12 @@
 		</xsl:choose>
 	</xsl:template>
 
+	<xd:doc type="string">
+		<xd:short>Short Words</xd:short>
+		<xd:detail>List of short words that should not be capitalized in title case
+		text. English-only, since English is the only language among the supported
+		languages that uses title case.</xd:detail>
+	</xd:doc>
 	<xsl:param name="ShortWords">
 		<xsl:text>about above across after against along among amongst around as aside at before behind below beneath beside besides between beyond but by circa c. ca. down for from in inside into near of off on onto out over per plus pro qua than through throughout till to toward towards under until unto up upon versus vs. v. via with within without the an a this these that those and or but</xsl:text>
 	</xsl:param>
