@@ -45,10 +45,10 @@
 -->
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
-	<xsl:variable name="Lang" select="db:book/@xml:lang|db:article/@xml:lang"/>
+	<xsl:variable name="Lang" select="/*/@xml:lang"/>
 
 	<!-- Root -->
-	<xsl:template match="db:book|db:article">
+	<xsl:template match="/">
 		<xsl:if test="$Lang = ''">
 			<xsl:message terminate="yes">Input document has no xml:lang attribute.</xsl:message>
 		</xsl:if>
@@ -75,6 +75,7 @@
 				                $Attribute='linkend' or
 				                $Attribute='endterm' or
 				               ($Attribute='xl:href' and
+				                not(substring-after(., '#')='') and
 				                not(../@xl:role='http://schema.org/significantLink'))">
 					<xsl:value-of select="."/>
 					<xsl:text>.</xsl:text>
@@ -118,4 +119,5 @@
 	<xsl:template match="text()|processing-instruction()|comment()">
 		<xsl:copy-of select="."/>
 	</xsl:template>
+
 </xsl:stylesheet>
