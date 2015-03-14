@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<its:rules xmlns:its="http://www.w3.org/2005/11/its"
+           xmlns:db="http://docbook.org/ns/docbook"
+           version="2.0">
+	<its:withinTextRule withinText="no" selector="//db:title"/>
+	<its:withinTextRule withinText="no" selector="//db:titleabbrev">
+	<its:withinTextRule withinText="no" selector="//db:subtitle"/>
+	<its:withinTextRule withinText="no" selector="//db:bridgehead"/>
+	<its:withinTextRule withinText="no" selector="//db:para"/>
+	<its:withinTextRule withinText="no" selector="//db:primary"/>
+	<its:withinTextRule withinText="no" selector="//db:glossterm[parent::db:glossentry]"/>
+	<its:withinTextRule withinText="no" selector="//db:member[parent::db:simplelist[not(@type='inline')]]"/>
+	<its:withinTextRule withinText="no" selector="//db:term"/>
+	<its:withinTextRule withinText="no" selector="//db:imageobject[ancestor::db:mediaobject]"/>
+	<its:withinTextRule withinText="no" selector="//db:resource[parent::db:extendedlink]"/>
+	<its:withinTextRule withinText="no" selector="//db:keyword"/>
+	<its:withinTextRule withinText="no" selector="//db:seg"/>
+</its:rules>

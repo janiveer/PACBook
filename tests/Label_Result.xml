@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="http://www.jabadaw.com/PAC/files/Docbook.css" type="text/css"?><article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:its="http://www.w3.org/2005/11/its" xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2" xmlns:dita="http://dita.oasis-open.org/architecture/2005" xmlns:tei="http://www.tei-c.org/ns/1.0" xml:id="label_test" version="5.0-variant PACBook" xml:lang="en-GB">
+	<title>Label Test</title>
+	<warning>
+		<title its:translate="no">WARNING</title>
+		<para>This should have an English title!</para>
+	</warning>
+	<simplesect xml:lang="mul">
+		<title>Multiple Languages</title>
+		<important>
+			<title its:translate="no">Important</title>
+			<para>The quick brown fox jumps over the mouse, dog and cat.</para>
+		</important>
+	</simplesect>
+	<simplesect xml:lang="es">
+		<title>Español</title>
+		<note>
+			<title its:translate="no">Notas</title>
+			<para>Las Islas Baleares son Mallorca, Menorca &lt;wordasword&gt;y&lt;/wordasword&gt; <phrase tei:pron="I">Ibiza</phrase>.</para>
+			<para>Los turistas pueden visitar California, Washington &lt;wordasword&gt;o&lt;/wordasword&gt; <phrase tei:pron="O">Oregon</phrase>.</para>
+		</note>
+	</simplesect>
+</article>

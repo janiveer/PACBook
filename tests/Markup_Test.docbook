@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://www.jabadaw.com/PAC/files/Docbook.css" type="text/css"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:its="http://www.w3.org/2005/11/its"
+         xmlns:dita="http://dita.oasis-open.org/architecture/2005"
+         xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+         version="5.0-variant PACBook"
+         xml:lang="en-GB"
+         xml:id="fev"
+         status="draft">
+	<title><phrase dita:conref="FPP"/> Database Viewer</title>
+	<subtitle its:translate="no">User Guide</subtitle>
+	<info>
+		<rdf:RDF>
+			<rdf:Description dc:format="QSG_wide"/>
+			<rdf:Description dc:type="translations" xml:base="http://DBK/Topics/512_Series/.">
+				<dc:relation xml:lang="de"  rdf:resource="xlate/ac_de.xliff"/>
+				<dc:relation xml:lang="es"  rdf:resource="xlate/ac_es.xliff"/>
+				<dc:relation xml:lang="fr"  rdf:resource="xlate/ac_fr.xliff"/>
+				<dc:relation xml:lang="nb"  rdf:resource="xlate/ac_nb.xliff"/>
+				<dc:relation xml:lang="nl"  rdf:resource="xlate/ac_nl.xliff"/>
+				<dc:relation xml:lang="sv"  rdf:resource="xlate/ac_sv.xliff"/>
+				<dc:relation xml:lang="zh"  rdf:resource="xlate/ac_zh.xliff"/>
+				<dc:relation xml:lang="zxx" rdf:resource="xlate/ac_zxx.xliff"/>
+			</rdf:Description>
+			<rdf:Description dc:type="applicability">
+				<dcterms:references rdf:parseType="Resource">
+					<dc:subject rdf:parseType="Literal"><phrase dita:conref="FPP"/></dc:subject>
+					<dc:description>Access Controller</dc:description>
+				</dcterms:references>
+				<dcterms:references rdf:parseType="Resource">
+					<dc:subject>212 File Viewer</dc:subject>
+					<dc:description>Database Viewer</dc:description>
+				</dcterms:references>
+			</rdf:Description>
+		</rdf:RDF>
+		<copyright>
+			<year><?dbtimestamp format="Y"?></year>
+			<holder><phrase dita:conref="Full_Company"/></holder>
+		</copyright>
+		<authorgroup>
+			<author>
+				<orgname><phrase dita:conref="Full_Company"/></orgname>
+			</author>
+			<author>
+				<personname>
+					<firstname>Simon</firstname>
+					<surname>Dew</surname>
+				</personname>
+			</author>
+		</authorgroup>
+		<biblioid class="pubsnumber"><phrase dita:conref="TB"/>268</biblioid>
+		<edition>1.0</edition>
+		<releaseinfo><xi:include href="build.number" parse="text"/></releaseinfo>
+		<date><?dbtimestamp format="b Y"?></date>
+		<extendedlink xl:role="http://docbook.org/docs/transclusion">
+			<xi:include href="http://DBK/Reference/Access/Definitions.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:resource)"/>
+			<xi:include href="http://DBK/Topics/512_Series/Definitions.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:resource)"/>
+		</extendedlink>
+		<abstract>
+			<title>Subject</title>
+			<para>This document describes how to install and use the <phrase dita:conref="FPP"/> database viewer.</para>
+		</abstract>
+		<abstract>
+			<title>Products</title>
+			<?pac-applicability?>
+		</abstract>
+	</info>
+	<section xml:id="fev_intro">
+		<title>Introduction</title>
+		<para>The <phrase dita:conref="FPP"/> database viewer enables you to view a database exported from the <phrase dita:conref="FPP"/> access controller.</para>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/win_fev.png" format="PNG" depth="8.12cm" width="11.57cm" scalefit="1"/>
+			</imageobject>
+		</mediaobject>
+	</section>
+	<section xml:id="fev_install">
+		<title>Installation</title>
+		<procedure>
+			<?pac-keep-together always?>
+			<title>To install the database viewer:</title>
+			<step>
+				<para>Insert the <phrase dita:conref="FPP"/> USB drive into the PC.</para>
+			</step>
+			<step>
+				<para>The installation process should start automatically. If it doesn’t, open the USB drive in Windows Explorer and double-click on the <filename>Setup.exe</filename> file.</para>
+			</step>
+			<step>
+				<para>Follow the instructions on screen.</para>
+			</step>
+		</procedure>
+	</section>
+	<section xml:id="fev_start">
+		<title>Start the Database Viewer</title>
+		<procedure>
+			<?pac-keep-together always?>
+			<title>To start the <phrase dita:conref="FPP"/> database viewer:</title>
+			<step>
+				<stepalternatives>
+					<step>
+						<para>In the <guimenu>Start</guimenu> menu, choose the <guimenuitem><phrase dita:conref="FPP"/> Database Viewer</guimenuitem> command, or:</para>
+					</step>
+					<step>
+						<para>Double-click on the <guiicon><phrase dita:conref="FPP"/> Database Viewer</guiicon> icon on the Windows desktop, or:</para>
+					</step>
+					<step>
+						<para>Double-click on an <filename class="extension">FEV</filename> file.</para>
+					</step>
+				</stepalternatives>
+				<para>The <phrase dita:conref="FPP"/> database viewer starts and the <guilabel role="wintitle">Open</guilabel> dialog box is displayed so that you can open an <filename class="extension">FEV</filename> file. See <xref xl:href="#fev_files" xrefstyle="select: title"/>.</para>
+			</step>
+		</procedure>
+		<procedure>
+			<?pac-keep-together always?>
+			<title>To start the <phrase dita:conref="FPP"/> database viewer and open a file:</title>
+			<step>
+				<para>Double-click on an <filename class="extension">FEV</filename> file.</para>
+				<para>The <phrase dita:conref="FPP"/> database viewer starts and the selected file is opened.</para>
+			</step>
+		</procedure>
+	</section>
+	<section xml:id="fev_files">
+		<title>Open and Save Files</title>
+		<procedure>
+			<?pac-keep-together always?>
+			<title>To open a file:</title>
+			<step>
+				<stepalternatives>
+					<step>
+						<para>Choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Load</guimenuitem></menuchoice> command, or:</para>
+					</step>
+					<step>
+						<para>In the <guilabel>Select FEV file</guilabel> section, click on the <guibutton>...</guibutton> button.</para>
+					</step>
+				</stepalternatives>
+				<para>The <guilabel role="wintitle">Open</guilabel> dialog box appears.</para>
+			</step>
+			<step>
+				<para>Select the <filename class="extension">FEV</filename> file that you want to open.</para>
+			</step>
+			<step>
+				<para>Choose the <guibutton>Open</guibutton> button.</para>
+				<para>The <filename class="extension">FEV</filename> file is opened.</para>
+			</step>
+		</procedure>
+		<procedure revisionflag="deleted" revision="old">
+			<?pac-keep-together always?>
+			<title>To save a copy of the file:</title>
+			<step>
+				<para>Choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Export to FEV file</guimenuitem></menuchoice> command.</para>
+				<para>The <guilabel role="wintitle">Save As</guilabel> dialog box appears.</para>
+			</step>
+			<step>
+				<para>If necessary, select the location where you want to save the file.</para>
+			</step>
+			<step>
+				<para>Enter a name for the file.</para>
+			</step>
+			<step>
+				<para>Choose the <guibutton>Save</guibutton> button.</para>
+				<para>A copy of the file is saved. The original file remains open.</para>
+			</step>
+		</procedure>
+		<procedure>
+			<?pac-keep-together always?>
+			<title>To export a copy of the file to CSV format:</title>
+			<step>
+				<para>Choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Export to CSV file</guimenuitem></menuchoice> command.</para>
+			</step>
+			<step>
+				<para>In the submenu, choose the data you would like to export: <guimenuitem>All</guimenuitem>, <guimenuitem>Events</guimenuitem>, <guimenuitem>Keys</guimenuitem> or <guimenuitem>Config</guimenuitem>.</para>
+				<para>The <guilabel role="wintitle">Save As</guilabel> dialog box appears.</para>
+			</step>
+			<step>
+				<para>If necessary, select the location where you want to save the file.</para>
+			</step>
+			<step>
+				<para>Enter a name for the file.</para>
+			</step>
+			<step>
+				<para>Choose the <guibutton>Save</guibutton> button.</para>
+				<para>A copy of the specified data is saved in <filename class="extension">CSV</filename> format.</para>
+			</step>
+		</procedure>
+	</section>
+	<section xml:id="fev_ctrl">
+		<title>Controller Details</title>
+		<para>The <guilabel>212 controller details</guilabel> section shows information about the <phrase dita:conref="FPP"/> that generated this file.</para>
+		<variablelist>
+			<?pac-keep-together always?>
+			<varlistentry>
+				<term><guilabel>Serial number</guilabel></term>
+				<listitem>
+					<para>The serial number of the <phrase dita:conref="FPP"/>.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Product type</guilabel></term>
+				<listitem>
+					<para>The format of the database: <option>Commercial</option> or <option>Residential</option>.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Database schema</guilabel></term>
+				<listitem>
+					<para>The version number of the database schema.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Is a master</guilabel></term>
+				<listitem>
+					<para>Whether the <phrase dita:conref="FPP"/> that generated this file is configured as a master controller.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Uses HF tokens</guilabel></term>
+				<listitem>
+					<para>Whether the <phrase dita:conref="FPP"/> that generated this file uses HF tokens. See <xref xl:href="#fev_config" xrefstyle="select: title"/>.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</section>
+	<section xml:id="fev_display">
+		<title>Configure the Display</title>
+		<procedure>
+			<?pac-keep-together always?>
+			<title>To darken or lighten the colours in the current tab:</title>
+			<step>
+				<para>In the <guilabel>Colour intensity</guilabel> section:</para>
+				<stepalternatives>
+					<step>
+						<para>Drag the scroll box to the left to darken, or:</para>
+					</step>
+					<step>
+						<para>Drag the scroll box to the right to lighten.</para>
+					</step>
+				</stepalternatives>
+			</step>
+		</procedure>
+		<procedure>
+			<?pac-keep-together always?>
+			<title>To sort the entries in a list:</title>
+			<step>
+				<stepalternatives>
+					<step>
+						<para>To sort the list in ascending order, click on the heading of the column by which you want to sort, so the column heading contains a triangle pointing up (▲).</para>
+					</step>
+					<step>
+						<para>To sort the list in descending order, click again on the heading of the column by which you want to sort, so the column heading contains a triangle pointing down (▼).</para>
+					</step>
+				</stepalternatives>
+			</step>
+		</procedure>
+	</section>
+	<section xml:id="fev_search">
+		<title>Search</title>
+		<procedure>
+			<?pac-keep-together always?>
+			<title>To search for text in the current tab:</title>
+			<step>
+				<para>In the <guilabel>Search</guilabel> section, click in the <guibutton>Find text</guibutton> box.</para>
+			</step>
+			<step>
+				<para>Type the search text and press <keycap function="enter"/>.</para>
+				<para>If the text is found in the current tab, the first instance is highlighted in the current tab. The number of the currently selected instance and the total number of instances of the search text are displayed below the <guibutton>Find text</guibutton> box.</para>
+				<para>If the text is not found in the current tab, <guilabel>No matches</guilabel> is displayed below the <guibutton>Find text</guibutton> box.</para>
+			</step>
+		</procedure>
+		<procedure>
+			<?pac-keep-together always?>
+			<title>To select the next or previous occurrence of the search text:</title>
+			<step>
+				<stepalternatives>
+					<step>
+						<para>Click on the <guibutton>&lt;&lt;</guibutton> button to select the previous occurrence, or:</para>
+					</step>
+					<step>
+						<para>Click on the <guibutton>&gt;&gt;</guibutton> button to select the next occurrence.</para>
+					</step>
+				</stepalternatives>
+			</step>
+		</procedure>
+		<note>
+			<title its:translate="no"/>
+			<para>You cannot search for text in the <guilabel>Doors</guilabel> list.</para>
+		</note>
+	</section>
+	<section xml:id="fev_events">
+		<title>Events</title>
+		<para>The <guilabel>Events</guilabel> tab shows a list of events stored in the database.</para>
+		<variablelist>
+			<?pac-keep-together always?>
+			<varlistentry>
+				<term><guilabel>Date / time</guilabel></term>
+				<listitem>
+					<para>The date and time when the event occurred.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Description</guilabel></term>
+				<listitem>
+					<para>A description of the event.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Key number</guilabel></term>
+				<listitem>
+					<para>The number of the key associated with the event, if any.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Source</guilabel></term>
+				<listitem>
+					<para>The hardware location where the event originated, if any.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+		<bridgehead xml:id="fev_events_cats" renderas="sect2">Event Categories</bridgehead>
+		<para>In the <guilabel>Events</guilabel> list, different categories of event are colour coded.</para>
+		<variablelist>
+			<?pac-keep-together always?>
+			<varlistentry>
+				<term><guilabel>Alarms</guilabel></term>
+				<listitem>
+					<para>Armed alarm points and raised alarms are shown with a red background; disarmed alarm points and restored alarms are shown with a pink background.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Access</guilabel></term>
+				<listitem>
+					<para>Negative access events, e.g. access denied, are shown with a dark green background; positive access events, e.g. access granted, are shown with a light green background.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Comms</guilabel></term>
+				<listitem>
+					<para>Communication events, e.g. firmware downloads, are shown with a cyan background.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>System</guilabel></term>
+				<listitem>
+					<para>System events are shown with a blue background.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+		<para>The <guilabel>Event categories to display</guilabel> section enables you to hide or display categories of events.</para>
+		<itemizedlist>
+			<listitem>
+				<para>To hide a category of event, make sure the corresponding check box is empty.</para>
+			</listitem>
+			<listitem>
+				<para>To display a category of event, make sure the corresponding check box contains a tick.</para>
+			</listitem>
+			<listitem>
+				<para>To show all categories of events, choose the <guibutton>Select all</guibutton> button.</para>
+			</listitem>
+		</itemizedlist>
+		<bridgehead xml:id="fev_events_cols" renderas="sect2">Additional Columns</bridgehead>
+		<para>The <guilabel>Display additional columns</guilabel> section enables you to hide or display extra columns in the <guilabel>Events</guilabel> list.</para>
+		<variablelist>
+			<?pac-keep-together always?>
+			<varlistentry>
+				<term><guilabel>Event number</guilabel></term>
+				<listitem>
+					<para>The number of the event.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Category</guilabel></term>
+				<listitem>
+					<para>The event category: <option>Alarm (raised)</option>, <option>Alarm (restored)</option>, <option>Access (negative)</option>, <option>Access (positive)</option>, <option>Comms</option> or <option>System</option>. See <xref xl:href="#fev_events_cats" xrefstyle="select: title"/>.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+		<itemizedlist>
+			<listitem>
+				<para>To hide an additional column, make sure the corresponding check box is empty.</para>
+			</listitem>
+			<listitem>
+				<para>To display an additional column, make sure the corresponding check box contains a tick.</para>
+			</listitem>
+		</itemizedlist>
+	</section>
+	<section xml:id="fev_keys">
+		<title>Keys</title>
+		<para>The <guilabel>Keys</guilabel> tab shows a list of keys stored in the database.</para>
+		<variablelist>
+			<?pac-keep-together always?>
+			<varlistentry>
+				<term><guilabel>Type</guilabel></term>
+				<listitem>
+					<para>The type of key: <option>Administrator</option>, <option>Editor</option>, <option>User</option> or <option>Deleted</option>.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Active?</guilabel></term>
+				<listitem>
+					<para>Whether the key is active or not. This only applies to editor keys.</para>
+					<itemizedlist>
+						<listitem>
+							<formalpara>
+								<title>Active</title>
+								<para>The editor key is defined and in use.</para>
+							</formalpara>
+						</listitem>
+						<listitem>
+							<formalpara>
+								<title>Inactive</title>
+								<para>The editor key is defined but is not in use.</para>
+							</formalpara>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Key number</guilabel></term>
+				<listitem>
+					<para>In a commercial database, the number assigned to the key. In a residential database, the flat number and colour assigned to the key.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Code</guilabel></term>
+				<listitem>
+					<para>The key code.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>PIN</guilabel></term>
+				<listitem>
+					<para>The PIN associated with the key. PINs are usually hidden, i.e. displayed as a string of four asterisks. To display a PIN, click on it.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Access</guilabel></term>
+				<listitem>
+					<para>The doors which this key may access: <option>No access</option>, <option>Door 1</option>, <option>Door 2</option> or <option>Both doors</option>.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Time profile</guilabel></term>
+				<listitem>
+					<para>The time profile assigned to the key, if any.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Extra door time</guilabel></term>
+				<listitem>
+					<para>Whether the keyholder requires extra time to get through the door.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>First key open</guilabel></term>
+				<listitem>
+					<para>Whether the door remains unlocked after this key is used. The door will be locked when a key with first key open is presented again.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+		<para>In the <guilabel>Keys</guilabel> list, different types of key are colour coded.</para>
+		<variablelist>
+			<?pac-keep-together always?>
+			<varlistentry>
+				<term><guilabel>Administrator</guilabel></term>
+				<listitem>
+					<para>The administrator key is shown with a green background.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Editor</guilabel></term>
+				<listitem>
+					<para>Active editor keys are shown with a blue background; inactive editor keys are shown with a light grey background.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>User</guilabel></term>
+				<listitem>
+					<para>User keys are shown with a yellow background.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Deleted</guilabel></term>
+				<listitem>
+					<para>Deleted keys are shown with a red background.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</section>
+	<section xml:id="fev_config">
+		<title>Configuration</title>
+		<para>The <guilabel>Configuration</guilabel> tab shows a list of the doors and time profiles stored in the database.</para>
+		<bridgehead xml:id="fev_config_doors" renderas="sect2">Doors</bridgehead>
+		<variablelist>
+			<?pac-keep-together always?>
+			<varlistentry>
+				<term><guilabel>Door Number</guilabel></term>
+				<listitem>
+					<para>The number of the door: <option>Door 1</option> or <option>Door 2</option>.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Token type</guilabel></term>
+				<listitem>
+					<para>The type of tokens which this <phrase dita:conref="FPP"/> uses: <option>LF tokens</option> or <option>HF tokens</option>. See <xref xl:href="#fev_ctrl" xrefstyle="select: title"/>.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Lock release time (secs)</guilabel></term>
+				<listitem>
+					<para>The time (in seconds) the door is unlocked after a valid key has been presented to the reader.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Extra lock time (secs)</guilabel></term>
+				<listitem>
+					<para>The extra time (in seconds) allowed if the keyholder requires extra time to get through the door.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Door open time (secs)</guilabel></term>
+				<listitem>
+					<para>The time (in seconds) the door may be open, for the purposes of door monitoring. If the door is open for longer than the time specified here, a door left open alarm is triggered.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Time profile</guilabel></term>
+				<listitem>
+					<para>The time profile assigned to the door, if any.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>First key open</guilabel></term>
+				<listitem>
+					<para>If enabled, when a keyholder uses a key with first key open to open this door, the door remains unlocked.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Free exit enabled</guilabel></term>
+				<listitem>
+					<para>If enabled, users may open the door without using the RTE switch and a door forced alarm will not be generated; e.g. for use with emergency exits.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Set reset enabled</guilabel></term>
+				<listitem>
+					<para>If enabled, the door remains unlocked after a valid access using any key or when an RTE switch is pressed. The door will be locked when any key is presented or when an RTE switch is pressed again.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>RTE only</guilabel></term>
+				<listitem>
+					<para>Whether any readers are associated with this door.</para>
+					<itemizedlist>
+						<listitem>
+							<formalpara>
+								<title>On</title>
+								<para>No readers are associated with this door.</para>
+							</formalpara>
+						</listitem>
+						<listitem>
+							<formalpara>
+								<title>Off</title>
+								<para>Readers are associated with this door.</para>
+							</formalpara>
+						</listitem>
+					</itemizedlist>
+					<para>See <guilabel>Reader configuration</guilabel> below.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Anti‑passback</guilabel></term>
+				<listitem>
+					<para>The anti‑passback settings.</para>
+					<itemizedlist>
+						<listitem>
+							<formalpara>
+								<title>- (Hyphen)</title>
+								<para>No anti‑passback, i.e. a keyholder may pass through this door into the same area more than once consecutively.</para>
+							</formalpara>
+						</listitem>
+						<listitem>
+							<formalpara>
+								<title>Unlimited</title>
+								<para>Local anti‑passback, i.e. a keyholder may never pass through this door into the same area more than once consecutively.</para>
+							</formalpara>
+						</listitem>
+						<listitem>
+							<formalpara>
+								<title>2–30</title>
+								<para>Anti‑passback timeout, i.e. the time (in minutes) after which a keyholder may pass through this door into the same area again.</para>
+							</formalpara>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Reader configuration</guilabel></term>
+				<listitem>
+					<para>The number of readers associated with this door.</para>
+					<itemizedlist>
+						<listitem>
+							<formalpara>
+								<title>RTE only</title>
+								<para>0 readers.</para>
+							</formalpara>
+						</listitem>
+						<listitem>
+							<formalpara>
+								<title>Reader in, RTE out</title>
+								<para>1 reader.</para>
+							</formalpara>
+						</listitem>
+						<listitem>
+							<formalpara>
+								<title>Reader in, reader out</title>
+								<para>2 readers.</para>
+							</formalpara>
+						</listitem>
+					</itemizedlist>
+					<para>See <guilabel>RTE only</guilabel> above.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+		<bridgehead xml:id="fev_config_tp" renderas="sect2">Time Profiles</bridgehead>
+		<variablelist>
+			<?pac-keep-together always?>
+			<varlistentry>
+				<term><guilabel>ID</guilabel></term>
+				<listitem>
+					<para>The time profile ID number.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Active</guilabel></term>
+				<listitem>
+					<para>Whether the time profile is active or not.</para>
+					<itemizedlist>
+						<listitem>
+							<formalpara>
+								<title>On</title>
+								<para>The time profile is defined and in use.</para>
+							</formalpara>
+						</listitem>
+						<listitem>
+							<formalpara>
+								<title>Off</title>
+								<para>The time profile is defined but is not in use.</para>
+							</formalpara>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Profile Type</guilabel></term>
+				<listitem>
+					<para>The type of time profile.</para>
+					<itemizedlist>
+						<listitem>
+							<formalpara>
+								<title>User</title>
+								<para>A simple time profile. Profiles 1–8 are all user profiles.</para>
+							</formalpara>
+						</listitem>
+						<listitem>
+							<formalpara>
+								<title>First key open</title>
+								<para>A first open door mode profile. Profile 9 is always a first key open profile.</para>
+							</formalpara>
+						</listitem>
+						<listitem>
+							<formalpara>
+								<title>Anti-passback</title>
+								<para>An anti-passback door mode profile. Profile 10 is always an anti-passback profile.</para>
+							</formalpara>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Period <replaceable>n</replaceable> start</guilabel></term>
+				<listitem>
+					<para>For each of time periods A–D, the time when the period starts.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Period <replaceable>n</replaceable> end</guilabel></term>
+				<listitem>
+					<para>For each of time periods A–D, the time when the period ends.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guilabel>Period <replaceable>n</replaceable> day mask</guilabel></term>
+				<listitem>
+					<para>For each of time periods A–D, the days when the time period applies.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</section>
+	<section xml:id="fev_print">
+		<title>Preview and Print</title>
+		<procedure>
+			<?pac-keep-together always?>
+			<title>To preview the database:</title>
+			<step>
+				<stepalternatives>
+					<step>
+						<para>To see a landscape preview, choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Print preview (landscape)</guimenuitem></menuchoice> command, or:</para>
+					</step>
+					<step>
+						<para>To see a portrait preview, choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Print preview (portrait)</guimenuitem></menuchoice> command.</para>
+					</step>
+				</stepalternatives>
+				<para>The <guilabel role="wintitle">Print preview</guilabel> window is displayed.</para>
+			</step>
+		</procedure>
+		<para>The <guilabel role="wintitle">Print preview</guilabel> toolbar contains the following buttons:</para>
+		<informaltable frame="all" rowsep="1" colsep="1">
+			<tgroup cols="3">
+				<colspec colwidth="15%" colname="1"/>
+				<colspec colwidth="20%" colname="1"/>
+				<colspec colwidth="65%" colname="1"/>
+				<tbody>
+					<row>
+						<entry>
+							<para><inlinemediaobject>
+								<imageobject>
+									<imagedata fileref="images/icon_prev_print.png" format="PNG" depth="20px" width="20px" scalefit="1"/>
+								</imageobject>
+							</inlinemediaobject></para>
+						</entry>
+						<entry>
+							<para><guiicon>Print</guiicon></para>
+						</entry>
+						<entry>
+							<para>Prints the database.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para><inlinemediaobject>
+								<imageobject>
+									<imagedata fileref="images/icon_prev_zoom.png" format="PNG" depth="20px" width="32px" scalefit="1"/>
+								</imageobject>
+							</inlinemediaobject></para>
+						</entry>
+						<entry>
+							<para><guiicon>Zoom</guiicon></para>
+						</entry>
+						<entry>
+							<para>Displays a drop-down list enabling you to change the magnification.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para><inlinemediaobject>
+								<imageobject>
+									<imagedata fileref="images/icon_prev_one.png" format="PNG" depth="20px" width="20px" scalefit="1"/>
+								</imageobject>
+							</inlinemediaobject></para>
+						</entry>
+						<entry>
+							<para><guiicon>One page</guiicon></para>
+						</entry>
+						<entry>
+							<para>Displays one page at a time.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para><inlinemediaobject>
+								<imageobject>
+									<imagedata fileref="images/icon_prev_two.png" format="PNG" depth="20px" width="20px" scalefit="1"/>
+								</imageobject>
+							</inlinemediaobject></para>
+						</entry>
+						<entry>
+							<para><guiicon>Two pages</guiicon></para>
+						</entry>
+						<entry>
+							<para>Displays two pages at a time.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para><inlinemediaobject>
+								<imageobject>
+									<imagedata fileref="images/icon_prev_three.png" format="PNG" depth="20px" width="20px" scalefit="1"/>
+								</imageobject>
+							</inlinemediaobject></para>
+						</entry>
+						<entry>
+							<para><guiicon>Three pages</guiicon></para>
+						</entry>
+						<entry>
+							<para>Displays three pages at a time.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para><inlinemediaobject>
+								<imageobject>
+									<imagedata fileref="images/icon_prev_four.png" format="PNG" depth="20px" width="20px" scalefit="1"/>
+								</imageobject>
+							</inlinemediaobject></para>
+						</entry>
+						<entry>
+							<para><guiicon>Four pages</guiicon></para>
+						</entry>
+						<entry>
+							<para>Displays four pages at a time.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para><inlinemediaobject>
+								<imageobject>
+									<imagedata fileref="images/icon_prev_six.png" format="PNG" depth="20px" width="20px" scalefit="1"/>
+								</imageobject>
+							</inlinemediaobject></para>
+						</entry>
+						<entry>
+							<para><guiicon>Six pages</guiicon></para>
+						</entry>
+						<entry>
+							<para>Displays six pages at a time.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para><inlinemediaobject>
+								<imageobject>
+									<imagedata fileref="images/icon_prev_close.png" format="PNG" depth="20px" width="40px" scalefit="1"/>
+								</imageobject>
+							</inlinemediaobject></para>
+						</entry>
+						<entry>
+							<para><guiicon>Close</guiicon></para>
+						</entry>
+						<entry>
+							<para>Closes the <guilabel role="wintitle">Print preview</guilabel> window.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para><inlinemediaobject>
+								<imageobject>
+									<imagedata fileref="images/icon_prev_page.png" format="PNG" depth="22px" width="74px" scalefit="1"/>
+								</imageobject>
+							</inlinemediaobject></para>
+						</entry>
+						<entry>
+							<para><guiicon>Page</guiicon></para>
+						</entry>
+						<entry>
+							<para>Displays the current page number and enables you to navigate to a different page, specified by data entry or by using the up and down arrows to the right of the box.</para>
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</informaltable>
+		<procedure>
+			<title>To print the database:</title>
+			<step>
+				<para>Choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Print</guimenuitem></menuchoice> command.</para>
+			</step>
+		</procedure>
+	</section>
+	<section xml:id="fev_tools">
+		<title>Tools</title>
+		<procedure>
+			<?pac-keep-together always?>
+			<title>To change the language:</title>
+			<step>
+				<para>Choose the <menuchoice><guimenu>Tools</guimenu><guisubmenu>Change language</guisubmenu></menuchoice> command.</para>
+			</step>
+			<step>
+				<para>Choose the required language from the submenu.</para>
+			</step>
+		</procedure>
+		<procedure>
+			<?pac-keep-together always?>
+			<title>To show parsing errors that occurred when you loaded the file:</title>
+			<step>
+				<para>Choose the <menuchoice><guimenu>Tools</guimenu><guimenuitem>Show error messages from file load</guimenuitem></menuchoice> command.</para>
+				<para>The <guilabel role="wintitle">Parse errors</guilabel> window is displayed, showing any parsing errors that occurred when you loaded the file.</para>
+			</step>
+			<step>
+				<para>Choose <guibutton>OK</guibutton> or <guibutton>Cancel</guibutton> to close the <guilabel role="wintitle">Parse errors</guilabel> window.</para>
+			</step>
+		</procedure>
+		<procedure>
+			<?pac-keep-together always?>
+			<title>To show or hide unloggable events:</title>
+			<step>
+				<para>Choose the <menuchoice><guimenu>Tools</guimenu><guimenuitem>Show unloggable events</guimenuitem></menuchoice> command.</para>
+				<para>Unloggable events are displayed in the <guilabel>Events</guilabel> tab.</para>
+			</step>
+		</procedure>
+		<note>
+			<title its:translate="no"/>
+			<para>Unloggable events are diagnostic events which are generated internally by the controller in addition to the usual access, alarm, comms and system events. They are shown with a dark grey background. When the <guilabel>Category</guilabel> column is displayed, they have the category <option>Unlogged</option>.</para>
+		</note>
+	</section>
+	<section xml:id="fev_exit">
+		<title>Exit the Database Viewer</title>
+		<procedure>
+			<?pac-keep-together always?>
+			<title>To close the <phrase dita:conref="FPP"/> database viewer:</title>
+			<step>
+				<para>Choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Exit</guimenuitem></menuchoice> command.</para>
+			</step>
+		</procedure>
+	</section>
+</article>
