@@ -1,0 +1,999 @@
+/*
+    Copyright © 2015 Stanley Security Solutions Limited.
+
+    This file is part of PACBook.
+
+    PACBook is free software: you can redistribute it and/or modify it under the
+    terms of the GNU Lesser General Public License as published by the Free
+    Software Foundation, either version 3 of the License, or (at your option)
+    any later version.
+
+    PACBook is distributed in the hope that it will be useful, but WITHOUT ANY
+    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+    FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
+    more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with PACBook.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/* Cascading Style Sheet for DocBook XML */
+/* $Revision$ | $DateTime$ | $Author$ */
+
+@namespace dita    url(http://dita.oasis-open.org/architecture/2005);
+@namespace pac     url(http://www.pac.co.uk);
+@namespace tei     url(http://www.tei-c.org/ns/1.0);
+@namespace xml     url(http://www.w3.org/XML/1998/namespace);
+@namespace xi      url(http://www.w3.org/2001/XInclude);
+@namespace xl      url(http://www.w3.org/1999/xlink);
+@namespace rdf     url(http://www.w3.org/1999/02/22-rdf-syntax-ns#);
+@namespace dc      url(http://purl.org/dc/elements/1.1/);
+@namespace dcterms url(http://purl.org/dc/terms/);
+
+:root{
+	display: block;
+	font-family: Arial, Helvetica, sans-serif;
+	margin-left: 1cm;
+	max-width: 15cm
+}
+
+/* Divisions and Spans */
+*[revision]{
+	padding: 1px;
+	border: thin blue dashed;
+	background-color: rgb(239,239,255)
+}
+*[revision]:before{
+	display: inline;
+	font-variant: small-caps;
+	font-weight: bold;
+	color: blue;
+	content: attr(revision) " "
+}
+*[outputformat]{
+	padding: 1px;
+	border: thin red dashed;
+	background-color: rgb(255,239,239)
+}
+*[outputformat]:before{
+	display: inline;
+	font-variant: small-caps;
+	font-weight: bold;
+	color: red;
+	content: attr(outputformat) " "
+}
+*[condition]{
+	padding: 1px;
+	border: thin gold dashed;
+	background-color: rgb(255,255,239)
+}
+*[condition]:before{
+	display: inline;
+	font-variant: small-caps;
+	font-weight: bold;
+	color: gold;
+	content: attr(condition) " "
+}
+*[revisionflag='deleted'],
+*[revisionflag='deleted'] *{
+	color: silver;
+	text-decoration: line-through
+}
+*[revisionflag='changed'],
+*[revisionflag='changed'] *{
+	color: goldenrod
+}
+*[revisionflag='added'],
+*[revisionflag='added'] *{
+	color: goldenrod;
+	text-decoration: underline
+}
+*[revision]:before,
+*[outputformat]:before,
+*[condition]:before{
+	text-decoration: none ! important
+}
+*[xl|role='conref'],
+*[dita|conref],
+*[pac|ref],
+pac|*{
+	padding: 1px;
+	border: thin green dashed;
+	background-color: rgb(239,255,239)
+}
+footnote > *{
+	display: inline-block;
+	padding: 1px;
+	border: thin green solid;
+	color: black;
+	position: absolute;
+	-webkit-border-radius: 3px;
+	-webkit-box-shadow: 3px 3px 3px silver;
+	background-color: rgb(239,255,239);
+	left: 18cm;
+	font-size: 10pt;
+	content: inherit
+}
+*[tei|oRef='capitalize']{
+	text-transform: capitalize
+}
+*[tei|oRef='uppercase']{
+	text-transform: uppercase
+}
+*[tei|oRef='lowercase']{
+	text-transform: lowercase
+}
+*[xml|space='preserve']{
+	white-space: pre-line
+}
+
+/* Title page */
+book > title,
+book > subtitle,
+book > titleabbrev,
+book > info *{
+	color: rgb(89,89,89)
+}
+article > title,
+article > subtitle,
+article > titleabbrev,
+article > info *{
+	color: rgb(89,89,89)
+}
+book > title,
+article > title{
+	font-size: 26pt;
+	text-align: left
+}
+info > copyright{
+	display: block;
+	font-size: 10pt
+}
+biblioid,
+releaseinfo,
+edition{
+	display: run-in;
+	font-size: 16pt
+}
+edition:before{
+	content: 'Ver: '
+}
+book > subtitle,
+article > subtitle{
+	font-size: 20pt
+}
+info{
+	display: block
+}
+copyright:before{
+	content: "© "
+}
+info > address{
+	display: block;
+	font-size: 10pt;
+	margin-bottom: 1em
+}
+phone:before{
+	content: 'Tel: '
+}
+fax:before{
+	content: 'Fax: '
+}
+uri:before{
+	content: 'Web: '
+}
+
+/* Counters */
+book{
+	counter-reset: chapter
+}
+part{
+	display: block;
+	counter-reset: chapter
+}
+chapter{
+	display: block;
+	counter-reset: sect1
+}
+sect1{
+	display: block;
+	counter-reset: sect2
+}
+sect2{
+	display: block;
+	counter-reset: sect3
+}
+sect3,
+sect4,
+section,
+preface,
+bibliography,
+appendix{
+	display: block;
+}
+procedure{
+	counter-reset: step
+}
+substeps{
+	counter-reset: step
+}
+
+/* Headings */
+title, subtitle{
+	display: block;
+	margin-top: 1em;
+	font-weight: bold
+}
+part > title{
+	font-size: 26pt;
+	text-align: center
+}
+part > subtitle{
+	text-align: center
+}
+preface > title,
+bibliography > title,
+appendix > title{
+	font-size: 18pt;
+	margin-bottom: 0em
+}
+glossary > title{
+	font-size: 18pt;
+	margin-bottom: 0em
+}
+chapter > title{
+	font-size: 18pt;
+	margin-bottom: 0em
+}
+chapter > title:before{
+	counter-increment: chapter;
+	content: counter(chapter) ". "
+}
+sect1 > title{
+	font-size: 14pt;
+	margin-bottom: 0em
+}
+sect1 > title:before{
+	counter-increment: sect1;
+	content: counter(chapter) "." counter(sect1) " "
+}
+sect2 > title{
+	font-size: 12pt;
+	margin-bottom: 0em
+}
+sect2 > title:before{
+	counter-increment: sect2;
+	content: counter(chapter) "." counter(sect1) "." counter(sect2) " "
+}
+sect3 > title:before{
+	counter-increment: sect3;
+	content: counter(chapter) "." counter(sect1) "." counter(sect2) "." counter(sect3) " "
+}
+appendix > title:before{
+	content: "Appendix: "
+}
+preface > title:before{
+	content: "Preface: "
+}
+bibliography > title:before{
+	content: "Bibliography: "
+}
+sect3 > title,
+sect4 > title{
+	font-size: 10pt;
+	margin-bottom: 0em
+}
+section > title{
+	font-size: 18pt;
+	text-align: center;
+	margin-bottom: 0em
+}
+procedure{
+	display: block;
+	margin-left: 0.5cm;
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	font-size: 10pt
+}
+procedure > title{
+	font-size: 10pt;
+	margin-left: -0.5cm
+}
+step{
+	display: list-item;
+	list-style-type: decimal
+}
+substeps,
+stepalternatives{
+	display: block;
+	margin-left: 0.5cm
+}
+stepalternatives step{
+	list-style-type: none
+}
+substeps step{
+	list-style-type: lower-roman
+}
+important > title,
+caution > title,
+note > title,
+tip > title,
+warning > title{
+	font-size: 10pt
+}
+abstract > title,
+example > title{
+	font-size: 10pt
+}
+table > title{
+	margin-top: 0em;
+	margin-bottom: 1px;
+	font-size: 10pt
+}
+bridgehead{
+	display: block;
+	margin-top: 1em;
+	font-weight: bold;
+	font-size: 10pt
+}
+glossentry{
+	display: block
+}
+glossentry > glossterm{
+	display: block;
+	border-bottom: none;
+	margin-top: 1em;
+	font-weight: bold;
+	font-size: 10pt
+}
+
+/* Paragraph styles */
+para, formalpara{
+	display: block;
+	font-size: 10pt;
+	line-height: 12pt;
+	margin-bottom: 0em;
+	margin-top: 1em;
+	color: black;
+	clear: none
+}
+formalpara > para{
+	display: inline
+}
+formalpara > title{
+	display: inline;
+	font-size: 10pt
+}
+formalpara > title:after{
+	font-weight: normal;
+	content: ': '
+}
+caption > para{
+	font-size: 9pt
+}
+calloutlist, itemizedlist, orderedlist{
+	display: block;
+	margin-left: 0.5cm;
+	margin-top: 0pt;
+	margin-bottom: 0pt
+}
+callout, listitem{
+	display: list-item;
+	font-size: 10pt
+}
+itemizedlist > listitem{
+	list-style-type: disc
+}
+orderedlist > listitem{
+	list-style-type: decimal
+}
+varlistentry > listitem{
+	list-style-type: none
+}
+callout{
+	list-style-type: square
+}
+important, caution, note, tip, warning{
+	display: block;
+	margin-left: 0.5cm
+}
+example{
+	display: block;
+	margin-left: 0.5cm
+}
+glossdef{
+	display: block;
+	margin-left: 0.5cm
+}
+abstract{
+	display: block;
+	font-size: 10pt;
+	margin-top: 1em
+}
+simplelist[type="vert"],
+simplelist[type="horiz"]{
+	display: block;
+	font-size: 10pt;
+	margin-top: 1em
+}
+simplelist[type="vert"] > member,
+simplelist[type="horiz"] > member{
+	display: block;
+	margin-top: 0em
+}
+programlisting{
+	display: block;
+	white-space: pre-line;
+	font-size: 10pt;
+	margin-top: 1em;
+	font-family: Courier, Courier New, monospace;
+}
+screen{
+	display: block;
+	max-width: 18em;
+	white-space: pre-line;
+	padding: 2px;
+	border: 2px black solid;
+	font-size: 10pt;
+	margin-top: 1em;
+	font-family: Courier, Courier New, monospace;
+}
+
+/* Tables */
+table > title{
+	font-size: 10pt;
+	text-align: center
+}
+table > title:before{
+	counter-increment: table;
+	content: "Table " counter(table) ": "
+}
+variablelist{
+	display: table;
+	border-collapse: collapse;
+}
+varlistentry{
+	display: table-row
+}
+varlistentry > term{
+	display: table-cell;
+	font-size: 10pt;
+	font-weight: bold;
+	padding-right: 0.5cm
+}
+varlistentry > listentry{
+	display: table-cell;
+}
+informaltable, table{
+	display: table;
+	border-collapse: collapse;
+	margin-top: 1em;
+	margin-bottom: 1em
+}
+thead{
+	display: table-header-group;
+	text-align: left;
+	padding: 0.1cm;
+	background: silver;
+	border: thin solid black
+}
+thead > row > entry > para{
+	font-weight: bold
+}
+tbody{
+	display: table-row-group;
+}
+row{
+	display: table-row;
+}
+row.head{
+	background: silver
+}
+entry{
+	display: table-cell;
+	vertical-align: text-top;
+	padding: 0.1cm;
+}
+informaltable[frame='all'] entry,
+table[frame='all'] entry{
+	border: thin solid black
+}
+informaltable[frame='none'] entry,
+table[frame='none'] entry{
+	border: none
+}
+entry > para{
+	margin-top: 0em
+}
+entry > * + para{
+	margin-top: 1em
+}
+th.rotated,
+td.rotated{
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+	width: inherit;
+	overflow: hidden;
+	vertical-align: middle !important
+}
+rdf|Descrription[dc|type='applicability'],
+biblioset[relation='applicability']{
+	display: table;
+	border-collapse: collapse;
+	margin-top: 1em;
+	margin-bottom: 1em
+}
+dcterms|references,
+biblioset[relation='product']{
+	display: table-row
+}
+dcterms|references > dc|title,
+dcterms|references > dc|subject,
+dcterms|references > dc|description,
+dcterms|references > dc|identifier,
+biblioset[relation='product'] > productnumber,
+biblioset[relation='product'] > productname,
+biblioset[relation='product'] > bibliomisc,
+biblioset[relation='product'] > issuenum,
+biblioset[relation='product'] > bibliocoverage{
+	display: table-cell;
+	font-size: 10pt;
+	border: thin solid gray;
+	vertical-align: text-top;
+	padding: 0.1cm
+}
+revhistory{
+	display: table;
+	border-collapse: collapse;
+	margin-top: 1em;
+	margin-bottom: 1em
+}
+revision{
+	display: table-row
+}
+revision > revnumber,
+revision > date,
+revision > authorinitials,
+revision > author,
+revision > revremark,
+revision > revdescription{
+	display: table-cell;
+	font-size: 10pt;
+	border: thin solid gray;
+	vertical-align: text-top;
+	padding: 0.1cm
+}
+
+/* Images */
+figure > title{
+	font-size: 10pt;
+	text-align: center
+}
+figure > title:before{
+	counter-increment: figure;
+	content: "Figure " counter(figure) ": "
+}
+mediaobject, mediaobjectco{
+	display: block;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	text-align: center;
+	padding: 1px;
+	border: thin gray dashed;
+	background-color: rgb(239,239,239)
+}
+inlinemediaobject{
+	display: inline;
+	padding: 1px;
+	border: thin gray dashed;
+	background-color: rgb(239,239,239)
+}
+/*
+imagedata:before{
+	font-weight: bold;
+	font-size: 10pt;
+	content: '☛ '
+}
+*/
+imagedata:after{
+	font-size: 10pt;
+	content: attr(fileref)
+}
+/*
+ * This won't work. The attr() function is only available in the
+ * content attribute, which itself is only available in the :before
+ * or :after selectors.
+imagedata{
+	display: block;
+	content: attr("fileref", url)
+}
+*/
+textobject{
+	display: block;
+}
+
+/* Inline styles */
+emphasis{
+	font-style: normal;
+	text-decoration: underline
+}
+link, ulink, olink{
+	font-style: normal;
+	border-bottom: thin blue solid;
+	color: blue;
+	cursor: pointer;
+}
+firstterm{
+	font-weight: bold
+}
+filename{
+	font-weight: bold
+}
+guilabel[role="wintitle"]{
+	font-weight: normal
+}
+guibutton, guilabel, guiicon{
+	font-weight: bold
+}
+code, systemitem, option, tag, hardware{
+	font-weight: bold
+}
+replaceable{
+	font-weight: bold;
+	font-style: italic
+}
+citation{
+	font-style: italic
+}
+remark{
+	background-color: yellow
+}
+guimenu, guisubmenu, guimenuitem{
+	display: inline;
+	font-weight: bold
+}
+keycap{
+	display: inline;
+	font-weight: bold
+}
+userinput{
+	display: inline;
+	font-family: Courier, Courier New, monospace
+}
+computeroutput{
+	display: inline;
+	font-family: Courier, Courier New, monospace
+}
+glossterm{
+	display: inline;
+	font-weight: inherit;
+	border-bottom: thin dotted black;
+	font-size: 10pt
+}
+simplelist[type="inline"]{
+	display: inline
+}
+simplelist[type="inline"] > member{
+	display: inline
+}
+
+/* Generated content */
+simplelist[type="inline"] > member + member:before{
+	content: ", ";
+}
+simplelist[type="inline"][role="and"] > member:last-child:before{
+	color: silver;
+	font-weight: bold;
+	content: " {AND} ";
+}
+simplelist[type="inline"][role="or"] > member:last-child:before{
+	color: silver;
+	font-weight: bold;
+	content: " {OR} ";
+}
+wordasword:before{
+	color: silver;
+	font-weight: bold;
+	content: "[";
+}
+wordasword:after{
+	color: silver;
+	font-weight: bold;
+	content: "] ";
+}
+quote:before{
+	content: '“'
+}
+quote:after{
+	content: '”'
+}
+tag[class='starttag']:before,
+tag[class='emptytag']:before,
+tag[class='element']:before{
+	font-weight: bold;
+	content: '<'
+}
+tag[class='endtag']:before{
+	font-weight: bold;
+	content: '</'
+}
+tag[class='emptytag']:after,
+tag[class='element']:after{
+	font-weight: bold;
+	content: '/>'
+}
+tag[class='starttag']:after,
+tag[class='endtag']:after{
+	font-weight: bold;
+	content: '>'
+}
+tag[class='pi']:before{
+	font-weight: bold;
+	content: '<?'
+}
+tag[class='pi']:after{
+	font-weight: bold;
+	content: '?>'
+}
+tag[class='comment']:before{
+	font-weight: bold;
+	content: '<!--'
+}
+tag[class='comment']:after{
+	font-weight: bold;
+	content: '-->'
+}
+part:lang(fr) * quote:before{
+	content: '« '
+}
+part:lang(fr) * quote:after{
+	content: ' »'
+}
+part:lang(de) * quote:before{
+	content: '„'
+}
+part:lang(de) * quote:after{
+	content: '“'
+}
+footnote:before{
+	color: green;
+	content: '*'
+}
+footnote:after{
+	color: green;
+	content: ' [' attr(xml|id) ']'
+}
+footnoteref:before{
+	color: green;
+	content: '[' attr(linkend) ']'
+}
+menuchoice > guimenu + guisubmenu:before,
+menuchoice > guisubmenu + guisubmenu:before,
+menuchoice > guisubmenu + guimenuitem:before,
+menuchoice > guimenu + guimenuitem:before{
+	font-weight: bold;
+	content: " › "
+}
+keycombo > keycap + keycap:before,
+keycombo > keycap + keysym:before{
+	content: "+"
+}
+keycombo[action='seq'] > keycap + keycap:before,
+keycombo[action='seq'] > keycap + keysym:before{
+	font-weight: normal;
+	content: ", "
+}
+important:before,
+caution:before,
+note:before,
+tip:before,
+warning:before{
+	display: block;
+	padding: 1px;
+	position: absolute;
+	left: 0.25cm;
+}
+important:before{
+	content: url('admon/important.png');
+}
+caution:before{
+	content: url('admon/caution.png');
+}
+note:before{
+	content: url('admon/note.png');
+}
+tip:before{
+	content: url('admon/tip.png');
+}
+warning:before{
+	content: url('admon/warning.png');
+}
+link:after{
+	content: "→"
+}
+link:before{
+	display: inline-block;
+	padding: 1px;
+	border: thin blue solid;
+	color: black;
+	position: absolute;
+	-webkit-border-radius: 3px;
+	-webkit-box-shadow: 3px 3px 3px silver;
+	background-color: rgb(239,239,255);
+	left: 18cm;
+	font-size: 10pt;
+	content: "Link: " attr(linkend)
+}
+ulink:after{
+	content: "⇒"
+}
+ulink:before{
+	display: inline-block;
+	padding: 1px;
+	border: thin blue solid;
+	color: black;
+	position: absolute;
+	-webkit-border-radius: 3px;
+	-webkit-box-shadow: 3px 3px 3px silver;
+	background-color: rgb(239,239,255);
+	left: 18cm;
+	font-size: 10pt;
+	content: "URL: " attr(url)
+}
+olink:after,
+xref:after{
+	content: attr(xrefstyle);
+	background-color: rgb(239,239,239);
+}
+xref:before{
+	display: inline-block;
+	padding: 1px;
+	border: thin gray solid;
+	color: black;
+	position: absolute;
+	-webkit-border-radius: 3px;
+	-webkit-box-shadow: 3px 3px 3px silver;
+	background-color: rgb(239,239,239);
+	left: 18cm;
+	font-size: 10pt;
+	content: "XREF: " attr(linkend)
+}
+olink:before{
+	display: inline-block;
+	padding: 1px;
+	border: thin gray solid;
+	color: black;
+	position: absolute;
+	-webkit-border-radius: 3px;
+	-webkit-box-shadow: 3px 3px 3px silver;
+	background-color: rgb(239,239,239);
+	left: 18cm;
+	font-size: 10pt;
+	content: "OLINK: " attr(targetptr)
+}
+chapter[status]:before,
+sect1[status]:before,
+sect2[status]:before,
+sect3[status]:before,
+preface[status]:before,
+bibliography[status]:before,
+appendix[status]:before,
+glossary[status]:before{
+	display: inline-block;
+	padding: 1px;
+	border: thin red solid;
+	color: black;
+	position: absolute;
+	-webkit-border-radius: 3px;
+	-webkit-box-shadow: 3px 3px 3px silver;
+	background-color: rgb(255,239,239);
+	left: 18cm;
+	font-size: 10pt;
+	content: 'STATUS: ' attr(status)
+}
+trademark:after{
+	content: '™'
+}
+
+/* Hidden Content */
+indexterm{
+	display: none
+}
+author, corpauthor{
+	display: none
+}
+titleabbrev{
+	display: none
+}
+
+/* XInclude */
+xi\:include,
+xi|include{
+	display: block;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	text-align: center;
+	padding: 1px;
+	border: thin magenta dashed;
+	background-color: pink
+}
+xi\:include:before,
+xi|include:before{
+	display: inline;
+	font-size: 10pt;
+	content: '⇒ '
+}
+xi\:include:after,
+xi|include:after{
+	display: inline;
+	font-size: 10pt;
+	content: attr(xpointer)
+}
+
+/* PAC */
+*[xl|role='conref']:before{
+	display: inline;
+	font-variant: small-caps;
+	font-weight: bold;
+	color: green;
+	content: 'conref'
+}
+*[dita|conref]:before{
+	display: inline;
+	font-variant: small-caps;
+	font-weight: bold;
+	color: green;
+	content: 'dita:conref'
+}
+*[pac|ref]:before{
+	display: inline;
+	font-variant: small-caps;
+	font-weight: bold;
+	color: green;
+	content: 'pac:ref'
+}
+*[xl|role='conref']:after{
+	display: inline;
+	content: ' ' attr(xl|href)
+}
+*[dita|conref]:after{
+	display: inline;
+	content: ' ' attr(dita|conref)
+}
+*[pac|ref]:after{
+	display: inline;
+	content: ' ' attr(pac|ref)
+}
+pac|ref:after{
+	display: inline;
+	content: attr(name)
+}
+pac|word,
+pac|symbol{
+	display: inline;
+}
+pac|word:after{
+	content: ' '
+}
+rdf|Description[dc|type='translations'],
+biblioset[relation='translations'],
+biblioset[relation='resources'],
+extendedlink,
+pac|definitions{
+	display: none
+}
+
+/* PAC (Webkit) */
+/*
+@media all and (-webkit-min-device-pixel-ratio: 0) {
+*[xl|role='conref']:after{
+	display: inline;
+	content: 'CONREF'
+}
+*[pac|ref]:after{
+	display: inline;
+	content: 'PAC:REF'
+}
+}
+*/
