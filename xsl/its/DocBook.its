@@ -3,7 +3,7 @@
            xmlns:db="http://docbook.org/ns/docbook"
            version="2.0">
 	<its:withinTextRule withinText="no" selector="//db:title"/>
-	<its:withinTextRule withinText="no" selector="//db:titleabbrev">
+	<its:withinTextRule withinText="no" selector="//db:titleabbrev"/>
 	<its:withinTextRule withinText="no" selector="//db:subtitle"/>
 	<its:withinTextRule withinText="no" selector="//db:bridgehead"/>
 	<its:withinTextRule withinText="no" selector="//db:para"/>
