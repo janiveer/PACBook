@@ -43,39 +43,49 @@
 		=======================================
 	</xd:doc>
 
+	<xd:doc>
+		=======================================
+		Set initial count of translation units
+		and prefix for translation unit IDs.
+		Assume base uri of $Counter is relative
+		to location of input file.
+		=======================================
+	</xd:doc>
+	<xsl:variable name="Initial">
+		<xsl:choose>
+			<xsl:when test="document($Counter, /)/data:counter">
+				<xsl:value-of select="number(document($Counter, /)/data:counter[1])"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="0"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+	<xsl:variable name="Prefix">
+		<xsl:choose>
+			<xsl:when test="document($Counter, /)/data:counter[1]/@prefix">
+				<xsl:value-of select="document($Counter, /)/data:counter[1]/@prefix"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="'u'"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+
+	<xd:doc>
+		===============================================================
+		Looks in $ITS for selectors to find translatable elements. A
+		translatable elements is one which is not within text, does not
+		already have an @xlf:id, and is not marked for no translation.
+		In addition, any element which does not have an @xlf:id and is
+		marked for translation is included. The stylesheet then uses
+		the Evaluate function to find the set of all matching elements
+		in the current document.
+		===============================================================
+	</xd:doc>
 	<xsl:template match="/">
-		<xsl:if test="$Carried = ''">
-			<xsl:message terminate="yes">
-				<xsl:text>Please specify $Carried: full path to trans-unit counter file.</xsl:text>
-			</xsl:message>
-		</xsl:if>
-		<xsl:if test="$ITS = ''">
-			<xsl:message terminate="yes">
-				<xsl:text>Please specify $ITS: full path to ITS file.</xsl:text>
-			</xsl:message>
-		</xsl:if>
-		<xsl:variable name="initial">
-			<xsl:choose>
-				<xsl:when test="document($Counter)/data:counter">
-					<xsl:value-of select="number(document($Counter)/data:counter[1])"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="0"/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
-		<xsl:variable name="prefix">
-			<xsl:choose>
-				<xsl:when test="document($Counter)/data:counter[1]/@prefix">
-					<xsl:value-of select="document($Counter)/data:counter[1]/@prefix"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="'u'"/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
 		<xsl:variable name="AllSelectors">
-			<xsl:for-each select="document($ITS)//its:withinTextRule">
+			<xsl:for-each select="document($ITS)//its:withinTextRule[@withinText='no']">
 				<xsl:value-of select="@selector"/>
 				<xsl:text>[not(@xlf:id)][not(@its:translate='no')]|</xsl:text>
 			</xsl:for-each>
@@ -86,26 +96,18 @@
 				<xsl:variable name="AllUnits" select="dyn:evaluate($AllSelectors)"/>
 				<xsl:apply-templates select="*|text()|processing-instruction()">
 					<xsl:with-param name="AllUnits" select="$AllUnits"/>
-					<xsl:with-param name="initial"  select="$initial"/>
-					<xsl:with-param name="prefix"   select="$prefix"/>
 				</xsl:apply-templates>
 				<xsl:call-template name="Total">
 					<xsl:with-param name="AllUnits" select="$AllUnits"/>
-					<xsl:with-param name="initial"  select="$initial"/>
-					<xsl:with-param name="prefix"   select="$prefix"/>
 				</xsl:call-template>
 			</xsl:when>
 			<xsl:when test="function-available('saxon:evaluate')">
 				<xsl:variable name="AllUnits" select="saxon:evaluate($AllSelectors)"/>
 				<xsl:apply-templates select="*|text()|processing-instruction()">
 					<xsl:with-param name="AllUnits" select="$AllUnits"/>
-					<xsl:with-param name="initial"  select="$initial"/>
-					<xsl:with-param name="prefix"   select="$prefix"/>
 				</xsl:apply-templates>
 				<xsl:call-template name="Total">
 					<xsl:with-param name="AllUnits" select="$AllUnits"/>
-					<xsl:with-param name="initial"  select="$initial"/>
-					<xsl:with-param name="prefix"   select="$prefix"/>
 				</xsl:call-template>
 			</xsl:when>
 			<xsl:otherwise>
@@ -117,60 +119,65 @@
 	</xsl:template>
 
 	<xd:doc>
-		====================================
-		Finds unmarked translation units and
-		adds @xlf:id based on current count
-		====================================
+		===============================================================
+		Recurses through each element. If this element is in the set of
+		translatable elements, add an @xlf:id attribute whose value is
+		based on the count of preceding translatable elements
+		===============================================================
 	</xd:doc>
 	<xsl:template match="*">
 		<xsl:param name="AllUnits"/>
-		<xsl:param name="initial"/>
-		<xsl:param name="prefix"/>
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:if test="set:has-same-node($AllUnits, .)">
-				<xsl:variable name="count">
-					<xsl:value-of select="$initial + count(set:leading($AllUnits, .)) + 1"/>
-				</xsl:variable>
-				<xsl:variable name="format">
-					<xsl:number value="$count" format="00001"/>
-				</xsl:variable>
-				<xsl:attribute name="xlf:id">
-					<xsl:value-of select="concat($prefix, $format)"/>
-				</xsl:attribute>
-			</xsl:if>
-			<xsl:apply-templates select="*|text()|processing-instruction()|comment()">
-				<xsl:with-param name="AllUnits" select="$AllUnits"/>
-				<xsl:with-param name="initial"  select="$initial"/>
-				<xsl:with-param name="prefix"   select="$prefix"/>
-			</xsl:apply-templates>
+			<xsl:choose>
+				<xsl:when test="function-available('set:has-same-node')
+				                and function-available('set:leading')">
+					<xsl:if test="set:has-same-node($AllUnits, .)">
+						<xsl:variable name="Count">
+							<xsl:value-of select="$Initial + count(set:leading($AllUnits, .)) + 1"/>
+						</xsl:variable>
+						<xsl:variable name="Format">
+							<xsl:number value="$Count" format="00001"/>
+						</xsl:variable>
+						<xsl:attribute name="xlf:id">
+							<xsl:value-of select="concat($Prefix, $Format)"/>
+						</xsl:attribute>
+					</xsl:if>
+					<xsl:apply-templates select="*|text()|processing-instruction()|comment()">
+						<xsl:with-param name="AllUnits" select="$AllUnits"/>
+					</xsl:apply-templates>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:message terminate="yes">
+						<xsl:text>ERROR: Leading and / or Has Same Node functions not available.</xsl:text>
+					</xsl:message>
+				</xsl:otherwise>
+			</xsl:choose>
 		</xsl:copy>
 	</xsl:template>
 
 	<xd:doc>
-		================================
-		Recursion through other elements
-		================================
+		===================
+		Copy other elements
+		===================
 	</xd:doc>
 	<xsl:template match="text()|processing-instruction()|comment()">
 		<xsl:copy/>
 	</xsl:template>
 
 	<xd:doc>
-		=====================
-		Writes out new totals
-		=====================
+		====================
+		Write out new totals
+		====================
 	</xd:doc>
 	<xsl:template name="Total">
 		<xsl:param name="AllUnits"/>
-		<xsl:param name="initial"/>
-		<xsl:param name="prefix"/>
 		<xsl:document href="{$Carried}" method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes">
 			<data:counter>
 				<xsl:attribute name="prefix">
-					<xsl:value-of select="$prefix"/>
+					<xsl:value-of select="$Prefix"/>
 				</xsl:attribute>
-				<xsl:value-of select="$initial + count($AllUnits)"/>
+				<xsl:value-of select="$Initial + count($AllUnits)"/>
 			</data:counter>
 		</xsl:document>
 	</xsl:template>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="http://www.jabadaw.com/PAC/files/Docbook.css" type="text/css"?><article xmlns="http://docbook.org/ns/docbook" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:its="http://www.w3.org/2005/11/its" xmlns:dita="http://dita.oasis-open.org/architecture/2005" xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2" version="5.0-variant PACBook" xml:lang="en-GB" xml:id="fev" status="draft">
-	<title xlf:id="u00258"><phrase dita:conref="FPP"/> Database Viewer</title>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://www.jabadaw.com/PAC/files/Docbook.css" type="text/css"?><article xmlns="http://docbook.org/ns/docbook" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:its="http://www.w3.org/2005/11/its" xmlns:dita="http://dita.oasis-open.org/architecture/2005" xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2" version="5.0-variant PACBook" xml:lang="en-GB" xml:id="fev" status="draft">
+	<title xlf:id="u00001"><phrase dita:conref="FPP"/> Database Viewer</title>
 	<subtitle its:translate="no">User Guide</subtitle>
 	<info>
 		<rdf:RDF>
@@ -49,662 +50,662 @@
 			<xi:include href="http://DBK/Topics/512_Series/Definitions.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:resource)"/>
 		</extendedlink>
 		<abstract>
-			<title xlf:id="u00259">Subject</title>
-			<para xlf:id="u00260">This document describes how to install and use the <phrase dita:conref="FPP"/> database viewer.</para>
+			<title xlf:id="u00002">Subject</title>
+			<para xlf:id="u00003">This document describes how to install and use the <phrase dita:conref="FPP"/> database viewer.</para>
 		</abstract>
 		<abstract>
-			<title xlf:id="u00261">Products</title>
+			<title xlf:id="u00004">Products</title>
 			<?pac-applicability?>
 		</abstract>
 	</info>
 	<section xml:id="fev_intro">
-		<title xlf:id="u00262">Introduction</title>
-		<para xlf:id="u00263">The <phrase dita:conref="FPP"/> database viewer enables you to view a database exported from the <phrase dita:conref="FPP"/> access controller.</para>
+		<title xlf:id="u00005">Introduction</title>
+		<para xlf:id="u00006">The <phrase dita:conref="FPP"/> database viewer enables you to view a database exported from the <phrase dita:conref="FPP"/> access controller.</para>
 		<mediaobject>
-			<imageobject xlf:id="u00264">
+			<imageobject xlf:id="u00007">
 				<imagedata fileref="images/win_fev.png" format="PNG" depth="8.12cm" width="11.57cm" scalefit="1"/>
 			</imageobject>
 		</mediaobject>
 	</section>
 	<section xml:id="fev_install">
-		<title xlf:id="u00265">Installation</title>
+		<title xlf:id="u00008">Installation</title>
 		<procedure>
 			<?pac-keep-together always?>
-			<title xlf:id="u00266">To install the database viewer:</title>
+			<title xlf:id="u00009">To install the database viewer:</title>
 			<step>
-				<para xlf:id="u00267">Insert the <phrase dita:conref="FPP"/> USB drive into the PC.</para>
+				<para xlf:id="u00010">Insert the <phrase dita:conref="FPP"/> USB drive into the PC.</para>
 			</step>
 			<step>
-				<para xlf:id="u00268">The installation process should start automatically. If it doesn’t, open the USB drive in Windows Explorer and double-click on the <filename>Setup.exe</filename> file.</para>
+				<para xlf:id="u00011">The installation process should start automatically. If it doesn’t, open the USB drive in Windows Explorer and double-click on the <filename>Setup.exe</filename> file.</para>
 			</step>
 			<step>
-				<para xlf:id="u00269">Follow the instructions on screen.</para>
+				<para xlf:id="u00012">Follow the instructions on screen.</para>
 			</step>
 		</procedure>
 	</section>
 	<section xml:id="fev_start">
-		<title xlf:id="u00270">Start the Database Viewer</title>
+		<title xlf:id="u00013">Start the Database Viewer</title>
 		<procedure>
 			<?pac-keep-together always?>
-			<title xlf:id="u00271">To start the <phrase dita:conref="FPP"/> database viewer:</title>
+			<title xlf:id="u00014">To start the <phrase dita:conref="FPP"/> database viewer:</title>
 			<step>
 				<stepalternatives>
 					<step>
-						<para xlf:id="u00272">In the <guimenu>Start</guimenu> menu, choose the <guimenuitem><phrase dita:conref="FPP"/> Database Viewer</guimenuitem> command, or:</para>
+						<para xlf:id="u00015">In the <guimenu>Start</guimenu> menu, choose the <guimenuitem><phrase dita:conref="FPP"/> Database Viewer</guimenuitem> command, or:</para>
 					</step>
 					<step>
-						<para xlf:id="u00273">Double-click on the <guiicon><phrase dita:conref="FPP"/> Database Viewer</guiicon> icon on the Windows desktop, or:</para>
+						<para xlf:id="u00016">Double-click on the <guiicon><phrase dita:conref="FPP"/> Database Viewer</guiicon> icon on the Windows desktop, or:</para>
 					</step>
 					<step>
-						<para xlf:id="u00274">Double-click on an <filename class="extension">FEV</filename> file.</para>
+						<para xlf:id="u00017">Double-click on an <filename class="extension">FEV</filename> file.</para>
 					</step>
 				</stepalternatives>
-				<para xlf:id="u00275">The <phrase dita:conref="FPP"/> database viewer starts and the <guilabel role="wintitle">Open</guilabel> dialog box is displayed so that you can open an <filename class="extension">FEV</filename> file. See <xref xl:href="#fev_files" xrefstyle="select: title"/>.</para>
+				<para xlf:id="u00018">The <phrase dita:conref="FPP"/> database viewer starts and the <guilabel role="wintitle">Open</guilabel> dialog box is displayed so that you can open an <filename class="extension">FEV</filename> file. See <xref xl:href="#fev_files" xrefstyle="select: title"/>.</para>
 			</step>
 		</procedure>
 		<procedure>
 			<?pac-keep-together always?>
-			<title xlf:id="u00276">To start the <phrase dita:conref="FPP"/> database viewer and open a file:</title>
+			<title xlf:id="u00019">To start the <phrase dita:conref="FPP"/> database viewer and open a file:</title>
 			<step>
-				<para xlf:id="u00277">Double-click on an <filename class="extension">FEV</filename> file.</para>
-				<para xlf:id="u00278">The <phrase dita:conref="FPP"/> database viewer starts and the selected file is opened.</para>
+				<para xlf:id="u00020">Double-click on an <filename class="extension">FEV</filename> file.</para>
+				<para xlf:id="u00021">The <phrase dita:conref="FPP"/> database viewer starts and the selected file is opened.</para>
 			</step>
 		</procedure>
 	</section>
 	<section xml:id="fev_files">
-		<title xlf:id="u00279">Open and Save Files</title>
+		<title xlf:id="u00022">Open and Save Files</title>
 		<procedure>
 			<?pac-keep-together always?>
-			<title xlf:id="u00280">To open a file:</title>
+			<title xlf:id="u00023">To open a file:</title>
 			<step>
 				<stepalternatives>
 					<step>
-						<para xlf:id="u00281">Choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Load</guimenuitem></menuchoice> command, or:</para>
+						<para xlf:id="u00024">Choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Load</guimenuitem></menuchoice> command, or:</para>
 					</step>
 					<step>
-						<para xlf:id="u00282">In the <guilabel>Select FEV file</guilabel> section, click on the <guibutton>...</guibutton> button.</para>
+						<para xlf:id="u00025">In the <guilabel>Select FEV file</guilabel> section, click on the <guibutton>...</guibutton> button.</para>
 					</step>
 				</stepalternatives>
-				<para xlf:id="u00283">The <guilabel role="wintitle">Open</guilabel> dialog box appears.</para>
+				<para xlf:id="u00026">The <guilabel role="wintitle">Open</guilabel> dialog box appears.</para>
 			</step>
 			<step>
-				<para xlf:id="u00284">Select the <filename class="extension">FEV</filename> file that you want to open.</para>
+				<para xlf:id="u00027">Select the <filename class="extension">FEV</filename> file that you want to open.</para>
 			</step>
 			<step>
-				<para xlf:id="u00285">Choose the <guibutton>Open</guibutton> button.</para>
-				<para xlf:id="u00286">The <filename class="extension">FEV</filename> file is opened.</para>
+				<para xlf:id="u00028">Choose the <guibutton>Open</guibutton> button.</para>
+				<para xlf:id="u00029">The <filename class="extension">FEV</filename> file is opened.</para>
 			</step>
 		</procedure>
 		<procedure revisionflag="deleted" revision="old">
 			<?pac-keep-together always?>
-			<title xlf:id="u00287">To save a copy of the file:</title>
+			<title xlf:id="u00030">To save a copy of the file:</title>
 			<step>
-				<para xlf:id="u00288">Choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Export to FEV file</guimenuitem></menuchoice> command.</para>
-				<para xlf:id="u00289">The <guilabel role="wintitle">Save As</guilabel> dialog box appears.</para>
+				<para xlf:id="u00031">Choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Export to FEV file</guimenuitem></menuchoice> command.</para>
+				<para xlf:id="u00032">The <guilabel role="wintitle">Save As</guilabel> dialog box appears.</para>
 			</step>
 			<step>
-				<para xlf:id="u00290">If necessary, select the location where you want to save the file.</para>
+				<para xlf:id="u00033">If necessary, select the location where you want to save the file.</para>
 			</step>
 			<step>
-				<para xlf:id="u00291">Enter a name for the file.</para>
+				<para xlf:id="u00034">Enter a name for the file.</para>
 			</step>
 			<step>
-				<para xlf:id="u00292">Choose the <guibutton>Save</guibutton> button.</para>
-				<para xlf:id="u00293">A copy of the file is saved. The original file remains open.</para>
+				<para xlf:id="u00035">Choose the <guibutton>Save</guibutton> button.</para>
+				<para xlf:id="u00036">A copy of the file is saved. The original file remains open.</para>
 			</step>
 		</procedure>
 		<procedure>
 			<?pac-keep-together always?>
-			<title xlf:id="u00294">To export a copy of the file to CSV format:</title>
+			<title xlf:id="u00037">To export a copy of the file to CSV format:</title>
 			<step>
-				<para xlf:id="u00295">Choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Export to CSV file</guimenuitem></menuchoice> command.</para>
+				<para xlf:id="u00038">Choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Export to CSV file</guimenuitem></menuchoice> command.</para>
 			</step>
 			<step>
-				<para xlf:id="u00296">In the submenu, choose the data you would like to export: <guimenuitem>All</guimenuitem>, <guimenuitem>Events</guimenuitem>, <guimenuitem>Keys</guimenuitem> or <guimenuitem>Config</guimenuitem>.</para>
-				<para xlf:id="u00297">The <guilabel role="wintitle">Save As</guilabel> dialog box appears.</para>
+				<para xlf:id="u00039">In the submenu, choose the data you would like to export: <guimenuitem>All</guimenuitem>, <guimenuitem>Events</guimenuitem>, <guimenuitem>Keys</guimenuitem> or <guimenuitem>Config</guimenuitem>.</para>
+				<para xlf:id="u00040">The <guilabel role="wintitle">Save As</guilabel> dialog box appears.</para>
 			</step>
 			<step>
-				<para xlf:id="u00298">If necessary, select the location where you want to save the file.</para>
+				<para xlf:id="u00041">If necessary, select the location where you want to save the file.</para>
 			</step>
 			<step>
-				<para xlf:id="u00299">Enter a name for the file.</para>
+				<para xlf:id="u00042">Enter a name for the file.</para>
 			</step>
 			<step>
-				<para xlf:id="u00300">Choose the <guibutton>Save</guibutton> button.</para>
-				<para xlf:id="u00301">A copy of the specified data is saved in <filename class="extension">CSV</filename> format.</para>
+				<para xlf:id="u00043">Choose the <guibutton>Save</guibutton> button.</para>
+				<para xlf:id="u00044">A copy of the specified data is saved in <filename class="extension">CSV</filename> format.</para>
 			</step>
 		</procedure>
 	</section>
 	<section xml:id="fev_ctrl">
-		<title xlf:id="u00302">Controller Details</title>
-		<para xlf:id="u00303">The <guilabel>212 controller details</guilabel> section shows information about the <phrase dita:conref="FPP"/> that generated this file.</para>
+		<title xlf:id="u00045">Controller Details</title>
+		<para xlf:id="u00046">The <guilabel>212 controller details</guilabel> section shows information about the <phrase dita:conref="FPP"/> that generated this file.</para>
 		<variablelist>
 			<?pac-keep-together always?>
 			<varlistentry>
-				<term xlf:id="u00304"><guilabel>Serial number</guilabel></term>
+				<term xlf:id="u00047"><guilabel>Serial number</guilabel></term>
 				<listitem>
-					<para xlf:id="u00305">The serial number of the <phrase dita:conref="FPP"/>.</para>
+					<para xlf:id="u00048">The serial number of the <phrase dita:conref="FPP"/>.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00306"><guilabel>Product type</guilabel></term>
+				<term xlf:id="u00049"><guilabel>Product type</guilabel></term>
 				<listitem>
-					<para xlf:id="u00307">The format of the database: <option>Commercial</option> or <option>Residential</option>.</para>
+					<para xlf:id="u00050">The format of the database: <option>Commercial</option> or <option>Residential</option>.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00308"><guilabel>Database schema</guilabel></term>
+				<term xlf:id="u00051"><guilabel>Database schema</guilabel></term>
 				<listitem>
-					<para xlf:id="u00309">The version number of the database schema.</para>
+					<para xlf:id="u00052">The version number of the database schema.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00310"><guilabel>Is a master</guilabel></term>
+				<term xlf:id="u00053"><guilabel>Is a master</guilabel></term>
 				<listitem>
-					<para xlf:id="u00311">Whether the <phrase dita:conref="FPP"/> that generated this file is configured as a master controller.</para>
+					<para xlf:id="u00054">Whether the <phrase dita:conref="FPP"/> that generated this file is configured as a master controller.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00312"><guilabel>Uses HF tokens</guilabel></term>
+				<term xlf:id="u00055"><guilabel>Uses HF tokens</guilabel></term>
 				<listitem>
-					<para xlf:id="u00313">Whether the <phrase dita:conref="FPP"/> that generated this file uses HF tokens. See <xref xl:href="#fev_config" xrefstyle="select: title"/>.</para>
+					<para xlf:id="u00056">Whether the <phrase dita:conref="FPP"/> that generated this file uses HF tokens. See <xref xl:href="#fev_config" xrefstyle="select: title"/>.</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>
 	</section>
 	<section xml:id="fev_display">
-		<title xlf:id="u00314">Configure the Display</title>
+		<title xlf:id="u00057">Configure the Display</title>
 		<procedure>
 			<?pac-keep-together always?>
-			<title xlf:id="u00315">To darken or lighten the colours in the current tab:</title>
+			<title xlf:id="u00058">To darken or lighten the colours in the current tab:</title>
 			<step>
-				<para xlf:id="u00316">In the <guilabel>Colour intensity</guilabel> section:</para>
+				<para xlf:id="u00059">In the <guilabel>Colour intensity</guilabel> section:</para>
 				<stepalternatives>
 					<step>
-						<para xlf:id="u00317">Drag the scroll box to the left to darken, or:</para>
+						<para xlf:id="u00060">Drag the scroll box to the left to darken, or:</para>
 					</step>
 					<step>
-						<para xlf:id="u00318">Drag the scroll box to the right to lighten.</para>
+						<para xlf:id="u00061">Drag the scroll box to the right to lighten.</para>
 					</step>
 				</stepalternatives>
 			</step>
 		</procedure>
 		<procedure>
 			<?pac-keep-together always?>
-			<title xlf:id="u00319">To sort the entries in a list:</title>
+			<title xlf:id="u00062">To sort the entries in a list:</title>
 			<step>
 				<stepalternatives>
 					<step>
-						<para xlf:id="u00320">To sort the list in ascending order, click on the heading of the column by which you want to sort, so the column heading contains a triangle pointing up (▲).</para>
+						<para xlf:id="u00063">To sort the list in ascending order, click on the heading of the column by which you want to sort, so the column heading contains a triangle pointing up (▲).</para>
 					</step>
 					<step>
-						<para xlf:id="u00321">To sort the list in descending order, click again on the heading of the column by which you want to sort, so the column heading contains a triangle pointing down (▼).</para>
+						<para xlf:id="u00064">To sort the list in descending order, click again on the heading of the column by which you want to sort, so the column heading contains a triangle pointing down (▼).</para>
 					</step>
 				</stepalternatives>
 			</step>
 		</procedure>
 	</section>
 	<section xml:id="fev_search">
-		<title xlf:id="u00322">Search</title>
+		<title xlf:id="u00065">Search</title>
 		<procedure>
 			<?pac-keep-together always?>
-			<title xlf:id="u00323">To search for text in the current tab:</title>
+			<title xlf:id="u00066">To search for text in the current tab:</title>
 			<step>
-				<para xlf:id="u00324">In the <guilabel>Search</guilabel> section, click in the <guibutton>Find text</guibutton> box.</para>
+				<para xlf:id="u00067">In the <guilabel>Search</guilabel> section, click in the <guibutton>Find text</guibutton> box.</para>
 			</step>
 			<step>
-				<para xlf:id="u00325">Type the search text and press <keycap function="enter"/>.</para>
-				<para xlf:id="u00326">If the text is found in the current tab, the first instance is highlighted in the current tab. The number of the currently selected instance and the total number of instances of the search text are displayed below the <guibutton>Find text</guibutton> box.</para>
-				<para xlf:id="u00327">If the text is not found in the current tab, <guilabel>No matches</guilabel> is displayed below the <guibutton>Find text</guibutton> box.</para>
+				<para xlf:id="u00068">Type the search text and press <keycap function="enter"/>.</para>
+				<para xlf:id="u00069">If the text is found in the current tab, the first instance is highlighted in the current tab. The number of the currently selected instance and the total number of instances of the search text are displayed below the <guibutton>Find text</guibutton> box.</para>
+				<para xlf:id="u00070">If the text is not found in the current tab, <guilabel>No matches</guilabel> is displayed below the <guibutton>Find text</guibutton> box.</para>
 			</step>
 		</procedure>
 		<procedure>
 			<?pac-keep-together always?>
-			<title xlf:id="u00328">To select the next or previous occurrence of the search text:</title>
+			<title xlf:id="u00071">To select the next or previous occurrence of the search text:</title>
 			<step>
 				<stepalternatives>
 					<step>
-						<para xlf:id="u00329">Click on the <guibutton>&lt;&lt;</guibutton> button to select the previous occurrence, or:</para>
+						<para xlf:id="u00072">Click on the <guibutton>&lt;&lt;</guibutton> button to select the previous occurrence, or:</para>
 					</step>
 					<step>
-						<para xlf:id="u00330">Click on the <guibutton>&gt;&gt;</guibutton> button to select the next occurrence.</para>
+						<para xlf:id="u00073">Click on the <guibutton>&gt;&gt;</guibutton> button to select the next occurrence.</para>
 					</step>
 				</stepalternatives>
 			</step>
 		</procedure>
 		<note>
 			<title its:translate="no"/>
-			<para xlf:id="u00331">You cannot search for text in the <guilabel>Doors</guilabel> list.</para>
+			<para xlf:id="u00074">You cannot search for text in the <guilabel>Doors</guilabel> list.</para>
 		</note>
 	</section>
 	<section xml:id="fev_events">
-		<title xlf:id="u00332">Events</title>
-		<para xlf:id="u00333">The <guilabel>Events</guilabel> tab shows a list of events stored in the database.</para>
+		<title xlf:id="u00075">Events</title>
+		<para xlf:id="u00076">The <guilabel>Events</guilabel> tab shows a list of events stored in the database.</para>
 		<variablelist>
 			<?pac-keep-together always?>
 			<varlistentry>
-				<term xlf:id="u00334"><guilabel>Date / time</guilabel></term>
+				<term xlf:id="u00077"><guilabel>Date / time</guilabel></term>
 				<listitem>
-					<para xlf:id="u00335">The date and time when the event occurred.</para>
+					<para xlf:id="u00078">The date and time when the event occurred.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00336"><guilabel>Description</guilabel></term>
+				<term xlf:id="u00079"><guilabel>Description</guilabel></term>
 				<listitem>
-					<para xlf:id="u00337">A description of the event.</para>
+					<para xlf:id="u00080">A description of the event.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00338"><guilabel>Key number</guilabel></term>
+				<term xlf:id="u00081"><guilabel>Key number</guilabel></term>
 				<listitem>
-					<para xlf:id="u00339">The number of the key associated with the event, if any.</para>
+					<para xlf:id="u00082">The number of the key associated with the event, if any.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00340"><guilabel>Source</guilabel></term>
+				<term xlf:id="u00083"><guilabel>Source</guilabel></term>
 				<listitem>
-					<para xlf:id="u00341">The hardware location where the event originated, if any.</para>
+					<para xlf:id="u00084">The hardware location where the event originated, if any.</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>
-		<bridgehead xml:id="fev_events_cats" renderas="sect2" xlf:id="u00342">Event Categories</bridgehead>
-		<para xlf:id="u00343">In the <guilabel>Events</guilabel> list, different categories of event are colour coded.</para>
+		<bridgehead xml:id="fev_events_cats" renderas="sect2" xlf:id="u00085">Event Categories</bridgehead>
+		<para xlf:id="u00086">In the <guilabel>Events</guilabel> list, different categories of event are colour coded.</para>
 		<variablelist>
 			<?pac-keep-together always?>
 			<varlistentry>
-				<term xlf:id="u00344"><guilabel>Alarms</guilabel></term>
+				<term xlf:id="u00087"><guilabel>Alarms</guilabel></term>
 				<listitem>
-					<para xlf:id="u00345">Armed alarm points and raised alarms are shown with a red background; disarmed alarm points and restored alarms are shown with a pink background.</para>
+					<para xlf:id="u00088">Armed alarm points and raised alarms are shown with a red background; disarmed alarm points and restored alarms are shown with a pink background.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00346"><guilabel>Access</guilabel></term>
+				<term xlf:id="u00089"><guilabel>Access</guilabel></term>
 				<listitem>
-					<para xlf:id="u00347">Negative access events, e.g. access denied, are shown with a dark green background; positive access events, e.g. access granted, are shown with a light green background.</para>
+					<para xlf:id="u00090">Negative access events, e.g. access denied, are shown with a dark green background; positive access events, e.g. access granted, are shown with a light green background.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00348"><guilabel>Comms</guilabel></term>
+				<term xlf:id="u00091"><guilabel>Comms</guilabel></term>
 				<listitem>
-					<para xlf:id="u00349">Communication events, e.g. firmware downloads, are shown with a cyan background.</para>
+					<para xlf:id="u00092">Communication events, e.g. firmware downloads, are shown with a cyan background.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00350"><guilabel>System</guilabel></term>
+				<term xlf:id="u00093"><guilabel>System</guilabel></term>
 				<listitem>
-					<para xlf:id="u00351">System events are shown with a blue background.</para>
+					<para xlf:id="u00094">System events are shown with a blue background.</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>
-		<para xlf:id="u00352">The <guilabel>Event categories to display</guilabel> section enables you to hide or display categories of events.</para>
+		<para xlf:id="u00095">The <guilabel>Event categories to display</guilabel> section enables you to hide or display categories of events.</para>
 		<itemizedlist>
 			<listitem>
-				<para xlf:id="u00353">To hide a category of event, make sure the corresponding check box is empty.</para>
+				<para xlf:id="u00096">To hide a category of event, make sure the corresponding check box is empty.</para>
 			</listitem>
 			<listitem>
-				<para xlf:id="u00354">To display a category of event, make sure the corresponding check box contains a tick.</para>
+				<para xlf:id="u00097">To display a category of event, make sure the corresponding check box contains a tick.</para>
 			</listitem>
 			<listitem>
-				<para xlf:id="u00355">To show all categories of events, choose the <guibutton>Select all</guibutton> button.</para>
+				<para xlf:id="u00098">To show all categories of events, choose the <guibutton>Select all</guibutton> button.</para>
 			</listitem>
 		</itemizedlist>
-		<bridgehead xml:id="fev_events_cols" renderas="sect2" xlf:id="u00356">Additional Columns</bridgehead>
-		<para xlf:id="u00357">The <guilabel>Display additional columns</guilabel> section enables you to hide or display extra columns in the <guilabel>Events</guilabel> list.</para>
+		<bridgehead xml:id="fev_events_cols" renderas="sect2" xlf:id="u00099">Additional Columns</bridgehead>
+		<para xlf:id="u00100">The <guilabel>Display additional columns</guilabel> section enables you to hide or display extra columns in the <guilabel>Events</guilabel> list.</para>
 		<variablelist>
 			<?pac-keep-together always?>
 			<varlistentry>
-				<term xlf:id="u00358"><guilabel>Event number</guilabel></term>
+				<term xlf:id="u00101"><guilabel>Event number</guilabel></term>
 				<listitem>
-					<para xlf:id="u00359">The number of the event.</para>
+					<para xlf:id="u00102">The number of the event.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00360"><guilabel>Category</guilabel></term>
+				<term xlf:id="u00103"><guilabel>Category</guilabel></term>
 				<listitem>
-					<para xlf:id="u00361">The event category: <option>Alarm (raised)</option>, <option>Alarm (restored)</option>, <option>Access (negative)</option>, <option>Access (positive)</option>, <option>Comms</option> or <option>System</option>. See <xref xl:href="#fev_events_cats" xrefstyle="select: title"/>.</para>
+					<para xlf:id="u00104">The event category: <option>Alarm (raised)</option>, <option>Alarm (restored)</option>, <option>Access (negative)</option>, <option>Access (positive)</option>, <option>Comms</option> or <option>System</option>. See <xref xl:href="#fev_events_cats" xrefstyle="select: title"/>.</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>
 		<itemizedlist>
 			<listitem>
-				<para xlf:id="u00362">To hide an additional column, make sure the corresponding check box is empty.</para>
+				<para xlf:id="u00105">To hide an additional column, make sure the corresponding check box is empty.</para>
 			</listitem>
 			<listitem>
-				<para xlf:id="u00363">To display an additional column, make sure the corresponding check box contains a tick.</para>
+				<para xlf:id="u00106">To display an additional column, make sure the corresponding check box contains a tick.</para>
 			</listitem>
 		</itemizedlist>
 	</section>
 	<section xml:id="fev_keys">
-		<title xlf:id="u00364">Keys</title>
-		<para xlf:id="u00365">The <guilabel>Keys</guilabel> tab shows a list of keys stored in the database.</para>
+		<title xlf:id="u00107">Keys</title>
+		<para xlf:id="u00108">The <guilabel>Keys</guilabel> tab shows a list of keys stored in the database.</para>
 		<variablelist>
 			<?pac-keep-together always?>
 			<varlistentry>
-				<term xlf:id="u00366"><guilabel>Type</guilabel></term>
+				<term xlf:id="u00109"><guilabel>Type</guilabel></term>
 				<listitem>
-					<para xlf:id="u00367">The type of key: <option>Administrator</option>, <option>Editor</option>, <option>User</option> or <option>Deleted</option>.</para>
+					<para xlf:id="u00110">The type of key: <option>Administrator</option>, <option>Editor</option>, <option>User</option> or <option>Deleted</option>.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00368"><guilabel>Active?</guilabel></term>
+				<term xlf:id="u00111"><guilabel>Active?</guilabel></term>
 				<listitem>
-					<para xlf:id="u00369">Whether the key is active or not. This only applies to editor keys.</para>
+					<para xlf:id="u00112">Whether the key is active or not. This only applies to editor keys.</para>
 					<itemizedlist>
 						<listitem>
 							<formalpara>
-								<title xlf:id="u00370">Active</title>
-								<para xlf:id="u00371">The editor key is defined and in use.</para>
+								<title xlf:id="u00113">Active</title>
+								<para xlf:id="u00114">The editor key is defined and in use.</para>
 							</formalpara>
 						</listitem>
 						<listitem>
 							<formalpara>
-								<title xlf:id="u00372">Inactive</title>
-								<para xlf:id="u00373">The editor key is defined but is not in use.</para>
+								<title xlf:id="u00115">Inactive</title>
+								<para xlf:id="u00116">The editor key is defined but is not in use.</para>
 							</formalpara>
 						</listitem>
 					</itemizedlist>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00374"><guilabel>Key number</guilabel></term>
+				<term xlf:id="u00117"><guilabel>Key number</guilabel></term>
 				<listitem>
-					<para xlf:id="u00375">In a commercial database, the number assigned to the key. In a residential database, the flat number and colour assigned to the key.</para>
+					<para xlf:id="u00118">In a commercial database, the number assigned to the key. In a residential database, the flat number and colour assigned to the key.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00376"><guilabel>Code</guilabel></term>
+				<term xlf:id="u00119"><guilabel>Code</guilabel></term>
 				<listitem>
-					<para xlf:id="u00377">The key code.</para>
+					<para xlf:id="u00120">The key code.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00378"><guilabel>PIN</guilabel></term>
+				<term xlf:id="u00121"><guilabel>PIN</guilabel></term>
 				<listitem>
-					<para xlf:id="u00379">The PIN associated with the key. PINs are usually hidden, i.e. displayed as a string of four asterisks. To display a PIN, click on it.</para>
+					<para xlf:id="u00122">The PIN associated with the key. PINs are usually hidden, i.e. displayed as a string of four asterisks. To display a PIN, click on it.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00380"><guilabel>Access</guilabel></term>
+				<term xlf:id="u00123"><guilabel>Access</guilabel></term>
 				<listitem>
-					<para xlf:id="u00381">The doors which this key may access: <option>No access</option>, <option>Door 1</option>, <option>Door 2</option> or <option>Both doors</option>.</para>
+					<para xlf:id="u00124">The doors which this key may access: <option>No access</option>, <option>Door 1</option>, <option>Door 2</option> or <option>Both doors</option>.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00382"><guilabel>Time profile</guilabel></term>
+				<term xlf:id="u00125"><guilabel>Time profile</guilabel></term>
 				<listitem>
-					<para xlf:id="u00383">The time profile assigned to the key, if any.</para>
+					<para xlf:id="u00126">The time profile assigned to the key, if any.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00384"><guilabel>Extra door time</guilabel></term>
+				<term xlf:id="u00127"><guilabel>Extra door time</guilabel></term>
 				<listitem>
-					<para xlf:id="u00385">Whether the keyholder requires extra time to get through the door.</para>
+					<para xlf:id="u00128">Whether the keyholder requires extra time to get through the door.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00386"><guilabel>First key open</guilabel></term>
+				<term xlf:id="u00129"><guilabel>First key open</guilabel></term>
 				<listitem>
-					<para xlf:id="u00387">Whether the door remains unlocked after this key is used. The door will be locked when a key with first key open is presented again.</para>
+					<para xlf:id="u00130">Whether the door remains unlocked after this key is used. The door will be locked when a key with first key open is presented again.</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>
-		<para xlf:id="u00388">In the <guilabel>Keys</guilabel> list, different types of key are colour coded.</para>
+		<para xlf:id="u00131">In the <guilabel>Keys</guilabel> list, different types of key are colour coded.</para>
 		<variablelist>
 			<?pac-keep-together always?>
 			<varlistentry>
-				<term xlf:id="u00389"><guilabel>Administrator</guilabel></term>
+				<term xlf:id="u00132"><guilabel>Administrator</guilabel></term>
 				<listitem>
-					<para xlf:id="u00390">The administrator key is shown with a green background.</para>
+					<para xlf:id="u00133">The administrator key is shown with a green background.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00391"><guilabel>Editor</guilabel></term>
+				<term xlf:id="u00134"><guilabel>Editor</guilabel></term>
 				<listitem>
-					<para xlf:id="u00392">Active editor keys are shown with a blue background; inactive editor keys are shown with a light grey background.</para>
+					<para xlf:id="u00135">Active editor keys are shown with a blue background; inactive editor keys are shown with a light grey background.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00393"><guilabel>User</guilabel></term>
+				<term xlf:id="u00136"><guilabel>User</guilabel></term>
 				<listitem>
-					<para xlf:id="u00394">User keys are shown with a yellow background.</para>
+					<para xlf:id="u00137">User keys are shown with a yellow background.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00395"><guilabel>Deleted</guilabel></term>
+				<term xlf:id="u00138"><guilabel>Deleted</guilabel></term>
 				<listitem>
-					<para xlf:id="u00396">Deleted keys are shown with a red background.</para>
+					<para xlf:id="u00139">Deleted keys are shown with a red background.</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>
 	</section>
 	<section xml:id="fev_config">
-		<title xlf:id="u00397">Configuration</title>
-		<para xlf:id="u00398">The <guilabel>Configuration</guilabel> tab shows a list of the doors and time profiles stored in the database.</para>
-		<bridgehead xml:id="fev_config_doors" renderas="sect2" xlf:id="u00399">Doors</bridgehead>
+		<title xlf:id="u00140">Configuration</title>
+		<para xlf:id="u00141">The <guilabel>Configuration</guilabel> tab shows a list of the doors and time profiles stored in the database.</para>
+		<bridgehead xml:id="fev_config_doors" renderas="sect2" xlf:id="u00142">Doors</bridgehead>
 		<variablelist>
 			<?pac-keep-together always?>
 			<varlistentry>
-				<term xlf:id="u00400"><guilabel>Door Number</guilabel></term>
+				<term xlf:id="u00143"><guilabel>Door Number</guilabel></term>
 				<listitem>
-					<para xlf:id="u00401">The number of the door: <option>Door 1</option> or <option>Door 2</option>.</para>
+					<para xlf:id="u00144">The number of the door: <option>Door 1</option> or <option>Door 2</option>.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00402"><guilabel>Token type</guilabel></term>
+				<term xlf:id="u00145"><guilabel>Token type</guilabel></term>
 				<listitem>
-					<para xlf:id="u00403">The type of tokens which this <phrase dita:conref="FPP"/> uses: <option>LF tokens</option> or <option>HF tokens</option>. See <xref xl:href="#fev_ctrl" xrefstyle="select: title"/>.</para>
+					<para xlf:id="u00146">The type of tokens which this <phrase dita:conref="FPP"/> uses: <option>LF tokens</option> or <option>HF tokens</option>. See <xref xl:href="#fev_ctrl" xrefstyle="select: title"/>.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00404"><guilabel>Lock release time (secs)</guilabel></term>
+				<term xlf:id="u00147"><guilabel>Lock release time (secs)</guilabel></term>
 				<listitem>
-					<para xlf:id="u00405">The time (in seconds) the door is unlocked after a valid key has been presented to the reader.</para>
+					<para xlf:id="u00148">The time (in seconds) the door is unlocked after a valid key has been presented to the reader.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00406"><guilabel>Extra lock time (secs)</guilabel></term>
+				<term xlf:id="u00149"><guilabel>Extra lock time (secs)</guilabel></term>
 				<listitem>
-					<para xlf:id="u00407">The extra time (in seconds) allowed if the keyholder requires extra time to get through the door.</para>
+					<para xlf:id="u00150">The extra time (in seconds) allowed if the keyholder requires extra time to get through the door.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00408"><guilabel>Door open time (secs)</guilabel></term>
+				<term xlf:id="u00151"><guilabel>Door open time (secs)</guilabel></term>
 				<listitem>
-					<para xlf:id="u00409">The time (in seconds) the door may be open, for the purposes of door monitoring. If the door is open for longer than the time specified here, a door left open alarm is triggered.</para>
+					<para xlf:id="u00152">The time (in seconds) the door may be open, for the purposes of door monitoring. If the door is open for longer than the time specified here, a door left open alarm is triggered.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00410"><guilabel>Time profile</guilabel></term>
+				<term xlf:id="u00153"><guilabel>Time profile</guilabel></term>
 				<listitem>
-					<para xlf:id="u00411">The time profile assigned to the door, if any.</para>
+					<para xlf:id="u00154">The time profile assigned to the door, if any.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00412"><guilabel>First key open</guilabel></term>
+				<term xlf:id="u00155"><guilabel>First key open</guilabel></term>
 				<listitem>
-					<para xlf:id="u00413">If enabled, when a keyholder uses a key with first key open to open this door, the door remains unlocked.</para>
+					<para xlf:id="u00156">If enabled, when a keyholder uses a key with first key open to open this door, the door remains unlocked.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00414"><guilabel>Free exit enabled</guilabel></term>
+				<term xlf:id="u00157"><guilabel>Free exit enabled</guilabel></term>
 				<listitem>
-					<para xlf:id="u00415">If enabled, users may open the door without using the RTE switch and a door forced alarm will not be generated; e.g. for use with emergency exits.</para>
+					<para xlf:id="u00158">If enabled, users may open the door without using the RTE switch and a door forced alarm will not be generated; e.g. for use with emergency exits.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00416"><guilabel>Set reset enabled</guilabel></term>
+				<term xlf:id="u00159"><guilabel>Set reset enabled</guilabel></term>
 				<listitem>
-					<para xlf:id="u00417">If enabled, the door remains unlocked after a valid access using any key or when an RTE switch is pressed. The door will be locked when any key is presented or when an RTE switch is pressed again.</para>
+					<para xlf:id="u00160">If enabled, the door remains unlocked after a valid access using any key or when an RTE switch is pressed. The door will be locked when any key is presented or when an RTE switch is pressed again.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00418"><guilabel>RTE only</guilabel></term>
+				<term xlf:id="u00161"><guilabel>RTE only</guilabel></term>
 				<listitem>
-					<para xlf:id="u00419">Whether any readers are associated with this door.</para>
+					<para xlf:id="u00162">Whether any readers are associated with this door.</para>
 					<itemizedlist>
 						<listitem>
 							<formalpara>
-								<title xlf:id="u00420">On</title>
-								<para xlf:id="u00421">No readers are associated with this door.</para>
+								<title xlf:id="u00163">On</title>
+								<para xlf:id="u00164">No readers are associated with this door.</para>
 							</formalpara>
 						</listitem>
 						<listitem>
 							<formalpara>
-								<title xlf:id="u00422">Off</title>
-								<para xlf:id="u00423">Readers are associated with this door.</para>
+								<title xlf:id="u00165">Off</title>
+								<para xlf:id="u00166">Readers are associated with this door.</para>
 							</formalpara>
 						</listitem>
 					</itemizedlist>
-					<para xlf:id="u00424">See <guilabel>Reader configuration</guilabel> below.</para>
+					<para xlf:id="u00167">See <guilabel>Reader configuration</guilabel> below.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00425"><guilabel>Anti‑passback</guilabel></term>
+				<term xlf:id="u00168"><guilabel>Anti‑passback</guilabel></term>
 				<listitem>
-					<para xlf:id="u00426">The anti‑passback settings.</para>
+					<para xlf:id="u00169">The anti‑passback settings.</para>
 					<itemizedlist>
 						<listitem>
 							<formalpara>
-								<title xlf:id="u00427">- (Hyphen)</title>
-								<para xlf:id="u00428">No anti‑passback, i.e. a keyholder may pass through this door into the same area more than once consecutively.</para>
+								<title xlf:id="u00170">- (Hyphen)</title>
+								<para xlf:id="u00171">No anti‑passback, i.e. a keyholder may pass through this door into the same area more than once consecutively.</para>
 							</formalpara>
 						</listitem>
 						<listitem>
 							<formalpara>
-								<title xlf:id="u00429">Unlimited</title>
-								<para xlf:id="u00430">Local anti‑passback, i.e. a keyholder may never pass through this door into the same area more than once consecutively.</para>
+								<title xlf:id="u00172">Unlimited</title>
+								<para xlf:id="u00173">Local anti‑passback, i.e. a keyholder may never pass through this door into the same area more than once consecutively.</para>
 							</formalpara>
 						</listitem>
 						<listitem>
 							<formalpara>
-								<title xlf:id="u00431">2–30</title>
-								<para xlf:id="u00432">Anti‑passback timeout, i.e. the time (in minutes) after which a keyholder may pass through this door into the same area again.</para>
+								<title xlf:id="u00174">2–30</title>
+								<para xlf:id="u00175">Anti‑passback timeout, i.e. the time (in minutes) after which a keyholder may pass through this door into the same area again.</para>
 							</formalpara>
 						</listitem>
 					</itemizedlist>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00433"><guilabel>Reader configuration</guilabel></term>
+				<term xlf:id="u00176"><guilabel>Reader configuration</guilabel></term>
 				<listitem>
-					<para xlf:id="u00434">The number of readers associated with this door.</para>
+					<para xlf:id="u00177">The number of readers associated with this door.</para>
 					<itemizedlist>
 						<listitem>
 							<formalpara>
-								<title xlf:id="u00435">RTE only</title>
-								<para xlf:id="u00436">0 readers.</para>
+								<title xlf:id="u00178">RTE only</title>
+								<para xlf:id="u00179">0 readers.</para>
 							</formalpara>
 						</listitem>
 						<listitem>
 							<formalpara>
-								<title xlf:id="u00437">Reader in, RTE out</title>
-								<para xlf:id="u00438">1 reader.</para>
+								<title xlf:id="u00180">Reader in, RTE out</title>
+								<para xlf:id="u00181">1 reader.</para>
 							</formalpara>
 						</listitem>
 						<listitem>
 							<formalpara>
-								<title xlf:id="u00439">Reader in, reader out</title>
-								<para xlf:id="u00440">2 readers.</para>
+								<title xlf:id="u00182">Reader in, reader out</title>
+								<para xlf:id="u00183">2 readers.</para>
 							</formalpara>
 						</listitem>
 					</itemizedlist>
-					<para xlf:id="u00441">See <guilabel>RTE only</guilabel> above.</para>
+					<para xlf:id="u00184">See <guilabel>RTE only</guilabel> above.</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>
-		<bridgehead xml:id="fev_config_tp" renderas="sect2" xlf:id="u00442">Time Profiles</bridgehead>
+		<bridgehead xml:id="fev_config_tp" renderas="sect2" xlf:id="u00185">Time Profiles</bridgehead>
 		<variablelist>
 			<?pac-keep-together always?>
 			<varlistentry>
-				<term xlf:id="u00443"><guilabel>ID</guilabel></term>
+				<term xlf:id="u00186"><guilabel>ID</guilabel></term>
 				<listitem>
-					<para xlf:id="u00444">The time profile ID number.</para>
+					<para xlf:id="u00187">The time profile ID number.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00445"><guilabel>Active</guilabel></term>
+				<term xlf:id="u00188"><guilabel>Active</guilabel></term>
 				<listitem>
-					<para xlf:id="u00446">Whether the time profile is active or not.</para>
+					<para xlf:id="u00189">Whether the time profile is active or not.</para>
 					<itemizedlist>
 						<listitem>
 							<formalpara>
-								<title xlf:id="u00447">On</title>
-								<para xlf:id="u00448">The time profile is defined and in use.</para>
+								<title xlf:id="u00190">On</title>
+								<para xlf:id="u00191">The time profile is defined and in use.</para>
 							</formalpara>
 						</listitem>
 						<listitem>
 							<formalpara>
-								<title xlf:id="u00449">Off</title>
-								<para xlf:id="u00450">The time profile is defined but is not in use.</para>
+								<title xlf:id="u00192">Off</title>
+								<para xlf:id="u00193">The time profile is defined but is not in use.</para>
 							</formalpara>
 						</listitem>
 					</itemizedlist>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00451"><guilabel>Profile Type</guilabel></term>
+				<term xlf:id="u00194"><guilabel>Profile Type</guilabel></term>
 				<listitem>
-					<para xlf:id="u00452">The type of time profile.</para>
+					<para xlf:id="u00195">The type of time profile.</para>
 					<itemizedlist>
 						<listitem>
 							<formalpara>
-								<title xlf:id="u00453">User</title>
-								<para xlf:id="u00454">A simple time profile. Profiles 1–8 are all user profiles.</para>
+								<title xlf:id="u00196">User</title>
+								<para xlf:id="u00197">A simple time profile. Profiles 1–8 are all user profiles.</para>
 							</formalpara>
 						</listitem>
 						<listitem>
 							<formalpara>
-								<title xlf:id="u00455">First key open</title>
-								<para xlf:id="u00456">A first open door mode profile. Profile 9 is always a first key open profile.</para>
+								<title xlf:id="u00198">First key open</title>
+								<para xlf:id="u00199">A first open door mode profile. Profile 9 is always a first key open profile.</para>
 							</formalpara>
 						</listitem>
 						<listitem>
 							<formalpara>
-								<title xlf:id="u00457">Anti-passback</title>
-								<para xlf:id="u00458">An anti-passback door mode profile. Profile 10 is always an anti-passback profile.</para>
+								<title xlf:id="u00200">Anti-passback</title>
+								<para xlf:id="u00201">An anti-passback door mode profile. Profile 10 is always an anti-passback profile.</para>
 							</formalpara>
 						</listitem>
 					</itemizedlist>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00459"><guilabel>Period <replaceable>n</replaceable> start</guilabel></term>
+				<term xlf:id="u00202"><guilabel>Period <replaceable>n</replaceable> start</guilabel></term>
 				<listitem>
-					<para xlf:id="u00460">For each of time periods A–D, the time when the period starts.</para>
+					<para xlf:id="u00203">For each of time periods A–D, the time when the period starts.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00461"><guilabel>Period <replaceable>n</replaceable> end</guilabel></term>
+				<term xlf:id="u00204"><guilabel>Period <replaceable>n</replaceable> end</guilabel></term>
 				<listitem>
-					<para xlf:id="u00462">For each of time periods A–D, the time when the period ends.</para>
+					<para xlf:id="u00205">For each of time periods A–D, the time when the period ends.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term xlf:id="u00463"><guilabel>Period <replaceable>n</replaceable> day mask</guilabel></term>
+				<term xlf:id="u00206"><guilabel>Period <replaceable>n</replaceable> day mask</guilabel></term>
 				<listitem>
-					<para xlf:id="u00464">For each of time periods A–D, the days when the time period applies.</para>
+					<para xlf:id="u00207">For each of time periods A–D, the days when the time period applies.</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>
 	</section>
 	<section xml:id="fev_print">
-		<title xlf:id="u00465">Preview and Print</title>
+		<title xlf:id="u00208">Preview and Print</title>
 		<procedure>
 			<?pac-keep-together always?>
-			<title xlf:id="u00466">To preview the database:</title>
+			<title xlf:id="u00209">To preview the database:</title>
 			<step>
 				<stepalternatives>
 					<step>
-						<para xlf:id="u00467">To see a landscape preview, choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Print preview (landscape)</guimenuitem></menuchoice> command, or:</para>
+						<para xlf:id="u00210">To see a landscape preview, choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Print preview (landscape)</guimenuitem></menuchoice> command, or:</para>
 					</step>
 					<step>
-						<para xlf:id="u00468">To see a portrait preview, choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Print preview (portrait)</guimenuitem></menuchoice> command.</para>
+						<para xlf:id="u00211">To see a portrait preview, choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Print preview (portrait)</guimenuitem></menuchoice> command.</para>
 					</step>
 				</stepalternatives>
-				<para xlf:id="u00469">The <guilabel role="wintitle">Print preview</guilabel> window is displayed.</para>
+				<para xlf:id="u00212">The <guilabel role="wintitle">Print preview</guilabel> window is displayed.</para>
 			</step>
 		</procedure>
-		<para xlf:id="u00470">The <guilabel role="wintitle">Print preview</guilabel> toolbar contains the following buttons:</para>
+		<para xlf:id="u00213">The <guilabel role="wintitle">Print preview</guilabel> toolbar contains the following buttons:</para>
 		<informaltable frame="all" rowsep="1" colsep="1">
 			<tgroup cols="3">
 				<colspec colwidth="15%" colname="1"/>
@@ -713,192 +714,192 @@
 				<tbody>
 					<row>
 						<entry>
-							<para xlf:id="u00471"><inlinemediaobject>
+							<para xlf:id="u00214"><inlinemediaobject>
 								<imageobject>
 									<imagedata fileref="images/icon_prev_print.png" format="PNG" depth="20px" width="20px" scalefit="1"/>
 								</imageobject>
 							</inlinemediaobject></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00472"><guiicon>Print</guiicon></para>
+							<para xlf:id="u00215"><guiicon>Print</guiicon></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00473">Prints the database.</para>
+							<para xlf:id="u00216">Prints the database.</para>
 						</entry>
 					</row>
 					<row>
 						<entry>
-							<para xlf:id="u00474"><inlinemediaobject>
+							<para xlf:id="u00217"><inlinemediaobject>
 								<imageobject>
 									<imagedata fileref="images/icon_prev_zoom.png" format="PNG" depth="20px" width="32px" scalefit="1"/>
 								</imageobject>
 							</inlinemediaobject></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00475"><guiicon>Zoom</guiicon></para>
+							<para xlf:id="u00218"><guiicon>Zoom</guiicon></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00476">Displays a drop-down list enabling you to change the magnification.</para>
+							<para xlf:id="u00219">Displays a drop-down list enabling you to change the magnification.</para>
 						</entry>
 					</row>
 					<row>
 						<entry>
-							<para xlf:id="u00477"><inlinemediaobject>
+							<para xlf:id="u00220"><inlinemediaobject>
 								<imageobject>
 									<imagedata fileref="images/icon_prev_one.png" format="PNG" depth="20px" width="20px" scalefit="1"/>
 								</imageobject>
 							</inlinemediaobject></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00478"><guiicon>One page</guiicon></para>
+							<para xlf:id="u00221"><guiicon>One page</guiicon></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00479">Displays one page at a time.</para>
+							<para xlf:id="u00222">Displays one page at a time.</para>
 						</entry>
 					</row>
 					<row>
 						<entry>
-							<para xlf:id="u00480"><inlinemediaobject>
+							<para xlf:id="u00223"><inlinemediaobject>
 								<imageobject>
 									<imagedata fileref="images/icon_prev_two.png" format="PNG" depth="20px" width="20px" scalefit="1"/>
 								</imageobject>
 							</inlinemediaobject></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00481"><guiicon>Two pages</guiicon></para>
+							<para xlf:id="u00224"><guiicon>Two pages</guiicon></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00482">Displays two pages at a time.</para>
+							<para xlf:id="u00225">Displays two pages at a time.</para>
 						</entry>
 					</row>
 					<row>
 						<entry>
-							<para xlf:id="u00483"><inlinemediaobject>
+							<para xlf:id="u00226"><inlinemediaobject>
 								<imageobject>
 									<imagedata fileref="images/icon_prev_three.png" format="PNG" depth="20px" width="20px" scalefit="1"/>
 								</imageobject>
 							</inlinemediaobject></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00484"><guiicon>Three pages</guiicon></para>
+							<para xlf:id="u00227"><guiicon>Three pages</guiicon></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00485">Displays three pages at a time.</para>
+							<para xlf:id="u00228">Displays three pages at a time.</para>
 						</entry>
 					</row>
 					<row>
 						<entry>
-							<para xlf:id="u00486"><inlinemediaobject>
+							<para xlf:id="u00229"><inlinemediaobject>
 								<imageobject>
 									<imagedata fileref="images/icon_prev_four.png" format="PNG" depth="20px" width="20px" scalefit="1"/>
 								</imageobject>
 							</inlinemediaobject></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00487"><guiicon>Four pages</guiicon></para>
+							<para xlf:id="u00230"><guiicon>Four pages</guiicon></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00488">Displays four pages at a time.</para>
+							<para xlf:id="u00231">Displays four pages at a time.</para>
 						</entry>
 					</row>
 					<row>
 						<entry>
-							<para xlf:id="u00489"><inlinemediaobject>
+							<para xlf:id="u00232"><inlinemediaobject>
 								<imageobject>
 									<imagedata fileref="images/icon_prev_six.png" format="PNG" depth="20px" width="20px" scalefit="1"/>
 								</imageobject>
 							</inlinemediaobject></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00490"><guiicon>Six pages</guiicon></para>
+							<para xlf:id="u00233"><guiicon>Six pages</guiicon></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00491">Displays six pages at a time.</para>
+							<para xlf:id="u00234">Displays six pages at a time.</para>
 						</entry>
 					</row>
 					<row>
 						<entry>
-							<para xlf:id="u00492"><inlinemediaobject>
+							<para xlf:id="u00235"><inlinemediaobject>
 								<imageobject>
 									<imagedata fileref="images/icon_prev_close.png" format="PNG" depth="20px" width="40px" scalefit="1"/>
 								</imageobject>
 							</inlinemediaobject></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00493"><guiicon>Close</guiicon></para>
+							<para xlf:id="u00236"><guiicon>Close</guiicon></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00494">Closes the <guilabel role="wintitle">Print preview</guilabel> window.</para>
+							<para xlf:id="u00237">Closes the <guilabel role="wintitle">Print preview</guilabel> window.</para>
 						</entry>
 					</row>
 					<row>
 						<entry>
-							<para xlf:id="u00495"><inlinemediaobject>
+							<para xlf:id="u00238"><inlinemediaobject>
 								<imageobject>
 									<imagedata fileref="images/icon_prev_page.png" format="PNG" depth="22px" width="74px" scalefit="1"/>
 								</imageobject>
 							</inlinemediaobject></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00496"><guiicon>Page</guiicon></para>
+							<para xlf:id="u00239"><guiicon>Page</guiicon></para>
 						</entry>
 						<entry>
-							<para xlf:id="u00497">Displays the current page number and enables you to navigate to a different page, specified by data entry or by using the up and down arrows to the right of the box.</para>
+							<para xlf:id="u00240">Displays the current page number and enables you to navigate to a different page, specified by data entry or by using the up and down arrows to the right of the box.</para>
 						</entry>
 					</row>
 				</tbody>
 			</tgroup>
 		</informaltable>
 		<procedure>
-			<title xlf:id="u00498">To print the database:</title>
+			<title xlf:id="u00241">To print the database:</title>
 			<step>
-				<para xlf:id="u00499">Choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Print</guimenuitem></menuchoice> command.</para>
+				<para xlf:id="u00242">Choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Print</guimenuitem></menuchoice> command.</para>
 			</step>
 		</procedure>
 	</section>
 	<section xml:id="fev_tools">
-		<title xlf:id="u00500">Tools</title>
+		<title xlf:id="u00243">Tools</title>
 		<procedure>
 			<?pac-keep-together always?>
-			<title xlf:id="u00501">To change the language:</title>
+			<title xlf:id="u00244">To change the language:</title>
 			<step>
-				<para xlf:id="u00502">Choose the <menuchoice><guimenu>Tools</guimenu><guisubmenu>Change language</guisubmenu></menuchoice> command.</para>
+				<para xlf:id="u00245">Choose the <menuchoice><guimenu>Tools</guimenu><guisubmenu>Change language</guisubmenu></menuchoice> command.</para>
 			</step>
 			<step>
-				<para xlf:id="u00503">Choose the required language from the submenu.</para>
+				<para xlf:id="u00246">Choose the required language from the submenu.</para>
 			</step>
 		</procedure>
 		<procedure>
 			<?pac-keep-together always?>
-			<title xlf:id="u00504">To show parsing errors that occurred when you loaded the file:</title>
+			<title xlf:id="u00247">To show parsing errors that occurred when you loaded the file:</title>
 			<step>
-				<para xlf:id="u00505">Choose the <menuchoice><guimenu>Tools</guimenu><guimenuitem>Show error messages from file load</guimenuitem></menuchoice> command.</para>
-				<para xlf:id="u00506">The <guilabel role="wintitle">Parse errors</guilabel> window is displayed, showing any parsing errors that occurred when you loaded the file.</para>
+				<para xlf:id="u00248">Choose the <menuchoice><guimenu>Tools</guimenu><guimenuitem>Show error messages from file load</guimenuitem></menuchoice> command.</para>
+				<para xlf:id="u00249">The <guilabel role="wintitle">Parse errors</guilabel> window is displayed, showing any parsing errors that occurred when you loaded the file.</para>
 			</step>
 			<step>
-				<para xlf:id="u00507">Choose <guibutton>OK</guibutton> or <guibutton>Cancel</guibutton> to close the <guilabel role="wintitle">Parse errors</guilabel> window.</para>
+				<para xlf:id="u00250">Choose <guibutton>OK</guibutton> or <guibutton>Cancel</guibutton> to close the <guilabel role="wintitle">Parse errors</guilabel> window.</para>
 			</step>
 		</procedure>
 		<procedure>
 			<?pac-keep-together always?>
-			<title xlf:id="u00508">To show or hide unloggable events:</title>
+			<title xlf:id="u00251">To show or hide unloggable events:</title>
 			<step>
-				<para xlf:id="u00509">Choose the <menuchoice><guimenu>Tools</guimenu><guimenuitem>Show unloggable events</guimenuitem></menuchoice> command.</para>
-				<para xlf:id="u00510">Unloggable events are displayed in the <guilabel>Events</guilabel> tab.</para>
+				<para xlf:id="u00252">Choose the <menuchoice><guimenu>Tools</guimenu><guimenuitem>Show unloggable events</guimenuitem></menuchoice> command.</para>
+				<para xlf:id="u00253">Unloggable events are displayed in the <guilabel>Events</guilabel> tab.</para>
 			</step>
 		</procedure>
 		<note>
 			<title its:translate="no"/>
-			<para xlf:id="u00511">Unloggable events are diagnostic events which are generated internally by the controller in addition to the usual access, alarm, comms and system events. They are shown with a dark grey background. When the <guilabel>Category</guilabel> column is displayed, they have the category <option>Unlogged</option>.</para>
+			<para xlf:id="u00254">Unloggable events are diagnostic events which are generated internally by the controller in addition to the usual access, alarm, comms and system events. They are shown with a dark grey background. When the <guilabel>Category</guilabel> column is displayed, they have the category <option>Unlogged</option>.</para>
 		</note>
 	</section>
 	<section xml:id="fev_exit">
-		<title xlf:id="u00512">Exit the Database Viewer</title>
+		<title xlf:id="u00255">Exit the Database Viewer</title>
 		<procedure>
 			<?pac-keep-together always?>
-			<title xlf:id="u00513">To close the <phrase dita:conref="FPP"/> database viewer:</title>
+			<title xlf:id="u00256">To close the <phrase dita:conref="FPP"/> database viewer:</title>
 			<step>
-				<para xlf:id="u00514">Choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Exit</guimenuitem></menuchoice> command.</para>
+				<para xlf:id="u00257">Choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Exit</guimenuitem></menuchoice> command.</para>
 			</step>
 		</procedure>
 	</section>
