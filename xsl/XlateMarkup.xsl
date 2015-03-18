@@ -149,7 +149,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:message terminate="yes">
-						<xsl:text>ERROR: Leading and / or Has Same Node functions not available.</xsl:text>
+						<xsl:text>ERROR: Set functions not available.</xsl:text>
 					</xsl:message>
 				</xsl:otherwise>
 			</xsl:choose>
