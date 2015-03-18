@@ -75,12 +75,12 @@
 	<xd:doc>
 		===============================================================
 		Looks in $ITS for selectors to find translatable elements. A
-		translatable elements is one which is not within text, does not
-		already have an @xlf:id, and is not marked for no translation.
-		In addition, any element which does not have an @xlf:id and is
-		marked for translation is included. The stylesheet then uses
-		the Evaluate function to find the set of all matching elements
-		in the current document.
+		translatable element is one which is not within text, does not
+		already have an @xlf:id, and is not marked as untranslatable.
+		In addition, any other element which does not have an @xlf:id
+		and is explicitly marked for translation is included. The
+		stylesheet then uses the Evaluate function to select the set of
+		all translatable elements in the current document.
 		===============================================================
 	</xd:doc>
 	<xsl:template match="/">
