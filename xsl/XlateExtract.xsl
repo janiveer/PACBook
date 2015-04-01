@@ -25,6 +25,7 @@
                 xmlns:its="http://www.w3.org/2005/11/its"
                 xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
                 xmlns:xl="http://www.w3.org/1999/xlink"
+                xmlns="urn:oasis:names:tc:xliff:document:1.2"
                 exclude-result-prefixes="db xd xlf xl its"
                 version="1.0">
 
@@ -35,6 +36,7 @@
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:param name="Source"/>
+	<xsl:param name="Language"/>
 
 	<xsl:template match="/">
 		<xsl:if test="$Source = ''">
@@ -46,7 +48,7 @@
 	</xsl:template>
 
 	<xsl:template match="*" mode="root">
-		<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xliff version="1.2">
 			<file datatype="xml">
 				<xsl:attribute name="original">
 					<xsl:value-of select="$Source"/>
@@ -54,6 +56,11 @@
 				<xsl:attribute name="source-language">
 					<xsl:value-of select="@xml:lang"/>
 				</xsl:attribute>
+				<xsl:if test="not($Language = '')">
+					<xsl:attribute name="target-language">
+						<xsl:value-of select="$Language"/>
+					</xsl:attribute>
+				</xsl:if>
 				<header>
 					<note>
 						<xsl:value-of select="//db:biblioid[@class='pubsnumber']"/>
@@ -71,10 +78,15 @@
 	</xsl:template>
 
 	<xsl:template match="*[@xlf:id][not(@its:translate='no')]" mode="unit">
-		<trans-unit xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<trans-unit>
 			<xsl:attribute name="id">
 				<xsl:value-of select="@xlf:id"/>
 			</xsl:attribute>
+			<xsl:if test="@xml:id">
+				<xsl:attribute name="resname">
+					<xsl:value-of select="@xml:id"/>
+				</xsl:attribute>
+			</xsl:if>
 			<source>
 				<xsl:apply-templates select="text()|processing-instruction()|*" mode="span"/>
 			</source>
