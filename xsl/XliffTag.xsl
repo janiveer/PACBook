@@ -27,66 +27,75 @@
                 xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:tei="http://www.tei-c.org/ns/1.0"
                 xmlns:dita="http://dita.oasis-open.org/architecture/2005"
-                exclude-result-prefixes="xlf"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                exclude-result-prefixes="xlf xd"
                 version="1.0">
 
-<!--
+	<xd:doc>
      Turn inline tags into xliff g, x, ph and mrk elements.
- -->
+	</xd:doc>
+
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 
 	<xsl:template match="xlf:xliff">
-		<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xl="http://www.w3.org/1999/xlink"
+           xmlns:tei="http://www.tei-c.org/ns/1.0"
+           xmlns:dita="http://dita.oasis-open.org/architecture/2005"
+           xmlns:its="http://www.w3.org/2005/11/its"
+           version="1.2">
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="xlf:file"/>
 		</xliff>
 	</xsl:template>
 
 	<xsl:template match="xlf:file">
-		<file datatype="xml" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:copy-of select="xlf:header"/>
 			<xsl:apply-templates select="xlf:body"/>
-		</file>
+		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:body">
-		<body xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="xlf:trans-unit"/>
-		</body>
+		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:trans-unit">
-		<trans-unit xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="xlf:source|xlf:target"/>
 			<xsl:if test="not(xlf:target/node())">
 				<xsl:call-template name="target"/>
 			</xsl:if>
 			<xsl:apply-templates select="xlf:note"/>
-		</trans-unit>
+		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:source">
-		<source xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="il"/>
-		</source>
+		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:target[node()]">
-		<target xmlns="urn:oasis:names:tc:xliff:document:1.2" state="needs-translation">
+		<xsl:copy>
 			<xsl:copy-of select="@*[not(self::state)]"/>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="il"/>
-		</target>
+		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:note">
-		<note xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="il"/>
-		</note>
+		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="text()|comment()" mode="il">

@@ -29,7 +29,7 @@
                 exclude-result-prefixes="xlf xd"
                 version="1.0">
 
-<!--
+	<xd:doc>
      Turn xliff g, x, ph and mrk elements into escaped inline tags.
 
      This is complicated because it processes (in one step) inline
@@ -37,7 +37,7 @@
      the source with the same id. If I'd split it into two stylesheets
      (one to copy source tags into the targets, the other to process
      them) it would probably have been a lot more straightforward.
- -->
+	</xd:doc>
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 
