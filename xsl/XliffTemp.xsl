@@ -29,13 +29,21 @@
      Turn escaped tags in XLIFF segments into real tags.
 	</xd:doc>
 
-	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
+	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="no"/>
 
 	<xsl:template match="xlf:xliff">
-		<xsl:copy>
+		<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           xmlns:xl="http://www.w3.org/1999/xlink"
+           xmlns:tei="http://www.tei-c.org/ns/1.0"
+           xmlns:dita="http://dita.oasis-open.org/architecture/2005"
+           xmlns:its="http://www.w3.org/2005/11/its"
+           xmlns:nn="urn:x-no-namespace"
+           version="1.2">
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="xlf:file"/>
-		</xsl:copy>
+		</xliff>
 	</xsl:template>
 
 	<xsl:template match="xlf:file">

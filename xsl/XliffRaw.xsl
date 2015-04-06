@@ -20,13 +20,19 @@
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
-                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:its="http://www.w3.org/2005/11/its"
-                xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns:xl="http://www.w3.org/1999/xlink"
-                exclude-result-prefixes="xlf xd"
+                xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                xmlns:db="http://docbook.org/ns/docbook"
+                xmlns:data="urn:x-pacbook:data"
+                xmlns:svg="http://www.w3.org/2000/svg"
+                xmlns:mml="http://www.w3.org/1998/Math/MathML"
+                xmlns:tei="http://www.tei-c.org/ns/1.0"
+                xmlns:dita="http://dita.oasis-open.org/architecture/2005"
+                xmlns:nn="urn:x-no-namespace"
+                exclude-result-prefixes="xlf xd data its xi xl db svg mml tei dita nn"
                 version="1.0">
 
 	<xd:doc>
@@ -40,6 +46,7 @@
 	</xd:doc>
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
+	<xsl:param name="DefaultNS" select="'http://docbook.org/ns/docbook'"/>
 
 	<xd:doc>
 		==============
@@ -47,53 +54,53 @@
 		==============
 	</xd:doc>
 	<xsl:template match="xlf:xliff">
-		<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="xlf:file"/>
-		</xliff>
+		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:file">
-		<file datatype="xml" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:copy-of select="xlf:header"/>
 			<xsl:apply-templates select="xlf:body"/>
-		</file>
+		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:body">
-		<body xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="xlf:trans-unit"/>
-		</body>
+		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:trans-unit">
-		<trans-unit xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="xlf:source|xlf:target|xlf:notes"/>
-		</trans-unit>
+		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:source">
-		<source xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="il"/>
-		</source>
+			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="src"/>
+		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:target">
-		<target xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="xid"/>
-		</target>
+			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="tgt"/>
+		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:notes">
-		<notes xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="il"/>
-		</notes>
+			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="src"/>
+		</xsl:copy>
 	</xsl:template>
 
 	<xd:doc>
@@ -101,8 +108,8 @@
 		Source: Text
 		============
 	</xd:doc>
-	<xsl:template match="text()|comment()|processing-instruction()" mode="il">
-		<xsl:copy select="."/>
+	<xsl:template match="text()|comment()|processing-instruction()" mode="src">
+		<xsl:copy/>
 	</xsl:template>
 
 	<xd:doc>
@@ -110,27 +117,32 @@
 		Source: Generic placeholders
 		============================
 	</xd:doc>
-	<xsl:template match="xlf:x" mode="il">
-		<xsl:variable name="namespace">
-			<xsl:call-template name="namespace-from-ctype">
-				<xsl:with-param name="ctype" select="@ctype"/>
+	<xsl:template match="xlf:x" mode="src">
+		<xsl:variable name="NodeType">
+			<xsl:call-template name="GetNodeFromCType">
+				<xsl:with-param name="CType" select="@ctype"/>
 			</xsl:call-template>
 		</xsl:variable>
-		<xsl:variable name="localname">
-			<xsl:call-template name="localname-from-ctype">
-				<xsl:with-param name="ctype" select="@ctype"/>
+		<xsl:variable name="Name">
+			<xsl:call-template name="GetNameFromCType">
+				<xsl:with-param name="CType" select="@ctype"/>
+			</xsl:call-template>
+		</xsl:variable>
+		<xsl:variable name="Prefix">
+			<xsl:call-template name="GetPrefixFromCType">
+				<xsl:with-param name="CType" select="@ctype"/>
 			</xsl:call-template>
 		</xsl:variable>
 		<xsl:choose>
-			<xsl:when test="$namespace='processing-instruction'">
+			<xsl:when test="$NodeType='processing-instruction'">
 				<xsl:text>&lt;?</xsl:text>
-				<xsl:value-of select="$localname"/>
+				<xsl:value-of select="$Name"/>
 				<xsl:text>?&gt;</xsl:text>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:text>&lt;</xsl:text>
-				<xsl:value-of select="$namespace"/>
-				<xsl:value-of select="$localname"/>
+				<xsl:value-of select="$Prefix"/>
+				<xsl:value-of select="$Name"/>
 				<xsl:apply-templates select="@*" mode="at"/>
 				<xsl:text>/&gt;</xsl:text>
 			</xsl:otherwise>
@@ -142,27 +154,27 @@
 		Source: Group placeholders
 		==========================
 	</xd:doc>
-	<xsl:template match="xlf:g" mode="il">
-		<xsl:variable name="namespace">
-			<xsl:call-template name="namespace-from-ctype">
-				<xsl:with-param name="ctype" select="@ctype"/>
+	<xsl:template match="xlf:g" mode="src">
+		<xsl:variable name="Name">
+			<xsl:call-template name="GetNameFromCType">
+				<xsl:with-param name="CType" select="@ctype"/>
 			</xsl:call-template>
 		</xsl:variable>
-		<xsl:variable name="localname">
-			<xsl:call-template name="localname-from-ctype">
-				<xsl:with-param name="ctype" select="@ctype"/>
+		<xsl:variable name="Prefix">
+			<xsl:call-template name="GetPrefixFromCType">
+				<xsl:with-param name="CType" select="@ctype"/>
 			</xsl:call-template>
 		</xsl:variable>
 		<xsl:text>&lt;</xsl:text>
-		<xsl:value-of select="$namespace"/>
-		<xsl:value-of select="$localname"/>
+		<xsl:value-of select="$Prefix"/>
+		<xsl:value-of select="$Name"/>
 		<xsl:apply-templates select="@*" mode="at"/>
 		<xsl:apply-templates select="mrk" mode="at"/>
 		<xsl:text>&gt;</xsl:text>
-		<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="il"/>
+		<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="src"/>
 		<xsl:text>&lt;/</xsl:text>
-		<xsl:value-of select="$namespace"/>
-		<xsl:value-of select="$localname"/>
+		<xsl:value-of select="$Prefix"/>
+		<xsl:value-of select="$Name"/>
 		<xsl:text>&gt;</xsl:text>
 	</xsl:template>
 
@@ -171,28 +183,33 @@
 		Source: Phrase placeholders
 		===========================
 	</xd:doc>
-	<xsl:template match="xlf:ph" mode="il">
-		<xsl:variable name="namespace">
-			<xsl:call-template name="namespace-from-ctype">
-				<xsl:with-param name="ctype" select="@ctype"/>
+	<xsl:template match="xlf:ph" mode="src">
+		<xsl:variable name="NodeType">
+			<xsl:call-template name="GetNodeFromCType">
+				<xsl:with-param name="CType" select="@ctype"/>
 			</xsl:call-template>
 		</xsl:variable>
-		<xsl:variable name="localname">
-			<xsl:call-template name="localname-from-ctype">
-				<xsl:with-param name="ctype" select="@ctype"/>
+		<xsl:variable name="Name">
+			<xsl:call-template name="GetNameFromCType">
+				<xsl:with-param name="CType" select="@ctype"/>
+			</xsl:call-template>
+		</xsl:variable>
+		<xsl:variable name="Prefix">
+			<xsl:call-template name="GetPrefixFromCType">
+				<xsl:with-param name="CType" select="@ctype"/>
 			</xsl:call-template>
 		</xsl:variable>
 		<xsl:choose>
-			<xsl:when test="$namespace='processing-instruction'">
+			<xsl:when test="$NodeType='processing-instruction'">
 				<xsl:text>&lt;?</xsl:text>
-				<xsl:value-of select="$localname"/>
+				<xsl:value-of select="$Name"/>
 				<xsl:value-of select="text()"/>
 				<xsl:text>?&gt;</xsl:text>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:text>&lt;</xsl:text>
-				<xsl:value-of select="$namespace"/>
-				<xsl:value-of select="$localname"/>
+				<xsl:value-of select="$Prefix"/>
+				<xsl:value-of select="$Name"/>
 				<xsl:apply-templates select="@*" mode="at"/>
 				<xsl:apply-templates select="mrk" mode="at"/>
 				<xsl:text> dita:conref="</xsl:text>
@@ -207,8 +224,8 @@
 		Target: Segments
 		================
 	</xd:doc>
-	<xsl:template match="xlf:mrk[@mtype='seg']" mode="xid">
-		<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="xid"/>
+	<xsl:template match="xlf:mrk[@mtype='seg']" mode="tgt">
+		<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="tgt"/>
 	</xsl:template>
 
 	<xd:doc>
@@ -216,8 +233,8 @@
 		Target: Text
 		============
 	</xd:doc>
-	<xsl:template match="text()|comment()|processing-instruction()" mode="xid">
-		<xsl:copy select="."/>
+	<xsl:template match="text()|comment()|processing-instruction()" mode="tgt">
+		<xsl:copy/>
 	</xsl:template>
 
 	<xd:doc>
@@ -225,32 +242,37 @@
 		Target: Generic placeholders
 		============================
 	</xd:doc>
-	<xsl:template match="xlf:x" mode="xid">
-		<xsl:variable name="me" select="@id"/>
-		<xsl:variable name="ctype-from-source">
-			<xsl:value-of select="ancestor::xlf:trans-unit/xlf:source/*[@id=$me]/@ctype" />
+	<xsl:template match="xlf:x" mode="tgt">
+		<xsl:variable name="Me" select="@id"/>
+		<xsl:variable name="CTypeFromSource">
+			<xsl:value-of select="ancestor::xlf:trans-unit/xlf:source/*[@id=$Me]/@ctype" />
 		</xsl:variable>
-		<xsl:variable name="namespace">
-			<xsl:call-template name="namespace-from-ctype">
-				<xsl:with-param name="ctype" select="$ctype-from-source"/>
+		<xsl:variable name="NodeType">
+			<xsl:call-template name="GetNodeFromCType">
+				<xsl:with-param name="CType" select="$CTypeFromSource"/>
 			</xsl:call-template>
 		</xsl:variable>
-		<xsl:variable name="localname">
-			<xsl:call-template name="localname-from-ctype">
-				<xsl:with-param name="ctype" select="$ctype-from-source"/>
+		<xsl:variable name="Name">
+			<xsl:call-template name="GetNameFromCType">
+				<xsl:with-param name="CType" select="$CTypeFromSource"/>
+			</xsl:call-template>
+		</xsl:variable>
+		<xsl:variable name="Prefix">
+			<xsl:call-template name="GetPrefixFromCType">
+				<xsl:with-param name="CType" select="$CTypeFromSource"/>
 			</xsl:call-template>
 		</xsl:variable>
 		<xsl:choose>
-			<xsl:when test="$namespace='processing-instruction'">
+			<xsl:when test="$NodeType='processing-instruction'">
 				<xsl:text>&lt;?</xsl:text>
-				<xsl:value-of select="$localname"/>
+				<xsl:value-of select="$Name"/>
 				<xsl:text>?&gt;</xsl:text>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:text>&lt;</xsl:text>
-				<xsl:value-of select="$namespace"/>
-				<xsl:value-of select="$localname"/>
-				<xsl:for-each select="ancestor::xlf:trans-unit/xlf:source/*[@id=$me]">
+				<xsl:value-of select="$Prefix"/>
+				<xsl:value-of select="$Name"/>
+				<xsl:for-each select="ancestor::xlf:trans-unit/xlf:source/*[@id=$Me]">
 					<xsl:apply-templates select="@*" mode="at"/>
 				</xsl:for-each>
 				<xsl:text>/&gt;</xsl:text>
@@ -263,33 +285,33 @@
 		Target: Group placeholders
 		==========================
 	</xd:doc>
-	<xsl:template match="xlf:g" mode="xid">
-		<xsl:variable name="me" select="@id"/>
-		<xsl:variable name="ctype-from-source">
-			<xsl:value-of select="ancestor::xlf:trans-unit/xlf:source/*[@id=$me]/@ctype" />
+	<xsl:template match="xlf:g" mode="tgt">
+		<xsl:variable name="Me" select="@id"/>
+		<xsl:variable name="CTypeFromSource">
+			<xsl:value-of select="ancestor::xlf:trans-unit/xlf:source/*[@id=$Me]/@ctype" />
 		</xsl:variable>
-		<xsl:variable name="namespace">
-			<xsl:call-template name="namespace-from-ctype">
-				<xsl:with-param name="ctype" select="$ctype-from-source"/>
+		<xsl:variable name="Name">
+			<xsl:call-template name="GetNameFromCType">
+				<xsl:with-param name="CType" select="$CTypeFromSource"/>
 			</xsl:call-template>
 		</xsl:variable>
-		<xsl:variable name="localname">
-			<xsl:call-template name="localname-from-ctype">
-				<xsl:with-param name="ctype" select="$ctype-from-source"/>
+		<xsl:variable name="Prefix">
+			<xsl:call-template name="GetPrefixFromCType">
+				<xsl:with-param name="CType" select="$CTypeFromSource"/>
 			</xsl:call-template>
 		</xsl:variable>
 		<xsl:text>&lt;</xsl:text>
-		<xsl:value-of select="$namespace"/>
-		<xsl:value-of select="$localname"/>
-		<xsl:for-each select="ancestor::xlf:trans-unit/xlf:source/*[@id=$me]">
+		<xsl:value-of select="$Prefix"/>
+		<xsl:value-of select="$Name"/>
+		<xsl:for-each select="ancestor::xlf:trans-unit/xlf:source/*[@id=$Me]">
 			<xsl:apply-templates select="@*" mode="at"/>
 		</xsl:for-each>
 		<xsl:apply-templates select="mrk" mode="at"/>
 		<xsl:text>&gt;</xsl:text>
-		<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="il"/>
+		<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="src"/>
 		<xsl:text>&lt;/</xsl:text>
-		<xsl:value-of select="$namespace"/>
-		<xsl:value-of select="$localname"/>
+		<xsl:value-of select="$Prefix"/>
+		<xsl:value-of select="$Name"/>
 		<xsl:text>&gt;</xsl:text>
 	</xsl:template>
 
@@ -298,35 +320,40 @@
 		Target: Phrase placeholders
 		===========================
 	</xd:doc>
-	<xsl:template match="xlf:ph" mode="xid">
-		<xsl:variable name="me" select="@id"/>
-		<xsl:variable name="ctype-from-source">
-			<xsl:value-of select="ancestor::xlf:trans-unit/xlf:source/*[@id=$me]/@ctype" />
+	<xsl:template match="xlf:ph" mode="tgt">
+		<xsl:variable name="Me" select="@id"/>
+		<xsl:variable name="CTypeFromSource">
+			<xsl:value-of select="ancestor::xlf:trans-unit/xlf:source/*[@id=$Me]/@ctype" />
 		</xsl:variable>
-		<xsl:variable name="namespace">
-			<xsl:call-template name="namespace-from-ctype">
-				<xsl:with-param name="ctype" select="$ctype-from-source"/>
+		<xsl:variable name="NodeType">
+			<xsl:call-template name="GetNodeFromCType">
+				<xsl:with-param name="CType" select="$CTypeFromSource"/>
 			</xsl:call-template>
 		</xsl:variable>
-		<xsl:variable name="localname">
-			<xsl:call-template name="localname-from-ctype">
-				<xsl:with-param name="ctype" select="$ctype-from-source"/>
+		<xsl:variable name="Name">
+			<xsl:call-template name="GetNameFromCType">
+				<xsl:with-param name="CType" select="$CTypeFromSource"/>
+			</xsl:call-template>
+		</xsl:variable>
+		<xsl:variable name="Prefix">
+			<xsl:call-template name="GetPrefixFromCType">
+				<xsl:with-param name="CType" select="$CTypeFromSource"/>
 			</xsl:call-template>
 		</xsl:variable>
 		<xsl:choose>
-			<xsl:when test="$namespace='processing-instruction'">
+			<xsl:when test="$NodeType='processing-instruction'">
 				<xsl:text>&lt;?</xsl:text>
-				<xsl:value-of select="$localname"/>
-				<xsl:for-each select="ancestor::xlf:trans-unit/xlf:source/*[@id=$me]">
+				<xsl:value-of select="$Name"/>
+				<xsl:for-each select="ancestor::xlf:trans-unit/xlf:source/*[@id=$Me]">
 					<xsl:value-of select="text()"/>
 				</xsl:for-each>
 				<xsl:text>?&gt;</xsl:text>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:text>&lt;</xsl:text>
-				<xsl:value-of select="$namespace"/>
-				<xsl:value-of select="$localname"/>
-				<xsl:for-each select="ancestor::xlf:trans-unit/xlf:source/*[@id=$me]">
+				<xsl:value-of select="$Prefix"/>
+				<xsl:value-of select="$Name"/>
+				<xsl:for-each select="ancestor::xlf:trans-unit/xlf:source/*[@id=$Me]">
 					<xsl:apply-templates select="@*" mode="at"/>
 				</xsl:for-each>
 				<xsl:apply-templates select="mrk" mode="at"/>
@@ -345,7 +372,6 @@
 	<xsl:template match="xlf:mrk[@mtype='term']" mode="at">
 		<xsl:text> its:term="yes"</xsl:text>
 	</xsl:template>
-
 	<xsl:template match="xlf:mrk[@mtype='phrase']" mode="at">
 		<xsl:text> its:locNote="</xsl:text>
 		<xsl:value-of select="@comment"/>
@@ -356,30 +382,29 @@
 		==========
 		Attributes
 		==========
+		If the attribute is in the XLIFF namespace or no namespace, ignore it.
+		If the attribute is in {urn:x-no-namespace}, recreate it in no namespace.
+		Otherwise, recreate the attribute in the correct namespace.
 	</xd:doc>
 	<xsl:template match="@*" mode="at">
-		<xsl:if test="namespace-uri() != 'urn:oasis:names:tc:xliff:document:1.2' and
-		              namespace-uri() != ''">
-			<xsl:variable name="prefix">
+		<xsl:variable name="AttribNS" select="namespace-uri()"/>
+		<xsl:if test="$AttribNS!='urn:oasis:names:tc:xliff:document:1.2' and
+		              $AttribNS!=''">
+			<xsl:variable name="AttribPref">
 				<xsl:choose>
-					<xsl:when test="namespace-uri() = 'http://www.w3.org/1999/xlink'">
-						<xsl:value-of select="'xl:'"/>
-					</xsl:when>
-					<xsl:when test="namespace-uri() = 'http://www.w3.org/2005/11/its'">
-						<xsl:value-of select="'its:'"/>
-					</xsl:when>
-					<xsl:when test="namespace-uri() = 'http://www.tei-c.org/ns/1.0'">
-						<xsl:value-of select="'tei:'"/>
+					<xsl:when test="$AttribNS='urn:x-no-namespace'">
+						<xsl:value-of select="''"/>
 					</xsl:when>
 					<xsl:otherwise>
-						<xsl:value-of select="''"/>
+						<xsl:value-of select="document('data/DataNamespaces.xml')//data:namespace[@uri=$AttribNS]/@prefix"/>
+						<xsl:text>:</xsl:text>
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:variable>
-			<xsl:variable name="local" select="local-name()"/>
+			<xsl:variable name="AttribName" select="local-name()"/>
 			<xsl:text> </xsl:text>
-			<xsl:value-of select="$prefix"/>
-			<xsl:value-of select="$local"/>
+			<xsl:value-of select="$AttribPref"/>
+			<xsl:value-of select="$AttribName"/>
 			<xsl:text>="</xsl:text>
 			<xsl:value-of select="."/>
 			<xsl:text>"</xsl:text>
@@ -387,65 +412,78 @@
 	</xsl:template>
 
 	<xd:doc>
-		==========================
-		Set $namespace from @ctype
-		==========================
+		=========================
+		Get node type from @ctype
+		=========================
+		If the current CType is ‘lb’, or if it begins with ‘x-pi-’,
+		then the node is a processing instruction; otherwise it’s
+		an element.
 	</xd:doc>
-	<xsl:template name="namespace-from-ctype">
-		<xsl:param name="ctype"/>
+	<xsl:template name="GetNodeFromCType">
+		<xsl:param name="CType"/>
 		<xsl:choose>
-			<xsl:when test="$ctype='lb'">
+			<xsl:when test="$CType='lb'">
 				<xsl:text>processing-instruction</xsl:text>
 			</xsl:when>
-			<xsl:when test="starts-with($ctype, 'x-pi-')">
+			<xsl:when test="starts-with($CType, 'x-pi-')">
 				<xsl:text>processing-instruction</xsl:text>
-			</xsl:when>
-			<xsl:when test="starts-with($ctype, 'x-xi-')">
-				<xsl:text>xi:</xsl:text>
-			</xsl:when>
-			<xsl:when test="starts-with($ctype, 'x-pac-')">
-				<xsl:text>xd:</xsl:text>
-			</xsl:when>
-			<xsl:when test="starts-with($ctype, 'x-db-')">
-				<xsl:text></xsl:text>
-			</xsl:when>
-			<xsl:when test="starts-with($ctype, 'x-svg-')">
-				<xsl:text></xsl:text>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:text></xsl:text>
+				<xsl:text>element</xsl:text>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
 
 	<xd:doc>
-		==========================
-		Set $localname from @ctype
-		==========================
+		===========================
+		Get node prefix from @ctype
+		===========================
+		Look through each namespace in the namespace document.
+		If the current CType is based on this namespace’s prefix,
+		then output this namespace’s prefix, unless this namespace
+		is no namespace or the default namespace.
 	</xd:doc>
-	<xsl:template name="localname-from-ctype">
-		<xsl:param name="ctype"/>
+	<xsl:template name="GetPrefixFromCType">
+		<xsl:param name="CType"/>
+		<xsl:for-each select="document('data/DataNamespaces.xml')//data:namespace">
+			<xsl:if test="starts-with($CType, concat('x-', @prefix, '-'))">
+				<xsl:choose>
+					<xsl:when test="@uri=$DefaultNS">
+						<!-- Nope -->
+					</xsl:when>
+					<xsl:when test="@uri='urn:x-no-namespace'">
+						<!-- Nope -->
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:value-of select="@prefix"/>
+						<xsl:text>:</xsl:text>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:if>
+		</xsl:for-each>
+	</xsl:template>
+
+	<xd:doc>
+		=========================
+		Get node name from @ctype
+		=========================
+		If the current CType is ‘lb’, output linebreak. Otherwise,
+		look through each namespace in the namespace document.
+		If the current CType is based on this namespace’s prefix,
+		then output the text after this namespace’s prefix.
+	</xd:doc>
+	<xsl:template name="GetNameFromCType">
+		<xsl:param name="CType"/>
 		<xsl:choose>
-			<xsl:when test="$ctype='lb'">
+			<xsl:when test="$CType='lb'">
 				<xsl:text>linebreak</xsl:text>
 			</xsl:when>
-			<xsl:when test="starts-with($ctype, 'x-pi-')">
-				<xsl:value-of select="substring-after($ctype, 'x-pi-')"/>
-			</xsl:when>
-			<xsl:when test="starts-with($ctype, 'x-xi-')">
-				<xsl:value-of select="substring-after($ctype, 'x-xi-')"/>
-			</xsl:when>
-			<xsl:when test="starts-with($ctype, 'x-pac-')">
-				<xsl:value-of select="substring-after($ctype, 'x-pac-')"/>
-			</xsl:when>
-			<xsl:when test="starts-with($ctype, 'x-db-')">
-				<xsl:value-of select="substring-after($ctype, 'x-db-')"/>
-			</xsl:when>
-			<xsl:when test="starts-with($ctype, 'x-svg-')">
-				<xsl:value-of select="substring-after($ctype, 'x-svg-')"/>
-			</xsl:when>
 			<xsl:otherwise>
-				<xsl:text></xsl:text>
+				<xsl:for-each select="document('data/DataNamespaces.xml')//data:namespace">
+					<xsl:if test="starts-with($CType, concat('x-', @prefix, '-'))">
+						<xsl:value-of select="substring-after($CType, concat('x-', @prefix, '-'))"/>
+					</xsl:if>
+				</xsl:for-each>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
