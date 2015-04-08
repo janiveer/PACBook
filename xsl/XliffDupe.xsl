@@ -37,25 +37,32 @@
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 
 	<xsl:template match="xlf:xliff">
-		<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="xlf:file"/>
-		</xliff>
+		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:file">
-		<file datatype="xml" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:copy-of select="xlf:header"/>
 			<xsl:apply-templates select="xlf:body"/>
-		</file>
+		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:body">
-		<body xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="xlf:trans-unit"/>
-		</body>
+			<xsl:apply-templates select="xlf:group|xlf:trans-unit"/>
+		</xsl:copy>
+	</xsl:template>
+
+	<xsl:template match="xlf:group">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates select="xlf:group|xlf:trans-unit"/>
+		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:trans-unit">

@@ -61,7 +61,11 @@
 	</xsl:template>
 
 	<xsl:template match="xlf:body">
-		<xsl:apply-templates select="xlf:trans-unit"/>
+		<xsl:apply-templates select="xlf:group|xlf:trans-unit"/>
+	</xsl:template>
+
+	<xsl:template match="xlf:group">
+		<xsl:apply-templates select="xlf:group|xlf:trans-unit"/>
 	</xsl:template>
 
 	<xsl:template match="xlf:trans-unit">

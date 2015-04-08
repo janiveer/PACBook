@@ -58,22 +58,37 @@
 	<xsl:template match="xlf:body">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="xlf:trans-unit"/>
+			<xsl:apply-templates select="xlf:group|xlf:trans-unit|xlf:bin-unit"/>
+		</xsl:copy>
+	</xsl:template>
+
+	<xsl:template match="xlf:group">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:copy-of select="xlf:context-group|xlf:count-group|xlf:prop-group|xlf:note"/>
+			<xsl:copy-of select="*[not(namespace-uri()='urn:oasis:names:tc:xliff:document:1.2')]"/>
+			<xsl:apply-templates select="xlf:group|xlf:trans-unit|xlf:bin-unit"/>
 		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:trans-unit">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="xlf:source|xlf:target[node()]"/>
+			<xsl:apply-templates select="xlf:source|xlf:seg-source|xlf:target[node()]"/>
 			<xsl:if test="not(xlf:target/node())">
 				<xsl:call-template name="CopyTarget"/>
 			</xsl:if>
-			<xsl:apply-templates select="xlf:note"/>
+			<xsl:copy-of select="xlf:context-group|xlf:count-group|xlf:prop-group|xlf:note"/>
+			<!-- TODO: xlf:alt-trans -->
+			<xsl:copy-of select="*[not(namespace-uri()='urn:oasis:names:tc:xliff:document:1.2')]"/>
 		</xsl:copy>
 	</xsl:template>
 
-	<xsl:template match="xlf:source|xlf:target[node()]|xlf:note">
+	<xsl:template match="xlf:bin-unit">
+		<xsl:copy-of select="."/>
+	</xsl:template>
+
+	<xsl:template match="xlf:source|xlf:seg-source|xlf:target[node()]">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="il"/>
@@ -86,7 +101,7 @@
 
 	<xsl:template match="processing-instruction()" mode="il">
 		<xsl:variable name="Count">
-			<xsl:number count="processing-instruction()" level="multiple" from="xlf:source|xlf:target|xlf:note"/>
+			<xsl:number count="processing-instruction()" level="multiple" from="xlf:source|xlf:seg-source|xlf:target"/>
 		</xsl:variable>
 		<xsl:variable name="UnitID">
 			<xsl:value-of select="ancestor::xlf:trans-unit/@id"/>
@@ -125,7 +140,7 @@
 
 	<xsl:template match="*" mode="il">
 		<xsl:variable name="Count">
-			<xsl:number count="*" level="multiple" format="1_1_1_1_1" from="xlf:source|xlf:target|xlf:note"/>
+			<xsl:number count="*" level="multiple" format="1_1_1_1_1" from="xlf:source|xlf:seg-source|xlf:target"/>
 		</xsl:variable>
 		<xsl:variable name="UnitID">
 			<xsl:value-of select="ancestor::xlf:trans-unit/@id"/>

@@ -57,22 +57,49 @@
 	<xsl:template match="xlf:body">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="xlf:trans-unit"/>
+			<xsl:apply-templates select="xlf:group|xlf:trans-unit|xlf:bin-unit"/>
+		</xsl:copy>
+	</xsl:template>
+
+	<xsl:template match="xlf:group">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:copy-of select="xlf:context-group|xlf:count-group|xlf:prop-group|xlf:note"/>
+			<xsl:copy-of select="*[not(namespace-uri()='urn:oasis:names:tc:xliff:document:1.2')]"/>
+			<xsl:apply-templates select="xlf:group|xlf:trans-unit|xlf:bin-unit"/>
 		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:trans-unit">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="xlf:source|xlf:target|xlf:note"/>
+			<xsl:apply-templates select="xlf:source|xlf:seg-source|xlf:target"/>
+			<xsl:copy-of select="xlf:context-group|xlf:count-group|xlf:prop-group|xlf:note"/>
+			<!-- TODO: xlf:alt-trans -->
+			<xsl:copy-of select="*[not(namespace-uri()='urn:oasis:names:tc:xliff:document:1.2')]"/>
 		</xsl:copy>
 	</xsl:template>
 
-	<xsl:template match="xlf:source|xlf:target|xlf:note">
+	<xsl:template match="xlf:bin-unit">
+		<xsl:copy-of select="."/>
+	</xsl:template>
+
+	<xsl:template match="xlf:source|xlf:seg-source|xlf:target">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:value-of select="text()" disable-output-escaping="yes"/>
+			<xsl:apply-templates select="*|text()" mode="inline"/>
 		</xsl:copy>
+	</xsl:template>
+
+	<xsl:template match="*" mode="inline">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates select="*|text()" mode="inline"/>
+		</xsl:copy>
+	</xsl:template>
+
+	<xsl:template match="text()" mode="inline">
+		<xsl:value-of select="." disable-output-escaping="yes"/>
 	</xsl:template>
 
 </xsl:stylesheet>

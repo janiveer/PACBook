@@ -71,18 +71,34 @@
 	<xsl:template match="xlf:body">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="xlf:trans-unit"/>
+			<xsl:apply-templates select="xlf:group|xlf:trans-unit|xlf:bin-unit"/>
+		</xsl:copy>
+	</xsl:template>
+
+	<xsl:template match="xlf:group">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:copy-of select="xlf:context-group|xlf:count-group|xlf:prop-group|xlf:note"/>
+			<xsl:copy-of select="*[not(namespace-uri()='urn:oasis:names:tc:xliff:document:1.2')]"/>
+			<xsl:apply-templates select="xlf:group|xlf:trans-unit|xlf:bin-unit"/>
 		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:trans-unit">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="xlf:source|xlf:target|xlf:notes"/>
+			<xsl:apply-templates select="xlf:source|xlf:seg-source|xlf:target"/>
+			<xsl:copy-of select="xlf:context-group|xlf:count-group|xlf:prop-group|xlf:note"/>
+			<!-- TODO: xlf:alt-trans -->
+			<xsl:copy-of select="*[not(namespace-uri()='urn:oasis:names:tc:xliff:document:1.2')]"/>
 		</xsl:copy>
 	</xsl:template>
 
-	<xsl:template match="xlf:source">
+	<xsl:template match="xlf:bin-unit">
+		<xsl:copy-of select="."/>
+	</xsl:template>
+
+	<xsl:template match="xlf:source|xlf:seg-source">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="src"/>
@@ -96,11 +112,13 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<xsl:template match="xlf:notes">
-		<xsl:copy>
-			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="src"/>
-		</xsl:copy>
+	<xd:doc>
+		================
+		Source: Segments
+		================
+	</xd:doc>
+	<xsl:template match="xlf:mrk[@mtype='seg']" mode="src">
+		<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="src"/>
 	</xsl:template>
 
 	<xd:doc>
