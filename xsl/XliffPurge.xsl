@@ -21,12 +21,13 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
-                exclude-result-prefixes="xlf"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                exclude-result-prefixes="xlf xd"
                 version="1.0">
 
-<!--
+	<xd:doc>
      Purges completed translation units from an XLIFF file.
- -->
+	</xd:doc>
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 

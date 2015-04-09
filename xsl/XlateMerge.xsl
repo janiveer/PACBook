@@ -29,11 +29,11 @@
                 exclude-result-prefixes="db xlf pac xd its xl"
                 version="1.0">
 
-<!--
+	<xd:doc>
      Searches the source DocBook file and compares it to
-     the specified .XLIFF file and the specified .DIFF file
+     the specified $Xliff file and the specified $Diff file
      to create a new, merged .XLIFF file.
--->
+	</xd:doc>
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:include href="common/CommonFunctions.xsl"/>
@@ -80,7 +80,14 @@
 		</xliff>
 	</xsl:template>
 
-	<!-- Parse child elements of source file -->
+	<xd:doc>
+		Parse child elements of source file. If the current element is marked for translation,
+		find the .XLIFF file which matches the specified language. If the .XLIFF file is
+		specified, check if there is a corresponding trans-unit in the $Diff file. If the
+		corresponding trans-unit is complete, copy it to the output file. Otherwise, check if
+		there is there a corresponding trans-unit in the $Xliff file. If there is, copy that
+		to the output file. If there is not, do not output the current element.
+	</xd:doc>
 	<xsl:template match="*[@xlf:id][not(@its:translate='no')]" mode="unit">
 		<xsl:variable name="El" select="local-name()"/>
 		<xsl:variable name="Id" select="@xlf:id"/>
@@ -88,7 +95,6 @@
 			<xsl:apply-templates select="text()|processing-instruction()|*" mode="span"/>
 		</xsl:variable>
 		<xsl:variable name="LocalNorm" select="normalize-space($LocalSource)"/>
-		<!-- Find the .XLIFF file which matches the specified language -->
 		<xsl:variable name="Xlate">
 			<xsl:choose>
 				<xsl:when test="$Xliff != ''">
@@ -99,32 +105,40 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
-		<!-- ... is the .XLIFF file specified? -->
 		<xsl:choose>
 			<xsl:when test="$Xlate">
-				<xsl:message terminate="no">
+				<xsl:variable name="Message">
 					<xsl:text>Checking </xsl:text>
 					<xsl:value-of select="$El"/>
 					<xsl:text>: </xsl:text>
 					<xsl:value-of select="substring('           ', 1, 11 - string-length($El))"/>
 					<xsl:value-of select="$Id"/>
-				</xsl:message>
-				<!-- ... is there a corresponding trans-unit in the DIFF file? -->
+					<xsl:text> ... </xsl:text>
+				</xsl:variable>
 				<xsl:for-each select="document($Diff, /)">
 					<xsl:choose>
-						<!-- ... is the corresponding trans-unit complete? -->
 						<xsl:when test="key('trans_unit', $Id)/xlf:target/@state='translated'">
+							<xsl:message terminate="no">
+								<xsl:value-of select="$Message"/>
+								<xsl:text>Merged</xsl:text>
+							</xsl:message>
 							<xsl:copy-of select="key('trans_unit', $Id)"/>
 						</xsl:when>
 						<xsl:otherwise>
-							<!-- ... is there a corresponding trans-unit in the .XLIFF file? -->
 							<xsl:for-each select="document($Xlate, /)">
 								<xsl:choose>
 									<xsl:when test="key('trans_unit', $Id)/xlf:source != ''">
+										<xsl:message terminate="no">
+											<xsl:value-of select="$Message"/>
+											<xsl:text>Original</xsl:text>
+										</xsl:message>
 										<xsl:copy-of select="key('trans_unit', $Id)"/>
 									</xsl:when>
 									<xsl:otherwise>
-										<xsl:message terminate="no">... No translation found!</xsl:message>
+										<xsl:message terminate="no">
+											<xsl:value-of select="$Message"/>
+											<xsl:text>No translation found!</xsl:text>
+										</xsl:message>
 									</xsl:otherwise>
 								</xsl:choose>
 							</xsl:for-each>
@@ -141,4 +155,5 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
+
 </xsl:stylesheet>

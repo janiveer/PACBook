@@ -23,17 +23,17 @@
                 xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
                 xmlns:its="http://www.w3.org/2005/11/its"
                 xmlns:xl="http://www.w3.org/1999/xlink"
-                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:pac="urn:x-pacbook:functions"
                 xmlns:db="http://docbook.org/ns/docbook"
-                exclude-result-prefixes="db xlf xd pac its xl"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                exclude-result-prefixes="db xlf pac its xl xd"
                 version="1.0">
 
-<!--
+	<xd:doc>
      Searches the source DocBook file and compares it to
      the specified .XLIFF file. Any additions or changes
      in the DocBook file are saved in a new file.
--->
+	</xd:doc>
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:include href="common/CommonFunctions.xsl"/>
@@ -76,7 +76,15 @@
 		</xliff>
 	</xsl:template>
 
-	<!-- Parse child elements of source file -->
+	<xd:doc>
+		Parse child elements of source file. If the current element is marked for translation,
+		find the .XLIFF file which matches the specified language. If the .XLIFF file is
+		specified, check if there is a corresponding trans-unit in the .XLIFF file. If the
+		corresponding trans-unit is unfinished, or if the source string has been changed,
+		copy the local source and (if it exists) the corresponding target to the output file.
+		If there is no corresponding trans-unit in the .XLIFF file, copy the local source to
+		a new trans-unit in the output file.
+	</xd:doc>
 	<xsl:template match="*[@xlf:id][not(@its:translate='no')]" mode="unit">
 		<xsl:variable name="El" select="local-name()"/>
 		<xsl:variable name="Id" select="@xlf:id"/>
@@ -84,7 +92,6 @@
 			<xsl:apply-templates select="text()|processing-instruction()|*" mode="span"/>
 		</xsl:variable>
 		<xsl:variable name="LocalNorm" select="normalize-space($LocalSource)"/>
-		<!-- Find the .XLIFF file which matches the specified language -->
 		<xsl:variable name="Xlate">
 			<xsl:choose>
 				<xsl:when test="$Xliff != ''">
@@ -95,17 +102,16 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
-		<!-- ... is the .XLIFF file specified? -->
 		<xsl:choose>
 			<xsl:when test="$Xlate">
-				<xsl:message terminate="no">
+				<xsl:variable name="Message">
 					<xsl:text>Checking </xsl:text>
 					<xsl:value-of select="$El"/>
 					<xsl:text>: </xsl:text>
 					<xsl:value-of select="substring('           ', 1, 11 - string-length($El))"/>
 					<xsl:value-of select="$Id"/>
-				</xsl:message>
-				<!-- ... is there a corresponding trans-unit in the .XLIFF file? -->
+					<xsl:text> ... </xsl:text>
+				</xsl:variable>
 				<xsl:for-each select="document($Xlate, /)">
 					<xsl:choose>
 						<xsl:when test="key('trans_unit', $Id)/xlf:source != ''">
@@ -118,9 +124,11 @@
 							<xsl:variable name="SourceNorm" select="normalize-space($XliffSource)"/>
 							<xsl:variable name="TargetNorm" select="normalize-space($XliffTarget)"/>
 							<xsl:choose>
-								<!-- ... if so, is the corresponding trans-unit incomplete? -->
 								<xsl:when test="$TargetNorm='' or starts-with($TargetNorm, 'TODO:')">
-									<xsl:message terminate="no"> ... Unfinished</xsl:message>
+									<xsl:message terminate="no">
+										<xsl:value-of select="$Message"/>
+										<xsl:text> ... Unfinished</xsl:text>
+									</xsl:message>
 									<trans-unit xmlns="urn:oasis:names:tc:xliff:document:1.2">
 										<xsl:attribute name="id">
 											<xsl:value-of select="$Id"/>
@@ -136,9 +144,11 @@
 									</trans-unit>
 								</xsl:when>
 								<xsl:otherwise>
-									<!-- ... or has the source string been changed? -->
 									<xsl:if test="$LocalNorm != $SourceNorm">
-										<xsl:message terminate="no"> ... Changed</xsl:message>
+										<xsl:message terminate="no">
+											<xsl:value-of select="$Message"/>
+											<xsl:text> ... Changed</xsl:text>
+										</xsl:message>
 										<trans-unit xmlns="urn:oasis:names:tc:xliff:document:1.2">
 											<xsl:attribute name="id">
 												<xsl:value-of select="$Id"/>
@@ -161,9 +171,11 @@
 								</xsl:otherwise>
 							</xsl:choose>
 						</xsl:when>
-						<!-- ... if not, this must be a new translation string -->
 						<xsl:otherwise>
-							<xsl:message terminate="no"> ... New</xsl:message>
+							<xsl:message terminate="no">
+								<xsl:value-of select="$Message"/>
+								<xsl:text> ... New</xsl:text>
+							</xsl:message>
 							<trans-unit xmlns="urn:oasis:names:tc:xliff:document:1.2">
 								<xsl:attribute name="id">
 									<xsl:value-of select="$Id"/>
@@ -189,6 +201,7 @@
 	<xsl:template match="text()" mode="span">
 		<xsl:copy-of select="."/>
 	</xsl:template>
+
 	<xsl:template match="processing-instruction()" mode="span">
 		<xsl:text>&lt;?</xsl:text>
 		<xsl:value-of select="name()"/>
@@ -227,4 +240,5 @@
 		<xsl:value-of select="."/>
 		<xsl:text disable-output-escaping="yes">&quot;</xsl:text>
 	</xsl:template>
+
 </xsl:stylesheet>

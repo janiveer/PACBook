@@ -24,14 +24,15 @@
                 xmlns:x="urn:schemas-microsoft-com:office:excel"
                 xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
                 xmlns:html="http://www.w3.org/TR/REC-html40"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns="urn:oasis:names:tc:xliff:document:1.2"
-                exclude-result-prefixes="o x ss html"
+                exclude-result-prefixes="o x ss html xd"
                 version="1.0">
 
-<!--
+	<xd:doc>
      Converts an XLXML file to an XLIFF file.
      Gets header information from the doc properties.
--->
+	</xd:doc>
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 

@@ -21,10 +21,11 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
-                exclude-result-prefixes="xlf"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                exclude-result-prefixes="xlf xd"
                 version="1.0">
 
-<!--
+	<xd:doc>
      Purges duplicate translation units from an XLIFF file.
      This is a deterministic deduplication; the stylesheet
      checks for translation units with duplicate IDs, keeps
@@ -32,7 +33,7 @@
 
      TODO: Check content of translation units with duplicate
      IDs and flag any which have different content.
- -->
+	</xd:doc>
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 

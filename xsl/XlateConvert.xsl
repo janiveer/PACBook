@@ -30,18 +30,20 @@
                 exclude-result-prefixes="xlf pac xd"
                 version="1.0">
 
-<!--
+	<xd:doc>
      Copies the structure of the source document.
      When it finds a translateable element, it copies
      in the translated fragment from the $XLATE file.
--->
+	</xd:doc>
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:include href="common/CommonFunctions.xsl"/>
 	<xsl:param name="Language"/>
 	<xsl:key name="xlate" match="xlf:trans-unit" use="@id"/>
 
-	<!-- Source language -->
+	<xd:doc>
+		Get source language
+	</xd:doc>
 	<xsl:variable name="Source">
 		<xsl:choose>
 			<xsl:when test="/*/@xml:lang">
@@ -53,7 +55,9 @@
 		</xsl:choose>
 	</xsl:variable>
 
-	<!-- Target language and content of document -->
+	<xd:doc>
+		Get target language
+	</xd:doc>
 	<xsl:template match="/">
 		<xsl:if test="$Language = ''">
 			<xsl:message terminate="yes">Please specify $Language: ISO language code.</xsl:message>
@@ -61,7 +65,9 @@
 		<xsl:apply-templates select="*" mode="root"/>
 	</xsl:template>
 
-	<!-- Root element and attributes -->
+	<xd:doc>
+		Copy root element and attributes
+	</xd:doc>
 	<xsl:template match="*" mode="root">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
@@ -72,12 +78,17 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<!-- Child elements and attributes -->
+	<xd:doc>
+		Copy child elements and attributes. If the current element is marked for translation,
+		find the .XLIFF file which matches the specified language. If the .XLIFF file is
+		specified, and there is a corresponding target in the .XLIFF file, copy the target
+		to the output; otherwise, the current element is untranslated. If the current element
+		is non-translatable, recurse.
+	</xd:doc>
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:choose>
-				<!-- If the current element is marked for translation ... -->
 				<xsl:when test="@xlf:id and not(@its:translate='no')">
 					<xsl:variable name="El" select="local-name()"/>
 					<xsl:variable name="Id" select="@xlf:id"/>
@@ -90,12 +101,9 @@
 						<xsl:value-of select="$Id"/>
 						<xsl:text> ... </xsl:text>
 					</xsl:variable>
-					<!-- Find the .XLIFF file which matches the specified language -->
 					<xsl:variable name="Xlate" select="pac:xliff($Language)"/>
-					<!-- ... is the .XLIFF file specified? -->
 					<xsl:choose>
 						<xsl:when test="$Xlate">
-							<!-- ... is there a corresponding target in the .XLIFF file? -->
 							<xsl:for-each select="document($Xlate, /)">
 								<xsl:choose>
 									<xsl:when test="key('xlate', $Id)/xlf:target != ''">
@@ -128,7 +136,6 @@
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:when>
-				<!-- ... or if the current element is non-translateable, recurse -->
 				<xsl:otherwise>
 					<xsl:apply-templates select="*|text()|processing-instruction()|comment()"/>
 				</xsl:otherwise>
@@ -136,7 +143,9 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<!-- Copy current element if it cannot be translated -->
+	<xd:doc>
+		Copy current element if it cannot be translated
+	</xd:doc>
 	<xsl:template name="Untranslated">
 		<xsl:param name="thisNode"/>
 		<xsl:attribute name="xml:lang">

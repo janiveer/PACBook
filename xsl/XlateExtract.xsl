@@ -21,18 +21,18 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
-                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:its="http://www.w3.org/2005/11/its"
                 xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
                 xmlns:xl="http://www.w3.org/1999/xlink"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns="urn:oasis:names:tc:xliff:document:1.2"
-                exclude-result-prefixes="db xd xlf xl its"
+                exclude-result-prefixes="db xlf xl its xd"
                 version="1.0">
 
-<!--
+	<xd:doc>
      Extracts translation fragments to an XLIFF file.
      Must run XlateMarkup on the Source document first.
--->
+	</xd:doc>
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:param name="Source"/>
@@ -87,11 +87,17 @@
 					<xsl:value-of select="@xml:id"/>
 				</xsl:attribute>
 			</xsl:if>
+			<xsl:if test="@xl:label">
+				<xsl:attribute name="extradata">
+					<xsl:value-of select="@xl:label"/>
+				</xsl:attribute>
+			</xsl:if>
 			<source>
 				<xsl:apply-templates select="text()|processing-instruction()|*" mode="span"/>
 			</source>
 		</trans-unit>
 	</xsl:template>
+
 	<xsl:template match="text()" mode="span">
 		<xsl:copy-of select="."/>
 	</xsl:template>
@@ -134,4 +140,5 @@
 		<xsl:value-of select="."/>
 		<xsl:text>"</xsl:text>
 	</xsl:template>
+
 </xsl:stylesheet>

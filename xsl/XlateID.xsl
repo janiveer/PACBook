@@ -23,7 +23,6 @@
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns:xl="http://www.w3.org/1999/xlink"
-                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:its="http://www.w3.org/2005/11/its"
                 xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
                 xmlns:dita="http://dita.oasis-open.org/architecture/2005"
@@ -32,22 +31,25 @@
                 xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:str="http://exslt.org/strings"
                 xmlns:saxon="http://icl.com/saxon"
+                xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 exclude-result-prefixes="str saxon xd"
                 version="1.0">
 
-<!--
+	<xd:doc>
      Copies the content of the source DocBook file. Adds the
      current language code to the end of all XML:ID, LinkEnd,
      EndTerm, AreaRefs and XL:HRef attributes.
 
      If you want xrefs or links which will not be fixed up, use
      @xl:href with @xl:role='http://schema.org/significantLink'
--->
+	</xd:doc>
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:variable name="Lang" select="/*/@xml:lang"/>
 
-	<!-- Root -->
+	<xd:doc>
+		Root
+	</xd:doc>
 	<xsl:template match="/">
 		<xsl:if test="$Lang = ''">
 			<xsl:message terminate="yes">Input document has no xml:lang attribute.</xsl:message>
@@ -58,7 +60,9 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<!-- Elements -->
+	<xd:doc>
+		Elements
+	</xd:doc>
 	<xsl:template match="*">
 		<xsl:copy>
 			<xsl:apply-templates select="@*"/>
@@ -66,7 +70,9 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<!-- Attributes -->
+	<xd:doc>
+		Attributes
+	</xd:doc>
 	<xsl:template match="@*">
 		<xsl:variable name="Attribute" select="name()"/>
 		<xsl:attribute name="{$Attribute}">
@@ -115,7 +121,9 @@
 		</xsl:if>
 	</xsl:template>
 
-	<!-- Other nodes -->
+	<xd:doc>
+		Other nodes
+	</xd:doc>
 	<xsl:template match="text()|processing-instruction()|comment()">
 		<xsl:copy-of select="."/>
 	</xsl:template>
