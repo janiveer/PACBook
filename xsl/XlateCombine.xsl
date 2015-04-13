@@ -82,13 +82,14 @@
 				<xsl:variable name="Ns" select="namespace-uri()"/>
 				<xsl:variable name="Id" select="@xlf:id"/>
 				<xsl:variable name="thisNode" select="."/>
-				<xsl:message terminate="no">
+				<xsl:variable name="Message">
 					<xsl:text>Translating </xsl:text>
 					<xsl:value-of select="$El"/>
 					<xsl:text>: </xsl:text>
 					<xsl:value-of select="substring('           ', 1, 11 - string-length($El))"/>
 					<xsl:value-of select="$Id"/>
-				</xsl:message>
+					<xsl:text> ... </xsl:text>
+				</xsl:variable>
 				<xsl:copy>
 					<xsl:copy-of select="$thisNode/@*"/>
 					<xsl:copy-of select="$thisNode/child::node()"/>
@@ -99,15 +100,27 @@
 								<xsl:for-each select="document($zxxFile, /)">
 									<xsl:choose>
 										<xsl:when test="key('xlate', $Id)/xlf:target != ''">
+											<xsl:message terminate="no">
+												<xsl:value-of select="$Message"/>
+												<xsl:text>Separator OK</xsl:text>
+											</xsl:message>
 											<xsl:value-of select="key('xlate', $Id)/xlf:target"/>
 										</xsl:when>
 										<xsl:otherwise>
+											<xsl:message terminate="no">
+												<xsl:value-of select="$Message"/>
+												<xsl:text>No separator</xsl:text>
+											</xsl:message>
 											<xsl:text> · </xsl:text>
 										</xsl:otherwise>
 									</xsl:choose>
 								</xsl:for-each>
 							</xsl:when>
 							<xsl:otherwise>
+								<xsl:message terminate="no">
+									<xsl:value-of select="$Message"/>
+									<xsl:text>Separator file not found</xsl:text>
+								</xsl:message>
 								<xsl:text> · </xsl:text>
 							</xsl:otherwise>
 						</xsl:choose>
@@ -159,6 +172,11 @@
 		<xsl:param name="thisNode"/>
 		<xsl:param name="Id"/>
 		<xsl:variable name="thisLang" select="."/>
+		<xsl:variable name="Message">
+			<xsl:text>            </xsl:text>
+			<xsl:value-of select="$thisLang"/>
+			<xsl:text>: </xsl:text>
+		</xsl:variable>
 		<xsl:value-of select="$zxxText" disable-output-escaping="yes"/>
 		<xsl:for-each select="$thisNode">
 			<xsl:variable name="Xlate" select="pac:xliff($thisLang)"/>
@@ -167,16 +185,28 @@
 					<xsl:for-each select="document($Xlate, /)">
 						<xsl:choose>
 							<xsl:when test="key('xlate', $Id)/xlf:target != ''">
+								<xsl:message terminate="no">
+									<xsl:value-of select="$Message"/>
+									<xsl:text>OK</xsl:text>
+								</xsl:message>
 								<xsl:value-of select="key('xlate', $Id)/xlf:target"
 								              disable-output-escaping="yes"/>
 							</xsl:when>
 							<xsl:otherwise>
+								<xsl:message terminate="no">
+									<xsl:value-of select="$Message"/>
+									<xsl:text>No translation</xsl:text>
+								</xsl:message>
 								<xsl:copy-of select="$thisNode/child::node()"/>
 							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:for-each>
 				</xsl:when>
 				<xsl:otherwise>
+					<xsl:message terminate="no">
+						<xsl:value-of select="$Message"/>
+						<xsl:text>XLIFF not found</xsl:text>
+					</xsl:message>
 					<xsl:copy-of select="$thisNode/child::node()"/>
 				</xsl:otherwise>
 			</xsl:choose>
