@@ -55,21 +55,35 @@
 	<xsl:template match="xlf:body">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="xlf:group|xlf:trans-unit"/>
+			<xsl:apply-templates select="xlf:group|xlf:trans-unit|xlf:bin-unit"/>
 		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:group">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="xlf:group|xlf:trans-unit"/>
+			<xsl:copy-of select="xlf:context-group|xlf:count-group|xlf:prop-group|xlf:note"/>
+			<xsl:copy-of select="*[not(namespace-uri()='urn:oasis:names:tc:xliff:document:1.2')]"/>
+			<xsl:apply-templates select="xlf:group|xlf:trans-unit|xlf:bin-unit"/>
 		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="xlf:trans-unit">
 		<xsl:variable name="thisID" select="@id"/>
 		<xsl:choose>
-			<xsl:when test="preceding-sibling::xlf:trans-unit/@id=$thisID">
+			<xsl:when test="preceding-sibling::*/@id=$thisID">
+				<!-- Do not copy -->
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:copy-of select="."/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+
+	<xsl:template match="xlf:bin-unit">
+		<xsl:variable name="thisID" select="@id"/>
+		<xsl:choose>
+			<xsl:when test="preceding-sibling::*/@id=$thisID">
 				<!-- Do not copy -->
 			</xsl:when>
 			<xsl:otherwise>
