@@ -45,6 +45,10 @@
 			<xsl:value-of select="$Delimiter"/>
 			<xsl:value-of select="$Separator"/>
 			<xsl:value-of select="$Delimiter"/>
+			<xsl:text>ResName</xsl:text>
+			<xsl:value-of select="$Delimiter"/>
+			<xsl:value-of select="$Separator"/>
+			<xsl:value-of select="$Delimiter"/>
 			<xsl:value-of select="@source-language"/>
 			<xsl:value-of select="$Delimiter"/>
 			<xsl:value-of select="$Separator"/>
@@ -71,6 +75,8 @@
 	<xsl:template match="xlf:trans-unit">
 		<xsl:apply-templates select="@id"/>
 		<xsl:value-of select="$Separator"/>
+		<xsl:apply-templates select="@resname"/>
+		<xsl:value-of select="$Separator"/>
 		<xsl:apply-templates select="xlf:source"/>
 		<xsl:value-of select="$Separator"/>
 		<xsl:apply-templates select="xlf:target"/>
@@ -79,7 +85,7 @@
 		<xsl:value-of select="$EOL"/>
 	</xsl:template>
 
-	<xsl:template match="@id|xlf:source|xlf:target|xlf:note">
+	<xsl:template match="@id|@resname|xlf:source|xlf:target|xlf:note">
 		<xsl:value-of select="$Delimiter"/>
 		<xsl:value-of select="."/>
 		<xsl:value-of select="$Delimiter"/>
