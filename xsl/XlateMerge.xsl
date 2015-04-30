@@ -40,6 +40,7 @@
 	<xsl:param name="Language" select="''"/>
 	<xsl:param name="Xliff" select="''"/>
 	<xsl:param name="Diff" select="''"/>
+	<xsl:variable name="docRoot" select="/"/>
 	<xsl:key name="trans_unit" match="xlf:trans-unit" use="@id"/>
 
 	<xsl:template match="/">
@@ -62,7 +63,14 @@
 					<xsl:value-of select="@xml:lang"/>
 				</xsl:attribute>
 				<xsl:attribute name="target-language">
-					<xsl:value-of select="$Language"/>
+					<xsl:choose>
+						<xsl:when test="$Xliff != ''">
+							<xsl:value-of select="document($Xliff, /)//xlf:file[1]/@target-language"/>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="$Language"/>
+						</xsl:otherwise>
+					</xsl:choose>
 				</xsl:attribute>
 				<header xmlns="urn:oasis:names:tc:xliff:document:1.2">
 					<note xmlns="urn:oasis:names:tc:xliff:document:1.2">
@@ -125,7 +133,7 @@
 							<xsl:copy-of select="key('trans_unit', $Id)"/>
 						</xsl:when>
 						<xsl:otherwise>
-							<xsl:for-each select="document($Xlate, /)">
+							<xsl:for-each select="document($Xlate, $docRoot)">
 								<xsl:choose>
 									<xsl:when test="key('trans_unit', $Id)/xlf:source != ''">
 										<xsl:message terminate="no">
