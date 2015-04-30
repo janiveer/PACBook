@@ -30,7 +30,7 @@
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0"
-                xmlns:dc="http://purl.org/dc/elements/1.1/"
+                xmlns:vivo="http://vivoweb.org/ontology/core#"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:tmx="http://www.lisa.org/tmx14"
                 xmlns:saxon="http://icl.com/saxon"
@@ -221,7 +221,7 @@
 	</xd:doc>
 	<func:function name="pac:xliff">
 		<xsl:param name="strLang"/>
-		<func:result select="ancestor-or-self::*[*/rdf:RDF/rdf:Description[@dc:type='translations']][1]/*/rdf:RDF/rdf:Description[@dc:type='translations'][1]/dc:relation[@xml:lang=$strLang]/@rdf:resource"/>
+		<func:result select="ancestor-or-self::*[*/rdf:RDF//vivo:hasTranslation][1]/*/rdf:RDF//vivo:hasTranslation[1]//rdf:li[@xml:lang=$strLang]/@rdf:resource"/>
 	</func:function>
 
 	<xd:doc>
