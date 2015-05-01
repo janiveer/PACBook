@@ -35,7 +35,7 @@
                 xmlns:tmx="http://www.lisa.org/tmx14"
                 xmlns:saxon="http://icl.com/saxon"
                 extension-element-prefixes="func"
-                exclude-result-prefixes="func exsl date str xd data pac db xl l tmx dc rdf saxon"
+                exclude-result-prefixes="func exsl date str xd data pac db xl l tmx vivo rdf saxon"
                 version="1.1">
 
 	<xsl:variable name="Labels" select="'../data/DataLabels.xml'"/>
