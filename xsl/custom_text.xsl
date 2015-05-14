@@ -23,18 +23,19 @@
 	<!ENTITY % xlinkroles
 		SYSTEM "http://raw.github.com/STANLEYSecurity/PACBook/master/xsl/xlink-roles.ent">
 	%xlinkroles;
-	<!ENTITY applicability "/*/db:info/rdf:RDF/rdf:Description[@dc:type='applicability']">
 ]>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
+                xmlns="http://docbook.org/ns/docbook"
                 xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:data="urn:x-pacbook:data"
                 xmlns:pac="urn:x-pacbook:functions"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                xmlns:dc="http://purl.org/dc/elements/1.1/"
-                xmlns:dcterms="http://purl.org/dc/terms/"
+                xmlns:bibo="http://purl.org/ontology/bibo/"
+                xmlns:vivo="http://vivoweb.org/ontology/core#"
+                xmlns:doap="http://usefulinc.com/ns/doap#"
                 exclude-result-prefixes="data pac xd"
                 version="1.0">
 
@@ -115,7 +116,7 @@
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="db:title|db:subtitle|db:titleabbrev|db:info|db:para|db:formalpara|db:equation|db:informalequation|db:mediaobject|db:mediaobjectco|db:figure|db:informalfigure|db:screen|db:programlisting|db:indexterm|db:itemizedlist|db:orderedlist|db:simplelist|db:calloutlist|db:variablelist|db:segmentedlist|db:glosslist|db:qandaset|db:bridgehead|db:procedure|db:informaltable|db:table|db:informalexample|db:example|db:important|db:caution|db:note|db:tip|db:warning|db:sidebar|processing-instruction()|comment()"/>
 			<xsl:if test="db:info/&xl_link;">
-				<xsl:element name="para" namespace="{$DocBook}">
+				<para>
 					<xsl:choose>
 						<xsl:when test="db:info/&xl_link;/*[@xl:type='title']">
 							<xsl:apply-templates select="db:info/&xl_link;/*[@xl:type='title']/node()"/>
@@ -127,26 +128,26 @@
 							<xsl:value-of select="pac:label(pac:lang(), 'links')"/>
 						</xsl:otherwise>
 					</xsl:choose>
-				</xsl:element>
+				</para>
 				<xsl:for-each select="db:info/&xl_link;/db:arc">
 					<xsl:variable name="Link_To" select="@xl:to"/>
-					<xsl:element name="itemizedlist" namespace="{$DocBook}">
+					<itemizedlist>
 						<xsl:for-each select="$docRoot//*[db:info/&xl_part;/db:resource[@xl:label=$Link_To]]">
 							<xsl:variable name="Link_ID" select="@xml:id"/>
-							<xsl:element name="listitem" namespace="{$DocBook}">
-								<xsl:element name="para" namespace="{$DocBook}">
-									<xsl:element name="xref" namespace="{$DocBook}">
+							<listitem>
+								<para>
+									<xref>
 										<xsl:attribute name="linkend">
 											<xsl:value-of select="$Link_ID"/>
 										</xsl:attribute>
 										<xsl:attribute name="xrefstyle">
 											<xsl:value-of select="'select: pacref title'"/>
 										</xsl:attribute>
-									</xsl:element>
-								</xsl:element>
-							</xsl:element>
+									</xref>
+								</para>
+							</listitem>
 						</xsl:for-each>
-					</xsl:element>
+					</itemizedlist>
 				</xsl:for-each>
 			</xsl:if>
 			<xsl:apply-templates select="db:section|db:sect1|db:sect2|db:sect3|db:sect4|db:simplesect"/>
@@ -430,81 +431,51 @@
 		================
 		Revision History
 		================
-		The hideous use of xsl:element and xsl:attribute gives
-		cleaner output with no unnecessary namespace prefixes.
 	</xd:doc>
 	<xsl:template match="processing-instruction('pac-revhistory')">
 		<xsl:if test="/*/db:info/db:revhistory">
-			<xsl:element name="informaltable" namespace="{$DocBook}">
-				<xsl:attribute name="frame">all</xsl:attribute>
-				<xsl:attribute name="rowsep">1</xsl:attribute>
-				<xsl:attribute name="colsep">1</xsl:attribute>
-				<xsl:element name="tgroup" namespace="{$DocBook}">
-					<xsl:attribute name="cols">4</xsl:attribute>
-					<xsl:element name="colspec" namespace="{$DocBook}">
-						<xsl:attribute name="colwidth">14.5%</xsl:attribute>
-					</xsl:element>
-					<xsl:element name="colspec" namespace="{$DocBook}">
-						<xsl:attribute name="colwidth">14.5%</xsl:attribute>
-					</xsl:element>
-					<xsl:element name="colspec" namespace="{$DocBook}">
-						<xsl:attribute name="colwidth">14.5%</xsl:attribute>
-					</xsl:element>
-					<xsl:element name="colspec" namespace="{$DocBook}">
-						<xsl:attribute name="colwidth">55.5%</xsl:attribute>
-					</xsl:element>
-					<xsl:element name="thead" namespace="{$DocBook}">
-						<xsl:element name="row" namespace="{$DocBook}">
-							<xsl:element name="entry" namespace="{$DocBook}">
-								<xsl:element name="para" namespace="{$DocBook}">
-									<xsl:value-of select="pac:label(pac:lang(), 'version')"/>
-								</xsl:element>
-							</xsl:element>
-							<xsl:element name="entry" namespace="{$DocBook}">
-								<xsl:element name="para" namespace="{$DocBook}">
-									<xsl:value-of select="pac:label(pac:lang(), 'date')"/>
-								</xsl:element>
-							</xsl:element>
-							<xsl:element name="entry" namespace="{$DocBook}">
-								<xsl:element name="para" namespace="{$DocBook}">
-									<xsl:value-of select="pac:label(pac:lang(), 'author')"/>
-								</xsl:element>
-							</xsl:element>
-							<xsl:element name="entry" namespace="{$DocBook}">
-								<xsl:element name="para" namespace="{$DocBook}">
-									<xsl:value-of select="pac:label(pac:lang(), 'detail')"/>
-								</xsl:element>
-							</xsl:element>
-						</xsl:element>
-					</xsl:element>
-					<xsl:element name="tbody" namespace="{$DocBook}">
+			<informaltable frame="all" rowsep="1" colsep="1">
+				<tgroup cols="4">
+					<colspec colwidth="14.5%"/>
+					<colspec colwidth="14.5%"/>
+					<colspec colwidth="14.5%"/>
+					<colspec colwidth="55.5%"/>
+					<thead>
+						<row>
+							<entry>
+								<para><xsl:value-of select="pac:label(pac:lang(), 'version')"/></para>
+							</entry>
+							<entry>
+								<para><xsl:value-of select="pac:label(pac:lang(), 'date')"/></para>
+							</entry>
+							<entry>
+								<para><xsl:value-of select="pac:label(pac:lang(), 'author')"/></para>
+							</entry>
+							<entry>
+								<para><xsl:value-of select="pac:label(pac:lang(), 'detail')"/></para>
+							</entry>
+						</row>
+					</thead>
+					<tbody>
 						<xsl:for-each select="/*/db:info/db:revhistory/db:revision">
-							<xsl:element name="row" namespace="{$DocBook}">
-								<xsl:element name="entry" namespace="{$DocBook}">
-									<xsl:element name="para" namespace="{$DocBook}">
-										<xsl:apply-templates select="db:revnumber" mode="inline"/>
-									</xsl:element>
-								</xsl:element>
-								<xsl:element name="entry" namespace="{$DocBook}">
-									<xsl:element name="para" namespace="{$DocBook}">
-										<xsl:apply-templates select="db:date" mode="inline"/>
-									</xsl:element>
-								</xsl:element>
-								<xsl:element name="entry" namespace="{$DocBook}">
-									<xsl:element name="para" namespace="{$DocBook}">
-										<xsl:apply-templates select="db:authorinitials" mode="inline"/>
-									</xsl:element>
-								</xsl:element>
-								<xsl:element name="entry" namespace="{$DocBook}">
-									<xsl:element name="para" namespace="{$DocBook}">
-										<xsl:apply-templates select="db:revremark" mode="inline"/>
-									</xsl:element>
-								</xsl:element>
-							</xsl:element>
+							<row>
+								<entry>
+									<para><xsl:apply-templates select="db:revnumber"/></para>
+								</entry>
+								<entry>
+									<para><xsl:apply-templates select="db:date"/></para>
+								</entry>
+								<entry>
+									<para><xsl:apply-templates select="db:authorinitials"/></para>
+								</entry>
+								<entry>
+									<para><xsl:apply-templates select="db:revremark"/></para>
+								</entry>
+							</row>
 						</xsl:for-each>
-					</xsl:element>
-				</xsl:element>
-			</xsl:element>
+					</tbody>
+				</tgroup>
+			</informaltable>
 		</xsl:if>
 	</xsl:template>
 
@@ -512,81 +483,51 @@
 		=============
 		Applicability
 		=============
-		The hideous use of xsl:element and xsl:attribute gives
-		cleaner output with no unnecessary namespace prefixes.
 	</xd:doc>
 	<xsl:template match="processing-instruction('pac-applicability')">
-		<xsl:if test="&applicability;">
-			<xsl:element name="informaltable" namespace="{$DocBook}">
-				<xsl:attribute name="frame">all</xsl:attribute>
-				<xsl:attribute name="rowsep">1</xsl:attribute>
-				<xsl:attribute name="colsep">1</xsl:attribute>
-				<xsl:element name="tgroup" namespace="{$DocBook}">
-					<xsl:attribute name="cols">4</xsl:attribute>
-					<xsl:element name="colspec" namespace="{$DocBook}">
-						<xsl:attribute name="colwidth">19%</xsl:attribute>
-					</xsl:element>
-					<xsl:element name="colspec" namespace="{$DocBook}">
-						<xsl:attribute name="colwidth">27%</xsl:attribute>
-					</xsl:element>
-					<xsl:element name="colspec" namespace="{$DocBook}">
-						<xsl:attribute name="colwidth">42%</xsl:attribute>
-					</xsl:element>
-					<xsl:element name="colspec" namespace="{$DocBook}">
-						<xsl:attribute name="colwidth">12%</xsl:attribute>
-					</xsl:element>
-					<xsl:element name="thead" namespace="{$DocBook}">
-						<xsl:element name="row" namespace="{$DocBook}">
-							<xsl:element name="entry" namespace="{$DocBook}">
-								<xsl:element name="para" namespace="{$DocBook}">
-									<xsl:value-of select="pac:label(pac:lang(), 'product')"/>
-								</xsl:element>
-							</xsl:element>
-							<xsl:element name="entry" namespace="{$DocBook}">
-								<xsl:element name="para" namespace="{$DocBook}">
-									<xsl:value-of select="pac:label(pac:lang(), 'name')"/>
-								</xsl:element>
-							</xsl:element>
-							<xsl:element name="entry" namespace="{$DocBook}">
-								<xsl:element name="para" namespace="{$DocBook}">
-									<xsl:value-of select="pac:label(pac:lang(), 'detail')"/>
-								</xsl:element>
-							</xsl:element>
-							<xsl:element name="entry" namespace="{$DocBook}">
-								<xsl:element name="para" namespace="{$DocBook}">
-									<xsl:value-of select="pac:label(pac:lang(), 'version')"/>
-								</xsl:element>
-							</xsl:element>
-						</xsl:element>
-					</xsl:element>
-					<xsl:element name="tbody" namespace="{$DocBook}">
-						<xsl:for-each select="&applicability;/dcterms:references">
-							<xsl:element name="row" namespace="{$DocBook}">
-								<xsl:element name="entry" namespace="{$DocBook}">
-									<xsl:element name="para" namespace="{$DocBook}">
-										<xsl:copy-of select="dc:title/child::node()"/>
-									</xsl:element>
-								</xsl:element>
-								<xsl:element name="entry" namespace="{$DocBook}">
-									<xsl:element name="para" namespace="{$DocBook}">
-										<xsl:copy-of select="dc:subject/child::node()"/>
-									</xsl:element>
-								</xsl:element>
-								<xsl:element name="entry" namespace="{$DocBook}">
-									<xsl:element name="para" namespace="{$DocBook}">
-										<xsl:copy-of select="dc:description/child::node()"/>
-									</xsl:element>
-								</xsl:element>
-								<xsl:element name="entry" namespace="{$DocBook}">
-									<xsl:element name="para" namespace="{$DocBook}">
-										<xsl:copy-of select="dc:identifier/child::node()"/>
-									</xsl:element>
-								</xsl:element>
-							</xsl:element>
+		<xsl:if test="//bibo:Document/vivo:hasSubjectArea">
+			<informaltable frame="all" rowsep="1" colsep="1">
+				<tgroup cols="4">
+					<colspec colwidth="19%"/>
+					<colspec colwidth="27%"/>
+					<colspec colwidth="42%"/>
+					<colspec colwidth="12%"/>
+					<thead>
+						<row>
+							<entry>
+								<para><xsl:value-of select="pac:label(pac:lang(), 'product')"/></para>
+							</entry>
+							<entry>
+								<para><xsl:value-of select="pac:label(pac:lang(), 'name')"/></para>
+							</entry>
+							<entry>
+								<para><xsl:value-of select="pac:label(pac:lang(), 'detail')"/></para>
+							</entry>
+							<entry>
+								<para><xsl:value-of select="pac:label(pac:lang(), 'version')"/></para>
+							</entry>
+						</row>
+					</thead>
+					<tbody>
+						<xsl:for-each select="//bibo:Document/vivo:hasSubjectArea/rdf:Bag/rdf:li">
+							<row>
+								<entry>
+									<para><xsl:copy-of select="doap:category/child::node()"/></para>
+								</entry>
+								<entry>
+									<para><xsl:copy-of select="doap:name/child::node()"/></para>
+								</entry>
+								<entry>
+									<para><xsl:copy-of select="doap:description/child::node()"/></para>
+								</entry>
+								<entry>
+									<para><xsl:copy-of select="doap:revision/child::node()"/></para>
+								</entry>
+							</row>
 						</xsl:for-each>
-					</xsl:element>
-				</xsl:element>
-			</xsl:element>
+					</tbody>
+				</tgroup>
+			</informaltable>
 		</xsl:if>
 	</xsl:template>
 

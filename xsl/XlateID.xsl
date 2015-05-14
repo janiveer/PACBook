@@ -28,7 +28,6 @@
                 xmlns:dita="http://dita.oasis-open.org/architecture/2005"
                 xmlns:tei="http://www.tei-c.org/ns/1.0"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:str="http://exslt.org/strings"
                 xmlns:saxon="http://icl.com/saxon"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"

@@ -21,7 +21,7 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
-                xmlns:dc="http://purl.org/dc/elements/1.1/"
+                xmlns:vivo="http://vivoweb.org/ontology/core#"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:pac="urn:x-pacbook:functions"
@@ -49,7 +49,7 @@
 	</xd:doc>
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:choose>
-			<xsl:when test="self::dc:relation">
+			<xsl:when test="self::rdf:li and ancestor::vivo:hasTranslation">
 				<xsl:call-template name="Fix_Translation"/>
 			</xsl:when>
 			<xsl:when test="self::db:releaseinfo">
@@ -103,7 +103,7 @@
 		===========
 	</xd:doc>
 	<xsl:template name="Fix_Translation">
-		<xsl:element name="relation" namespace="http://purl.org/dc/elements/1.1/">
+		<rdf:li>
 			<xsl:if test="@rdf:resource">
 				<xsl:attribute name="rdf:resource">
 					<xsl:call-template name="File_Reference">
@@ -112,6 +112,6 @@
 				</xsl:attribute>
 			</xsl:if>
 			<xsl:copy-of select="@xml:lang"/>
-		</xsl:element>
+		</rdf:li>
 	</xsl:template>
 </xsl:stylesheet>

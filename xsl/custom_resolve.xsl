@@ -21,7 +21,7 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
-                xmlns:dc="http://purl.org/dc/elements/1.1/"
+                xmlns:term="http://purl.org/dc/terms/"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:saxon="http://icl.com/saxon"
@@ -56,10 +56,10 @@
 	</xd:doc>
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:choose>
-			<xsl:when test="$Target='xlate' and self::dc:relation">
+			<xsl:when test="$Target='xlate' and self::rdf:li">
 				<xsl:call-template name="Resolve_Resource"/>
 			</xsl:when>
-			<xsl:when test="$Target='xlate' and self::dc:source">
+			<xsl:when test="$Target='xlate' and self::term:source">
 				<xsl:call-template name="Resolve_Resource"/>
 			</xsl:when>
 			<xsl:when test="$Target='images' and self::db:imagedata">
@@ -83,7 +83,7 @@
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:if test="starts-with(@rdf:resource, 'http://')">
-				<xsl:attribute name="resource" namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+				<xsl:attribute name="rdf:resource">
 					<xsl:call-template name="Catalog">
 						<xsl:with-param name="URI" select="@rdf:resource"/>
 					</xsl:call-template>
