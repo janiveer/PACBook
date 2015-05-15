@@ -44,7 +44,6 @@
 
 	<!-- Parameters -->
 	<xsl:param name="docRoot" select="/"/>
-	<xsl:param name="DocBook" select="'http://docbook.org/ns/docbook'"/>
 	<xsl:param name="MaxRecurseDepth" select="8"/>
 
 	<!-- Decimal Formats -->
@@ -512,7 +511,7 @@
 						<xsl:for-each select="//bibo:Document/vivo:hasSubjectArea/rdf:Bag/rdf:li">
 							<row>
 								<entry>
-									<para><xsl:copy-of select="doap:category/child::node()"/></para>
+									<para><xsl:copy-of select="doap:shortdesc/child::node()"/></para>
 								</entry>
 								<entry>
 									<para><xsl:copy-of select="doap:name/child::node()"/></para>
