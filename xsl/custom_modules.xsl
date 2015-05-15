@@ -24,8 +24,7 @@
                 xmlns:vivo="http://vivoweb.org/ontology/core#"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
-                xmlns:pac="urn:x-pacbook:functions"
-                exclude-result-prefixes="xd pac"
+                exclude-result-prefixes="xd"
                 version="1.1">
 	<!--
 	     Stylesheet for processing modular docbook documents.
@@ -33,13 +32,12 @@
 	     This stylesheet is called by the XSLT processor using
 	     the "xincludes" option so that xincludes are processed.
 	     This stylesheet fixes up remote references to translation
-	     files, resolves xlink locators and processes release info.
+	     files and resolves xlink locators.
 	     The document is then passed to the translation stylesheet.
 
 	     OLinks and ImageData are fixed up after translation.
 	-->
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
-	<xsl:include href="common/CommonFunctions.xsl"/>
 	<xsl:include href="common/CommonTemplates.xsl"/>
 
 	<xd:doc>
@@ -52,9 +50,6 @@
 			<xsl:when test="self::rdf:li and ancestor::vivo:hasTranslation">
 				<xsl:call-template name="Fix_Translation"/>
 			</xsl:when>
-			<xsl:when test="self::db:releaseinfo">
-				<xsl:call-template name="Fix_Props"/>
-			</xsl:when>
 			<xsl:otherwise>
 				<xsl:copy>
 					<xsl:if test="@xml:id">
@@ -65,36 +60,6 @@
 				</xsl:copy>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:template>
-
-	<xd:doc>
-		===================
-		Document Properties
-		===================
-	</xd:doc>
-	<xsl:template name="Fix_Props">
-		<xsl:variable name="status" select="ancestor-or-self::*[@status][1]/@status"/>
-		<xsl:copy>
-			<xsl:choose>
-				<xsl:when test="starts-with(., '#Build Number for ANT')">
-					<xsl:choose>
-						<xsl:when test="$status">
-							<xsl:value-of select="pac:uc($status)"/>
-							<xsl:if test="contains($status, 'draft')">
-								<xsl:text> </xsl:text>
-								<xsl:value-of select="substring-before(substring-after(., 'build.number='), '&#10;')"/>
-							</xsl:if>
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:value-of select="''"/>
-						</xsl:otherwise>
-					</xsl:choose>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:apply-templates select="*|text()|processing-instruction()|comment()"/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:copy>
 	</xsl:template>
 
 	<xd:doc>
