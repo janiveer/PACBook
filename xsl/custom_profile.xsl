@@ -20,16 +20,10 @@
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:func="http://exslt.org/functions"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
-                xmlns:db="http://docbook.org/ns/docbook"
-                xmlns:pac="urn:x-pacbook:functions"
-                xmlns:xl="http://www.w3.org/1999/xlink"
-                exclude-result-prefixes="pac func xd"
-                extension-element-prefixes="pac func"
+                exclude-result-prefixes="xd"
                 version="1.0">
 	<xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/profiling/profile.xsl"/>
-	<xsl:include href="common/CommonFunctions.xsl"/>
 
 	<xd:doc>
 		==================
@@ -51,26 +45,5 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:param>
-
-	<xd:doc>
-		=========
-		Resources
-		=========
-	</xd:doc>
-	<xsl:template match="db:imagedata[starts-with(@fileref, '../')]|db:imagedata[contains(@fileref, '://')]" mode="profile">
-		<xsl:choose>
-			<xsl:when test="$profile.attribute='outputformat' and $profile.value='help'">
-				<xsl:element name="imagedata" namespace="http://docbook.org/ns/docbook">
-					<xsl:copy-of select="@*"/>
-					<xsl:attribute name="fileref">
-						<xsl:value-of select="pac:resource(@fileref, 'resources', '__')"/>
-					</xsl:attribute>
-				</xsl:element>
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:copy-of select="."/>
-			</xsl:otherwise>
-		</xsl:choose>
-	</xsl:template>
 
 </xsl:stylesheet>

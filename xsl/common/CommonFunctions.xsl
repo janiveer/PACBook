@@ -22,20 +22,14 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:func="http://exslt.org/functions"
                 xmlns:exsl="http://exslt.org/common"
-                xmlns:date="http://exslt.org/dates-and-times"
                 xmlns:str="http://exslt.org/strings"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
-                xmlns:data="urn:x-pacbook:data"
                 xmlns:pac="urn:x-pacbook:functions"
-                xmlns:db="http://docbook.org/ns/docbook"
-                xmlns:xl="http://www.w3.org/1999/xlink"
-                xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0"
                 xmlns:vivo="http://vivoweb.org/ontology/core#"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:tmx="http://www.lisa.org/tmx14"
-                xmlns:saxon="http://icl.com/saxon"
                 extension-element-prefixes="func"
-                exclude-result-prefixes="func exsl date str xd data pac db xl l tmx vivo rdf saxon"
+                exclude-result-prefixes="func exsl str xd pac tmx vivo rdf"
                 version="1.1">
 
 	<xsl:variable name="Labels" select="'../data/DataLabels.xml'"/>
@@ -107,107 +101,6 @@
 		</xsl:variable>
 		<func:result select="$strResult"/>
 	</func:function>
-
-	<xd:doc>
-		*******************************************************
-		pac:decode('uri')
-
-		Decodes a URI to a file path. The protocol and initial
-		double slashes are removed, encoded spaces are decoded
-		*******************************************************
-	</xd:doc>
-	<func:function name="pac:decode">
-		<xsl:param name="URI"/>
-		<xsl:variable name="noProto">
-			<xsl:choose>
-				<xsl:when test="starts-with($URI, 'file:')">
-					<xsl:value-of select="substring-after($URI, 'file:')"/>
-				</xsl:when>
-				<xsl:when test="starts-with($URI, 'http:')">
-					<xsl:value-of select="substring-after($URI, 'http:')"/>
-				</xsl:when>
-				<xsl:when test="starts-with($URI, 'ftp:')">
-					<xsl:value-of select="substring-after($URI, 'ftp:')"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="$URI"/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
-		<xsl:variable name="noSlashes">
-			<xsl:choose>
-				<xsl:when test="starts-with($noProto, '//')">
-					<xsl:value-of select="substring-after($noProto, '//')"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="$noProto"/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
-		<xsl:variable name="noEsc20">
-			<xsl:value-of select="str:replace($noSlashes, '%20', ' ')"/>
-		</xsl:variable>
-		<func:result select="$noEsc20"/>
-	</func:function>
-
-	<xd:doc>
-		*******************************************************
-		pac:resource('path', 'prefix', 'parent')
-
-		Encodes a file path to a local resource path
-		* Path is the file path to encode
-		* Prefix is prepended to the local resource path
-		* Parent replaces '..' in the file path
-		*******************************************************
-	</xd:doc>
-	<func:function name="pac:resource">
-		<xsl:param name="Path"/>
-		<xsl:param name="Prefix"/>
-		<xsl:param name="Parent"/>
-		<xsl:variable name="Input">
-			<xsl:value-of select="pac:decode($Path)"/>
-		</xsl:variable>
-		<xsl:variable name="Result">
-			<xsl:value-of select="$Prefix"/>
-			<xsl:text>/</xsl:text>
-			<xsl:choose>
-				<xsl:when test="function-available('str:tokenize')">
-					<xsl:for-each select="str:tokenize($Input, '/')">
-						<xsl:call-template name="pac:_resource">
-							<xsl:with-param name="Parent" select="$Parent"/>
-						</xsl:call-template>
-					</xsl:for-each>
-				</xsl:when>
-				<xsl:when test="function-available('saxon:tokenize')">
-					<xsl:for-each select="saxon:tokenize($Input, '/')">
-						<xsl:call-template name="pac:_resource">
-							<xsl:with-param name="Parent" select="$Parent"/>
-						</xsl:call-template>
-					</xsl:for-each>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:message terminate="yes">
-						<xsl:text>ERROR: Tokenize function not available.</xsl:text>
-					</xsl:message>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
-		<func:result select="$Result"/>
-	</func:function>
-	<xsl:template name="pac:_resource">
-		<xsl:param name="Parent"/>
-		<xsl:choose>
-			<xsl:when test=".='..'">
-				<xsl:value-of select="$Parent"/>
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:value-of select="translate(., ':', '')"/>
-			</xsl:otherwise>
-		</xsl:choose>
-		<xsl:if test="position() != last()">
-			<xsl:text>/</xsl:text>
-		</xsl:if>
-	</xsl:template>
 
 	<xd:doc>
 		*******************************************************
