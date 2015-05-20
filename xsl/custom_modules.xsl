@@ -21,8 +21,6 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
-                xmlns:vivo="http://vivoweb.org/ontology/core#"
-                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 exclude-result-prefixes="xd"
                 version="1.1">
@@ -31,11 +29,7 @@
 
 	     This stylesheet is called by the XSLT processor using
 	     the "xincludes" option so that xincludes are processed.
-	     This stylesheet fixes up remote references to translation
-	     files and resolves xlink locators.
-	     The document is then passed to the translation stylesheet.
-
-	     OLinks and ImageData are fixed up after translation.
+	     This stylesheet resolves xlink locators.
 	-->
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:include href="common/CommonTemplates.xsl"/>
@@ -46,37 +40,13 @@
 		===========================
 	</xd:doc>
 	<xsl:template match="*|text()|processing-instruction()|comment()">
-		<xsl:choose>
-			<xsl:when test="self::rdf:li and ancestor::vivo:hasTranslation">
-				<xsl:call-template name="Fix_Translation"/>
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:copy>
-					<xsl:if test="@xml:id">
-						<xsl:call-template name="Fix_ID"/>
-					</xsl:if>
-					<xsl:copy-of select="@*[not(name()='xml:id')]"/>
-					<xsl:apply-templates select="*|text()|processing-instruction()|comment()"/>
-				</xsl:copy>
-			</xsl:otherwise>
-		</xsl:choose>
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:if test="@xml:id">
+				<xsl:call-template name="Fix_ID"/>
+			</xsl:if>
+			<xsl:apply-templates select="*|text()|processing-instruction()|comment()"/>
+		</xsl:copy>
 	</xsl:template>
 
-	<xd:doc>
-		===========
-		Translation
-		===========
-	</xd:doc>
-	<xsl:template name="Fix_Translation">
-		<rdf:li>
-			<xsl:if test="@rdf:resource">
-				<xsl:attribute name="rdf:resource">
-					<xsl:call-template name="File_Reference">
-						<xsl:with-param name="refpath" select="@rdf:resource"/>
-					</xsl:call-template>
-				</xsl:attribute>
-			</xsl:if>
-			<xsl:copy-of select="@xml:lang"/>
-		</rdf:li>
-	</xsl:template>
 </xsl:stylesheet>
