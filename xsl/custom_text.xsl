@@ -542,7 +542,8 @@
 		<xsl:value-of select="/*/db:info/db:edition"/>
 	</xsl:template>
 	<xsl:template match="processing-instruction('pac-releaseinfo')">
-		<xsl:value-of select="/*/db:info/db:releaseinfo"/>
+		<xsl:value-of select="pac:uc(/*/@status)"/>
+		<!-- TODO: Add release info as well -->
 	</xsl:template>
 
 </xsl:stylesheet>
