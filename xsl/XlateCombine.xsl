@@ -97,7 +97,7 @@
 					<xsl:variable name="zxxText">
 						<xsl:choose>
 							<xsl:when test="$zxxFile">
-								<xsl:for-each select="document($zxxFile, /)">
+								<xsl:for-each select="document($zxxFile)">
 									<xsl:choose>
 										<xsl:when test="key('xlate', $Id)/xlf:target != ''">
 											<xsl:message terminate="no">
@@ -182,7 +182,7 @@
 			<xsl:variable name="Xlate" select="pac:xliff($thisLang)"/>
 			<xsl:choose>
 				<xsl:when test="$Xlate">
-					<xsl:for-each select="document($Xlate, /)">
+					<xsl:for-each select="document($Xlate)">
 						<xsl:choose>
 							<xsl:when test="key('xlate', $Id)/xlf:target != ''">
 								<xsl:message terminate="no">

@@ -23,6 +23,7 @@
                 xmlns:func="http://exslt.org/functions"
                 xmlns:exsl="http://exslt.org/common"
                 xmlns:str="http://exslt.org/strings"
+                xmlns:uri="http://xsltsl.org/uri"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:pac="urn:x-pacbook:functions"
                 xmlns:vivo="http://vivoweb.org/ontology/core#"
@@ -31,6 +32,8 @@
                 extension-element-prefixes="func"
                 exclude-result-prefixes="func exsl str xd pac tmx vivo rdf"
                 version="1.1">
+
+	<xsl:import href="../../lib/xsltsl/stdlib.xsl"/>
 
 	<xsl:variable name="Labels" select="'../data/DataLabels.xml'"/>
 	<xsl:param name="abcBlock" select="'AÁÀÂÄÅÆBCÇDEÉÈÊËFGHIÍÌÎÏJKLMNÑOÓÒÔÖØŒPQRSTUÚÙÛÜVWXYÝỲŶŸZ'"/>
@@ -107,15 +110,41 @@
 		pac:xliff('language')
 
 		Finds the nearest ancestor of the current element which
-		has an RDF resource of type "translations", then from
-		there gets the uri of the .XLIFF file which matches
+		has an RDF resource of type "vivo:hasTranslation", then
+		gets from it the URI of the XLIFF file which matches
 		the specified language (whew!)
+
+		We want to be able to resolve the URI of the XLIFF file
+		against the xml:base of the element that references it.
+		Saxon can’t cope if the xml:base requires lookup in an
+		XML catalog. So having found the URI of an XLIFF file
+		we must make the reference absolute by resolving it
+		against the element’s xml:base. Saxon can then look up
+		the absolute URI in an XML catalog.
 		*******************************************************
 	</xd:doc>
 	<func:function name="pac:xliff">
-		<xsl:param name="strLang"/>
-		<func:result select="ancestor-or-self::*[*/rdf:RDF//vivo:hasTranslation][1]/*/rdf:RDF//vivo:hasTranslation[1]//rdf:li[@xml:lang=$strLang]/@rdf:resource"/>
+		<xsl:param name="reqLang"/>
+		<xsl:variable name="xliffURI">
+			<xsl:for-each select="ancestor-or-self::*[*/rdf:RDF//vivo:hasTranslation][1]/*/rdf:RDF//vivo:hasTranslation[1]//rdf:li[@xml:lang=$reqLang]">
+				<xsl:call-template name="uri:resolve-uri">
+					<xsl:with-param name="reference" select="@rdf:resource"/>
+					<xsl:with-param name="base">
+						<xsl:apply-templates select="ancestor-or-self::*[@xml:base][1]" mode="XMLBase"/>
+					</xsl:with-param>
+				</xsl:call-template>
+			</xsl:for-each>
+		</xsl:variable>
+		<func:result select="$xliffURI"/>
 	</func:function>
+	<xsl:template match="*[@xml:base]" mode="XMLBase">
+		<xsl:call-template name="uri:resolve-uri">
+			<xsl:with-param name="reference" select="@xml:base"/>
+			<xsl:with-param name="base">
+				<xsl:apply-templates select="ancestor::*[@xml:base][1]" mode="XMLBase"/>
+			</xsl:with-param>
+		</xsl:call-template>
+	</xsl:template>
 
 	<xd:doc>
 		*******************************************************
