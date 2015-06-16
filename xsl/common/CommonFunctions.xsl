@@ -22,20 +22,19 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:func="http://exslt.org/functions"
                 xmlns:uri="http://xsltsl.org/uri"
+                xmlns:str="http://xsltsl.org/string"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:pac="urn:x-pacbook:functions"
                 xmlns:vivo="http://vivoweb.org/ontology/core#"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:tmx="http://www.lisa.org/tmx14"
                 extension-element-prefixes="func"
-                exclude-result-prefixes="func uri xd pac tmx vivo rdf"
+                exclude-result-prefixes="func uri str xd pac tmx vivo rdf"
                 version="1.1">
 
 	<xsl:import href="../../lib/xsltsl/stdlib.xsl"/>
 
 	<xsl:variable name="Labels" select="'../data/DataLabels.xml'"/>
-	<xsl:param name="abcBlock" select="'AÁÀÂÄÅÆBCÇDEÉÈÊËFGHIÍÌÎÏJKLMNÑOÓÒÔÖØŒPQRSTUÚÙÛÜVWXYÝỲŶŸZ'"/>
-	<xsl:param name="abcSmall" select="'aáàâäåæbcçdeéèêëfghiíìîïjklmnñoóòôöøœpqrstuúùûüvwxyýỳŷÿz'"/>
 
 	<xd:doc>
 		*******************************************************
@@ -46,7 +45,12 @@
 	</xd:doc>
 	<func:function name="pac:uc">
 		<xsl:param name="strText"/>
-		<func:result select="translate($strText, $abcSmall, $abcBlock)"/>
+		<xsl:variable name="strResult">
+			<xsl:call-template name="str:to-upper">
+				<xsl:with-param name="text" select="$strText"/>
+			</xsl:call-template>
+		</xsl:variable>
+		<func:result select="$strResult"/>
 	</func:function>
 
 	<xd:doc>
@@ -58,7 +62,12 @@
 	</xd:doc>
 	<func:function name="pac:lc">
 		<xsl:param name="strText"/>
-		<func:result select="translate($strText, $abcBlock, $abcSmall)"/>
+		<xsl:variable name="strResult">
+			<xsl:call-template name="str:to-lower">
+				<xsl:with-param name="text" select="$strText"/>
+			</xsl:call-template>
+		</xsl:variable>
+		<func:result select="$strResult"/>
 	</func:function>
 
 	<xd:doc>
