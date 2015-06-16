@@ -167,17 +167,4 @@
 		<func:result select="$strResult"/>
 	</func:function>
 
-	<xd:doc>
-		*******************************************************
-		pac:pseudo-attrib('name')
-
-		Returns the value of the specified pseudo-attribute.
-		*******************************************************
-	</xd:doc>
-	<func:function name="pac:pseudo-attrib">
-		<xsl:param name="strName"/>
-		<xsl:variable name="strResult" select="substring-before(substring-after(., concat($strName, '=&quot;')), '&quot;')"/>
-		<func:result select="$strResult"/>
-	</func:function>
-
 </xsl:stylesheet>
