@@ -449,7 +449,13 @@
           </xsl:choose>
         </xsl:variable>
 
-        <xsl:value-of select="concat($base-scheme, '://', $result-authority, $result-path)"/>
+        <!-- STANLEYSecurity edited 17.06.2015 23:35:54 -->
+        <xsl:if test="string-length($base-scheme)">
+          <xsl:value-of select="concat($base-scheme, '://')"/>
+        </xsl:if>
+
+        <xsl:value-of select="concat($result-authority, $result-path)"/>
+        <!-- / -->
 
         <xsl:if test="string-length($reference-query)">
           <xsl:value-of select="concat('?', $reference-query)"/>
