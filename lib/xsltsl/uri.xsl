@@ -455,7 +455,7 @@
         </xsl:if>
 
         <xsl:value-of select="concat($result-authority, $result-path)"/>
-        <!-- / -->
+        <!-- [what if there is no base scheme?] -->
 
         <xsl:if test="string-length($reference-query)">
           <xsl:value-of select="concat('?', $reference-query)"/>
@@ -545,22 +545,34 @@
               </xsl:when>
               <xsl:when test="$s = '..'">
                 <xsl:choose>
-                  <xsl:when test="string-length($result) and (substring($result, string-length($result) - 2) != '/..')">
-                    <xsl:call-template name="uri:normalize-path">
-                      <xsl:with-param name="path" select="$p"/>
-                      <xsl:with-param name="result">
-                        <xsl:call-template name="uri:get-path-without-file">
-                          <xsl:with-param name="path-with-file" select="$result"/>
+                  <!-- STANLEYSecurity edited 18.06.2015 12:00:24 -->
+                  <xsl:when test="string-length($result)">
+                    <xsl:choose>
+                      <xsl:when test="substring($result, string-length($result) - 2) != '/..'">
+                        <xsl:call-template name="uri:normalize-path">
+                          <xsl:with-param name="path" select="$p"/>
+                          <xsl:with-param name="result">
+                            <xsl:call-template name="uri:get-path-without-file">
+                              <xsl:with-param name="path-with-file" select="$result"/>
+                            </xsl:call-template>
+                          </xsl:with-param>
                         </xsl:call-template>
-                      </xsl:with-param>
-                    </xsl:call-template>
+                      </xsl:when>
+                      <xsl:otherwise>
+                        <xsl:call-template name="uri:normalize-path">
+                          <xsl:with-param name="path" select="$p"/>
+                          <xsl:with-param name="result" select="concat($result, '/..')"/>
+                        </xsl:call-template>
+                      </xsl:otherwise>
+                    </xsl:choose>
                   </xsl:when>
                   <xsl:otherwise>
                     <xsl:call-template name="uri:normalize-path">
                       <xsl:with-param name="path" select="$p"/>
-                      <xsl:with-param name="result" select="concat($result, '/..')"/>
+                      <xsl:with-param name="result" select="$s"/>
                     </xsl:call-template>
                   </xsl:otherwise>
+                  <!-- [what if '..' is at start of path?] -->
                 </xsl:choose>
               </xsl:when>
               <xsl:otherwise>
