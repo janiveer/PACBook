@@ -434,9 +434,12 @@
               <xsl:value-of select="$reference-path" />
             </xsl:when>
             <xsl:otherwise>
-              <xsl:call-template name="uri:normalize-path">
-                <xsl:with-param name="path">
-                  <xsl:if test="string-length($reference-authority) = 0 and substring($reference-path, 1, 1) != '/'">
+              <!-- STANLEYSecurity edited 21.06.2015 23:30:39 -->
+              <xsl:call-template name="uri:remove-dot-segments">
+                <xsl:with-param name="input-buffer">
+                  <xsl:if test="string-length($reference-authority) = 0 and
+                                substring($reference-path, 1, 1) != '/' and
+                                string-length($base-path) != 0">
                     <xsl:call-template name="uri:get-path-without-file">
                       <xsl:with-param name="path-with-file" select="$base-path"/>
                     </xsl:call-template>
@@ -445,6 +448,7 @@
                   <xsl:value-of select="$reference-path"/>
                 </xsl:with-param>
               </xsl:call-template>
+              <!-- [replaced uri:normalize-path with uri:remove-dot-segments] -->
             </xsl:otherwise>
           </xsl:choose>
         </xsl:variable>
@@ -497,102 +501,137 @@
 
   </xsl:template>
 
-  <xsl:template name="uri:normalize-path">
-    <xsl:param name="path"/>
-    <xsl:param name="result" select="''"/>
+	<!-- STANLEYSecurity edited 21.06.2015 23:30:39 -->
+	<xsl:template name="uri:remove-dot-segments">
 
-    <xsl:choose>
-      <xsl:when test="string-length($path)">
-        <xsl:choose>
-          <xsl:when test="$path = '/'">
-            <xsl:value-of select="concat($result, '/')"/>
-          </xsl:when>
-          <xsl:when test="$path = '.'">
-            <xsl:value-of select="concat($result, '/')"/>
-          </xsl:when>
-          <xsl:when test="$path = '..'">
-            <xsl:call-template name="uri:get-path-without-file">
-              <xsl:with-param name="path-with-file" select="$result"/>
-            </xsl:call-template>
-            <xsl:value-of select="'/'"/>
-          </xsl:when>
-          <xsl:when test="contains($path, '/')">
-            <!-- the current segment -->
-            <xsl:variable name="s" select="substring-before($path, '/')"/>
-            <!-- the remaining path -->
-            <xsl:variable name="p">
-              <xsl:choose>
-                <xsl:when test="substring-after($path, '/') = ''">
-                  <xsl:value-of select="'/'"/>
-                </xsl:when>
-                <xsl:otherwise>
-                  <xsl:value-of select="substring-after($path, '/')"/>
-                </xsl:otherwise>
-              </xsl:choose>
-            </xsl:variable>
-            <xsl:choose>
-              <xsl:when test="$s = ''">
-                <xsl:call-template name="uri:normalize-path">
-                  <xsl:with-param name="path" select="$p"/>
-                  <xsl:with-param name="result" select="$result"/>
-                </xsl:call-template>
-              </xsl:when>
-              <xsl:when test="$s = '.'">
-                <xsl:call-template name="uri:normalize-path">
-                  <xsl:with-param name="path" select="$p"/>
-                  <xsl:with-param name="result" select="$result"/>
-                </xsl:call-template>
-              </xsl:when>
-              <xsl:when test="$s = '..'">
-                <xsl:choose>
-                  <!-- STANLEYSecurity edited 18.06.2015 12:00:24 -->
-                  <xsl:when test="string-length($result)">
-                    <xsl:choose>
-                      <xsl:when test="substring($result, string-length($result) - 2) != '/..'">
-                        <xsl:call-template name="uri:normalize-path">
-                          <xsl:with-param name="path" select="$p"/>
-                          <xsl:with-param name="result">
-                            <xsl:call-template name="uri:get-path-without-file">
-                              <xsl:with-param name="path-with-file" select="$result"/>
-                            </xsl:call-template>
-                          </xsl:with-param>
-                        </xsl:call-template>
-                      </xsl:when>
-                      <xsl:otherwise>
-                        <xsl:call-template name="uri:normalize-path">
-                          <xsl:with-param name="path" select="$p"/>
-                          <xsl:with-param name="result" select="concat($result, '/..')"/>
-                        </xsl:call-template>
-                      </xsl:otherwise>
-                    </xsl:choose>
-                  </xsl:when>
-                  <xsl:otherwise>
-                    <xsl:call-template name="uri:normalize-path">
-                      <xsl:with-param name="path" select="$p"/>
-                      <xsl:with-param name="result" select="$s"/>
-                    </xsl:call-template>
-                  </xsl:otherwise>
-                  <!-- [what if '..' is at start of path?] -->
-                </xsl:choose>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:call-template name="uri:normalize-path">
-                  <xsl:with-param name="path" select="$p"/>
-                  <xsl:with-param name="result" select="concat($result, '/', $s)"/>
-                </xsl:call-template>
-              </xsl:otherwise>
-            </xsl:choose>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="concat($result, '/', $path)"/>
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="$result"/>
-      </xsl:otherwise>
-    </xsl:choose>
+<!-- 1.  The input buffer is initialized with the now-appended path
+         components and the output buffer is initialized to the empty
+         string. -->
+		<xsl:param name="input-buffer"  select="''"/>
+		<xsl:param name="output-buffer" select="''"/>
 
-  </xsl:template>
+		<xsl:choose>
+
+<!-- 2.  While the input buffer is not empty, loop as follows: -->
+			<xsl:when test="$input-buffer != ''">
+				<xsl:choose>
+
+<!--   A.  If the input buffer begins with a prefix of "../" or "./",
+           then remove that prefix from the input buffer; otherwise, -->
+					<xsl:when test="starts-with($input-buffer, './')">
+						<xsl:call-template name="uri:remove-dot-segments">
+							<xsl:with-param name="input-buffer"  select="substring-after($input-buffer, './')"/>
+							<xsl:with-param name="output-buffer" select="$output-buffer"/>
+						</xsl:call-template>
+					</xsl:when>
+
+<!--      [STANLEYSecurity: preserve initial ".." segments] -->
+					<xsl:when test="starts-with($input-buffer, '../')">
+						<xsl:call-template name="uri:remove-dot-segments">
+							<xsl:with-param name="input-buffer"  select="substring-after($input-buffer, '../')"/>
+							<xsl:with-param name="output-buffer" select="concat($output-buffer, '../')"/>
+						</xsl:call-template>
+					</xsl:when>
+
+<!--   B.  if the input buffer begins with a prefix of "/./" or "/.",
+           where "." is a complete path segment, then replace that
+           prefix with "/" in the input buffer; otherwise, -->
+					<xsl:when test="(starts-with($input-buffer, '/./')) or ($input-buffer = '/.')">
+						<xsl:call-template name="uri:remove-dot-segments">
+							<xsl:with-param name="input-buffer"  select="concat('/', substring-after($input-buffer, '/./'))"/>
+							<xsl:with-param name="output-buffer" select="$output-buffer"/>
+						</xsl:call-template>
+					</xsl:when>
+
+<!--   C.  if the input buffer begins with a prefix of "/../" or "/..",
+           where ".." is a complete path segment, then replace that
+           prefix with "/" in the input buffer and remove the last
+           segment and its preceding "/" (if any) from the output
+           buffer; otherwise, -->
+					<xsl:when test="(starts-with($input-buffer, '/../')) or ($input-buffer = '/..')">
+						<xsl:call-template name="uri:remove-dot-segments">
+							<xsl:with-param name="input-buffer" select="concat('/', substring-after($input-buffer, '/../'))"/>
+							<xsl:with-param name="output-buffer">
+
+<!--      [STANLEYSecurity: preserve initial ".." segments] -->
+								<xsl:choose>
+									<xsl:when test="substring($output-buffer, string-length($output-buffer) - 1) = '..'">
+										<xsl:value-of select="concat($output-buffer, '/..')"/>
+									</xsl:when>
+									<xsl:otherwise>
+										<xsl:call-template name="uri:get-path-without-file">
+											<xsl:with-param name="path-with-file" select="$output-buffer"/>
+										</xsl:call-template>
+									</xsl:otherwise>
+								</xsl:choose>
+							</xsl:with-param>
+						</xsl:call-template>
+					</xsl:when>
+
+<!--   D.  if the input buffer consists only of "." or "..", then remove
+           that from the input buffer; otherwise, -->
+					<xsl:when test="$input-buffer = '.'">
+						<xsl:call-template name="uri:remove-dot-segments">
+							<xsl:with-param name="input-buffer" select="''"/>
+							<xsl:with-param name="output-buffer" select="$output-buffer"/>
+						</xsl:call-template>
+					</xsl:when>
+
+<!--      [STANLEYSecurity: preserve initial ".." segments] -->
+					<xsl:when test="$input-buffer = '..'">
+						<xsl:call-template name="uri:remove-dot-segments">
+							<xsl:with-param name="input-buffer" select="''"/>
+							<xsl:with-param name="output-buffer" select="'..'"/>
+						</xsl:call-template>
+					</xsl:when>
+
+<!--   E.  move the first path segment in the input buffer to the end of
+           the output buffer, including the initial "/" character (if
+           any) and any subsequent characters up to, but not including,
+           the next "/" character or the end of the input buffer. -->
+					<xsl:otherwise>
+						<xsl:variable name="seg">
+							<xsl:choose>
+								<xsl:when test="starts-with($input-buffer, '/')">
+									<xsl:value-of select="'/'"/>
+									<xsl:call-template name="uri:get-first-segment">
+										<xsl:with-param name="path" select="substring($input-buffer, 2)"/>
+									</xsl:call-template>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:call-template name="uri:get-first-segment">
+										<xsl:with-param name="path" select="$input-buffer"/>
+									</xsl:call-template>
+								</xsl:otherwise>
+							</xsl:choose>
+						</xsl:variable>
+						<xsl:call-template name="uri:remove-dot-segments">
+							<xsl:with-param name="input-buffer"  select="substring-after($input-buffer, $seg)"/>
+							<xsl:with-param name="output-buffer" select="concat($output-buffer, $seg)"/>
+						</xsl:call-template>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:when>
+
+<!-- 3.  Finally, the output buffer is returned as the result of
+         remove_dot_segments. -->
+			<xsl:otherwise>
+				<xsl:value-of select="$output-buffer"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+
+	<xsl:template name="uri:get-first-segment">
+		<xsl:param name="path"/>
+		<xsl:choose>
+			<xsl:when test="contains($path, '/')">
+				<xsl:value-of select="substring-before($path, '/')"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="$path"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	<!-- [Based on https://tools.ietf.org/html/rfc3986#section-5.2.4] -->
 
 </xsl:stylesheet>
