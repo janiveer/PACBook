@@ -131,18 +131,34 @@
 		*******************************************************
 	</xd:doc>
 	<func:function name="pac:xliff">
-		<xsl:param name="reqLang"/>
+		<xsl:param name="Lang"/>
 		<xsl:variable name="xliffURI">
-			<xsl:for-each select="ancestor-or-self::*[*/rdf:RDF//vivo:hasTranslation][1]/*/rdf:RDF//vivo:hasTranslation[1]//rdf:li[@xml:lang=$reqLang]">
-				<xsl:call-template name="uri:resolve-uri">
-					<xsl:with-param name="reference" select="@rdf:resource"/>
-					<xsl:with-param name="base">
-						<xsl:apply-templates select="ancestor-or-self::*[@xml:base][1]" mode="XMLBase"/>
-					</xsl:with-param>
-				</xsl:call-template>
+			<xsl:for-each select="ancestor-or-self::*[*/rdf:RDF//vivo:hasTranslation][1]/*/rdf:RDF//vivo:hasTranslation[1]//rdf:li[@xml:lang=$Lang]">
+				<xsl:value-of select="pac:xbase(@rdf:resource)"/>
 			</xsl:for-each>
 		</xsl:variable>
 		<func:result select="$xliffURI"/>
+	</func:function>
+
+	<xd:doc>
+		*******************************************************
+		pac:xbase('uri')
+
+		Resolves a URI against any xml:base attributes which
+		apply to the current element.
+		*******************************************************
+	</xd:doc>
+	<func:function name="pac:xbase">
+		<xsl:param name="refURI"/>
+		<xsl:variable name="resolvedURI">
+			<xsl:call-template name="uri:resolve-uri">
+				<xsl:with-param name="reference" select="$refURI"/>
+				<xsl:with-param name="base">
+					<xsl:apply-templates select="ancestor-or-self::*[@xml:base][1]" mode="XMLBase"/>
+				</xsl:with-param>
+			</xsl:call-template>
+		</xsl:variable>
+		<func:result select="$resolvedURI"/>
 	</func:function>
 	<xsl:template match="*[@xml:base]" mode="XMLBase">
 		<xsl:call-template name="uri:resolve-uri">
