@@ -32,18 +32,32 @@
 	     This stylesheet resolves xlink locators.
 	-->
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
-	<xsl:include href="common/CommonTemplates.xsl"/>
 
 	<xd:doc>
-		===========================
-		Recurse through source file
-		===========================
+		=========================================================
+		Fix_ID
+
+		Changes @xml:id to @xl:href of nearest locator with
+		matching @xl:label
+		=========================================================
 	</xd:doc>
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:if test="@xml:id">
-				<xsl:call-template name="Fix_ID"/>
+				<xsl:variable name="pac.id" select="@xml:id"/>
+				<xsl:variable name="pac.locator" select="ancestor-or-self::*/db:info/db:extendedlink/db:locator[@xl:label=$pac.id]"/>
+				<xsl:choose>
+					<xsl:when test="$pac.locator">
+						<xsl:variable name="pac.href" select="$pac.locator/@xl:href"/>
+						<xsl:attribute name="xml:id">
+							<xsl:value-of select="substring-after($pac.href, '#')"/>
+						</xsl:attribute>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:copy-of select="@xml:id"/>
+					</xsl:otherwise>
+				</xsl:choose>
 			</xsl:if>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()"/>
 		</xsl:copy>
