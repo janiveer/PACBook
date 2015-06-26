@@ -45,12 +45,6 @@
 		pac-releaseinfo:   copy of document status
 		============================================================
 	</xd:doc>
-	<xsl:template match="/">
-		<xsl:copy>
-			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="*|text()|processing-instruction()|comment()"/>
-		</xsl:copy>
-	</xsl:template>
 
 	<xd:doc>
 		==============
@@ -83,7 +77,7 @@
 	<xsl:attribute-set name="pac.revhistory.col.author">
 		<xsl:attribute name="colwidth">14.5%</xsl:attribute>
 	</xsl:attribute-set>
-	<xsl:attribute-set name="pac.revhistory.col.details">
+	<xsl:attribute-set name="pac.revhistory.col.detail">
 		<xsl:attribute name="colwidth">55.5%</xsl:attribute>
 	</xsl:attribute-set>
 	<xsl:template match="processing-instruction('pac-revhistory')">

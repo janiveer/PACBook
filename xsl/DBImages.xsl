@@ -26,21 +26,25 @@
                 xmlns:pac="urn:x-pacbook:functions"
                 exclude-result-prefixes="xd pac"
                 version="1.0">
-	<!--
-	     Stylesheet for resolving image references in docbook documents.
 
-	     It is also assumed that all topics refer to image files relative to
-	     their own location; as such image @filerefs are modified to point
-	     to the location of the _original_ image relative to the completed
-	     document's location.
-	-->
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:include href="common/CommonFunctions.xsl"/>
 
 	<xd:doc>
-		===========================
-		Recurse through source file
-		===========================
+		====================================================================
+		Stylesheet for resolving image references in DocBook documents.
+
+		It is assumed that document modules refer to image files relative to
+		their own location. Therefore, image @filerefs are modified using
+		@xml:base to point to the location of the original image relative to
+		the assembled document's location.
+		====================================================================
+	</xd:doc>
+
+	<xd:doc>
+		==============
+		Main recursion
+		==============
 	</xd:doc>
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:copy>

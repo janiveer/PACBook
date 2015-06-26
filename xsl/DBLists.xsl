@@ -21,7 +21,6 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
-                xmlns="http://docbook.org/ns/docbook"
                 xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:pac="urn:x-pacbook:functions"
@@ -32,22 +31,16 @@
 	<xsl:include href="common/CommonFunctions.xsl"/>
 
 	<xd:doc>
-		===========================================================
-		Stylesheet for processing autotext in docbook documents.
+		================================================================================
+		Stylesheet for processing simple inline lists in DocBook documents.
 
 		This uses disable-output-escaping to unescape the inline tags from DataLabels.
 		This is necessary because of the way TMX escapes inline markup. Saxon supports
 		disable-output-escaping only when writing to the final result tree. We know
 		that only conjunctions may contain inline markup, so it's only done here.
 		All in all, this is hideous. Need to move to XSLT 2.0 to get rid of this.
-		===========================================================
+		================================================================================
 	</xd:doc>
-	<xsl:template match="/">
-		<xsl:copy>
-			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="*|text()|processing-instruction()|comment()"/>
-		</xsl:copy>
-	</xsl:template>
 
 	<xd:doc>
 		==============

@@ -21,26 +21,22 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
+                xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 exclude-result-prefixes="xd"
                 version="1.1">
-	<!--
-	     Stylesheet for processing modular docbook documents.
 
-	     This stylesheet is called by the XSLT processor using
-	     the "xincludes" option so that xincludes are processed.
-	     This stylesheet resolves xlink locators.
-	-->
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 
 	<xd:doc>
 		=========================================================
-		Fix_ID
+		Stylesheet for resolving @xml:id after transclusion.
 
 		Changes @xml:id to @xl:href of nearest locator with
-		matching @xl:label
+		matching @xl:label.
 		=========================================================
 	</xd:doc>
+
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>

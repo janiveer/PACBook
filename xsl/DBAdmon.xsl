@@ -34,12 +34,6 @@
 		Creates automatic titles for DocBook admonitions.
 		===========================================================
 	</xd:doc>
-	<xsl:template match="/">
-		<xsl:copy>
-			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="*|text()|processing-instruction()|comment()"/>
-		</xsl:copy>
-	</xsl:template>
 
 	<xd:doc>
 		==============

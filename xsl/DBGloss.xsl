@@ -28,9 +28,6 @@
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 
-	<xsl:param name="maxRecurseDepth" select="8"/>
-	<xsl:key name="glossEntry" match="db:glossentry" use="@xml:id"/>
-
 	<xd:doc>
 		============================================================
 		This stylesheet builds DocBook glossary collections.
@@ -40,6 +37,14 @@
 		of glossentries. The stylesheet only copies out those
 		glossentries which are referenced within the document.
 		============================================================
+	</xd:doc>
+	<xsl:param name="maxRecurseDepth" select="8"/>
+	<xsl:key name="glossEntry" match="db:glossentry" use="@xml:id"/>
+
+	<xd:doc>
+		==============
+		Main recursion
+		==============
 	</xd:doc>
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:copy>

@@ -30,6 +30,16 @@
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:include href="common/CommonFunctions.xsl"/>
 
+	<xd:doc>
+		===========================================================
+		Stylesheet for localising numbers in DocBook documents.
+
+		If the content of the element is a number,
+		reformat it using the local number format.
+		===========================================================
+	</xd:doc>
+	<xsl:param name="numberClassRef" select="'http://dbpedia.org/ontology/number'"/>
+
 	<!-- Data -->
 	<data:num-form lang="en-GB">#,###.#</data:num-form>
 	<data:num-form lang="en-US">#,###.#</data:num-form>
@@ -67,22 +77,6 @@
 	<xsl:decimal-format name="fi"    grouping-separator=" " decimal-separator=","/>
 
 	<xd:doc>
-		===========================================================
-		Stylesheet for processing autotext in docbook documents.
-
-		This stylesheet creates the titles for admonitions
-		and builds glossary collections. The document is then
-		passed through for morphosyntactic processing.
-		===========================================================
-	</xd:doc>
-	<xsl:template match="/">
-		<xsl:copy>
-			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="*|text()|processing-instruction()|comment()"/>
-		</xsl:copy>
-	</xsl:template>
-
-	<xd:doc>
 		==============
 		Main recursion
 		==============
@@ -98,8 +92,6 @@
 		=======
 		Numbers
 		=======
-		If the content of the element is a number,
-		reformat it using the local number format.
 	</xd:doc>
 	<xsl:template match="db:literal">
 		<xsl:copy>

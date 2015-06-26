@@ -19,12 +19,6 @@
     along with PACBook.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
-<!DOCTYPE stylesheet [
-	<!ENTITY % xlinkroles
-		SYSTEM "http://raw.github.com/STANLEYSecurity/PACBook/master/xsl/xlink-roles.ent">
-	%xlinkroles;
-]>
-
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns="http://docbook.org/ns/docbook"
@@ -38,24 +32,28 @@
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:include href="common/CommonFunctions.xsl"/>
 
-	<!-- Parameters -->
-	<xsl:param name="docRoot" select="/"/>
-
 	<xd:doc>
-		===========================================================
-		Stylesheet for processing autotext in docbook documents.
+		============================================================
+		Stylesheet for creating related links in DocBook documents.
 
-		This stylesheet creates the titles for admonitions
-		and builds glossary collections. The document is then
-		passed through for morphosyntactic processing.
-		===========================================================
+		If a section of the document contains an extended link
+		with @xl:role={$linkHome}, this template looks at the
+		label(s) specified by the arc elements; finds other sections
+		which contain an extended link with @xl:role={$linkPart} and
+		which in turn contains a resource element with the same
+		label; and then creates a list of links to those other
+		sections.
+
+		If the extended link contains an xlink title element,
+		that element is used as the title of the list of links.
+		Otherwise the phrase called 'links' is used as the title
+		of the list of links in the appropriate language.
+		============================================================
 	</xd:doc>
-	<xsl:template match="/">
-		<xsl:copy>
-			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="*|text()|processing-instruction()|comment()"/>
-		</xsl:copy>
-	</xsl:template>
+	<xsl:param name="linkHome" select="'http://schema.org/relatedLink'"/>
+	<xsl:param name="linkPart" select="'http://schema.org/isPartOf'"/>
+	<xsl:param name="linkStyle" select="'select: label title'"/>
+	<xsl:variable name="docRoot" select="/"/>
 
 	<xd:doc>
 		==============
@@ -73,50 +71,38 @@
 		=============
 		Related Links
 		=============
-		If a section of the document contains an extended link
-		with @xl:role='http://schema.org/relatedLink', this template
-		looks at the label(s) specified by the arc elements; finds
-		other sections which contain an extended link with
-		@xl:role='http://schema.org/isPartOf' and which in turn
-		contains a resource element with the same label; and then
-		creates a list of links to those other sections.
-
-		If the extended link contains an xlink title element,
-		that element is used as the title of the list of links.
-		Otherwise the phrase called 'PAC.Links' is used as the title
-		of the list of links in the appropriate language.
 	</xd:doc>
 	<xsl:template match="db:chapter|db:section|db:sect1|db:sect2|db:sect3|db:sect4">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="db:title|db:subtitle|db:titleabbrev|db:info|db:para|db:formalpara|db:equation|db:informalequation|db:mediaobject|db:mediaobjectco|db:figure|db:informalfigure|db:screen|db:programlisting|db:indexterm|db:itemizedlist|db:orderedlist|db:simplelist|db:calloutlist|db:variablelist|db:segmentedlist|db:glosslist|db:qandaset|db:bridgehead|db:procedure|db:informaltable|db:table|db:informalexample|db:example|db:important|db:caution|db:note|db:tip|db:warning|db:sidebar|processing-instruction()|comment()"/>
-			<xsl:if test="db:info/&xl_link;">
+			<xsl:if test="db:info/db:extendedlink[@xl:role=$linkHome]">
 				<para>
 					<xsl:choose>
-						<xsl:when test="db:info/&xl_link;/*[@xl:type='title']">
-							<xsl:apply-templates select="db:info/&xl_link;/*[@xl:type='title']/node()"/>
+						<xsl:when test="db:info/db:extendedlink[@xl:role=$linkHome]/*[@xl:type='title']">
+							<xsl:apply-templates select="db:info/db:extendedlink[@xl:role=$linkHome]/*[@xl:type='title']/node()"/>
 						</xsl:when>
-						<xsl:when test="db:info/&xl_link;/db:title">
-							<xsl:apply-templates select="db:info/&xl_link;/db:title/node()"/>
+						<xsl:when test="db:info/db:extendedlink[@xl:role=$linkHome]/db:title">
+							<xsl:apply-templates select="db:info/db:extendedlink[@xl:role=$linkHome]/db:title/node()"/>
 						</xsl:when>
 						<xsl:otherwise>
 							<xsl:value-of select="pac:label(pac:lang(), 'links')"/>
 						</xsl:otherwise>
 					</xsl:choose>
 				</para>
-				<xsl:for-each select="db:info/&xl_link;/db:arc">
-					<xsl:variable name="Link_To" select="@xl:to"/>
+				<xsl:for-each select="db:info/db:extendedlink[@xl:role=$linkHome]/db:arc">
+					<xsl:variable name="linkTo" select="@xl:to"/>
 					<itemizedlist>
-						<xsl:for-each select="$docRoot//*[db:info/&xl_part;/db:resource[@xl:label=$Link_To]]">
-							<xsl:variable name="Link_ID" select="@xml:id"/>
+						<xsl:for-each select="$docRoot//*[db:info/db:extendedlink[@xl:role=$linkPart]/db:resource[@xl:label=$linkTo]]">
+							<xsl:variable name="linkID" select="@xml:id"/>
 							<listitem>
 								<para>
 									<xref>
 										<xsl:attribute name="linkend">
-											<xsl:value-of select="$Link_ID"/>
+											<xsl:value-of select="$linkID"/>
 										</xsl:attribute>
 										<xsl:attribute name="xrefstyle">
-											<xsl:value-of select="'select: pacref title'"/>
+											<xsl:value-of select="$linkStyle"/>
 										</xsl:attribute>
 									</xref>
 								</para>

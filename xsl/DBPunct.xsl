@@ -35,12 +35,7 @@
 		should not be two full stops at the end of a sentence.
 		=============================================================
 	</xd:doc>
-	<xsl:template match="/">
-		<xsl:copy>
-			<xsl:copy-of select="@*"/>
-			<xsl:apply-templates select="*|text()|processing-instruction()|comment()"/>
-		</xsl:copy>
-	</xsl:template>
+	<xsl:param name="abbrevClassRef" select="'http://dbpedia.org/ontology/abbreviation'"/>
 
 	<xd:doc>
 		==============
