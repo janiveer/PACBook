@@ -52,7 +52,7 @@
 	</xd:doc>
 	<xsl:param name="linkHome" select="'http://schema.org/relatedLink'"/>
 	<xsl:param name="linkPart" select="'http://schema.org/isPartOf'"/>
-	<xsl:param name="linkStyle" select="'select: label title'"/>
+	<xsl:param name="linkStyle" select="'select: title'"/>
 	<xsl:variable name="docRoot" select="/"/>
 
 	<xd:doc>
