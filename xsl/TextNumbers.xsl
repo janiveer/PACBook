@@ -22,6 +22,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                xmlns:its="http://www.w3.org/2005/11/its"
                 xmlns:data="urn:x-pacbook:data"
                 xmlns:pac="urn:x-pacbook:functions"
                 exclude-result-prefixes="data pac xd"
@@ -93,7 +94,7 @@
 		Numbers
 		=======
 	</xd:doc>
-	<xsl:template match="db:literal">
+	<xsl:template match="db:literal|*[@its:taClass=$numberClassRef]">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:choose>

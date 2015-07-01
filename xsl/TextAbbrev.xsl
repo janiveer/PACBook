@@ -22,6 +22,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                xmlns:its="http://www.w3.org/2005/11/its"
                 exclude-result-prefixes="xd"
                 version="1.0">
 
@@ -54,7 +55,7 @@
 		Punctuation
 		===========
 	</xd:doc>
-	<xsl:template match="db:abbrev">
+	<xsl:template match="db:abbrev|*[@its:taClass=$abbrevClassRef]">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:choose>
