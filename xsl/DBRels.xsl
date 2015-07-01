@@ -50,8 +50,8 @@
 		of the list of links in the appropriate language.
 		============================================================
 	</xd:doc>
-	<xsl:param name="linkHome" select="'http://schema.org/relatedLink'"/>
-	<xsl:param name="linkPart" select="'http://schema.org/isPartOf'"/>
+	<xsl:param name="linkHome" select="'http://www.iana.org/assignments/relation/item'"/>
+	<xsl:param name="linkPart" select="'http://www.iana.org/assignments/relation/collection'"/>
 	<xsl:param name="linkStyle" select="'select: title'"/>
 	<xsl:variable name="docRoot" select="/"/>
 
