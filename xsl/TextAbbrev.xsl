@@ -51,25 +51,43 @@
 	</xsl:template>
 
 	<xd:doc>
-		===========
-		Punctuation
-		===========
+		=============
+		Abbreviations
+		=============
 	</xd:doc>
-	<xsl:template match="db:abbrev|*[@its:taClass=$abbrevClassRef]">
+	<xsl:template match="db:abbrev">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:call-template name="Abbreviations"/>
+		</xsl:copy>
+	</xsl:template>
+
+	<xsl:template match="*[@its:taClass]">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:choose>
-				<xsl:when test="substring(text(), string-length(text())) = '.'">
-					<xsl:value-of select="substring(text(), 1, string-length(text())-1)"/>
+				<xsl:when test="@its:taClass=$abbrevClassRef">
+					<xsl:call-template name="Abbreviations"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:value-of select="text()"/>
+					<xsl:copy-of select="child::node()"/>
 				</xsl:otherwise>
 			</xsl:choose>
-			<xsl:if test="substring(following-sibling::text()[1], 1, 1) != '.'">
-				<xsl:text>.</xsl:text>
-			</xsl:if>
 		</xsl:copy>
+	</xsl:template>
+
+	<xsl:template name="Abbreviations">
+		<xsl:choose>
+			<xsl:when test="substring(text(), string-length(text())) = '.'">
+				<xsl:value-of select="substring(text(), 1, string-length(text())-1)"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="text()"/>
+			</xsl:otherwise>
+		</xsl:choose>
+		<xsl:if test="substring(following-sibling::text()[1], 1, 1) != '.'">
+			<xsl:text>.</xsl:text>
+		</xsl:if>
 	</xsl:template>
 
 </xsl:stylesheet>

@@ -94,22 +94,40 @@
 		Numbers
 		=======
 	</xd:doc>
-	<xsl:template match="db:literal|*[@its:taClass=$numberClassRef]">
+	<xsl:template match="db:literal">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:call-template name="Numbers"/>
+		</xsl:copy>
+	</xsl:template>
+
+	<xsl:template match="*[@its:taClass]">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:choose>
-				<xsl:when test="string(number(.))='NaN'">
-					<xsl:copy-of select="child::node()"/>
+				<xsl:when test="@its:taClass=$numberClassRef">
+					<xsl:call-template name="Numbers"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:variable name="my.lang" select="pac:lang()"/>
-					<xsl:variable name="my.format">
-						<xsl:value-of select="document('')//data:num-form[@lang=$my.lang]"/>
-					</xsl:variable>
-					<xsl:value-of select="format-number(., $my.format, $my.lang)"/>
+					<xsl:copy-of select="child::node()"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:copy>
+	</xsl:template>
+
+	<xsl:template name="Numbers">
+		<xsl:choose>
+			<xsl:when test="string(number(.))='NaN'">
+				<xsl:copy-of select="child::node()"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:variable name="my.lang" select="pac:lang()"/>
+				<xsl:variable name="my.format">
+					<xsl:value-of select="document('')//data:num-form[@lang=$my.lang]"/>
+				</xsl:variable>
+				<xsl:value-of select="format-number(., $my.format, $my.lang)"/>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 
 </xsl:stylesheet>
