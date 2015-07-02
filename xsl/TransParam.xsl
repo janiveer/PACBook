@@ -32,7 +32,7 @@
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:strip-space elements="db:resource"/>
 
-	<xsl:param name="defRole" select="'http://docbook.org/docs/transclusion'"/>
+	<xsl:param name="defRole" select="'http://stanleysecurity.github.io/PACBook/role/transclusion'"/>
 
 	<xd:doc>
 		==============
