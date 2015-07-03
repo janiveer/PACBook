@@ -26,6 +26,7 @@
                 xmlns:pac="urn:x-pacbook:functions"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                xmlns="urn:oasis:names:tc:xliff:document:1.2"
                 exclude-result-prefixes="db xlf pac its xl xd"
                 version="1.0">
 
@@ -49,8 +50,8 @@
 	</xsl:template>
 
 	<xsl:template match="*" mode="root">
-		<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-			<file datatype="xml" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+		<xliff version="1.2">
+			<file datatype="xml">
 				<xsl:attribute name="original">
 					<xsl:value-of select="@xml:id"/>
 				</xsl:attribute>
@@ -60,8 +61,8 @@
 				<xsl:attribute name="target-language">
 					<xsl:value-of select="$Language"/>
 				</xsl:attribute>
-				<header xmlns="urn:oasis:names:tc:xliff:document:1.2">
-					<note xmlns="urn:oasis:names:tc:xliff:document:1.2">
+				<header>
+					<note>
 						<xsl:value-of select="//db:biblioid[@class='pubsnumber']"/>
 						<xsl:text> </xsl:text>
 						<xsl:value-of select="//db:edition"/>
@@ -69,7 +70,7 @@
 						<xsl:value-of select="//db:releaseinfo"/>
 					</note>
 				</header>
-				<body xmlns="urn:oasis:names:tc:xliff:document:1.2">
+				<body>
 					<xsl:apply-templates select="//*[@xlf:id][not(@its:translate='no')]" mode="unit"/>
 				</body>
 			</file>
@@ -111,7 +112,6 @@
 					<xsl:text>: </xsl:text>
 					<xsl:value-of select="substring('           ', 1, 11 - string-length($El))"/>
 					<xsl:value-of select="$Id"/>
-					<xsl:text> ... </xsl:text>
 				</xsl:variable>
 				<xsl:for-each select="document($Xlate, /)">
 					<xsl:choose>
@@ -130,17 +130,17 @@
 										<xsl:value-of select="$Message"/>
 										<xsl:text> ... Unfinished</xsl:text>
 									</xsl:message>
-									<trans-unit xmlns="urn:oasis:names:tc:xliff:document:1.2">
+									<trans-unit>
 										<xsl:call-template name="SetTransUnitAttributes">
 											<xsl:with-param name="Id" select="$Id"/>
-											<xsl:with-param name="ResName" select="$thisName/@xml:id"/>
-											<xsl:with-param name="ExtraData" select="$thisName/@xl:label"/>
+											<xsl:with-param name="ResName" select="$thisNode/@xml:id"/>
+											<xsl:with-param name="ExtraData" select="$thisNode/@xl:label"/>
 										</xsl:call-template>
-										<source xmlns="urn:oasis:names:tc:xliff:document:1.2">
+										<source>
 											<xsl:value-of select="$LocalNorm"/>
 										</source>
 										<xsl:if test="$TargetNorm != ''">
-											<target xmlns="urn:oasis:names:tc:xliff:document:1.2">
+											<target>
 												<xsl:value-of select="$TargetNorm"/>
 											</target>
 										</xsl:if>
@@ -156,17 +156,17 @@
 												<xsl:value-of select="$Message"/>
 												<xsl:text> ... Changed</xsl:text>
 											</xsl:message>
-											<trans-unit xmlns="urn:oasis:names:tc:xliff:document:1.2">
+											<trans-unit>
 												<xsl:call-template name="SetTransUnitAttributes">
 													<xsl:with-param name="Id" select="$Id"/>
-													<xsl:with-param name="ResName" select="$thisName/@xml:id"/>
-													<xsl:with-param name="ExtraData" select="$thisName/@xl:label"/>
+													<xsl:with-param name="ResName" select="$thisNode/@xml:id"/>
+													<xsl:with-param name="ExtraData" select="$thisNode/@xl:label"/>
 												</xsl:call-template>
-												<source xmlns="urn:oasis:names:tc:xliff:document:1.2">
+												<source>
 													<xsl:value-of select="$LocalNorm"/>
 												</source>
 												<xsl:if test="$TargetNorm != ''">
-													<target xmlns="urn:oasis:names:tc:xliff:document:1.2">
+													<target>
 														<xsl:if test="$TargetNorm = $LocalNorm">
 															<xsl:attribute name="state">
 																<xsl:value-of select="'translated'"/>
@@ -194,13 +194,13 @@
 								<xsl:value-of select="$Message"/>
 								<xsl:text> ... New</xsl:text>
 							</xsl:message>
-							<trans-unit xmlns="urn:oasis:names:tc:xliff:document:1.2">
+							<trans-unit>
 								<xsl:call-template name="SetTransUnitAttributes">
 									<xsl:with-param name="Id" select="$Id"/>
-									<xsl:with-param name="ResName" select="$thisName/@xml:id"/>
-									<xsl:with-param name="ExtraData" select="$thisName/@xl:label"/>
+									<xsl:with-param name="ResName" select="$thisNode/@xml:id"/>
+									<xsl:with-param name="ExtraData" select="$thisNode/@xl:label"/>
 								</xsl:call-template>
-								<source xmlns="urn:oasis:names:tc:xliff:document:1.2">
+								<source>
 									<xsl:value-of select="$LocalNorm"/>
 								</source>
 							</trans-unit>
@@ -219,18 +219,18 @@
 	</xsl:template>
 
 	<xsl:template name="SetTransUnitAttributes">
-		<xsl:param name="$Id"/>
-		<xsl:param name="$ResName"/>
-		<xsl:param name="$ExtraData"/>
+		<xsl:param name="Id"/>
+		<xsl:param name="ResName"/>
+		<xsl:param name="ExtraData"/>
 		<xsl:attribute name="id">
 			<xsl:value-of select="$Id"/>
 		</xsl:attribute>
-		<xsl:if test="not($ResName='')">
+		<xsl:if test="string-length($ResName)">
 			<xsl:attribute name="resname">
 				<xsl:value-of select="$ResName"/>
 			</xsl:attribute>
 		</xsl:if>
-		<xsl:if test="not($ExtraData='')">
+		<xsl:if test="string-length($ExtraData)">
 			<xsl:attribute name="extradata">
 				<xsl:value-of select="$ExtraData"/>
 			</xsl:attribute>
@@ -238,7 +238,7 @@
 	</xsl:template>
 
 	<xsl:template name="SetTransUnitElements">
-		<xsl:param name="$Id"/>
+		<xsl:param name="Id"/>
 		<xsl:for-each select="key('trans_unit', $Id)">
 			<xsl:copy-of select="xlf:context-group|xlf:count-group|xlf:prop-group|xlf:note"/>
 			<!-- TODO: xlf:alt-trans -->
