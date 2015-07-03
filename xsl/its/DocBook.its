@@ -11,7 +11,6 @@
 	<its:withinTextRule withinText="no" selector="//db:glossterm[parent::db:glossentry]"/>
 	<its:withinTextRule withinText="no" selector="//db:member[parent::db:simplelist[not(@type='inline')]]"/>
 	<its:withinTextRule withinText="no" selector="//db:term"/>
-	<its:withinTextRule withinText="no" selector="//db:imageobject[ancestor::db:mediaobject]"/>
 	<its:withinTextRule withinText="no" selector="//db:resource[parent::db:extendedlink]"/>
 	<its:withinTextRule withinText="no" selector="//db:keyword"/>
 	<its:withinTextRule withinText="no" selector="//db:seg"/>
