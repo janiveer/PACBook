@@ -4064,6 +4064,32 @@
             <orth>predeterminadas</orth>
           </form>
         </entry>
+        <entry n="conectado">
+          <form>
+            <gramGrp>
+              <gen value="m"/><num value="sg"/>
+            </gramGrp>
+            <orth>conectado</orth>
+          </form>
+          <form>
+            <gramGrp>
+              <gen value="f"/><num value="sg"/>
+            </gramGrp>
+            <orth>conectada</orth>
+          </form>
+          <form>
+            <gramGrp>
+              <gen value="m"/><num value="pl"/>
+            </gramGrp>
+            <orth>conectados</orth>
+          </form>
+          <form>
+            <gramGrp>
+              <gen value="f"/><num value="pl"/>
+            </gramGrp>
+            <orth>conectadas</orth>
+          </form>
+        </entry>
         <entry n="seleccionado">
           <form>
             <gramGrp>
