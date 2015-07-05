@@ -27,6 +27,7 @@
                 xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
                 xmlns:dita="http://dita.oasis-open.org/architecture/2005"
                 xmlns:tei="http://www.tei-c.org/ns/1.0"
+                xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:str="http://exslt.org/strings"
                 xmlns:saxon="http://icl.com/saxon"
@@ -35,15 +36,20 @@
                 version="1.0">
 
 	<xd:doc>
-     Copies the content of the source DocBook file. Adds the
-     current language code to the end of all XML:ID, LinkEnd,
-     EndTerm, AreaRefs and XL:HRef attributes.
+     Copies the content of the source XML file. Adds the
+     current language code to the end of all xml:id and
+     xl:href attributes.
+
+     If it’s a DocBook file, also adds the current language
+     code to the end of all linkend, endterm and arearefs
+     attributes.
 
      If you want xrefs or links which will not be fixed up, use
      @xl:href with @xl:role='http://schema.org/significantLink'
 	</xd:doc>
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
+	<xsl:param name="noFixupURI" select="'http://schema.org/significantLink'"/>
 	<xsl:variable name="Lang" select="/*/@xml:lang"/>
 
 	<xd:doc>
@@ -81,7 +87,7 @@
 				                $Attribute='endterm' or
 				               ($Attribute='xl:href' and
 				                not(substring-after(., '#')='') and
-				                not(../@xl:role='http://schema.org/significantLink'))">
+				                not(../@xl:role=$noFixupURI))">
 					<xsl:value-of select="."/>
 					<xsl:text>.</xsl:text>
 					<xsl:value-of select="$Lang"/>
