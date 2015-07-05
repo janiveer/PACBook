@@ -5,7 +5,14 @@ with two inter-related areas:
 
 1. Translating documents;
 
-2. The linguistic consequences of transclusion and / or conditional profiling.
+2. The linguistic consequences of
+[transclusion](https://en.wikipedia.org/wiki/Transclusion) and / or [conditional
+processing](https://en.wikipedia.org/wiki/Conditional_%28computer_programming%29).
+
+## Documentation
+
+For information on each stylesheet, see the
+[wiki](https://github.com/STANLEYSecurity/PACBook/wiki) or the Documentation folder.
 
 ## Prerequisites
 
@@ -31,10 +38,9 @@ Finally, to save processing time and bandwidth, you should set up an [XML
 catalog](https://www.oasis-open.org/committees/download.php/14809/xml-catalogs.html) so
 that your XSLT processor uses local copies of all stylesheets and data files.
 
-[DocBook XSL: The Complete
-Guide](http://www.sagehill.net/docbookxsl/) by Bob Stayton contains comprehensive
-instructions for setting up an XSLT processor, the DocBook XSL stylesheets, and XML
-catalog files.
+[DocBook XSL: The Complete Guide](http://www.sagehill.net/docbookxsl/) by Bob Stayton
+contains comprehensive instructions for setting up an XSLT processor, the DocBook XSL
+stylesheets, and XML catalog files.
 
 ## Installation
 
@@ -69,10 +75,6 @@ You can use a shell script, batch file or Apache ANT build script to chain style
 together, but the most effective method would be to use an [XProc](http://xproc.org/)
 pipeline. More information on this soon.
 
-## Documentation
-
-For information on each stylesheet, see the wiki or the Documentation folder.
-
 ## License
 
 PACBook is released under the LGPL. See the **LICENSE** file.
@@ -93,7 +95,3 @@ Thanks to:
 * STANLEY Security for help and support when developing and releasing these tools.
 
 * Edwin Beasant, Peter Crowther, Mina Nielsen for suggestions on licensing.
-
-* Shaun McCance, ITSTools, for DocBook global ITS rules.
-
-* IBM locale specification for XFDL for number localisation.
