@@ -20,7 +20,7 @@
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:tei="http://www.tei-c.org/ns/1.0"
+                xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:pac="urn:x-pacbook:functions"
                 xmlns:str="http://exslt.org/strings"
@@ -46,29 +46,29 @@
 		Recursion
 		=========
 		<xd:detail>Recurses through the document and copies each element. If any
-		element has the tei:oRef attribute, the respective mode templates are
+		element has the ling:orth attribute, the respective mode templates are
 		applied to change the case of the text nodes in this element and all
 		descendent elements.</xd:detail>
 	</xd:doc>
-	<xsl:template match="*[@tei:oRef='uppercase']">
+	<xsl:template match="*[@ling:orth='upper']">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="uc"/>
 		</xsl:copy>
 	</xsl:template>
-	<xsl:template match="*[@tei:oRef='lowercase']">
+	<xsl:template match="*[@ling:orth='lower']">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="lc"/>
 		</xsl:copy>
 	</xsl:template>
-	<xsl:template match="*[@tei:oRef='capitalize']">
+	<xsl:template match="*[@ling:orth='title']">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="tc"/>
 		</xsl:copy>
 	</xsl:template>
-	<xsl:template match="*[@tei:oRef='initial']">
+	<xsl:template match="*[@ling:orth='sentence']">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="sc"/>
@@ -88,12 +88,12 @@
 		<xd:detail>Uses the pac:uc() function to change the case of text nodes to
 		upper case. This is applied to text in the current element and all
 		descendent elements, unless any descendent elements have a different
-		tei:oRef attribute.</xd:detail>
+		ling:orth attribute.</xd:detail>
 	</xd:doc>
-	<xsl:template match="*[@tei:oRef]|processing-instruction()|comment()" mode="uc">
+	<xsl:template match="*[@ling:orth]|processing-instruction()|comment()" mode="uc">
 		<xsl:apply-templates select="."/>
 	</xsl:template>
-	<xsl:template match="*[not(@tei:oRef)]" mode="uc">
+	<xsl:template match="*[not(@ling:orth)]" mode="uc">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="uc"/>
@@ -110,12 +110,12 @@
 		<xd:detail>Uses the pac:lc() function to change the case of text nodes to
 		lower case. This is applied to text in the current element and all
 		descendent elements, unless any descendent elements have a different
-		tei:oRef attribute.</xd:detail>
+		ling:orth attribute.</xd:detail>
 	</xd:doc>
-	<xsl:template match="*[@tei:oRef]|processing-instruction()|comment()" mode="lc">
+	<xsl:template match="*[@ling:orth]|processing-instruction()|comment()" mode="lc">
 		<xsl:apply-templates select="."/>
 	</xsl:template>
-	<xsl:template match="*[not(@tei:oRef)]" mode="lc">
+	<xsl:template match="*[not(@ling:orth)]" mode="lc">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="lc"/>
@@ -133,12 +133,12 @@
 		$ShortWords list, uses the pac:uc() function to change the first character
 		of the word to upper case. This is applied to text nodes in the current
 		element and all descendent elements, unless any descendent elements have a
-		different tei:oRef attribute.</xd:detail>
+		different ling:orth attribute.</xd:detail>
 	</xd:doc>
-	<xsl:template match="*[@tei:oRef]|processing-instruction()|comment()" mode="tc">
+	<xsl:template match="*[@ling:orth]|processing-instruction()|comment()" mode="tc">
 		<xsl:apply-templates select="."/>
 	</xsl:template>
-	<xsl:template match="*[not(@tei:oRef)]" mode="tc">
+	<xsl:template match="*[not(@ling:orth)]" mode="tc">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="tc"/>
@@ -191,22 +191,22 @@
 		<xd:detail>Finds the first text node child of the current element and uses
 		the pac:uc() function to change the first character of the word to upper
 		case. The rest of the text nodes in this element and all descendent elements
-		are left unchanged, unless any descendent elements have a different tei:oRef
+		are left unchanged, unless any descendent elements have a different ling:orth
 		attribute.</xd:detail>
 	</xd:doc>
-	<xsl:template match="*[@tei:oRef]|processing-instruction()|comment()" mode="sc">
+	<xsl:template match="*[@ling:orth]|processing-instruction()|comment()" mode="sc">
 		<xsl:apply-templates select="."/>
 	</xsl:template>
-	<xsl:template match="*[not(@tei:oRef)]" mode="sc">
+	<xsl:template match="*[not(@ling:orth)]" mode="sc">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="sc"/>
 		</xsl:copy>
 	</xsl:template>
 	<xsl:template match="text()" mode="sc">
-		<xsl:variable name="ID" select="generate-id(ancestor::*[@tei:oRef='initial'])"/>
+		<xsl:variable name="ID" select="generate-id(ancestor::*[@ling:orth='sentence'])"/>
 		<xsl:choose>
-			<xsl:when test="preceding::text()[generate-id(ancestor::*[@tei:oRef='initial'])=$ID]">
+			<xsl:when test="preceding::text()[generate-id(ancestor::*[@ling:orth='sentence'])=$ID]">
 				<xsl:copy-of select="."/>
 			</xsl:when>
 			<xsl:otherwise>

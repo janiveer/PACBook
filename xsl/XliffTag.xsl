@@ -26,6 +26,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:tei="http://www.tei-c.org/ns/1.0"
+                xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
                 xmlns:dita="http://dita.oasis-open.org/architecture/2005"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:data="urn:x-pacbook:data"

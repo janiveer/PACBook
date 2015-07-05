@@ -26,7 +26,7 @@
 <!-- ======================================================================== -->
 <!-- This is a custom extension to the Docbook v5.0 schema                    -->
 <!-- ======================================================================== -->
-<!-- $Revision: #14 $ | $DateTime: 2014/10/14 10:44:33 $ | $Author: SimonD $  -->
+<!-- $Revision: #15 $ | $DateTime: 2015/07/05 16:20:12 $ | $Author: SimonD $  -->
 
 <!-- Import DocBook and modify existing elements -->
 	<include href="http://docbook.org/xml/5.0/rng/docbookxi.rng">
@@ -51,7 +51,7 @@
 	<define name="db.common.attributes" combine="interleave">
 		<ref name="its.attributes"/>
 		<ref name="pac.attributes"/>
-		<ref name="tei.attributes"/>
+		<ref name="ling.attributes"/>
 	</define>
 
 <!-- Define pac.title element -->
@@ -202,52 +202,60 @@
 	</define>
 
 <!-- Define TEI attributes -->
-	<define name="tei.attributes">
-		<ref name="tei.attribute.pron"/>
-		<ref name="tei.attribute.gen"/>
-		<ref name="tei.attribute.num"/>
-		<ref name="tei.attribute.case"/>
-		<ref name="tei.attribute.oVar"/>
-		<ref name="tei.attribute.oRef"/>
+	<define name="ling.attributes">
+		<ref name="ling.attribute.type"/>
+		<ref name="ling.attribute.pron"/>
+		<ref name="ling.attribute.gen"/>
+		<ref name="ling.attribute.num"/>
+		<ref name="ling.attribute.case"/>
+		<ref name="ling.attribute.class"/>
+		<ref name="ling.attribute.orth"/>
 	</define>
-	<define name="tei.attribute.pron">
+	<define name="ling.attribute.type">
 		<optional>
-			<attribute name="pron" ns="http://www.tei-c.org/ns/1.0">
+			<attribute name="type" ns="http://stanleysecurity.github.io/PACBook/ns/linguistics">
 				<data type="NMTOKEN"/>
 			</attribute>
 		</optional>
 	</define>
-	<define name="tei.attribute.gen">
+	<define name="ling.attribute.pron">
 		<optional>
-			<attribute name="gen" ns="http://www.tei-c.org/ns/1.0">
+			<attribute name="pron" ns="http://stanleysecurity.github.io/PACBook/ns/linguistics">
 				<data type="NMTOKEN"/>
 			</attribute>
 		</optional>
 	</define>
-	<define name="tei.attribute.num">
+	<define name="ling.attribute.gen">
 		<optional>
-			<attribute name="num" ns="http://www.tei-c.org/ns/1.0">
+			<attribute name="gen" ns="http://stanleysecurity.github.io/PACBook/ns/linguistics">
 				<data type="NMTOKEN"/>
 			</attribute>
 		</optional>
 	</define>
-	<define name="tei.attribute.case">
+	<define name="ling.attribute.num">
 		<optional>
-			<attribute name="case" ns="http://www.tei-c.org/ns/1.0">
+			<attribute name="num" ns="http://stanleysecurity.github.io/PACBook/ns/linguistics">
 				<data type="NMTOKEN"/>
 			</attribute>
 		</optional>
 	</define>
-	<define name="tei.attribute.oVar">
+	<define name="ling.attribute.case">
 		<optional>
-			<attribute name="oVar" ns="http://www.tei-c.org/ns/1.0">
+			<attribute name="case" ns="http://stanleysecurity.github.io/PACBook/ns/linguistics">
 				<data type="NMTOKEN"/>
 			</attribute>
 		</optional>
 	</define>
-	<define name="tei.attribute.oRef">
+	<define name="ling.attribute.class">
 		<optional>
-			<attribute name="oRef" ns="http://www.tei-c.org/ns/1.0">
+			<attribute name="class" ns="http://stanleysecurity.github.io/PACBook/ns/linguistics">
+				<data type="NMTOKEN"/>
+			</attribute>
+		</optional>
+	</define>
+	<define name="ling.attribute.orth">
+		<optional>
+			<attribute name="orth" ns="http://stanleysecurity.github.io/PACBook/ns/linguistics">
 				<data type="NMTOKEN"/>
 			</attribute>
 		</optional>

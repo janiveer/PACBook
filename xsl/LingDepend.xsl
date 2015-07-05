@@ -22,9 +22,10 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:tei="http://www.tei-c.org/ns/1.0"
+                xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:pac="urn:x-pacbook:functions"
-                exclude-result-prefixes="xd pac"
+                exclude-result-prefixes="xd pac tei db"
                 version="1.1">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 	<xsl:include href="common/CommonFunctions.xsl"/>
@@ -33,7 +34,7 @@
 
 	<xd:doc>
 		===========================================================
-		Stylesheet for processing morphology in docbook documents.
+		Stylesheet for processing morphology in XML documents.
 
 		This stylesheet inflects dependent words by phonological
 		environment, case, gender and number.
@@ -46,17 +47,10 @@
 		==============
 	</xd:doc>
 	<xsl:template match="*|text()|processing-instruction()|comment()">
-		<xsl:choose>
-			<xsl:when test="self::db:wordasword">
-				<xsl:call-template name="Morphosyntax"/>
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:copy>
-					<xsl:copy-of select="@*"/>
-					<xsl:apply-templates select="*|text()|processing-instruction()|comment()"/>
-				</xsl:copy>
-			</xsl:otherwise>
-		</xsl:choose>
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates select="*|text()|processing-instruction()|comment()"/>
+		</xsl:copy>
 	</xsl:template>
 
 	<xd:doc>
@@ -64,7 +58,7 @@
 		Morphosyntax
 		============
 	</xd:doc>
-	<xsl:template name="Morphosyntax">
+	<xsl:template match="db:wordasword|*[@ling:type='depend']">
 		<xsl:variable name="my.word" select="text()"/>
 		<xsl:variable name="my.norm" select="pac:lc($my.word)"/>
 		<xsl:variable name="my.lang" select="pac:lang()"/>
@@ -149,9 +143,9 @@
 							 capitalise the first letter of the returned word;
 							 otherwise give the returned word in lower case -->
 					<xsl:variable name="my.init" select="substring($my.word, 1, 1)"/>
-					<xsl:if test="$my.init = pac:uc($my.init) and not(@tei:oRef)">
-						<xsl:attribute name="tei:oRef">
-							<xsl:value-of select="'initial'"/>
+					<xsl:if test="$my.init = pac:uc($my.init) and not(@ling:orth)">
+						<xsl:attribute name="ling:orth">
+							<xsl:value-of select="'sentence'"/>
 						</xsl:attribute>
 					</xsl:if>
 					<xsl:value-of select="$out.orth"/>
@@ -189,7 +183,7 @@
 					</xsl:message>
 				</xsl:if>
 				<xsl:variable name="my.pron">
-					<xsl:value-of select="following-sibling::*/descendant-or-self::db:phrase[@tei:pron][1]/@tei:pron"/>
+					<xsl:value-of select="following-sibling::*/descendant-or-self::db:phrase[@ling:pron][1]/@ling:pron"/>
 				</xsl:variable>
 				<xsl:choose>
 					<xsl:when test="$my.pron != ''">
@@ -234,7 +228,7 @@
 					</xsl:message>
 				</xsl:if>
 				<xsl:variable name="my.num">
-					<xsl:value-of select="ancestor-or-self::*[descendant-or-self::*[@tei:num]][1]/descendant-or-self::*[@tei:num]/@tei:num"/>
+					<xsl:value-of select="ancestor-or-self::*[descendant-or-self::*[@ling:num]][1]/descendant-or-self::*[@ling:num]/@ling:num"/>
 				</xsl:variable>
 				<xsl:choose>
 					<xsl:when test="$my.num != ''">
@@ -279,7 +273,7 @@
 					</xsl:message>
 				</xsl:if>
 				<xsl:variable name="my.case">
-					<xsl:value-of select="ancestor-or-self::*[descendant-or-self::*[@tei:case]][1]/descendant-or-self::*[@tei:case]/@tei:case"/>
+					<xsl:value-of select="ancestor-or-self::*[descendant-or-self::*[@ling:case]][1]/descendant-or-self::*[@ling:case]/@ling:case"/>
 				</xsl:variable>
 				<xsl:choose>
 					<xsl:when test="$my.case != ''">
@@ -324,7 +318,7 @@
 					</xsl:message>
 				</xsl:if>
 				<xsl:variable name="my.gen">
-					<xsl:value-of select="ancestor-or-self::*[descendant-or-self::*[@tei:gen]][1]/descendant-or-self::*[@tei:gen]/@tei:gen"/>
+					<xsl:value-of select="ancestor-or-self::*[descendant-or-self::*[@ling:gen]][1]/descendant-or-self::*[@ling:gen]/@ling:gen"/>
 				</xsl:variable>
 				<xsl:choose>
 					<xsl:when test="$my.gen != ''">
@@ -369,7 +363,7 @@
 					</xsl:message>
 				</xsl:if>
 				<xsl:variable name="my.oVar">
-					<xsl:value-of select="ancestor-or-self::*[descendant-or-self::*[@tei:oVar]][1]/descendant-or-self::*[@tei:oVar]/@tei:oVar"/>
+					<xsl:value-of select="ancestor-or-self::*[descendant-or-self::*[@ling:class]][1]/descendant-or-self::*[@ling:class]/@ling:class"/>
 				</xsl:variable>
 				<xsl:choose>
 					<xsl:when test="$my.oVar != ''">

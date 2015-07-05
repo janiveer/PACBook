@@ -30,9 +30,10 @@
                 xmlns:svg="http://www.w3.org/2000/svg"
                 xmlns:mml="http://www.w3.org/1998/Math/MathML"
                 xmlns:tei="http://www.tei-c.org/ns/1.0"
+                xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
                 xmlns:dita="http://dita.oasis-open.org/architecture/2005"
                 xmlns:nn="urn:x-no-namespace"
-                exclude-result-prefixes="xlf xd data its xi xl db svg mml tei dita nn"
+                exclude-result-prefixes="xlf xd data its xi xl db svg mml tei ling dita nn"
                 version="1.0">
 
 	<xd:doc>
