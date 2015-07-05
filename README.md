@@ -1,6 +1,11 @@
 # PACBook
 
-Linguistic pre-processing for XML documentation
+PACBook is a suite of pre-processing tools for working with XML documentation. It deals
+with two inter-related areas:
+
+1. Translating documents;
+
+2. The linguistic consequences of transclusion and / or conditional profiling.
 
 ## Prerequisites
 
