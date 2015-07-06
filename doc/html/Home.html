@@ -1,0 +1,50 @@
+<p>PACBook enables you to:</p>
+<h2 id="transclusion-stylesheets">Transclusion stylesheets</h2>
+<ol>
+<li><p>Perform parametrised transclusion … <a href="TransParam.xsl">TransParam.xsl</a></p></li>
+<li><p>Fix up duplicate IDs … <a href="TransID.xsl">TransID.xsl</a></p></li>
+<li><p>Fix up links to duplicate IDs or links to non-existent targets … <a href="TransLinks.xsl">TransLinks.xsl</a></p></li>
+</ol>
+<h2 id="linguistic-stylesheets">Linguistic stylesheets</h2>
+<ol>
+<li><p>Select the correct form of transcluded terms, depending on their syntactic environment … <a href="LingHead.xsl">LingHead.xsl</a></p></li>
+<li><p>Inflect text which depends syntactically on any transcluded terms … <a href="LingDepend.xsl">LingDepend.xsl</a></p></li>
+<li><p>Select the correct orthographic case for text, depending on environment … <a href="LingCasing.xsl">LingCasing.xsl</a></p></li>
+</ol>
+<h2 id="text-stylesheets">Text stylesheets</h2>
+<ol>
+<li><p>Punctuate abbreviations correctly so they don’t have two full stops at the end of a<br />sentence … <a href="TextAbbrev.xsl">TextAbbrev.xsl</a></p></li>
+<li><p>Localise number formatting … <a href="TextNumbers.xsl">TextNumbers.xsl</a></p></li>
+</ol>
+<h2 id="docbook-stylesheets">DocBook stylesheets</h2>
+<ol>
+<li><p>Resolve image references against xml:base … <a href="DBImages.xsl">DBImages.xsl</a></p></li>
+<li><p>Resolve image references against the XML Catalog … <a href="RefResolve.xsl">RefResolve.xsl</a></p></li>
+<li><p>Perform enhanced DocBook conditional profiling … <a href="DBProfile.xsl">DBProfile.xsl</a></p></li>
+<li><p>Create automatic titles for DocBook admonitions … <a href="DBAdmon.xsl">DBAdmon.xsl</a></p></li>
+<li><p>Perform enhanced formatting of DocBook simple lists — select the correct form of<br />conjunctions based on the phonetic environment, for languages which demand it … <a href="DBLists.xsl">DBLists.xsl</a></p></li>
+<li><p>Create revision history and applicability tables based on the document metadata … <a href="DBProcs.xsl">DBProcs.xsl</a></p></li>
+<li><p>Perform enhanced DocBook glossary processing — include terms in the glossary if they are<br />referred to by other terms … <a href="DBGloss.xsl">DBGloss.xsl</a></p></li>
+<li><p>Create automatic links between DocBook sections, based on shared subject matter … <a href="DBLinks.xsl">DBLinks.xsl</a></p></li>
+</ol>
+<h2 id="translation-stylesheets">Translation stylesheets</h2>
+<ol>
+<li><p>Translate the document using a single XLIFF file … <a href="XlateConvert.xsl">XlateConvert.xsl</a></p></li>
+<li><p>Create multilingual translations, using several XLIFF files … <a href="XlateCombine.xsl">XlateCombine.xsl</a></p></li>
+<li><p>Fix up IDs in multilingual translations … <a href="XlateID.xsl">XlateID.xsl</a></p></li>
+<li><p>Mark up elements in a file for translation … <a href="XlateMarkup.xsl">XlateMarkup.xsl</a></p></li>
+<li><p>Extract translation elements to an XLIFF file … <a href="XlateExtract.xsl">XlateExtract.xsl</a></p></li>
+<li><p>Compare document to existing XLIFF file and create diff file … <a href="XlateDiff.xsl">XlateDiff.xsl</a></p></li>
+<li><p>Merge new translation units into existing XLIFF file … <a href="XlateMerge.xsl">XlateMerge.xsl</a></p></li>
+</ol>
+<h2 id="xliff-management-stylesheets">XLIFF management stylesheets</h2>
+<ol>
+<li><p>Remove duplicate translation units from XLIFF file … <a href="XliffDupe.xsl">XliffDupe.xsl</a></p></li>
+<li><p>Remove completed translation units from XLIFF file … <a href="XliffPurge.xsl">XliffPurge.xsl</a></p></li>
+<li><p>Escape inline markup in an XLIFF file … <a href="XliffRaw.xsl">XliffRaw.xsl</a></p></li>
+<li><p>Unescape inline markup in an XLIFF file … <a href="XliffTemp.xsl">XliffTemp.xsl</a>, <a href="XliffTag.xsl">XliffTag.xsl</a></p></li>
+<li><p>Export an XLIFF file to CSV … <a href="Xliff2CSV.xsl">Xliff2CSV.xsl</a></p></li>
+<li><p>Import from Microsoft Excel XML to XLIFF … <a href="XL2Xliff.xsl">XL2Xliff.xsl</a></p></li>
+</ol>
+<h3 id="note">Note</h3>
+<p>It’s important to note that PACBook is not a natural language processor. The author or<br />translator must mark up text for linguistic processing by hand.</p>

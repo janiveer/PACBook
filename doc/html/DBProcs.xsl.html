@@ -1,0 +1,27 @@
+<p>Transforms PAC processing instructions in DocBook documents.</p>
+<h2 id="parameters">Parameters</h2>
+<p>None.</p>
+<h2 id="input">Input</h2>
+<p>A DocBook file containing PAC processing instructions as described below.</p>
+<h2 id="output">Output</h2>
+<p>A DocBook file in which the PAC processing instructions have been transformed as described below.</p>
+<h2 id="description">Description</h2>
+<p>The stylesheet copies the structure and content of the input document to the output document. Any PAC processing instructions within the input document are transformed as follows.</p>
+<h3 id="section"><?pac-revhistory?></h3>
+<p>You can use this processing instruction to place a revision history table at a precise place in the document. When the stylesheet encounters this processing instruction, it builds a DocBook <code>&lt;informaltable&gt;</code> containing four columns: <strong>Version</strong>, <strong>Date</strong>, <strong>Author</strong> and <strong>Detail</strong>. The table uses the CALS table model.</p>
+<p>The table header is populated in the language specified by the nearest ancestor <code>xml:lang</code> attribute. The labels are taken from <code>DataLabels.xml</code>. The only fully-supported languages at present are German, English, Spanish, French and Dutch.</p>
+<p>Each table row is populated by the details given in the <code>&lt;revhistory&gt;</code> element in the document’s <code>&lt;info&gt;</code> section, if there is one.</p>
+<p>The attributes of the <code>&lt;informaltable&gt;</code>, e.g. framing, row separators and column separators, are given by the <code>pac.revhistory.table</code> attribute set. The attributes of the four columns, e.g. column width, are given by the <code>pac.revhistory.col.version</code>, <code>pac.revhistory.col.date</code>, <code>pac.revhistory.col.author</code> and <code>pac.revhistory.col.detail</code> attribute sets.</p>
+<h3 id="section-1"><?pac-applicability?></h3>
+<p>You can use this processing instruction to place an applicability table at a precise place in the document. When the stylesheet encounters this processing instruction, it builds a DocBook <code>&lt;informaltable&gt;</code> containing four columns: <strong>Product</strong>, <strong>Name</strong>, <strong>Detail</strong> and <strong>Version</strong>. The table uses the CALS table model.</p>
+<p>The table header is populated in the language specified by the nearest ancestor <code>xml:lang</code> attribute. The labels are taken from <code>DataLabels.xml</code>. The only fully-supported languages at present are German, English, French and Dutch.</p>
+<p>Each table row is populated by the details given in the document’s <a href="RDF-Applicability">applicability metadata</a>, if there are any.</p>
+<p>The attributes of the <code>&lt;informaltable&gt;</code>, e.g. framing, row separators and column separators, are given by the <code>pac.applicability.table</code> attribute set. The attributes of the four columns, e.g. column width, are given by the <code>pac.applicability.col.product</code>, <code>pac.applicability.col.name</code>, <code>pac.applicability.col.detail</code> and <code>pac.applicability.col.version</code> attribute sets.</p>
+<h3 id="section-2"><?pac-pubsnumber?></h3>
+<p>When the stylesheet encounters this processing instruction it creates a copy of the content of the <code>&lt;biblioid @class='pubsnumber'&gt;</code> element in the document’s <code>&lt;info&gt;</code> section, if there is one.</p>
+<h3 id="section-3"><?pac-edition?></h3>
+<p>When the stylesheet encounters this processing instruction it creates a copy of the content of the <code>&lt;edition&gt;</code> element in the document’s <code>&lt;info&gt;</code> section, if there is one.</p>
+<h3 id="section-4"><?pac-releaseinfo?></h3>
+<p>When the stylesheet encounters this processing instruction it creates a copy of the value of the <code>status</code> attribute on the document’s root element, if there is one.</p>
+<h2 id="roadmap">Roadmap</h2>
+<p>The <code>&lt;?pac-releaseinfo?&gt;</code> processing instruction should actually output the document’s release info...</p>

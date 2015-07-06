@@ -1,0 +1,26 @@
+<p>Builds glossaries automatically and adds XLink titles to glossary terms in the document.</p>
+<h2 id="parameters">Parameters</h2>
+<p><code>[maxRecurseDepth]</code></p>
+<ul>
+<li><strong>maxRecurseDepth</strong> (Integer) — the maximum number of recursions that the stylesheet should make when following <code>&lt;glosssee&gt;</code> and <code>&lt;glossseealso&gt;</code> links; default 8.</li>
+</ul>
+<h2 id="input">Input</h2>
+<p>A DocBook document. Any glossary which is to be build automatically must be marked up as described below.</p>
+<h2 id="output">Output</h2>
+<p>A DocBook document, identical to the input except the glossary is built and glossary entries have XLink titles.</p>
+<h2 id="description">Description</h2>
+<p>The stylesheet recurses through the document and copies each element. If any element is a <code>&lt;glossary&gt;</code> with the <code>role='collection'</code> attribute, the stylesheet checks every <code>&lt;glossentry&gt;</code> element to see if it is referenced by a <code>&lt;glossterm&gt;</code> element in the document. If it is, the <code>&lt;glossentry&gt;</code> is written to the output document.</p>
+<p>The functionality of this stylesheet is based on the glossary collection function in the DocBook XSL stylesheets, with the following differences:</p>
+<ol>
+<li><p>Glossary entries which are referenced within the glossary via <code>&lt;glosssee&gt;</code> and <code>&lt;glossseealso&gt;</code> elements are included in the built glossary.</p></li>
+<li><p>It is assumed that all required <code>&lt;glossentry&gt;</code> elements are already included in the glossary. To include an external glossary, use XInclude.</p></li>
+</ol>
+<p>For example:</p>
+<pre><code>&lt;glossary xml:id=&quot;glossary&quot; role=&quot;collection&quot;&gt;
+    &lt;xi:include href=&quot;http://DBK/Topics/Common/modules/gloss_access_full.docbook&quot;
+                xpointer=&quot;xmlns(db=http://docbook.org/ns/docbook)
+                          xpath(//db:glossary/node())&quot;/&gt;
+&lt;/glossary&gt;</code></pre>
+<p>When following <code>&lt;glosssee&gt;</code> and <code>&lt;glossseealso&gt;</code> elements, there is a risk that the stylesheet will get trapped in circular references. To avoid this, the stylesheet will only recurse through 8 <code>&lt;glosssee&gt;</code> or <code>&lt;glossseealso&gt;</code> links. You can change the recursion depth by passing the <code>maxRecurseDepth</code> parameter to the stylesheet.</p>
+<p>In addition to this, the stylesheet also adds an <code>xl:title</code> attribute to every <code>&lt;glossterm&gt;</code> element in the document. This contains the text of the referenced glossary definition. As a result, if you use the DocBook XSL stylesheets to transform the document into a web page, web site or compiled HTML help file, users will be able see a preview of a glossary definition by hovering the mouse pointer on the glossary term.</p>
+<p>To use this stylesheet, <code>&lt;glossentry&gt;</code> elements must have an <code>xml:id</code> attribute and <code>&lt;glossterm&gt;</code> elements must reference them via their <code>linkend</code> or <code>xl:href</code> attributes.</p>

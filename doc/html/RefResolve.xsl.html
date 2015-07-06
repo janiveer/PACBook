@@ -1,0 +1,20 @@
+<p>Uses the Apache Catalog Resolver to resolve URIs, e.g. image file references, against an XML catalog.</p>
+<h2 id="parameters">Parameters</h2>
+<p>None.</p>
+<h2 id="input">Input</h2>
+<p>A DocBook document, in which some images have a <code>fileref</code> attribute which is set to a URI.</p>
+<h2 id="output">Output</h2>
+<p>A DocBook document, identical to the input except that any <code>fileref</code> attributes are resolved against the XML catalog.</p>
+<h2 id="description">Description</h2>
+<p>The stylesheet recurses through the document and copies each element. If any element has the attribute <code>fileref</code>, which contains a URI starting with <code>http://</code>, the stylesheet resolves the URI against the XML catalog.</p>
+<p>This is useful if you wish to reference remote resources in the document.</p>
+<h2 id="notes">Notes</h2>
+<p>This stylesheet only works with Java-based XSLT processors. It has been tested with Saxon 6.5.5. To use it, you must:</p>
+<ol>
+<li><p>Download the XML Catalog Resolver from the <a href="http://xerces.apache.org/xml-commons/">Apache XML Commons</a>.</p></li>
+<li><p>Set up your XML catalog correctly.</p></li>
+<li><p>Configure your <code>CatalogManager.properties</code> file to point to your XML catalog.</p></li>
+<li><p>Add <code>resolver.jar</code> and <code>CatalogManager.properties</code> to your classpath when you invoke the XSLT processor.</p></li>
+</ol>
+<h2 id="roadmap">Roadmap</h2>
+<p>Generalise to work with any specified attribute in any specified namespace.</p>

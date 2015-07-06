@@ -1,0 +1,22 @@
+<p>Enables fine-grained fixup of <code>xml:id</code> attributes after transclusion.</p>
+<h2 id="parameters">Parameters</h2>
+<p><code>[RoleURI]</code></p>
+<ul>
+<li><strong>RoleURI</strong> (URI) — A URI which identifies the fixup XLink role. Default is <a href="http://stanleysecurity.github.io/PACBook/role/fixup">http://stanleysecurity.github.io/PACBook/role/fixup</a>.</li>
+</ul>
+<h2 id="input">Input</h2>
+<p>An XML document containing extended links to fix up transcluded XML IDs as described below.</p>
+<h2 id="output">Output</h2>
+<p>An XML document, identical to the input except that XML IDs are fixed up.</p>
+<h2 id="description">Description</h2>
+<p>This stylesheet is useful if you have a subdocument which contains XML IDs and which must be transcluded into an assembly file or master document in two or more places. In order to avoid validation errors, each ID must be unique. The process of making duplicate IDs unique is called ID fixup. Other ID fixup mechanisms take a blanket approach to fixup, e.g. by adding a suffix to each ID in the transcluded subdocuments. This stylesheet is useful for cases when a fine-grained approach is required. It enables you to specify by hand how each transcluded ID should be fixed up, using XLinks.</p>
+<p>In the assembly file or master document, at each point where you want to transclude the target subdocument, you must add an extended link element with the <code>xl:role</code> attribute set to the specified fixup role URI. This should contain one locator element for each ID that will need fixing up. Each locator element should have:</p>
+<ol>
+<li>An <code>xl:label</code> attribute which matches one <code>xml:id</code> attribute in the subdocument.<br /></li>
+<li>An <code>xl:href</code> attribute which points to the new ID that you want the target subdocument to use.</li>
+</ol>
+<p>When run, the stylesheet recurses through the document and copies each element. If any element has an <code>xml:id</code> attribute, the stylesheet looks for the nearest ancestor which contains an extended link whose <code>xl:role</code> attribute is set to the specified fixup role URI <em>and</em> which contains a locator element whose <code>xl:label</code> attribute is the same as the <code>xml:id</code> attribute. If it finds a matching locator, the stylesheet replaces the value of the <code>xml:id</code> attribute with the value of the locator element’s <code>xl:href</code> attribute.</p>
+<p>You should run this stylesheet immediately after transclusion. If any of your translation strings contain <code>xml:id</code> attributes, you may need to run this stylesheet again immediately after translation.</p>
+<p>After you have fixed up IDs, you may also need to fix up cross references or links that point to those IDs. See <a href="TransLinks.xsl">TransLinks.xsl</a>.</p>
+<h2 id="roadmap">Roadmap</h2>
+<p>At present this stylesheet requires that the extended links, locators and arcs are DocBook <code>&lt;extendedlink&gt;</code>, <code>&lt;locator&gt;</code> and <code>&lt;arc&gt;</code> elements, meaning that the stylesheet only works with DocBook. In future releases, this stylesheet will be updated to work with any elements with attributes <code>xl:type='extended'</code>, <code>xl:type='locator'</code> or <code>xl:type='arc'</code>. This will make the stylesheets work with any XLink-compliant XML schema, including DocBook 5.1.</p>

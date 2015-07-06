@@ -1,0 +1,17 @@
+<p>Turns simple inline lists into punctuated lists and adds a final “and” or “or” in the appropriate language.</p>
+<h2 id="parameters">Parameters</h2>
+<p>None.</p>
+<h2 id="input">Input</h2>
+<p>A DocBook document containing <code>&lt;simplelist type='inline'&gt;</code> elements.</p>
+<h2 id="output">Output</h2>
+<p>A DocBook document, identical to the input except that any <code>&lt;simplelist type='inline'&gt;</code> elements are replaced with punctuated inline lists with a final “and” or “or” in the appropriate language.</p>
+<h2 id="description">Description</h2>
+<p>The stylesheet recurses through the document and copies each element. For each <code>&lt;simplelist type='inline'&gt;</code> element, the members of the list are output as a comma separated inline list.</p>
+<p>If the <code>role</code> attribute of the <code>&lt;simplelist&gt;</code> is set to <code>and</code>, the conjunction “and” is added before the final member of the list in the language specified by the nearest ancestor <code>xml:lang</code> element. Likewise, if the <code>role</code> attribute of the <code>&lt;simplelist&gt;</code> is set to <code>or</code>, the conjunction “or” is added before the final member of the list in the language specified by the nearest ancestor <code>xml:lang</code> element.</p>
+<p>This stylesheet has similar functionality to the way <code>&lt;simplelist type='inline'&gt;</code> elements are processed by the DocBook XSL stylesheets. The differences are:</p>
+<ol>
+<li><p>The final conjunction is specified via the <code>role</code> attribute.</p></li>
+<li><p>For languages which require it, the final conjunction is output within a wrapper element with the <code>ling:type='dep'</code> attribute. This enables you to use the <a href="LingDepend.xsl">LingDepend.xsl</a> stylesheet on the output file to select the correct form of the final conjunction, depending on the phonetic environment.</p></li>
+</ol>
+<p>For example, in Spanish, if the <code>role</code> attribute is set to <code>and</code>, the <a href="LingDepend.xsl">LingDepend.xsl</a> stylesheet will change the final conjunction to “e” if the following word begins with an “i” sound, or “y” otherwise. (There must be wrapper elements, e.g. <code>&lt;phrase&gt;</code>, around each term in the list, using the <code>ling:pron</code> attribute to indicate the initial sound of each term.)</p>
+<p>The final conjunctions are specified in the <code>DataLabels.xml</code> file. The supported languages are German, English, Spanish, Finnish, French, Italian, Norwegian Bokmål, Dutch, Portuguese, Swedish and Simplified Chinese.</p>

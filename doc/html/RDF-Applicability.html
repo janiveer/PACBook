@@ -1,0 +1,39 @@
+<p>You can add applicability metadata to a DocBook document to declare the hardware or software products that the document applies to.</p>
+<h2 id="where-to-add-applicability-metadata">Where to Add Applicability Metadata</h2>
+<p>Applicability metadata takes the form of RDF triples. For a DocBook 5.0 document, you add it to the <code>&lt;info&gt;</code> element at the start of the document.</p>
+<h2 id="how-to-write-it">How to Write It</h2>
+<p>Typical applicability metadata for a DocBook document looks like this:</p>
+<pre><code>&lt;rdf:RDF xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;
+         xmlns:bibo=&quot;http://purl.org/ontology/bibo/&quot;
+         xmlns:vivo=&quot;http://vivoweb.org/ontology/core#&quot;
+         xmlns:doap=&quot;http://usefulinc.com/ns/doap#&quot;&gt;
+    &lt;bibo:Document rdf:about=&quot;&quot;&gt;
+        &lt;vivo:hasSubjectArea&gt;
+            &lt;rdf:Bag&gt;
+                &lt;rdf:li rdf:parseType=&quot;Resource&quot;&gt;
+                    &lt;doap:shortdesc&gt;P/N 1234&lt;/doap:shortdesc&gt;
+                    &lt;doap:name&gt;Foo 3000&lt;/doap:name&gt;
+                    &lt;doap:description&gt;Quantum Accelerator&lt;/doap:description&gt;
+                    &lt;doap:revision&gt;1.0.1&lt;/doap:revision&gt;
+                &lt;/rdf:li&gt;
+                &lt;rdf:li rdf:parseType=&quot;Resource&quot;&gt;
+                    &lt;doap:shortdesc&gt;P/N 5678&lt;/doap:shortdesc&gt;
+                    &lt;doap:name&gt;Foo Explorer&lt;/doap:name&gt;
+                    &lt;doap:description&gt;Config File Viewer&lt;/doap:description&gt;
+                    &lt;doap:revision&gt;1.0.2&lt;/doap:revision&gt;
+                &lt;/rdf:li&gt;
+            &lt;/rdf:Bag&gt;
+        &lt;/vivo:hasSubjectArea&gt;
+        &lt;!-- Other RDF properties ... --&gt;
+    &lt;/bibo:Document&gt;
+&lt;/rdf:RDF&gt;</code></pre>
+<p>In this example:</p>
+<ul>
+<li><p>The <code>&lt;bibo:Document&gt;</code> element declares that this file is a document and that this document is the subject of the applicability metadata.</p></li>
+<li><p>The <code>&lt;vivo:hasSubjectArea&gt;</code> element declares that this document applies to the following products.</p></li>
+<li><p>The products are indicated by <code>&lt;rdf:li&gt;</code> elements all wrapped within the <code>&lt;rdf:Bag&gt;</code> element. Each <code>&lt;rdf:li&gt;</code> element has <code>rdf:parseType</code> set to <code>Resource</code>; this enables you to specify the properties of each product inline.</p></li>
+<li><p>The properties of each product are indicated by elements in the <code>doap</code> namespace. In PACBook, <code>&lt;doap:shortdesc&gt;</code> is used for the product’s part number, <code>&lt;doap:name&gt;</code> is used for the product name, <code>&lt;doap:description&gt;</code> for a description of the product and <code>&lt;doap:revision&gt;</code> for the product version number.</p></li>
+<li><p>Note that you need to declare the <code>rdf</code>, <code>bibo</code>, <code>vivo</code> and <code>doap</code> namespaces.</p></li>
+</ul>
+<h2 id="roadmap">Roadmap</h2>
+<p>The ultimate intention is that each <code>&lt;rdf:li&gt;</code> could point to an external RDF resource which contains the details of the product in a single location, e.g. in a products database. This is not yet implemented.</p>

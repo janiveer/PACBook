@@ -1,0 +1,10 @@
+<p>Purges completed translation units from an <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file.</p>
+<h2 id="parameters">Parameters</h2>
+<p>None.</p>
+<h2 id="input">Input</h2>
+<p>An <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> document.</p>
+<h2 id="output">Output</h2>
+<p>An <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> document.</p>
+<h2 id="description">Description</h2>
+<p>The stylesheet copies the structure and content of the input document to the output document. If any translation units have a target with the attribute <code>state=&quot;translated&quot;</code>, they are not copied to the output document.</p>
+<p>This stylesheet may be useful if you have partially translated a differential <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file, and have just run <a href="XlateMerge.xsl">XlateMerge.xsl</a> to merge the completed translation units back into the main <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file.</p>

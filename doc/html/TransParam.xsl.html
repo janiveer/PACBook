@@ -1,0 +1,26 @@
+<p>Enables parametrised transclusion.</p>
+<h2 id="parameters">Parameters</h2>
+<p><code>[defRole]</code></p>
+<ul>
+<li><strong>defRole</strong> (URI) — A URI which identifies the transclusion XLink role. Default is <a href="http://stanleysecurity.github.io/PACBook/role/transclusion">http://stanleysecurity.github.io/PACBook/role/transclusion</a>.</li>
+</ul>
+<h2 id="input">Input</h2>
+<p>An XML document containing parameter definitions and references.</p>
+<h2 id="output">Output</h2>
+<p>An XML document, identical to the input except that parameter references are replaced by their definitions.</p>
+<h2 id="description">Description</h2>
+<p>This stylesheet enables you to transclude small snippets of XML to other locations within the document. It is complementary to the standard XML methods of transclusion using XInclude, in that it enables you to redefine text replacements locally. It is based on early versions of the <a href="http://docbook.org/docs/transclusion">proposed standard for DocBook transclusion</a>.</p>
+<p>Transclusion can be divided into large scale, context-free transclusion and small scale, parametrised transclusion. It is often necessary to perform the two types of transclusion in separate steps. For example, in DocBook, using an assembly to include chapters or sections in a book is also large scale and context-free. This stylesheet, on the other hand, is designed for small scale, parametrised transclusion; for example, inserting a product name at multiple locations in the document.</p>
+<p>To define XML snippets for transclusion (“parameter definitions”) create an extended link element with the specified transclusion role URI in the metadata at the start of the document. Within this extended link element add XLink resource elements which contain the XML text or elements for transclusion. (To refer to an external set of definitions, use XInclude to transclude the parameter definitions into the document!) Each XLink resource must have an <code>xl:label</code> attribute which enables you to refer to this parameter.</p>
+<p>To redefine parameters locally, e.g. within a single section of the document, add new parameter definitions in the same way to the metadata at the start of that section.</p>
+<p>To mark the places where the XML snippets should be transcluded (“parameter references”) add elements with the <code>content:ref</code> attribute to the body of the document. The <code>content:ref</code> attribute should contain the name of the parameter that you want to include at this point. Which element you use depends on the circumstances. For purposes of validation you should use an element which is permitted at the location of the parameter reference. In most cases you may want to use an empty generic wrapper element, such as <code>&lt;phrase&gt;</code> in DocBook.</p>
+<p>When the stylesheet is run, it parses the document and finds any element with the <code>content:ref</code> attribute. When it does so, it finds the nearest ancestor element which contains an extended link element with the specified transclusion role URI, which in turn contains a parameter definition whose <code>xl:label</code> attribute matches the <code>content:ref</code> attribute. The stylesheet keeps the reference element, but replaces the content of the element with the content of the parameter definition.</p>
+<p>You should run this stylesheet after initial large scale, context-free transclusion. If any of your translation strings contain parameter references, you may need to run this stylesheet after translation instead.</p>
+<p>Small scale, inline transclusion can have linguistic consequences. See <a href="LingHead.xsl">LingHead.xsl</a>, <a href="LingDepend.xsl">LingDepend.xsl</a>, <a href="LingCasing.xsl">LingCasing.xsl</a> and <a href="TextAbbrev.xsl">TextAbbrev.xsl</a> for details of stylesheets that attempt to deal with these problems.</p>
+<h3 id="notes">Notes</h3>
+<ul>
+<li><p>In order to avoid the problem of duplicate IDs, parameter definitions simply should not contain XML IDs. You could use a schematron rule to enforce this.</p></li>
+<li><p>It is the responsibility of the author to ensure that the content of the parameter definitions is valid in all the locations where it is transcluded. You may want to validate the document after parametrised transclusion is complete.</p></li>
+</ul>
+<h2 id="roadmap">Roadmap</h2>
+<p>Extended links are overloaded in PACBook. Find some other markup for parameter definitions. Perhaps <a href="http://purl.org/spar/doco">DoCO</a> or the <a href="http://www.essepuntato.it/2008/12/pattern">Document Structural Patterns Ontology</a>.</p>

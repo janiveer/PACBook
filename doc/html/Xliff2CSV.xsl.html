@@ -1,0 +1,17 @@
+<p>Exports an <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file to a tab or comma delimited text file.</p>
+<h2 id="parameters">Parameters</h2>
+<p><code>[EOL] [Separator] [Delimiter] [Header]</code></p>
+<ul>
+<li><strong>EOL</strong> (String) — The line ending characters. Default carriage return + line feed.<br /></li>
+<li><strong>Separator</strong> (String) — The character between fields. Default tab.<br /></li>
+<li><strong>Delimiter</strong> (String) — Character surrounding fields. Default single quote.<br /></li>
+<li><strong>Header</strong> (Boolean) — Whether or not the first row is a header row. Default false.</li>
+</ul>
+<h2 id="input">Input</h2>
+<p>An <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> document.</p>
+<h2 id="output">Output</h2>
+<p>A tab or comma delimited text file.</p>
+<h2 id="description">Description</h2>
+<p>The stylesheet exports the content of an <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file as a UTF-8 encoded, tab or comma delimited text file. This can be imported into a spreadsheet.</p>
+<p>The first column contains the translation unit ID, second column the <code>resname</code> attribute, third column the source text, fourth column the target text and fifth column notes, if any.</p>
+<p>If the <code>Header</code> parameter is set to true, i.e. anything other than 0 or the empty string, the first row of the exported text file is a header row containing the text <code>ID</code>, source language code, target language code, <code>Notes</code>.</p>

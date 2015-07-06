@@ -1,0 +1,16 @@
+<p>Adds a language code to <code>xml:id</code> attributes and the links that refer to them.</p>
+<h2 id="parameters">Parameters</h2>
+<p><code>[maxRecurseDepth]</code></p>
+<ul>
+<li><strong>noFixupURI</strong> (URI) — the XLink role used to identify links which should not be fixed up; default <code>http://schema.org/significantLink</code>.</li>
+</ul>
+<h2 id="input">Input</h2>
+<p>An XML document. The root element of the document must have an <code>xml:lang</code> attribute.</p>
+<h2 id="output">Output</h2>
+<p>An XML document.</p>
+<h2 id="description">Description</h2>
+<p>This stylesheet copies the source document, and adds the language code specified on the document’s root element to the end of all <code>xml:id</code> attributes and all <code>xl:href</code> attributes which contain a fragment identifier.</p>
+<p>If you do not want the language code to be added to an <code>xl:href</code> attribute, you must add an <code>xl:role</code> attribute to the linking element and set its value to the URI specified by the <code>noFixupURI</code> parameter, <code>http://schema.org/significantLink</code> by default.</p>
+<p>In DocBook files, the language code is also added to all <code>linkend</code> and <code>endterm</code> attributes and to every value in <code>arearefs</code> attributes. This is not affected by the <code>xl:role</code> attribute.</p>
+<p>In all cases the language code is separated from the value to which it is added by a full stop.</p>
+<p>This stylesheet is meant to be used when combining several translated documents into a multi-lingual document.</p>

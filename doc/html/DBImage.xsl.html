@@ -1,0 +1,10 @@
+<p>Resolves image file references against all ancestor <code>xml:base</code> attributes.</p>
+<h2 id="parameters">Parameters</h2>
+<p>None.</p>
+<h2 id="input">Input</h2>
+<p>A DocBook document. Chapters or sections which have been transcluded must have <code>xml:base</code> attributes giving their origin, either absolute or relative to the complete document.</p>
+<h2 id="output">Output</h2>
+<p>A DocBook document, identical to the input except that any image file references are resolved against all ancestor <code>xml:base</code> attributes.</p>
+<h2 id="description">Description</h2>
+<p>The stylesheet recurses through the document and copies each element. For each <code>&lt;imagedata&gt;</code> element, if there is a <code>fileref</code> attribute, it is resolved against all ancestor <code>xml:base</code> attributes and written to the output document.</p>
+<p>It is assumed that document modules refer to image files relative to their own location. You can use this stylesheet to modify image file references to point to the location of the original image relative to the assembled document’s location. The transclusion or assembly process used to build the document must add <code>xml:base</code> attributes to show the origin of each document module.</p>

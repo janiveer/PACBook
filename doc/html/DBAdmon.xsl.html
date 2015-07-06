@@ -1,0 +1,12 @@
+<p>Creates automatic titles for admonitions in a DocBook document.</p>
+<h2 id="parameters">Parameters</h2>
+<p>None.</p>
+<h2 id="input">Input</h2>
+<p>A DocBook document. Any admonitions (<code>important</code>, <code>caution</code>, <code>note</code>, <code>tip</code> or <code>warning</code>) for which you want an automatic title must have an empty <code>&lt;title&gt;</code> element.</p>
+<h2 id="output">Output</h2>
+<p>A DocBook document, identical to the input except that admonitions have titles in the appropriate language.</p>
+<h2 id="description">Description</h2>
+<p>The stylesheet recurses through the document and copies each element. When it finds the title element of an admonition, if the title element is empty, the stylesheet gets the language specified by the nearest ancestor <code>xml:lang</code> attribute and looks up the correct wording for the title in the <code>DataLabels.xml</code> file.</p>
+<p>The relevant title strings in the <code>DataLabels.xml</code> file are called <code>important</code>, <code>caution</code>, <code>note</code>, <code>tip</code> and <code>warning</code>.</p>
+<p>If the admonition is a <code>&lt;note&gt;</code> or a <code>&lt;tip&gt;</code> and it contains more than one <code>&lt;para&gt;</code> element, the stylesheet uses the <code>notes</code> and <code>tips</code> strings respectively.</p>
+<p>The following languages are currently supported: <code>de</code>, <code>en</code>, <code>fr</code>, <code>nl</code>, <code>es</code>, <code>sv</code>, <code>nb</code>, <code>pt</code>, <code>it</code>, <code>fi</code> and <code>zh</code>.</p>

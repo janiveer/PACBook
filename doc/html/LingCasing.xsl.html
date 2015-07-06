@@ -1,0 +1,31 @@
+<p>Sets the orthographic case of specified text in an XML document.</p>
+<h2 id="parameters">Parameters</h2>
+<p><code>[ShortWords]</code></p>
+<ul>
+<li><strong>ShortWords</strong> (string) — English words which should not be capitalised in title case.</li>
+</ul>
+<h2 id="input">Input</h2>
+<p>An XML document. You must mark up the source document with linguistic attributes describing the orthographic case which is required for the specified text — see description below.</p>
+<h2 id="output">Output</h2>
+<p>An XML document, identical to the input except that marked text is set to the required orthographic case.</p>
+<h2 id="description">Description</h2>
+<p>The stylesheet recurses through the document and copies each element. If any element has the <code>ling:orth</code> attribute, the stylesheet changes the case of the text nodes in this element and all descendent elements.</p>
+<p>This is useful for transclusion. If you transclude a term at the start of a sentence, you may want to set the case of the transcluded term to sentence case. If you transclude a term into a title, you may want to set the case of the transcluded term to title case.</p>
+<p>This stylesheet is only relevant to languages which use orthographic case. The stylesheet supports all alphabets supported by the <a href="http://xsltsl.sourceforge.net/">XSL Standard Library</a> string stylesheets, including Latin, Greek and Cyrillic.</p>
+<p>The namespace URI for the linguistic attributes is <code>http://stanleysecurity.github.io/PACBook/ns/linguistics</code>.</p>
+<p>The <code>ling:orth</code> attribute may have any of the following values:</p>
+<ul>
+<li>upper<br /></li>
+<li>lower<br /></li>
+<li>sentence<br /></li>
+<li>title</li>
+</ul>
+<h3 id="upper">Upper</h3>
+<p>Changes the case of text nodes to upper case. This is applied to text in the current element and all descendent elements, unless any descendent elements have a different <code>ling:orth</code> attribute.</p>
+<h3 id="lower">Lower</h3>
+<p>Changes the case of text nodes to lower case. This is applied to text in the current element and all descendent elements, unless any descendent elements have a different <code>ling:orth</code> attribute.</p>
+<h3 id="sentence">Sentence</h3>
+<p>Finds the first text node child of the current element and changes the first character of the word to upper case. The rest of the text nodes in this element and all descendent elements are left unchanged, unless any descendent elements have a different <code>ling:orth</code> attribute.</p>
+<h3 id="title">Title</h3>
+<p>Splits the text into words (at spaces). If a word is <em>not</em> listed in the <code>ShortWords</code> parameter, changes the first character of the word to upper case. This is applied to text nodes in the current element and all descendent elements, unless any descendent elements have a different <code>ling:orth</code> attribute.</p>
+<p>Title case only supports English. For other languages, use sentence case. The default value of the <code>ShortWords</code> parameter is hard coded into the stylesheet.</p>

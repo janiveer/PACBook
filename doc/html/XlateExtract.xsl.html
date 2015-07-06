@@ -1,0 +1,18 @@
+<p>Copies translatable elements from an XML document to a new <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file.</p>
+<h2 id="parameters">Parameters</h2>
+<p><code>Source</code></p>
+<ul>
+<li><strong>Source</strong> (string) — the name of the source document</li>
+</ul>
+<h2 id="input">Input</h2>
+<p>An XML document. You must mark up the source document with:</p>
+<ol>
+<li>The <code>xlf:id</code> attributes which uniquely identify each translation string.</li>
+</ol>
+<h2 id="output">Output</h2>
+<p>An <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> document.</p>
+<h2 id="description">Description</h2>
+<p>The stylesheet examines the source file for translatable elements. (A translatable element is one which has an <code>xlf:id</code> attribute and does not have the <code>its:translate=&quot;no&quot;</code> attribute.)</p>
+<p>For each translatable element, a new translation unit is written to the output document which contains this translatable element as its source.</p>
+<p>For DocBook files, a header is added containing some bibliographical metadata from the source file — <code>db:biblioid[@class='pubsnumber']</code>, <code>db:edition</code> and <code>db:releaseinfo</code>.</p>
+<p>Any inline markup within the translatable element is escaped. This enables you to examine the inline markup in a translation editor such as Virtaal.</p>

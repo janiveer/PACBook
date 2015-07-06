@@ -1,0 +1,10 @@
+<p>Unescapes escaped markup in an <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file.</p>
+<h2 id="parameters">Parameters</h2>
+<p>None.</p>
+<h2 id="input">Input</h2>
+<p>An <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> document containing escaped inline markup.</p>
+<h2 id="output">Output</h2>
+<p>A temporary, invalid <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> document containing unescaped inline markup.</p>
+<h2 id="description">Description</h2>
+<p>The stylesheet copies the structure and content of the input document to the output document. Any escaped inline markup within the input document is unescaped.</p>
+<p>The output of this stylesheet is intended to be used as input for <a href="XliffTag.xsl">XliffTag.xsl</a>, which turns the inline markup into valid <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> <code>&lt;g&gt;</code>, <code>&lt;ph&gt;</code>, <code>&lt;x&gt;</code> and <code>&lt;mrk&gt;</code> elements.</p>

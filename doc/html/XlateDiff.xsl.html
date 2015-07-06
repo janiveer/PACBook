@@ -1,0 +1,26 @@
+<p>Checks an XML document against an existing translation in the specified language and generates a new <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file containing the strings which are new or changed.</p>
+<h2 id="parameters">Parameters</h2>
+<p><code>(Language | Xliff)</code></p>
+<ul>
+<li><strong>Language</strong> (string) — ISO language code<br /></li>
+<li><strong>Xliff</strong> (URI) — The URI of the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file you want to compare</li>
+</ul>
+<h2 id="input">Input</h2>
+<p>An XML document. You must mark up the source document with:</p>
+<ol>
+<li>The <code>xlf:id</code> attributes which uniquely identify each translation string.<br /></li>
+<li>Optionally, <a href="RDF-Translations">translation metadata</a>, showing the location of the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> files which contain the translations of the document — this is only required if you are not specifying the <code>Xliff</code> parameter explicitly.</li>
+</ol>
+<h2 id="output">Output</h2>
+<p>An <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> document.</p>
+<h2 id="description">Description</h2>
+<p>The stylesheet examines the source file for translatable elements. (A translatable element is one which has an <code>xlf:id</code> attribute and does not have the <code>its:translate=&quot;no&quot;</code> attribute.)</p>
+<p>For each translatable element, the stylesheet looks for the specified <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file, or if not specified, the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file that corresponds to the specified output language, according to the <a href="RDF-Translations">translation metadata</a>.</p>
+<p>If the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file is found, the stylesheet searches for the translation unit with the same <code>xlf:id</code>, and compares its source with the translatable element in the source document.</p>
+<p>If the corresponding translation unit does not exist in the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file, a new translation unit is written to the output document which contains this translatable element as its source.</p>
+<p>If the corresponding translation unit exists in the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file, but its source is different from the translatable element in the source document, a translation unit is written to the output document which contains this translatable element as its source and the target text from the original <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file as its target.</p>
+<p>If the corresponding translation unit exists in the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file, and its source is the same as the translatable element in the source document, and the target is empty or marked as incomplete, the translation unit is copied from the original <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file to the output document.</p>
+<p>If the corresponding translation unit exists in the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file, and its source is the same as the translatable element in the source document, and the target is not empty or marked as incomplete, there is no output.</p>
+<p>If the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file is not found, there is no output.</p>
+<h3 id="note">Note</h3>
+<p>In the output file, all <code>&lt;trans-unit&gt;</code> elements are contained in a single, flat <code>&lt;file&gt;</code> element. Any multiple <code>&lt;file&gt;</code> or <code>&lt;group&gt;</code> elements from the original <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file are not copied to the output file.</p>

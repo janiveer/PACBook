@@ -1,0 +1,18 @@
+<p>Makes sure that abbreviations are punctuated correctly after transclusion.</p>
+<h2 id="parameters">Parameters</h2>
+<p><code>[abbrevClassRef]</code></p>
+<ul>
+<li><strong>abbrevClassRef</strong> (URI) — a URI that identifies abbreviations. Default <a href="http://dbpedia.org/ontology/abbreviation">http://dbpedia.org/ontology/abbreviation</a>.</li>
+</ul>
+<h2 id="input">Input</h2>
+<p>An XML document. Any abbreviations whose punctuation needs checking must be marked up with ITS 2.0 text analysis attributes as described below.</p>
+<h2 id="output">Output</h2>
+<p>An XML document, identical to the input except that abbreviations are punctuated correctly.</p>
+<h2 id="description">Description</h2>
+<p>The stylesheet recurses through the document and copies each element. If any element has the attribute <code>its:taClassRef='http://dbpedia.org/ontology/abbreviation'</code>, the stylesheet adds punctuation to the element according to the following algorithm:</p>
+<ol>
+<li>If the text within the element already ends with a full stop, the full stop is stripped off;<br /></li>
+<li>If there is a full stop immediately following the element, the element is written to the output document with no following full stop; otherwise, the element is written to the output document with a following full stop.</li>
+</ol>
+<p>This means that the abbreviation will be written out with just one following full stop. If you transclude the abbreviation at the end of sentence it will <em>not</em> end up with two following full stops.</p>
+<p>To use the <code>its:taClassRef</code> attribute you must set <code>its:version='2.0'</code> on the element or on the containing document.</p>

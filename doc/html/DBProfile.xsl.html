@@ -1,0 +1,16 @@
+<p>Enables you to include or exclude parts of a document conditionally based on the document’s ID.</p>
+<h2 id="parameters">Parameters</h2>
+<p>All of the DocBook XSL stylesheet profiling parameters, except for <strong>profile.condition</strong> — see below.</p>
+<h2 id="input">Input</h2>
+<p>A DocBook document with conditional profiling attributes.</p>
+<h2 id="output">Output</h2>
+<p>A profiled DocBook document.</p>
+<h2 id="description">Description</h2>
+<p>This stylesheet is a custom layer which imports the <code>profile.xsl</code> stylesheet from the DocBook XSL stylesheets.</p>
+<p>For quicker processing and to save network bandwith, you should set up your XML catalog so that <a href="http://docbook.sourceforge.net/release/xsl-ns/current/profiling/profile.xsl">http://docbook.sourceforge.net/release/xsl-ns/current/profiling/profile.xsl</a> is redirected to your local copy of <code>profile.xsl</code>.</p>
+<p>This stylesheet takes the <code>xml:id</code> attribute from the root element in the document and passes that to <code>profile.xsl</code> as the value of the <code>profile.condition</code> parameter. The result of this is that any elements in the document which have the <code>condition</code> attribute set to the document’s XML ID are included in the output; any which have the <code>condition</code> attribute set to something else are excluded.</p>
+<p>This enables you to specify that certain parts of a subdocument should be omitted and certain parts kept when the subdocument is transcluded into a particular master document, based solely on that master document’s ID.</p>
+<p>If necessary, you can supply a fake ID value to the <code>profile.xsl</code> stylesheet by adding a <code>condition</code> attribute to the root element of the master document. The stylesheet will take this as the value of the <code>profile.condition</code> parameter in preference to the root <code>xml:id</code> attribute.</p>
+<p>It is recommended to perform conditional profiling as a separate step when using PACBook. For example, you should process parametrised transclusion <em>before</em> conditional profiling, and you should process dynamic links, simple lists and syntactic processing <em>after</em> conditional profiling.</p>
+<h2 id="roadmap">Roadmap</h2>
+<p>Add support for <code>its:localeFilterList</code> and <code>its:localeFilterType</code> attributes.</p>

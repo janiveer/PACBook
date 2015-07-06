@@ -1,0 +1,25 @@
+<p>Converts a temporary, invalid <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file with unescaped inline markup to a valid XLIFF file with <code>&lt;g&gt;</code>, <code>&lt;x&gt;</code>, <code>&lt;ph&gt;</code> and <code>&lt;mrk&gt;</code> elements.</p>
+<h2 id="parameters">Parameters</h2>
+<p><code>[DefaultNS]</code></p>
+<ul>
+<li><strong>DefaultNS</strong> (URI) — The URI of the default namespace of the inline elements. Default is the DocBook namespace.</li>
+</ul>
+<h2 id="input">Input</h2>
+<p>A temporary, invalid <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> document containing unescaped inline markup.</p>
+<h2 id="output">Output</h2>
+<p>An <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> document containing <code>&lt;g&gt;</code>, <code>&lt;ph&gt;</code>, <code>&lt;x&gt;</code> and <code>&lt;mrk&gt;</code> elements. This is the format preferred by many translation houses.</p>
+<h2 id="description">Description</h2>
+<p>The stylesheet copies the structure and content of the input document to the output document. Any inline markup within the input document is transformed as follows.</p>
+<p>Processing instructions with no content are exported as <code>&lt;x&gt;</code> elements. The <code>ctype</code> attribute is set to <code>x-pi-</code> plus the name of the processing instruction. As an exception, the <code>&lt;?linebreak?&gt;</code> processing instruction is exported as an <code>&lt;x&gt;</code> element with <code>ctype=&quot;lb&quot;</code>.</p>
+<p>Processing instructions containing text are exported as <code>&lt;ph&gt;</code> elements. The <code>ctype</code> attribute is set to <code>x-pi-</code> plus the name of the processing instruction. The content of the processing instruction is exported as the content of the <code>&lt;ph&gt;</code> element.</p>
+<p>Elements containing no content are exported as <code>&lt;x&gt;</code> elements. The <code>ctype</code> attribute is set to <code>x-</code>, followed by the prefix associated with the namespace of the current element, followed by a hyphen, followed by the name of the current element. If the namespace of the element is not specified, it is assumed to be the namespace associated with the URI specified by the <code>DefaultNS</code> parameter — by default, DocBook.</p>
+<p>Elements containing content are exported as <code>&lt;g&gt;</code> elements. The <code>ctype</code> attribute is set to <code>x-</code>, followed by the prefix associated with the namespace of the current element, followed by a hyphen, followed by the name of the current element. If the namespace of the element is not specified, it is assumed to be the namespace associated with the URI specified by the <code>DefaultNS</code> parameter — by default, DocBook.</p>
+<p>The <code>&lt;g&gt;</code> or <code>&lt;x&gt;</code> elements have an <code>id</code> attribute whose value is unique and is based on the ID of the current translation unit.</p>
+<p>Child attributes of the elements in the input file are added to the <code>&lt;g&gt;</code> or <code>&lt;x&gt;</code> element. If the attribute is in an explicit namespace, the attribute is exported in the same namespace. If the attribute is in no namespace, it is exported in a special namespace whose prefix is <code>nn</code> and whose URI is <code>urn:x-no-namespace</code>. This is to distinguish between <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> attributes and attributes from the source file.</p>
+<p>There are three exceptions:</p>
+<ul>
+<li><p>Elements with the <code>dita:conref</code> attribute are exported as <code>&lt;ph&gt;</code> elements whose content is the value of the <code>dita:conref</code> attribute. This makes the translation unit read more naturally and can help the translators establish the correct word order and punctuation. The <code>ctype</code> and other attributes of this <code>&lt;ph&gt;</code> element are set as above.</p></li>
+<li><p>The <code>its:term=&quot;yes&quot;</code> attribute is exported as a child <code>&lt;mrk mtype=&quot;term&quot;&gt;</code> element which contains the content of the parent element.</p></li>
+<li><p>The <code>its:locNote</code> attribute is exported as a child <code>&lt;mrk mtype=&quot;phrase&quot;&gt;</code> element which contains the content of the parent element. The value of the <code>its:locNote</code> attribute is exported as a <code>comment</code> attribute on the <code>&lt;mrk mtype=&quot;phrase&quot;&gt;</code> element.</p></li>
+</ul>
+<p>The content of the <code>&lt;source&gt;</code> element is copied to any <code>&lt;target&gt;</code> element which is currently empty. This is to meet the requirements of translation houses who prefer the <code>&lt;target&gt;</code> element to start with the <code>&lt;source&gt;</code> text.<br />The output of the <a href="XliffTemp.xsl">XliffTemp.xsl</a> stylesheet is intended to be used as input for this stylesheet.</p>
