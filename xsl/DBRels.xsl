@@ -40,7 +40,7 @@
 		with @xl:role={$linkHome}, this template looks at the
 		label(s) specified by the arc elements; finds other sections
 		which contain an extended link with @xl:role={$linkPart} and
-		which in turn contains a locator element with the same
+		which in turn contains a resource element with the same
 		label; and then creates a list of links to those other
 		sections.
 
@@ -93,7 +93,7 @@
 				<xsl:for-each select="db:info/db:extendedlink[@xl:role=$linkHome]/db:arc">
 					<xsl:variable name="linkTo" select="@xl:to"/>
 					<itemizedlist>
-						<xsl:for-each select="$docRoot//*[db:info/db:extendedlink[@xl:role=$linkPart]/db:locator[@xl:label=$linkTo]]">
+						<xsl:for-each select="$docRoot//*[db:info/db:extendedlink[@xl:role=$linkPart]/db:resource[@xl:label=$linkTo]]">
 							<xsl:variable name="linkID" select="@xml:id"/>
 							<listitem>
 								<para>
