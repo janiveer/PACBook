@@ -11,7 +11,7 @@ processing](https://en.wikipedia.org/wiki/Conditional_%28computer_programming%29
 
 PACBook was originally written for pre-processing [DocBook XML](http://docbook.org/)
 files. Parts of it are specific to DocBook 5.0 or later. Most of it is intended for
-general use with any XML documentation format, e.g. SVG images.
+general use with any XML documentation schema, even SVG images.
 
 ## Documentation
 
