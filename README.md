@@ -9,6 +9,10 @@ with two inter-related areas:
 [transclusion](https://en.wikipedia.org/wiki/Transclusion) and / or [conditional
 processing](https://en.wikipedia.org/wiki/Conditional_%28computer_programming%29).
 
+PACBook was originally written for pre-processing [DocBook XML](http://docbook.org/)
+files. Parts of it are specific to DocBook 5.0 or later. Most of it is intended for
+general use with any XML documentation format, e.g. SVG images.
+
 ## Documentation
 
 For information on each stylesheet, see the
@@ -24,10 +28,10 @@ with [XSLTProc](http://xmlsoft.org/libxslt/) and [Saxon
 PACBook is a pre-processor. It doesn’t produce formatted output. You will require third
 party processing tools to take the XML that PACBook produces and and turn it into
 something meaningful. For example, you can use the [DocBook XSL
-stylesheets](http://docbook.sourceforge.net/) to turn PACBook’s output into Web help or
-an ePub file. (PACBook was originally written for pre-processing DocBook XML files.) Or
-you could use [Apache Batik](https://xmlgraphics.apache.org/batik/) to render a
-pre-processed SVG file as PNG or JPEG.
+stylesheets](http://docbook.sourceforge.net/) to turn a pre-processed DocBook file into
+Web help or an ePub file. Or you could use [Apache
+Batik](https://xmlgraphics.apache.org/batik/) to render a pre-processed SVG file as PNG
+or JPEG.
 
 The stylesheet **DBProfile.xsl** relies on the [DocBook XSL
 stylesheets](http://docbook.sourceforge.net/). The stylesheet **RefResolve.xsl** relies
