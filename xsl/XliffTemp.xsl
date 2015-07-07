@@ -40,6 +40,7 @@
            xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
            xmlns:dita="http://dita.oasis-open.org/architecture/2005"
            xmlns:its="http://www.w3.org/2005/11/its"
+           xmlns:xx="urn:x-xml-namespace"
            xmlns:nn="urn:x-no-namespace"
            version="1.2">
 			<xsl:copy-of select="@*"/>
@@ -76,7 +77,16 @@
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates select="xlf:source|xlf:seg-source|xlf:target"/>
 			<xsl:copy-of select="xlf:context-group|xlf:count-group|xlf:prop-group|xlf:note"/>
-			<!-- TODO: xlf:alt-trans -->
+			<xsl:apply-templates select="xlf:alt-trans"/>
+			<xsl:copy-of select="*[not(namespace-uri()='urn:oasis:names:tc:xliff:document:1.2')]"/>
+		</xsl:copy>
+	</xsl:template>
+
+	<xsl:template match="xlf:alt-trans">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates select="xlf:source|xlf:seg-source|xlf:target"/>
+			<xsl:copy-of select="xlf:context-group|xlf:count-group|xlf:prop-group|xlf:note"/>
 			<xsl:copy-of select="*[not(namespace-uri()='urn:oasis:names:tc:xliff:document:1.2')]"/>
 		</xsl:copy>
 	</xsl:template>

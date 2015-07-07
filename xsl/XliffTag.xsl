@@ -30,6 +30,7 @@
                 xmlns:dita="http://dita.oasis-open.org/architecture/2005"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:data="urn:x-pacbook:data"
+                xmlns:xx="urn:x-xml-namespace"
                 xmlns:nn="urn:x-no-namespace"
                 exclude-result-prefixes="xlf xd data"
                 version="1.0">
@@ -80,7 +81,16 @@
 				<xsl:call-template name="CopyTarget"/>
 			</xsl:if>
 			<xsl:copy-of select="xlf:context-group|xlf:count-group|xlf:prop-group|xlf:note"/>
-			<!-- TODO: xlf:alt-trans -->
+			<xsl:apply-templates select="xlf:alt-trans"/>
+			<xsl:copy-of select="*[not(namespace-uri()='urn:oasis:names:tc:xliff:document:1.2')]"/>
+		</xsl:copy>
+	</xsl:template>
+
+	<xsl:template match="xlf:alt-trans">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates select="xlf:source|xlf:seg-source|xlf:target"/>
+			<xsl:copy-of select="xlf:context-group|xlf:count-group|xlf:prop-group|xlf:note"/>
 			<xsl:copy-of select="*[not(namespace-uri()='urn:oasis:names:tc:xliff:document:1.2')]"/>
 		</xsl:copy>
 	</xsl:template>
@@ -199,6 +209,9 @@
 	<xsl:template match="@*" mode="at">
 		<xsl:variable name="AttribNS">
 			<xsl:choose>
+				<xsl:when test="namespace-uri()='http://www.w3.org/XML/1998/namespace'">
+					<xsl:value-of select="'urn:x-xml-namespace'"/>
+				</xsl:when>
 				<xsl:when test="namespace-uri()=''">
 					<xsl:value-of select="'urn:x-no-namespace'"/>
 				</xsl:when>
