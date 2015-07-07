@@ -10,8 +10,8 @@ with two inter-related areas:
 processing](https://en.wikipedia.org/wiki/Conditional_%28computer_programming%29).
 
 PACBook was originally written for pre-processing [DocBook XML](http://docbook.org/)
-files. Parts of it are specific to DocBook 5.0 or later. Most of it is intended for
-general use with any XML documentation schema, even SVG images.
+files. Parts of it are specific to DocBook 5.0 or later. However, most of it is intended
+for general use with any XML documentation schema, even SVG images.
 
 ## Documentation
 
@@ -53,6 +53,8 @@ choice.
 
 ## Running
 
+PACBook is a set of small XSLT stylesheets, each of which does one particular job.
+
 Example 1: create an XLIFF diff file using XSLTProc
 
 	xsltproc --stringparam Xliff Current_Translations.de.xliff \
@@ -71,8 +73,7 @@ Example 2: create an XLIFF diff file using Saxon
 
 ## Pipelining
 
-PACBook is a set of small XSLT stylesheets, each of which does one particular job. To use
-PACBook most effectively you should chain the stylesheets together so that each
+To use PACBook most effectively you should chain the stylesheets together so that each
 successive stylesheet works on the output of the previous one.
 
 You can use a shell script, batch file or Apache ANT build script to chain stylesheets
