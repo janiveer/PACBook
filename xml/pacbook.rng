@@ -47,6 +47,9 @@
 		</define>
 	</include>
 
+<!-- Import ITS 2.0 -->
+	<include href="its20.rng"/>
+
 <!-- Add new common attributes -->
 	<define name="db.common.attributes" combine="interleave">
 		<ref name="its.attributes"/>
@@ -125,51 +128,11 @@
 
 <!-- Define ITS attributes -->
 	<define name="its.attributes">
-		<ref name="its.attribute.translate"/>
-		<ref name="its.attribute.locNote"/>
-		<ref name="its.attribute.locNoteType"/>
-		<ref name="its.attribute.term"/>
-		<ref name="its.attribute.termRef"/>
-	</define>
-	<define name="its.attribute.translate">
 		<optional>
-			<attribute name="translate" ns="http://www.w3.org/2005/11/its">
-				<choice>
-					<value>yes</value>
-					<value>no</value>
-				</choice>
-			</attribute>
+			<ref name="its-local.attributes"/>
 		</optional>
-	</define>
-	<define name="its.attribute.locNote">
 		<optional>
-			<attribute name="locNote" ns="http://www.w3.org/2005/11/its">
-				<text/>
-			</attribute>
-		</optional>
-	</define>
-	<define name="its.attribute.locNoteType">
-		<optional>
-			<attribute name="locNoteType" ns="http://www.w3.org/2005/11/its">
-				<choice>
-					<value>alert</value>
-					<value>description</value>
-				</choice>
-			</attribute>
-		</optional>
-	</define>
-	<define name="its.attribute.term">
-		<optional>
-			<attribute name="term" ns="http://www.w3.org/2005/11/its">
-				<value>yes</value>
-			</attribute>
-		</optional>
-	</define>
-	<define name="its.attribute.termRef">
-		<optional>
-			<attribute name="termRef" ns="http://www.w3.org/2005/11/its">
-				<data type="anyURI"/>
-			</attribute>
+			<ref name="its-attribute.version"/>
 		</optional>
 	</define>
 
@@ -201,7 +164,7 @@
 		</optional>
 	</define>
 
-<!-- Define TEI attributes -->
+<!-- Define linguistic attributes -->
 	<define name="ling.attributes">
 		<ref name="ling.attribute.type"/>
 		<ref name="ling.attribute.pron"/>
@@ -260,4 +223,5 @@
 			</attribute>
 		</optional>
 	</define>
+
 </grammar>

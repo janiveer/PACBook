@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright © 2015 Stanley Security Solutions Limited.
+
+    This file is part of PACBook.
+
+    PACBook is free software: you can redistribute it and/or modify it under the
+    terms of the GNU Lesser General Public License as published by the Free
+    Software Foundation, either version 3 of the License, or (at your option)
+    any later version.
+
+    PACBook is distributed in the hope that it will be useful, but WITHOUT ANY
+    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+    FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
+    more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with PACBook.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0" version="5.0">
+  <!-- Morphological Data for Parametric Transclusion -->
+  <text>
+    <body>
+      <head>Svensk</head>
+      <entry n="en">
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="sg"/>
+          </gramGrp>
+          <orth>en</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ett</orth>
+        </form>
+      </entry>
+      <entry n="din">
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="sg"/>
+          </gramGrp>
+          <orth>din</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ditt</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="pl"/>
+          </gramGrp>
+          <orth>dina</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="pl"/>
+          </gramGrp>
+          <orth>dina</orth>
+        </form>
+      </entry>
+      <entry n="den">
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="sg"/>
+          </gramGrp>
+          <orth>den</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>det</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="pl"/>
+          </gramGrp>
+          <orth>de</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="pl"/>
+          </gramGrp>
+          <orth>de</orth>
+        </form>
+      </entry>
+      <entry n="denna">
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="sg"/>
+          </gramGrp>
+          <orth>denna</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>detta</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="pl"/>
+          </gramGrp>
+          <orth>dessa</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="pl"/>
+          </gramGrp>
+          <orth>dessa</orth>
+        </form>
+      </entry>
+      <entry n="all">
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="sg"/>
+          </gramGrp>
+          <orth>all</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>allt</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="pl"/>
+          </gramGrp>
+          <orth>alla</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="pl"/>
+          </gramGrp>
+          <orth>alla</orth>
+        </form>
+      </entry>
+      <entry n="ingen">
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="sg"/>
+          </gramGrp>
+          <orth>ingen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>inget</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="pl"/>
+          </gramGrp>
+          <orth>inga</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="pl"/>
+          </gramGrp>
+          <orth>inga</orth>
+        </form>
+      </entry>
+      <entry n="aktiv">
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>aktiv</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>aktiv</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>aktivt</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="def"/>
+          </gramGrp>
+          <orth>aktive</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="def"/>
+          </gramGrp>
+          <orth>aktiva</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="def"/>
+          </gramGrp>
+          <orth>aktiva</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>aktiva</orth>
+        </form>
+      </entry>
+      <entry n="specifik">
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>specifik</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>specifik</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>specifikt</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="def"/>
+          </gramGrp>
+          <orth>specifike</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="def"/>
+          </gramGrp>
+          <orth>specifika</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="def"/>
+          </gramGrp>
+          <orth>specifika</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>specifika</orth>
+        </form>
+      </entry>
+      <entry n="lokal">
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>lokal</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>lokal</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>lokalt</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="def"/>
+          </gramGrp>
+          <orth>lokale</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="def"/>
+          </gramGrp>
+          <orth>lokala</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="def"/>
+          </gramGrp>
+          <orth>lokala</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>lokala</orth>
+        </form>
+      </entry>
+      <entry n="vald">
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>vald</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>vald</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>valt</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="def"/>
+          </gramGrp>
+          <orth>valde</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="def"/>
+          </gramGrp>
+          <orth>valda</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="def"/>
+          </gramGrp>
+          <orth>valda</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>valda</orth>
+        </form>
+      </entry>
+      <entry n="viss">
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>viss</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>viss</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>vist</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="def"/>
+          </gramGrp>
+          <orth>visse</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="def"/>
+          </gramGrp>
+          <orth>vissa</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="def"/>
+          </gramGrp>
+          <orth>vissa</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>vissa</orth>
+        </form>
+      </entry>
+      <entry n="aktuell">
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>aktuell</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>aktuell</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>aktuellt</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="def"/>
+          </gramGrp>
+          <orth>aktuelle</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="def"/>
+          </gramGrp>
+          <orth>aktuella</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="def"/>
+          </gramGrp>
+          <orth>aktuella</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>aktuella</orth>
+        </form>
+      </entry>
+      <entry n="annan">
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>annan</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>annan</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>annat</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="def"/>
+          </gramGrp>
+          <orth>andre</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="def"/>
+          </gramGrp>
+          <orth>andra</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="def"/>
+          </gramGrp>
+          <orth>andra</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>andra</orth>
+        </form>
+      </entry>
+      <entry n="överordnad">
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>överordnad</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>överordnad</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>överordnat</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="def"/>
+          </gramGrp>
+          <orth>överordnade</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="def"/>
+          </gramGrp>
+          <orth>överordnade</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="def"/>
+          </gramGrp>
+          <orth>överordnade</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>överordnade</orth>
+        </form>
+      </entry>
+    </body>
+  </text>
+</TEI>
