@@ -26,7 +26,7 @@
 <!-- ======================================================================== -->
 <!-- This is a custom extension to the Docbook v5.0 schema                    -->
 <!-- ======================================================================== -->
-<!-- $Revision: #15 $ | $DateTime: 2015/07/05 16:20:12 $ | $Author: SimonD $  -->
+<!-- $Revision: #16 $ | $DateTime: 2015/07/09 13:10:12 $ | $Author: SimonD $  -->
 
 <!-- Import DocBook and modify existing elements -->
 	<include href="http://docbook.org/xml/5.0/rng/docbookxi.rng">
@@ -175,9 +175,16 @@
 
 <!-- Define PAC attributes -->
 	<define name="pac.attributes">
-		<ref name="xlf.attribute.id"/>
-		<ref name="dita.attribute.conref"/>
 		<ref name="db.attribute.outputformat"/>
+		<ref name="xlf.attribute.id"/>
+		<ref name="content.attribute.ref"/>
+	</define>
+	<define name="db.attribute.outputformat">
+		<optional>
+			<attribute name="outputformat">
+				<data type="NMTOKEN"/>
+			</attribute>
+		</optional>
 	</define>
 	<define name="xlf.attribute.id">
 		<optional>
@@ -186,16 +193,9 @@
 			</attribute>
 		</optional>
 	</define>
-	<define name="dita.attribute.conref">
+	<define name="content.attribute.ref">
 		<optional>
-			<attribute name="conref" ns="http://dita.oasis-open.org/architecture/2005">
-				<data type="NMTOKEN"/>
-			</attribute>
-		</optional>
-	</define>
-	<define name="db.attribute.outputformat">
-		<optional>
-			<attribute name="outputformat">
+			<attribute name="ref" ns="http://stanleysecurity.github.io/PACBook/ns/transclusion">
 				<data type="NMTOKEN"/>
 			</attribute>
 		</optional>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="http://www.jabadaw.com/PAC/files/Docbook.css" type="text/css"?><article xmlns="http://docbook.org/ns/docbook" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:its="http://www.w3.org/2005/11/its" xmlns:dita="http://dita.oasis-open.org/architecture/2005" xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2" version="5.0-variant PACBook" xml:lang="en-GB" xml:id="fev" status="draft">
-	<title xlf:id="u00001"><phrase dita:conref="FPP"/> Database Viewer</title>
+<?xml-stylesheet href="http://www.jabadaw.com/PAC/files/Docbook.css" type="text/css"?><article xmlns="http://docbook.org/ns/docbook" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:its="http://www.w3.org/2005/11/its" xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion" xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2" version="5.0-variant PACBook" xml:lang="en-GB" xml:id="fev" status="draft">
+	<title xlf:id="u00001"><phrase content:ref="FPP"/> Database Viewer</title>
 	<subtitle its:translate="no">User Guide</subtitle>
 	<info>
 		<rdf:RDF>
@@ -17,7 +17,7 @@
 			</rdf:Description>
 			<rdf:Description dc:type="applicability">
 				<dcterms:references rdf:parseType="Resource">
-					<dc:subject rdf:parseType="Literal"><phrase dita:conref="FPP"/></dc:subject>
+					<dc:subject rdf:parseType="Literal"><phrase content:ref="FPP"/></dc:subject>
 					<dc:description>Access Controller</dc:description>
 				</dcterms:references>
 				<dcterms:references rdf:parseType="Resource">
@@ -28,11 +28,11 @@
 		</rdf:RDF>
 		<copyright>
 			<year><?dbtimestamp format="Y"?></year>
-			<holder><phrase dita:conref="Full_Company"/></holder>
+			<holder><phrase content:ref="Full_Company"/></holder>
 		</copyright>
 		<authorgroup>
 			<author>
-				<orgname><phrase dita:conref="Full_Company"/></orgname>
+				<orgname><phrase content:ref="Full_Company"/></orgname>
 			</author>
 			<author>
 				<personname>
@@ -41,7 +41,7 @@
 				</personname>
 			</author>
 		</authorgroup>
-		<biblioid class="pubsnumber"><phrase dita:conref="TB"/>268</biblioid>
+		<biblioid class="pubsnumber"><phrase content:ref="TB"/>268</biblioid>
 		<edition>1.0</edition>
 		<releaseinfo><xi:include href="build.number" parse="text"/></releaseinfo>
 		<date><?dbtimestamp format="b Y"?></date>
@@ -51,7 +51,7 @@
 		</extendedlink>
 		<abstract>
 			<title xlf:id="u00002">Subject</title>
-			<para xlf:id="u00003">This document describes how to install and use the <phrase dita:conref="FPP"/> database viewer.</para>
+			<para xlf:id="u00003">This document describes how to install and use the <phrase content:ref="FPP"/> database viewer.</para>
 		</abstract>
 		<abstract>
 			<title xlf:id="u00004">Products</title>
@@ -60,7 +60,7 @@
 	</info>
 	<section xml:id="fev_intro">
 		<title xlf:id="u00005">Introduction</title>
-		<para xlf:id="u00006">The <phrase dita:conref="FPP"/> database viewer enables you to view a database exported from the <phrase dita:conref="FPP"/> access controller.</para>
+		<para xlf:id="u00006">The <phrase content:ref="FPP"/> database viewer enables you to view a database exported from the <phrase content:ref="FPP"/> access controller.</para>
 		<mediaobject>
 			<imageobject xlf:id="u00007">
 				<imagedata fileref="images/win_fev.png" format="PNG" depth="8.12cm" width="11.57cm" scalefit="1"/>
@@ -73,7 +73,7 @@
 			<?pac-keep-together always?>
 			<title xlf:id="u00009">To install the database viewer:</title>
 			<step>
-				<para xlf:id="u00010">Insert the <phrase dita:conref="FPP"/> USB drive into the PC.</para>
+				<para xlf:id="u00010">Insert the <phrase content:ref="FPP"/> USB drive into the PC.</para>
 			</step>
 			<step>
 				<para xlf:id="u00011">The installation process should start automatically. If it doesn’t, open the USB drive in Windows Explorer and double-click on the <filename>Setup.exe</filename> file.</para>
@@ -87,28 +87,28 @@
 		<title xlf:id="u00013">Start the Database Viewer</title>
 		<procedure>
 			<?pac-keep-together always?>
-			<title xlf:id="u00014">To start the <phrase dita:conref="FPP"/> database viewer:</title>
+			<title xlf:id="u00014">To start the <phrase content:ref="FPP"/> database viewer:</title>
 			<step>
 				<stepalternatives>
 					<step>
-						<para xlf:id="u00015">In the <guimenu>Start</guimenu> menu, choose the <guimenuitem><phrase dita:conref="FPP"/> Database Viewer</guimenuitem> command, or:</para>
+						<para xlf:id="u00015">In the <guimenu>Start</guimenu> menu, choose the <guimenuitem><phrase content:ref="FPP"/> Database Viewer</guimenuitem> command, or:</para>
 					</step>
 					<step>
-						<para xlf:id="u00016">Double-click on the <guiicon><phrase dita:conref="FPP"/> Database Viewer</guiicon> icon on the Windows desktop, or:</para>
+						<para xlf:id="u00016">Double-click on the <guiicon><phrase content:ref="FPP"/> Database Viewer</guiicon> icon on the Windows desktop, or:</para>
 					</step>
 					<step>
 						<para xlf:id="u00017">Double-click on an <filename class="extension">FEV</filename> file.</para>
 					</step>
 				</stepalternatives>
-				<para xlf:id="u00018">The <phrase dita:conref="FPP"/> database viewer starts and the <guilabel role="wintitle">Open</guilabel> dialog box is displayed so that you can open an <filename class="extension">FEV</filename> file. See <xref xl:href="#fev_files" xrefstyle="select: title"/>.</para>
+				<para xlf:id="u00018">The <phrase content:ref="FPP"/> database viewer starts and the <guilabel role="wintitle">Open</guilabel> dialog box is displayed so that you can open an <filename class="extension">FEV</filename> file. See <xref xl:href="#fev_files" xrefstyle="select: title"/>.</para>
 			</step>
 		</procedure>
 		<procedure>
 			<?pac-keep-together always?>
-			<title xlf:id="u00019">To start the <phrase dita:conref="FPP"/> database viewer and open a file:</title>
+			<title xlf:id="u00019">To start the <phrase content:ref="FPP"/> database viewer and open a file:</title>
 			<step>
 				<para xlf:id="u00020">Double-click on an <filename class="extension">FEV</filename> file.</para>
-				<para xlf:id="u00021">The <phrase dita:conref="FPP"/> database viewer starts and the selected file is opened.</para>
+				<para xlf:id="u00021">The <phrase content:ref="FPP"/> database viewer starts and the selected file is opened.</para>
 			</step>
 		</procedure>
 	</section>
@@ -178,13 +178,13 @@
 	</section>
 	<section xml:id="fev_ctrl">
 		<title xlf:id="u00045">Controller Details</title>
-		<para xlf:id="u00046">The <guilabel>212 controller details</guilabel> section shows information about the <phrase dita:conref="FPP"/> that generated this file.</para>
+		<para xlf:id="u00046">The <guilabel>212 controller details</guilabel> section shows information about the <phrase content:ref="FPP"/> that generated this file.</para>
 		<variablelist>
 			<?pac-keep-together always?>
 			<varlistentry>
 				<term xlf:id="u00047"><guilabel>Serial number</guilabel></term>
 				<listitem>
-					<para xlf:id="u00048">The serial number of the <phrase dita:conref="FPP"/>.</para>
+					<para xlf:id="u00048">The serial number of the <phrase content:ref="FPP"/>.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
@@ -202,13 +202,13 @@
 			<varlistentry>
 				<term xlf:id="u00053"><guilabel>Is a master</guilabel></term>
 				<listitem>
-					<para xlf:id="u00054">Whether the <phrase dita:conref="FPP"/> that generated this file is configured as a master controller.</para>
+					<para xlf:id="u00054">Whether the <phrase content:ref="FPP"/> that generated this file is configured as a master controller.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
 				<term xlf:id="u00055"><guilabel>Uses HF tokens</guilabel></term>
 				<listitem>
-					<para xlf:id="u00056">Whether the <phrase dita:conref="FPP"/> that generated this file uses HF tokens. See <xref xl:href="#fev_config" xrefstyle="select: title"/>.</para>
+					<para xlf:id="u00056">Whether the <phrase content:ref="FPP"/> that generated this file uses HF tokens. See <xref xl:href="#fev_config" xrefstyle="select: title"/>.</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>
@@ -493,7 +493,7 @@
 			<varlistentry>
 				<term xlf:id="u00145"><guilabel>Token type</guilabel></term>
 				<listitem>
-					<para xlf:id="u00146">The type of tokens which this <phrase dita:conref="FPP"/> uses: <option>LF tokens</option> or <option>HF tokens</option>. See <xref xl:href="#fev_ctrl" xrefstyle="select: title"/>.</para>
+					<para xlf:id="u00146">The type of tokens which this <phrase content:ref="FPP"/> uses: <option>LF tokens</option> or <option>HF tokens</option>. See <xref xl:href="#fev_ctrl" xrefstyle="select: title"/>.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
@@ -897,7 +897,7 @@
 		<title xlf:id="u00255">Exit the Database Viewer</title>
 		<procedure>
 			<?pac-keep-together always?>
-			<title xlf:id="u00256">To close the <phrase dita:conref="FPP"/> database viewer:</title>
+			<title xlf:id="u00256">To close the <phrase content:ref="FPP"/> database viewer:</title>
 			<step>
 				<para xlf:id="u00257">Choose the <menuchoice><guimenu>File</guimenu><guimenuitem>Exit</guimenuitem></menuchoice> command.</para>
 			</step>

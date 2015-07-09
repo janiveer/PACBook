@@ -25,9 +25,8 @@
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns:xl="http://www.w3.org/1999/xlink"
-                xmlns:tei="http://www.tei-c.org/ns/1.0"
                 xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
-                xmlns:dita="http://dita.oasis-open.org/architecture/2005"
+                xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 xmlns:data="urn:x-pacbook:data"
                 xmlns:xx="urn:x-xml-namespace"
@@ -184,14 +183,14 @@
 					</xsl:choose>
 				</g>
 			</xsl:when>
-			<xsl:when test="@dita:conref">
+			<xsl:when test="@content:ref">
 				<ph xmlns="urn:oasis:names:tc:xliff:document:1.2">
 					<xsl:call-template name="SetContentType"/>
 					<xsl:attribute name="id">
 						<xsl:value-of select="concat($UnitID, '.x', $Count)"/>
 					</xsl:attribute>
-					<xsl:apply-templates select="@*[localname != 'conref']" mode="at"/>
-					<xsl:value-of select="@dita:conref"/>
+					<xsl:apply-templates select="@*[localname != 'ref']" mode="at"/>
+					<xsl:value-of select="@content:ref"/>
 				</ph>
 			</xsl:when>
 			<xsl:otherwise>

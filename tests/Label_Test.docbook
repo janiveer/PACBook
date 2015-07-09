@@ -5,8 +5,8 @@
          xmlns:xi="http://www.w3.org/2001/XInclude"
          xmlns:its="http://www.w3.org/2005/11/its"
          xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
-         xmlns:dita="http://dita.oasis-open.org/architecture/2005"
-         xmlns:tei="http://www.tei-c.org/ns/1.0"
+         xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+         xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
          version="5.0-variant PACBook"
          xml:lang="en-GB"
          xml:id="label_test">
@@ -24,12 +24,12 @@
 	</simplesect>
 	<simplesect xml:lang="es">
 		<title>Español</title>
-		<para><simplelist type="inline" role="and"><member>Mallorca</member><member>Menorca</member><member><phrase tei:pron="I">Ibiza</phrase></member></simplelist>.</para>
-		<para><simplelist type="inline" role="or"><member>Amazonas</member><member>Plate</member><member><phrase tei:pron="O">Orinoco</phrase></member></simplelist>.</para>
+		<para><simplelist type="inline" role="and"><member>Mallorca</member><member>Menorca</member><member><phrase ling:pron="I">Ibiza</phrase></member></simplelist>.</para>
+		<para><simplelist type="inline" role="or"><member>Amazonas</member><member>Plate</member><member><phrase ling:pron="O">Orinoco</phrase></member></simplelist>.</para>
 	</simplesect>
 	<simplesect xml:lang="it">
 		<title>Italiano</title>
-		<para><simplelist type="inline" role="and"><member>Sicilia</member><member>Sardegna</member><member><phrase tei:pron="V">Elba</phrase></member></simplelist>.</para>
-		<para><simplelist type="inline" role="or"><member>Tevere</member><member>Po</member><member><phrase tei:pron="V">Orinoco</phrase></member></simplelist>.</para>
+		<para><simplelist type="inline" role="and"><member>Sicilia</member><member>Sardegna</member><member><phrase ling:pron="V">Elba</phrase></member></simplelist>.</para>
+		<para><simplelist type="inline" role="or"><member>Tevere</member><member>Po</member><member><phrase ling:pron="V">Orinoco</phrase></member></simplelist>.</para>
 	</simplesect>
 </article>

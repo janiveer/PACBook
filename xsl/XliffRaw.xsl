@@ -29,11 +29,10 @@
                 xmlns:data="urn:x-pacbook:data"
                 xmlns:svg="http://www.w3.org/2000/svg"
                 xmlns:mml="http://www.w3.org/1998/Math/MathML"
-                xmlns:tei="http://www.tei-c.org/ns/1.0"
                 xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
-                xmlns:dita="http://dita.oasis-open.org/architecture/2005"
+                xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
                 xmlns:nn="urn:x-no-namespace"
-                exclude-result-prefixes="xlf xd data its xi xl db svg mml tei ling dita nn"
+                exclude-result-prefixes="xlf xd data its xi xl db svg mml ling content nn"
                 version="1.0">
 
 	<xd:doc>
@@ -231,7 +230,7 @@
 				<xsl:value-of select="$Name"/>
 				<xsl:apply-templates select="@*" mode="at"/>
 				<xsl:apply-templates select="mrk" mode="at"/>
-				<xsl:text> dita:conref="</xsl:text>
+				<xsl:text> content:ref="</xsl:text>
 				<xsl:value-of select="text()"/>
 				<xsl:text>"/&gt;</xsl:text>
 			</xsl:otherwise>
@@ -376,7 +375,7 @@
 					<xsl:apply-templates select="@*" mode="at"/>
 				</xsl:for-each>
 				<xsl:apply-templates select="mrk" mode="at"/>
-				<xsl:text> dita:conref="</xsl:text>
+				<xsl:text> content:ref="</xsl:text>
 				<xsl:value-of select="text()"/>
 				<xsl:text>"/&gt;</xsl:text>
 			</xsl:otherwise>

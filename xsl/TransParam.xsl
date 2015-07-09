@@ -22,11 +22,11 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
-                xmlns:dita="http://dita.oasis-open.org/architecture/2005"
+                xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
                 xmlns:str="http://exslt.org/strings"
                 xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:saxon="http://icl.com/saxon"
-                exclude-result-prefixes="str db xl saxon dita xd"
+                exclude-result-prefixes="str db xl saxon content xd"
                 version="1.0">
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
@@ -51,11 +51,11 @@
 		Resolve references
 		==================
 	</xd:doc>
-	<xsl:template match="*[@dita:conref]">
-		<xsl:variable name="ref" select="@dita:conref"/>
+	<xsl:template match="*[@content:ref]">
+		<xsl:variable name="ref" select="@content:ref"/>
 		<xsl:variable name="def" select="ancestor-or-self::*/db:info/db:extendedlink[@xl:role=$defRole]/db:resource[@xl:label=$ref]"/>
 		<xsl:copy>
-			<xsl:copy-of select="@*[not(name()='dita:conref')]"/>
+			<xsl:copy-of select="@*[not(name()='content:ref')]"/>
 			<xsl:choose>
 				<xsl:when test="$def != ''">
 					<xsl:for-each select="$def[position() = last()]">
