@@ -1,0 +1,2947 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright © 2015 Stanley Security Solutions Limited.
+
+    This file is part of PACBook.
+
+    PACBook is free software: you can redistribute it and/or modify it under the
+    terms of the GNU Lesser General Public License as published by the Free
+    Software Foundation, either version 3 of the License, or (at your option)
+    any later version.
+
+    PACBook is distributed in the hope that it will be useful, but WITHOUT ANY
+    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+    FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
+    more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with PACBook.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0" version="5.0">
+  <!-- Morphological Data for Parametric Transclusion -->
+  <text>
+    <body>
+      <head>Deutsch</head>
+      <entry n="der">
+        <note>Definite article</note>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>der</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>die</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>das</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>die</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>den</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>die</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>das</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>die</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>des</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>der</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>des</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>der</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>dem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>der</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>dem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>den</orth>
+        </form>
+      </entry>
+      <entry n="die">
+        <note>Relative pronoun</note>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>der</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>die</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>das</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>die</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>den</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>die</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>das</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>die</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>dessen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>deren</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>dessen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>deren</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>dem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>der</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>dem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>denen</orth>
+        </form>
+      </entry>
+      <entry n="derjenige">
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>derjenige</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>diejenige</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>dasjenige</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>diejenigen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>denjenigen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>diejenige</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>dasjenige</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>diejenigen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>desjenigen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>derjenigen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>desjenigen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>derjenigen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>demjenigen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>derjenigen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>demjenigen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>denjenigen</orth>
+        </form>
+      </entry>
+      <entry n="dies">
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>dieser</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>diese</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>dieses</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>diese</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>diesen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>diese</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>dieses</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>diese</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>dieses</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>dieser</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>dieses</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>dieser</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>diesem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>dieser</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>diesem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>diesen</orth>
+        </form>
+      </entry>
+      <entry n="jeder">
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>jeder</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>jede</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>jedes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>jede</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>jeden</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>jede</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>jedes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>jede</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>jedes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>jeder</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>jedes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>jeder</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>jedem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>jeder</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>jedem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>jeden</orth>
+        </form>
+      </entry>
+      <entry n="beim">
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>beim</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bei der</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>beim</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>bei den</orth>
+        </form>
+      </entry>
+      <entry n="vom">
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>vom</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>von der</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>vom</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>von den</orth>
+        </form>
+      </entry>
+      <entry n="zum">
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>zum</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>zu der</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>zum</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>zu den</orth>
+        </form>
+      </entry>
+      <entry n="am">
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>an den</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>an die</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>an das</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>an die</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>am</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>an der</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>am</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>an den</orth>
+        </form>
+      </entry>
+      <entry n="im">
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>in den</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>in die</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ins</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>in die</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>im</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>in der</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>im</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>in den</orth>
+        </form>
+      </entry>
+      <entry n="ein">
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>ein</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>eine</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ein</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>einen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>eine</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ein</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>eines</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>einer</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>eines</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>einem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>einer</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>einem</orth>
+        </form>
+      </entry>
+      <entry n="kein">
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>kein</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>keine</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>kein</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>keine</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>keinen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>keine</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>kein</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>keine</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>keines</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>keiner</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>keines</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>keiner</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>keinem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>keiner</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>keinem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>keinen</orth>
+        </form>
+      </entry>
+      <entry n="ihr">
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>ihr</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>ihre</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ihr</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>ihre</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>ihren</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>ihre</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ihr</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>ihre</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>ihres</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>ihrer</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ihres</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>ihrer</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>ihrem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>ihrer</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ihrem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>ihren</orth>
+        </form>
+      </entry>
+      <entry n="ander">
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderer</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>andere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>andere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>andere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>andere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderer</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>anderer</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderer</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>anderen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="nom"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>andere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>andere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>andere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><num value="pl"/>
+          </gramGrp>
+          <orth>anderen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderer</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>andere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>andere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>anderen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><num value="pl"/>
+          </gramGrp>
+          <orth>anderen</orth>
+        </form>
+      </entry>
+      <entry n="älter">
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>älterer</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>ältere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>älteres</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>ältere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>älteren</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>ältere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>älteres</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>ältere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>älteren</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>älterer</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>älteren</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>älterer</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>älterem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>älterer</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>älterem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>älteren</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="nom"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ältere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>älteren</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>ältere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ältere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>älteren</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>älteren</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><num value="pl"/>
+          </gramGrp>
+          <orth>älteren</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>älterer</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>ältere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>älteres</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>älteren</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>ältere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>älteres</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>älteren</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>älteren</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><num value="pl"/>
+          </gramGrp>
+          <orth>älteren</orth>
+        </form>
+      </entry>
+      <entry n="ausgewählt">
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewähltes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>ausgewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewähltes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>ausgewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>ausgewählter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewähltem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewähltem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>ausgewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="nom"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><num value="pl"/>
+          </gramGrp>
+          <orth>ausgewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewähltes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewähltes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>ausgewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><num value="pl"/>
+          </gramGrp>
+          <orth>ausgewählten</orth>
+        </form>
+      </entry>
+      <entry n="gewählt">
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewähltes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>gewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewähltes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>gewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>gewählter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewähltem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewähltem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>gewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="nom"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><num value="pl"/>
+          </gramGrp>
+          <orth>gewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewähltes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewähltes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewählten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><num value="pl"/>
+          </gramGrp>
+          <orth>gewählten</orth>
+        </form>
+      </entry>
+      <entry n="aktuell">
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktueller</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuelle</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuelles</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>aktuelle</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuellen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuelle</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuelles</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>aktuelle</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuellen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktueller</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuellen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>aktueller</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuellem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktueller</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuellem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>aktuellen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="nom"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuelle</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuellen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuelle</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuelle</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuellen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuellen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><num value="pl"/>
+          </gramGrp>
+          <orth>aktuellen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktueller</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuelle</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuelles</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuellen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuelle</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuelles</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuellen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>aktuellen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><num value="pl"/>
+          </gramGrp>
+          <orth>aktuellen</orth>
+        </form>
+      </entry>
+      <entry n="bestehend">
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehender</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehende</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehendes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestehende</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehenden</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehende</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehendes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestehende</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehenden</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehender</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehenden</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestehender</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehendem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehender</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehendem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestehenden</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="nom"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehende</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehenden</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehende</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehende</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehenden</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehenden</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestehenden</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehender</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehende</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehendes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehenden</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehende</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehendes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehenden</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestehenden</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestehenden</orth>
+        </form>
+      </entry>
+      <entry n="vorhanden">
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandener</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandene</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandenes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>vorhandene</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandenen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandene</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandenes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>vorhandene</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandenen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandener</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandenen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>vorhandener</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandenem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandener</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandenem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>vorhandenen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="nom"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandene</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandenen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandene</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandene</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandenen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandenen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><num value="pl"/>
+          </gramGrp>
+          <orth>vorhandenen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandener</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandene</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandenes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandenen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandene</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandenes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandenen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>vorhandenen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><num value="pl"/>
+          </gramGrp>
+          <orth>vorhandenen</orth>
+        </form>
+      </entry>
+      <entry n="örtlich">
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtlicher</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtliche</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtliches</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>örtliche</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtlichen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtliche</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtliches</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>örtliche</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtlichen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtlicher</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtlichen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>örtlicher</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtlichem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtlicher</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtlichem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>örtlichen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="nom"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtliche</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtlichen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtliche</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtliche</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtlichen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtlichen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><num value="pl"/>
+          </gramGrp>
+          <orth>örtlichen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtlicher</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtliche</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtliches</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtlichen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtliche</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtliches</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtlichen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>örtlichen</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><num value="pl"/>
+          </gramGrp>
+          <orth>örtlichen</orth>
+        </form>
+      </entry>
+      <entry n="bestimmt">
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmtes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestimmte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmtes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestimmte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestimmter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmtem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmtem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestimmten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="nom"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestimmten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmtes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmtes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestimmten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestimmten</orth>
+        </form>
+      </entry>
+      <entry n="gewünscht">
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschtes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>gewünschte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschtes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>gewünschte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>gewünschter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschtem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschtem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>gewünschten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="nom"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><num value="pl"/>
+          </gramGrp>
+          <orth>gewünschten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschtes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschtes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>gewünschten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><num value="pl"/>
+          </gramGrp>
+          <orth>gewünschten</orth>
+        </form>
+      </entry>
+      <entry n="mehrer">
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>mehrere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>mehrere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>mehrerer</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>mehreren</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><num value="pl"/>
+          </gramGrp>
+          <orth>mehreren</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><num value="pl"/>
+          </gramGrp>
+          <orth>mehreren</orth>
+        </form>
+      </entry>
+    </body>
+  </text>
+</TEI>

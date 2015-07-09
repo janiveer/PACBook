@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright © 2015 Stanley Security Solutions Limited.
+
+    This file is part of PACBook.
+
+    PACBook is free software: you can redistribute it and/or modify it under the
+    terms of the GNU Lesser General Public License as published by the Free
+    Software Foundation, either version 3 of the License, or (at your option)
+    any later version.
+
+    PACBook is distributed in the hope that it will be useful, but WITHOUT ANY
+    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+    FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
+    more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with PACBook.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0" version="5.0">
+  <!-- Morphological Data for Parametric Transclusion -->
+  <text>
+    <body>
+      <head>Nederlands</head>
+      <entry n="de">
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="sg"/>
+          </gramGrp>
+          <orth>de</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>het</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="c n"/><num value="pl"/>
+          </gramGrp>
+          <orth>de</orth>
+        </form>
+      </entry>
+      <entry n="deze">
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="sg"/>
+          </gramGrp>
+          <orth>deze</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>dit</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="c n"/><num value="pl"/>
+          </gramGrp>
+          <orth>deze</orth>
+        </form>
+      </entry>
+      <entry n="die">
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="sg"/>
+          </gramGrp>
+          <orth>die</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>dat</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="c n"/><num value="pl"/>
+          </gramGrp>
+          <orth>die</orth>
+        </form>
+      </entry>
+      <entry n="welk">
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="sg"/>
+          </gramGrp>
+          <orth>welke</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/><oVar value="def"/>
+          </gramGrp>
+          <orth>welke</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>welk</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>welke</orth>
+        </form>
+      </entry>
+      <entry n="elk">
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="sg"/>
+          </gramGrp>
+          <orth>elke</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/><oVar value="def"/>
+          </gramGrp>
+          <orth>elke</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>elk</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>elke</orth>
+        </form>
+      </entry>
+      <entry n="ander">
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="sg"/>
+          </gramGrp>
+          <orth>andere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/><oVar value="def"/>
+          </gramGrp>
+          <orth>andere</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>ander</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>andere</orth>
+        </form>
+      </entry>
+      <entry n="actueel">
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="sg"/>
+          </gramGrp>
+          <orth>actuele</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/><oVar value="def"/>
+          </gramGrp>
+          <orth>actuele</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>actueel</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>actuele</orth>
+        </form>
+      </entry>
+      <entry n="bepaald">
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="sg"/>
+          </gramGrp>
+          <orth>bepaalde</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/><oVar value="def"/>
+          </gramGrp>
+          <orth>bepaalde</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>bepaald</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>bepaalde</orth>
+        </form>
+      </entry>
+      <entry n="geselecteerd">
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="sg"/>
+          </gramGrp>
+          <orth>geselecteerde</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/><oVar value="def"/>
+          </gramGrp>
+          <orth>geselecteerde</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>geselecteerd</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>geselecteerde</orth>
+        </form>
+      </entry>
+      <entry n="specifiek">
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="sg"/>
+          </gramGrp>
+          <orth>specifieke</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/><oVar value="def"/>
+          </gramGrp>
+          <orth>specifieke</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>specifiek</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>specifieke</orth>
+        </form>
+      </entry>
+      <entry n="plaatselijk">
+        <form>
+          <gramGrp>
+            <gen value="c"/><num value="sg"/>
+          </gramGrp>
+          <orth>plaatselijke</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/><oVar value="def"/>
+          </gramGrp>
+          <orth>plaatselijke</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="n"/><num value="sg"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>plaatselijk</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>plaatselijke</orth>
+        </form>
+      </entry>
+    </body>
+  </text>
+</TEI>

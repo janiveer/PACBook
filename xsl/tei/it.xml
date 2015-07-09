@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright © 2015 Stanley Security Solutions Limited.
+
+    This file is part of PACBook.
+
+    PACBook is free software: you can redistribute it and/or modify it under the
+    terms of the GNU Lesser General Public License as published by the Free
+    Software Foundation, either version 3 of the License, or (at your option)
+    any later version.
+
+    PACBook is distributed in the hope that it will be useful, but WITHOUT ANY
+    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+    FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
+    more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with PACBook.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0" version="5.0">
+  <!-- Morphological Data for Parametric Transclusion -->
+  <text>
+    <body>
+      <head>Italiano</head>
+      <entry n="e">
+        <note>Usage 'S' indicates form used before an initial impure consonant</note>
+        <form>
+          <gramGrp>
+            <usg value="C S"/>
+          </gramGrp>
+          <orth>e</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="V"/>
+          </gramGrp>
+          <orth>ed</orth>
+        </form>
+      </entry>
+      <entry n="o">
+        <note>Usage 'S' indicates form used before an initial impure consonant</note>
+        <form>
+          <gramGrp>
+            <usg value="C S"/>
+          </gramGrp>
+          <orth>o</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="V"/>
+          </gramGrp>
+          <orth>od</orth>
+        </form>
+      </entry>
+      <entry n="il">
+        <note>For the singular form, there must be no space between the dependent word and the following word in the source document.</note>
+        <form>
+          <gramGrp>
+            <usg value="C"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>il </orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="S"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>lo </orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="V"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>l’</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="C S"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>la </orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="V"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>l’</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="C"/><gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>i</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="S V"/><gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>gli</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="C S V"/><gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>le</orth>
+        </form>
+      </entry>
+    </body>
+  </text>
+</TEI>

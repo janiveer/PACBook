@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright © 2015 Stanley Security Solutions Limited.
+
+    This file is part of PACBook.
+
+    PACBook is free software: you can redistribute it and/or modify it under the
+    terms of the GNU Lesser General Public License as published by the Free
+    Software Foundation, either version 3 of the License, or (at your option)
+    any later version.
+
+    PACBook is distributed in the hope that it will be useful, but WITHOUT ANY
+    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+    FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
+    more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with PACBook.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0" version="5.0">
+  <!-- Morphological Data for Parametric Transclusion -->
+  <text>
+    <body>
+      <head>Français</head>
+      <entry n="le">
+        <note>There must be no space between the dependent word and the following word in the source document.</note>
+        <form>
+          <gramGrp>
+            <usg value="C"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>le </orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="V"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>l’</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="C"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>la </orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="V"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>l’</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>les </orth>
+        </form>
+      </entry>
+      <entry n="ce">
+        <form>
+          <gramGrp>
+            <usg value="C"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>ce</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="V"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>cet</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="C"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>cette</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="V"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>cette</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>ces</orth>
+        </form>
+      </entry>
+      <entry n="un">
+        <form>
+          <gramGrp>
+            <gen value="m"/>
+          </gramGrp>
+          <orth>un</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/>
+          </gramGrp>
+          <orth>une</orth>
+        </form>
+      </entry>
+      <entry n="de">
+        <note>There must be no space between the dependent word and the following word in the source document.</note>
+        <form>
+          <gramGrp>
+            <usg value="C"/>
+          </gramGrp>
+          <orth>de </orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="V"/>
+          </gramGrp>
+          <orth>d’</orth>
+        </form>
+      </entry>
+      <entry n="du">
+        <note>There must be no space between the dependent word and the following word in the source document.</note>
+        <form>
+          <gramGrp>
+            <usg value="C"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>du </orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="V"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>de l’</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="C"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>de la </orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="V"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>de l’</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>des </orth>
+        </form>
+      </entry>
+      <entry n="au">
+        <note>There must be no space between the dependent word and the following word in the source document.</note>
+        <form>
+          <gramGrp>
+            <usg value="C"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>au </orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="V"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>à l’</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="C"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>à la </orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="V"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>à l’</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>aux </orth>
+        </form>
+      </entry>
+      <entry n="lequel">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>lequel</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>laquelle</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>lesquels</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>lesquelles</orth>
+        </form>
+      </entry>
+      <entry n="auquel">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>auquel</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>à laquelle</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>auxquels</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>auxquelles</orth>
+        </form>
+      </entry>
+      <entry n="duquel">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>duquel</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>de laquelle</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>desquels</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>desquelles</orth>
+        </form>
+      </entry>
+      <entry n="actif">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>actif</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>active</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>actifs</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>actives</orth>
+        </form>
+      </entry>
+      <entry n="actuel">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>actuel</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>actuelle</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>actuels</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>actuelles</orth>
+        </form>
+      </entry>
+      <entry n="ancien">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>ancien</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>ancienne</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>anciens</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>anciennes</orth>
+        </form>
+      </entry>
+      <entry n="associé">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>associé</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>associée</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>associés</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>associées</orth>
+        </form>
+      </entry>
+      <entry n="configuré">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>configuré</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>configurée</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>configurés</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>configurées</orth>
+        </form>
+      </entry>
+      <entry n="connecté">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>connecté</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>connectée</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>connectés</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>connectées</orth>
+        </form>
+      </entry>
+      <entry n="désélectionné">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>désélectionné</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>désélectionnée</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>désélectionnés</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>désélectionnées</orth>
+        </form>
+      </entry>
+      <entry n="déverrouillé">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>déverrouillé</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>déverrouillée</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>déverrouillés</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>déverrouillées</orth>
+        </form>
+      </entry>
+      <entry n="géré">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>géré</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>gérée</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>gérés</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>gérées</orth>
+        </form>
+      </entry>
+      <entry n="indiqué">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>indiqué</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>indiquée</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>indiqués</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>indiquées</orth>
+        </form>
+      </entry>
+      <entry n="local">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>local</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>locale</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>locaux</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>locales</orth>
+        </form>
+      </entry>
+      <entry n="nouveau">
+        <form>
+          <gramGrp>
+            <usg value="V"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>nouvel</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="C"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>nouveau</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="V"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>nouvelle</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <usg value="C"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>nouvelle</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>nouveaux</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>nouvelles</orth>
+        </form>
+      </entry>
+      <entry n="pris">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>pris</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>prise</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>pris</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>prises</orth>
+        </form>
+      </entry>
+      <entry n="programmé">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>programmé</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>programmée</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>programmés</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>programmées</orth>
+        </form>
+      </entry>
+      <entry n="sélectionné">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>sélectionné</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>sélectionnée</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>sélectionnés</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>sélectionnées</orth>
+        </form>
+      </entry>
+      <entry n="tout">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>tout</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>toute</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>tous</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>toutes</orth>
+        </form>
+      </entry>
+      <entry n="verrouillé">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>verrouillé</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>verrouillée</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>verrouillés</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>verrouillées</orth>
+        </form>
+      </entry>
+    </body>
+  </text>
+</TEI>
