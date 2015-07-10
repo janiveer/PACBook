@@ -27,10 +27,6 @@
                 xmlns:pac="urn:x-pacbook:functions"
                 exclude-result-prefixes="xd pac tei db"
                 version="1.1">
-	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
-	<xsl:include href="common/CommonFunctions.xsl"/>
-	<xsl:param name="Verbose" select="false()"/>
-	<xsl:param name="Dictionary" select="'data/DataSyntax.xml'"/>
 
 	<xd:doc>
 		===========================================================
@@ -40,6 +36,9 @@
 		environment, case, gender and number.
 		===========================================================
 	</xd:doc>
+	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
+	<xsl:include href="common/CommonFunctions.xsl"/>
+	<xsl:param name="Verbose" select="false()"/>
 
 	<xd:doc>
 		==============
@@ -63,21 +62,23 @@
 		<xsl:variable name="my.norm" select="pac:lc($my.word)"/>
 		<xsl:variable name="my.lang" select="pac:lang()"/>
 		<xsl:if test="$Verbose=true()">
-			<xsl:if test="not(document($Dictionary))">
+			<xsl:if test="$my.lang = 'mis'">
 				<xsl:message terminate="no">
-					<xsl:text>Could not find </xsl:text>
-					<xsl:value-of select="$Dictionary"/>
+					<xsl:text>Language not specified.</xsl:text>
 				</xsl:message>
 			</xsl:if>
 		</xsl:if>
 		<!-- Get dictionary for current language -->
+		<xsl:variable name="Dictionary">
+			<xsl:value-of select="concat('tei/', $my.lang, '.xml')"/>
+		</xsl:variable>
 		<xsl:variable name="my.div">
-			<xsl:copy-of select="document($Dictionary)//tei:div[@xml:lang=$my.lang]"/>
+			<xsl:copy-of select="document($Dictionary)//tei:body"/>
 		</xsl:variable>
 		<xsl:if test="$Verbose=true()">
 			<xsl:if test="not($my.div/*)">
 				<xsl:message terminate="no">
-					<xsl:text>No dictionary for </xsl:text>
+					<xsl:text>No dictionary for language: </xsl:text>
 					<xsl:value-of select="$my.lang"/>
 				</xsl:message>
 			</xsl:if>
