@@ -23,13 +23,15 @@
                 xmlns:func="http://exslt.org/functions"
                 xmlns:uri="http://xsltsl.org/uri"
                 xmlns:str="http://xsltsl.org/string"
+                xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
-                xmlns:pac="urn:x-pacbook:functions"
-                xmlns:vivo="http://vivoweb.org/ontology/core#"
+                xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                xmlns:vivo="http://vivoweb.org/ontology/core#"
                 xmlns:tmx="http://www.lisa.org/tmx14"
+                xmlns:pac="urn:x-pacbook:functions"
                 extension-element-prefixes="func"
-                exclude-result-prefixes="func uri str xd pac tmx vivo rdf"
+                exclude-result-prefixes="func uri str xd xl rdf vivo tmx pac"
                 version="1.1">
 
 	<xsl:import href="../../lib/xsltsl/stdlib.xsl"/>
@@ -190,6 +192,31 @@
 			</xsl:choose>
 		</xsl:variable>
 		<func:result select="$strResult"/>
+	</func:function>
+
+	<xd:doc>
+		**********************************************************
+		pac:fixup('id', 'uri')
+
+		From the context node, finds the nearest locator whose
+		@xl:href matches {$id} in an extended link whose @xl:role
+		is {$uri}. Follows the arc to its other locator and
+		returns the ID specified by that locator's @xl:href.
+		**********************************************************
+	</xd:doc>
+	<func:function name="pac:fixup">
+		<xsl:param name="start.id"/>
+		<xsl:param name="role.uri"/>
+		<xsl:variable name="start.ref" select="concat('#', $start.id)"/>
+		<xsl:variable name="start.loc" select="ancestor-or-self::*/db:info/db:extendedlink[@xl:role=$role.uri]/db:locator[@xl:href=$start.ref]"/>
+		<xsl:variable name="this.link" select="$start.loc/.."/>
+		<xsl:variable name="start.lbl" select="$start.loc/@xl:label"/>
+		<xsl:variable name="start.arc" select="$this.link/db:arc[@xl:from=$start.lbl]"/>
+		<xsl:variable name="fixup.lbl" select="$start.arc/@xl:to"/>
+		<xsl:variable name="fixup.loc" select="$this.link/db:locator[@xl:label=$fixup.lbl]"/>
+		<xsl:variable name="fixup.ref" select="$fixup.loc/@xl:href"/>
+		<xsl:variable name="fixup.id"  select="substring-after($fixup.ref, '#')"/>
+		<func:result select="$fixup.id"/>
 	</func:function>
 
 </xsl:stylesheet>

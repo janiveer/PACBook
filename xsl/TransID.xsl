@@ -23,31 +23,32 @@
                 xmlns:db="http://docbook.org/ns/docbook"
                 xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
-                exclude-result-prefixes="xd"
+                xmlns:pac="urn:x-pacbook:functions"
+                exclude-result-prefixes="pac xd"
                 version="1.1">
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 
 	<xd:doc>
-		=========================================================
-		Stylesheet for resolving @xml:id after transclusion.
+		========================================================
+		Stylesheet for fixing up @xml:id after transclusion.
 
-		Changes @xml:id to @xl:href of nearest locator with
-		matching @xl:label.
-		=========================================================
+		Fixes up each @xml:id with pac:fixup().
+		========================================================
 	</xd:doc>
+	<xsl:include href="common/CommonFunctions.xsl"/>
+	<xsl:param name="idRole" select="'http://stanleysecurity.github.io/PACBook/role/id'"/>
 
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:if test="@xml:id">
-				<xsl:variable name="pac.id" select="@xml:id"/>
-				<xsl:variable name="pac.locator" select="ancestor-or-self::*/db:info/db:extendedlink/db:locator[@xl:label=$pac.id]"/>
+				<xsl:variable name="start.id" select="@xml:id"/>
+				<xsl:variable name="fixup.id" select="pac:fixup($start.id, $idRole)"/>
 				<xsl:choose>
-					<xsl:when test="$pac.locator">
-						<xsl:variable name="pac.href" select="$pac.locator/@xl:href"/>
+					<xsl:when test="$fixup.id">
 						<xsl:attribute name="xml:id">
-							<xsl:value-of select="substring-after($pac.href, '#')"/>
+							<xsl:value-of select="$fixup.id"/>
 						</xsl:attribute>
 					</xsl:when>
 					<xsl:otherwise>

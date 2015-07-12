@@ -25,10 +25,21 @@
                 xmlns:str="http://exslt.org/strings"
                 xmlns:xl="http://www.w3.org/1999/xlink"
                 xmlns:saxon="http://icl.com/saxon"
-                exclude-result-prefixes="str db xl saxon xd"
+                xmlns:pac="urn:x-pacbook:functions"
+                exclude-result-prefixes="str db saxon pac xd"
                 version="1.0">
 
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
+
+	<xd:doc>
+		========================================================
+		Stylesheet for fixing up links after transclusion.
+
+		Fixes up each link destination with pac:fixup().
+		========================================================
+	</xd:doc>
+	<xsl:include href="common/CommonFunctions.xsl"/>
+	<xsl:param name="linkRole" select="'http://stanleysecurity.github.io/PACBook/role/link'"/>
 
 	<xd:doc>
 		==============
@@ -38,7 +49,7 @@
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:if test="starts-with(@xl:href, '#')">
+			<xsl:if test="starts-with(@xl:href, '#') and not(self::db:locator)">
 				<xsl:call-template name="Fix_XLink"/>
 			</xsl:if>
 			<xsl:if test="@linkend">
@@ -57,16 +68,16 @@
 		==============================
 	</xd:doc>
 	<xsl:template name="Fix_XLink">
-		<xsl:variable name="pac.linkend" select="substring-after(@xl:href, '#')"/>
-		<xsl:variable name="pac.arc" select="ancestor-or-self::*/db:info/db:extendedlink/db:arc[@xl:from=$pac.linkend]"/>
+		<xsl:variable name="start.id" select="substring-after(@xl:href, '#')"/>
+		<xsl:variable name="fixup.id" select="pac:fixup($start.id, $linkRole)"/>
 		<xsl:attribute name="href" namespace="http://www.w3.org/1999/xlink">
 			<xsl:text>#</xsl:text>
 			<xsl:choose>
-				<xsl:when test="$pac.arc">
-					<xsl:value-of select="$pac.arc/@xl:to"/>
+				<xsl:when test="$fixup.id">
+					<xsl:value-of select="$fixup.id"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:value-of select="$pac.linkend"/>
+					<xsl:value-of select="$start.id"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:attribute>
@@ -78,15 +89,15 @@
 		=========================
 	</xd:doc>
 	<xsl:template name="Fix_Linkend">
-		<xsl:variable name="pac.linkend" select="@linkend"/>
-		<xsl:variable name="pac.arc" select="ancestor-or-self::*/db:info/db:extendedlink/db:arc[@xl:from=$pac.linkend]"/>
+		<xsl:variable name="start.id" select="@linkend"/>
+		<xsl:variable name="fixup.id" select="pac:fixup($start.id, $linkRole)"/>
 		<xsl:attribute name="linkend">
 			<xsl:choose>
-				<xsl:when test="$pac.arc">
-					<xsl:value-of select="$pac.arc/@xl:to"/>
+				<xsl:when test="$fixup.id">
+					<xsl:value-of select="$fixup.id"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:value-of select="$pac.linkend"/>
+					<xsl:value-of select="$start.id"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:attribute>
@@ -126,15 +137,15 @@
 
 	<xsl:template name="Fix_AreaRef">
 		<xsl:param name="pac.arearefs"/>
-		<xsl:variable name="pac.linkend" select="."/>
+		<xsl:variable name="start.id" select="."/>
 		<xsl:for-each select="$pac.arearefs">
-			<xsl:variable name="pac.arc" select="ancestor-or-self::*/db:info/db:extendedlink/db:arc[@xl:from=$pac.linkend]"/>
+			<xsl:variable name="fixup.id" select="pac:fixup($start.id, $linkRole)"/>
 			<xsl:choose>
-				<xsl:when test="$pac.arc">
-					<xsl:value-of select="$pac.arc/@xl:to"/>
+				<xsl:when test="$fixup.id">
+					<xsl:value-of select="$fixup.id"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:value-of select="$pac.linkend"/>
+					<xsl:value-of select="$start.id"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:for-each>

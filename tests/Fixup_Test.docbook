@@ -1,0 +1,52 @@
+<?xml-stylesheet href="http://www.jabadaw.com/PAC/files/Docbook.css" type="text/css"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:its="http://www.w3.org/2005/11/its"
+         xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+         xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+         version="5.0-variant PACBook"
+         xml:id="xlink_test"
+         status="draft"
+         xml:lang="en-GB">
+	<title>ID and Link Fixup Test</title>
+	<info>
+		<extendedlink xl:role="http://stanleysecurity.github.io/PACBook/role/id">
+			<locator xl:label="xid_1" xl:href="#original_id"/>
+			<locator xl:label="xid_2" xl:href="#original_end"/>
+			<locator xl:label="fix_1" xl:href="#fixup_id"/>
+			<locator xl:label="fix_2" xl:href="#fixup_end"/>
+			<arc xl:from="xid_1" xl:to="fix_1"/>
+			<arc xl:from="xid_2" xl:to="fix_2"/>
+		</extendedlink>
+		<extendedlink xl:role="http://stanleysecurity.github.io/PACBook/role/link">
+			<locator xl:label="xid_1" xl:href="#original_link"/>
+			<locator xl:label="xid_2" xl:href="#original_xref"/>
+			<locator xl:label="xid_3" xl:href="#original_end"/>
+			<locator xl:label="fix_1" xl:href="#fixup_link"/>
+			<locator xl:label="fix_2" xl:href="#fixup_xref"/>
+			<locator xl:label="fix_3" xl:href="#fixup_end"/>
+			<arc xl:from="xid_1" xl:to="fix_1"/>
+			<arc xl:from="xid_2" xl:to="fix_2"/>
+			<arc xl:from="xid_3" xl:to="fix_3"/>
+		</extendedlink>
+	</info>
+	<section xml:id="original_id">
+		<title>After Processing...</title>
+		<para>This section should have the ID <tag class="attvalue">fixup_id</tag>.</para>
+		<para>This <link xl:href="#original_link">link</link> should point to <tag class="attvalue">fixup_link</tag>.</para>
+		<para>This cross reference should point to <tag class="attvalue">fixup_xref</tag> — see <xref xl:href="#original_xref"/>.</para>
+	</section>
+	<section xml:id="original_end">
+		<title>And...</title>
+		<para>This <link linkend="original_end">link</link> should point to <tag class="attvalue">fixup_end</tag>.</para>
+		<calloutlist>
+			<callout arearefs="original_id">
+				<para>This callout should stay the same because no link fixup has been declared.</para>
+			</callout>
+			<callout arearefs="original_end">
+				<para>This callout should point to <tag class="attvalue">fixup_end</tag>.</para>
+			</callout>
+		</calloutlist>
+	</section>
+</article>
