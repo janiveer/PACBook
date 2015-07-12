@@ -11,7 +11,7 @@
 <p>This stylesheet has similar functionality to the way <code>&lt;simplelist type='inline'&gt;</code> elements are processed by the DocBook XSL stylesheets. The differences are:</p>
 <ol>
 <li><p>The final conjunction is specified via the <code>role</code> attribute.</p></li>
-<li><p>For languages which require it, the final conjunction is output within a wrapper element with the <code>ling:type='dep'</code> attribute. This enables you to use the <a href="LingDepend.xsl">LingDepend.xsl</a> stylesheet on the output file to select the correct form of the final conjunction, depending on the phonetic environment.</p></li>
+<li><p>For languages which require it, the final conjunction is output within a wrapper element with the <code>ling:type='depend'</code> attribute. This enables you to use the <a href="LingDepend.xsl">LingDepend.xsl</a> stylesheet on the output file to select the correct form of the final conjunction, depending on the phonetic environment.</p></li>
 </ol>
 <p>For example, in Spanish, if the <code>role</code> attribute is set to <code>and</code>, the <a href="LingDepend.xsl">LingDepend.xsl</a> stylesheet will change the final conjunction to “e” if the following word begins with an “i” sound, or “y” otherwise. (There must be wrapper elements, e.g. <code>&lt;phrase&gt;</code>, around each term in the list, using the <code>ling:pron</code> attribute to indicate the initial sound of each term.)</p>
 <p>The final conjunctions are specified in the <code>DataLabels.xml</code> file. The supported languages are German, English, Spanish, Finnish, French, Italian, Norwegian Bokmål, Dutch, Portuguese, Swedish and Simplified Chinese.</p>
