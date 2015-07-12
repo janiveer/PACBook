@@ -1,0 +1,25 @@
+<p>Not all of PACBook’s features are natively available in DocBook 5.0. PACBook provides a custom RelaxNG schema to enable them.</p>
+<p><code>pacbook.rng</code> adds the following features to the DocBook 5.0 <code>docbookxi.rng</code> schema.</p>
+<h2 id="elements">Elements</h2>
+<p><code>pacbook.rng</code> adds the following elements in the DocBook namespace.</p>
+<ul>
+<li><p>An optional <code>&lt;title&gt;</code> element as an initial child of the <code>&lt;extendedlink&gt;</code> element. This can contain text and all inline elements. It takes all common DocBook attributes. By default the <code>xl:type</code> attribute is set to <code>title</code>. This element enables you to define a title for an extended link.</p></li>
+<li><p>Any number of optional <code>&lt;resource&gt;</code> elements within the <code>&lt;extendedlink&gt;</code> element. This can contain text, all block elements and all inline elements. It takes all common DocBook attributes. By default the <code>xl:type</code> attribute is set to <code>resource</code>. This element enables you to define a resource in an extended link.</p></li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<p><code>pacbook.rng</code> adds the following to the DocBook common attributes:</p>
+<ul>
+<li><p>All ITS 2.0 local attributes in the <a href="http://www.w3.org/TR/its20/">ITS</a> namespace.</p></li>
+<li><p>The <code>xlf:id</code> attribute. This is in the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> namespace and contains an NMToken. It is used for PACBook translation — see <a href="XlateMarkup.xsl">XlateMarkup.xsl</a>.</p></li>
+<li><p>The <code>content:ref</code> attribute. This is in the <a href="http://stanleysecurity.github.io/PACBook/ns/transclusion">PACBook transclusion</a> namespace and contains an NMToken. It is used for parametrised transclusion — see <a href="TransParam.xsl">TransParam.xsl</a>.</p></li>
+<li><p>The following linguistic markup attributes. They are in the <a href="http://stanleysecurity.github.io/PACBook/ns/linguistics">PACBook linguistics</a> namespace and contain NMTokens. They are used for linguistic pre-processing.</p></li>
+</ul>
+<p><code>ling:type</code> — marks government and binding. Set to <code>head</code> for inflected head nouns, <code>depend</code> for inflected dependent words. See <a href="LingHead.xsl">LingHead.xsl</a>, <a href="LingDepend.xsl">LingDepend.xsl</a>.</p>
+<p><code>ling:pron</code> — marks pronunciation of a head word. See <a href="LingDepend.xsl">LingDepend.xsl</a>.</p>
+<p><code>ling:gen</code> — marks syntactic gender. See <a href="LingDepend.xsl">LingDepend.xsl</a>.</p>
+<p><code>ling:num</code> — marks syntactic number. See <a href="LingDepend.xsl">LingDepend.xsl</a>.</p>
+<p><code>ling:case</code> — marks syntactic case. See <a href="LingHead.xsl">LingHead.xsl</a>, <a href="LingDepend.xsl">LingDepend.xsl</a>.</p>
+<p><code>ling:class</code> — marks syntactic definiteness. See <a href="LingHead.xsl">LingHead.xsl</a>, <a href="LingDepend.xsl">LingDepend.xsl</a>.</p>
+<p><code>ling:orth</code> — marks orthographic case. See <a href="LingCasing.xsl">LingCasing.xsl</a>.</p>
+<h3 id="note">Note</h3>
+<p>PACBook also adds the <code>outputformat</code> attribute in the DocBook namespace as a common attribute. This is due to be added in DocBook 5.1 anyway; I’ve added it to PACBook because I found it useful.</p>

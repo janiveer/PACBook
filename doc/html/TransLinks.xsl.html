@@ -1,8 +1,8 @@
 <p>Enables fine-grained fixup of simple link attributes after transclusion.</p>
 <h2 id="parameters">Parameters</h2>
-<p><code>[RoleURI]</code></p>
+<p><code>[linkRole]</code></p>
 <ul>
-<li><strong>RoleURI</strong> (URI) — A URI which identifies the fixup XLink role. Default is <a href="http://stanleysecurity.github.io/PACBook/role/fixup">http://stanleysecurity.github.io/PACBook/role/fixup</a>.</li>
+<li><strong>linkRole</strong> (URI) — A URI which identifies the link fixup XLink role. Default is <a href="http://stanleysecurity.github.io/PACBook/role/link">http://stanleysecurity.github.io/PACBook/role/link</a>.</li>
 </ul>
 <h2 id="input">Input</h2>
 <p>An XML document containing extended links to fix up simple link attributes as described below.</p>
@@ -15,12 +15,13 @@
 <li><p>If you want to include a subdocument containing <em>outbound</em> cross references or links to IDs in other subdocuments which are not present in the current assembly file or master document. You can fix up these links to redirect them to other IDs which are known to be present.</p></li>
 </ol>
 <p>This stylesheet enables you to specify by hand how links should be fixed up, using XLink.</p>
-<p>In the assembly file or master document, at the start of each section where you want to fix up links or cross references, you must add an extended link element with the <code>xl:role</code> attribute set to the specified fixup role URI. This should contain one arc element for each link that will need fixing up. Each arc element should have:</p>
+<p>In the assembly file or master document, at the start of each section where you want to fix up links or cross references, you must add an extended link element with the <code>xl:role</code> attribute set to the specified link fixup role URI. For each link or cross-reference that needs fixing up, the extended link should contain:</p>
 <ol>
-<li>An <code>xl:from</code> attribute which matches a link target referenced within the subdocument<br /></li>
-<li>An <code>xl:to</code> attribute which points to the new ID that you want the link to use.</li>
+<li><p>A locator element with an <code>xl:label</code> attribute unique within the extended link, whose <code>xl:href</code> attribute is set to a link location that you want to fix up.</p></li>
+<li><p>A locator element with an <code>xl:label</code> attribute unique within the extended link, whose <code>xl:href</code> attribute is set to the link location that you want the link or cross reference to use.</p></li>
+<li><p>An arc element whose <code>xl:from</code> attribute is set to the <code>xl:label</code> attribute of the start locator and whose <code>xl:to</code> attribute is set to the <code>xl:label</code> attribute of the fixup locator.</p></li>
 </ol>
-<p>When run, the stylesheet recurses through the document and copies each element. If any element has an <code>xl:href</code> attribute, the stylesheet looks for the nearest ancestor which contains an extended link whose <code>xl:role</code> attribute is set to the specified fixup role URI <em>and</em> which contains an arc element whose <code>xl:from</code> attribute is the same as the <code>xl:href</code> attribute. If it finds a matching arc, the stylesheet replaces the value of the <code>xl:href</code> attribute with the value of the arc element’s <code>xl:to</code> attribute.</p>
+<p>When run, the stylesheet recurses through the document and copies each element. If any element has an <code>xl:href</code> attribute, the stylesheet looks for the nearest ancestor element which contains an extended link whose <code>xl:role</code> attribute is set to the specified link fixup role URI <em>and</em> which contains a locator element whose <code>xl:href</code> attribute is the same as the current <code>xl:href</code> attribute. If it finds a matching locator, the stylesheet follows the arc to the target locator and replaces the value of the current <code>xl:href</code> attribute with the value indicated by the target locator’s <code>xl:href</code> attribute.</p>
 <p>For DocBook documents, this stylesheet also fixes up <code>linkend</code> attributes and the content of <code>arearefs</code> attributes in the same way.</p>
 <p>You should run this stylesheet after transclusion. If any of your translation strings contain simple links, you may need to run this stylesheet after translation instead.</p>
 <p>For fixing up IDs after transclusion, see <a href="TransID.xsl">TransID.xsl</a>.</p>
