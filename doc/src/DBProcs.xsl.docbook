@@ -40,7 +40,7 @@
 				<para>The attributes of the <tag class="element">informaltable</tag>, e.g. framing, row separators and column separators, are given by the <literal>pac.revhistory.table</literal> attribute set. The attributes of the four columns, e.g. column width, are given by the <literal>pac.revhistory.col.version</literal>, <literal>pac.revhistory.col.date</literal>, <literal>pac.revhistory.col.author</literal> and <literal>pac.revhistory.col.detail</literal> attribute sets.</para>
 			</refsect2>
 			<refsect2>
-				<title><tag class="xmlpi">pac-applicability</tag>/title>
+				<title><tag class="xmlpi">pac-applicability</tag></title>
 				<para>You can use this processing instruction to place an applicability table at a precise place in the document. When the stylesheet encounters this processing instruction, it builds a DocBook <tag class="element">informaltable</tag> containing four columns: <emphasis role="strong">Product</emphasis>, <emphasis role="strong">Name</emphasis>, <emphasis role="strong">Detail</emphasis> and <emphasis role="strong">Version</emphasis>. The table uses the CALS table model.</para>
 				<para>The table header is populated in the language specified by the nearest ancestor <literal>xml:lang</literal> attribute. The labels are taken from <literal>DataLabels.xml</literal>. The only fully-supported languages at present are German, English, French and Dutch.</para>
 				<para>Each table row is populated by the details given in the document’s <link xl:href="#RDF-Applicability">applicability metadata</link>, if there are any.</para>
