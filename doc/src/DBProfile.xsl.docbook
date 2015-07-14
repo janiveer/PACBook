@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://stanleysecurity.github.io/PACBook/css/Docbook.css" type="text/css"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:its="http://www.w3.org/2005/11/its"
+         xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+         xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
+         xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+         version="5.0-variant PACBook"
+         its:version="2.0"
+         xml:lang="en-GB"
+         xml:id="pacbook.db.profile">
+	<title>DBProfile</title>
+	<refentry>
+		<refnamediv>
+			<refname>DBProfile.xsl</refname>
+			<refpurpose>Enables you to include or exclude parts of a document conditionally based on the document’s ID.</refpurpose>
+		</refnamediv>
+		<refsynopsisdiv>
+			<title>Parameters</title>
+			<para>All of the DocBook XSL stylesheet profiling parameters, except for <emphasis role="strong">profile.condition</emphasis> — see below.</para>
+		</refsynopsisdiv>
+		<refsect1>
+			<title>Input</title>
+			<para>A DocBook document with conditional profiling attributes.</para>
+		</refsect1>
+		<refsect1>
+			<title>Output</title>
+			<para>A profiled DocBook document.</para>
+		</refsect1>
+		<refsect1>
+			<title>Description</title>
+			<para>This stylesheet is a custom layer which imports the <literal>profile.xsl</literal> stylesheet from the DocBook XSL stylesheets.</para>
+			<para>For quicker processing and to save network bandwith, you should set up your XML catalog so that <uri>http://docbook.sourceforge.net/release/xsl-ns/current/profiling/profile.xsl</uri> is redirected to your local copy of <literal>profile.xsl</literal>.</para>
+			<para>This stylesheet takes the <literal>xml:id</literal> attribute from the root element in the document and passes that to <literal>profile.xsl</literal> as the value of the <literal>profile.condition</literal> parameter. The result of this is that any elements in the document which have the <literal>condition</literal> attribute set to the document’s XML ID are included in the output; any which have the <literal>condition</literal> attribute set to something else are excluded.</para>
+			<para>This enables you to specify that certain parts of a subdocument should be omitted and certain parts kept when the subdocument is transcluded into a particular master document, based solely on that master document’s ID.</para>
+			<para>If necessary, you can supply a fake ID value to the <literal>profile.xsl</literal> stylesheet by adding a <literal>condition</literal> attribute to the root element of the master document. The stylesheet will take this as the value of the <literal>profile.condition</literal> parameter in preference to the root <literal>xml:id</literal> attribute.</para>
+			<para>It is recommended to perform conditional profiling as a separate step when using PACBook. For example, you should process parametrised transclusion <emphasis>before</emphasis> conditional profiling, and you should process dynamic links, simple lists and syntactic processing <emphasis>after</emphasis> conditional profiling.</para>
+		</refsect1>
+		<refsect1>
+			<title>Roadmap</title>
+			<para>Add support for <literal>its:localeFilterList</literal> and <literal>its:localeFilterType</literal> attributes.</para>
+		</refsect1>
+	</refentry>
+</article>

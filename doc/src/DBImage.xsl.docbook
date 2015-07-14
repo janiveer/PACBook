@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://stanleysecurity.github.io/PACBook/css/Docbook.css" type="text/css"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:its="http://www.w3.org/2005/11/its"
+         xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+         xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
+         xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+         version="5.0-variant PACBook"
+         its:version="2.0"
+         xml:lang="en-GB"
+         xml:id="pacbook.db.images">
+	<title>DBImage</title>
+	<refentry>
+		<refnamediv>
+			<refname>DBImage.xsl</refname>
+			<refpurpose>Resolves image file references against all ancestor <literal>xml:base</literal> attributes.</refpurpose>
+		</refnamediv>
+		<refsynopsisdiv>
+			<title>Parameters</title>
+			<para>None.</para>
+		</refsynopsisdiv>
+		<refsect1 xml:id="input">
+			<title>Input</title>
+			<para>A DocBook document. Chapters or sections which have been transcluded must have <literal>xml:base</literal> attributes giving their origin, either absolute or relative to the complete document.</para>
+		</refsect1>
+		<refsect1 xml:id="output">
+			<title>Output</title>
+			<para>A DocBook document, identical to the input except that any image file references are resolved against all ancestor <literal>xml:base</literal> attributes.</para>
+		</refsect1>
+		<refsect1 xml:id="description">
+			<title>Description</title>
+			<para>The stylesheet recurses through the document and copies each element. For each <tag class="element">imagedata</tag> element, if there is a <literal>fileref</literal> attribute, it is resolved against all ancestor <literal>xml:base</literal> attributes and written to the output document.</para>
+			<para>It is assumed that document modules refer to image files relative to their own location. You can use this stylesheet to modify image file references to point to the location of the original image relative to the assembled document’s location. The transclusion or assembly process used to build the document must add <literal>xml:base</literal> attributes to show the origin of each document module.</para>
+		</refsect1>
+	</refentry>
+</article>

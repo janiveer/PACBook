@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://stanleysecurity.github.io/PACBook/css/Docbook.css" type="text/css"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:its="http://www.w3.org/2005/11/its"
+         xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+         xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
+         xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+         version="5.0-variant PACBook"
+         its:version="2.0"
+         xml:lang="en-GB"
+         xml:id="ID">
+	<title>DocTools</title>
+	<refentry>
+		<refnamediv>
+			<refname></refname>
+			<refpurpose></refpurpose>
+		</refnamediv>
+		<refsynopsisdiv>
+			<synopsis></synopsis>
+		</refsynopsisdiv>
+<para>
+  Exports an
+  <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+  file to a tab or comma delimited text file.
+</para>
+<sect1 id="parameters">
+  <title>Parameters</title>
+  <para>
+    <literal>[EOL] [Separator] [Delimiter] [Header]</literal>
+  </para>
+  <itemizedlist>
+    <listitem>
+      <para>
+        <emphasis role="strong">EOL</emphasis> (String) — The line
+        ending characters. Default carriage return + line feed.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        <emphasis role="strong">Separator</emphasis> (String) — The
+        character between fields. Default tab.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        <emphasis role="strong">Delimiter</emphasis> (String) —
+        Character surrounding fields. Default single quote.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        <emphasis role="strong">Header</emphasis> (Boolean) — Whether or
+        not the first row is a header row. Default false.
+      </para>
+    </listitem>
+  </itemizedlist>
+</sect1>
+<sect1 id="input">
+  <title>Input</title>
+  <para>
+    An
+    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+    document.
+  </para>
+</sect1>
+<sect1 id="output">
+  <title>Output</title>
+  <para>
+    A tab or comma delimited text file.
+  </para>
+</sect1>
+<sect1 id="description">
+  <title>Description</title>
+  <para>
+    The stylesheet exports the content of an
+    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+    file as a UTF-8 encoded, tab or comma delimited text file. This can
+    be imported into a spreadsheet.
+  </para>
+  <para>
+    The first column contains the translation unit ID, second column the
+    <literal>resname</literal> attribute, third column the source text,
+    fourth column the target text and fifth column notes, if any.
+  </para>
+  <para>
+    If the <literal>Header</literal> parameter is set to true, i.e.
+    anything other than 0 or the empty string, the first row of the
+    exported text file is a header row containing the text
+    <literal>ID</literal>, source language code, target language code,
+    <literal>Notes</literal>.
+  </para>
+</sect1>
+	</refentry>
+</article>

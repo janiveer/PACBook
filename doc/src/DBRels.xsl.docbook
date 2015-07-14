@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://stanleysecurity.github.io/PACBook/css/Docbook.css" type="text/css"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:its="http://www.w3.org/2005/11/its"
+         xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+         xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
+         xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+         version="5.0-variant PACBook"
+         its:version="2.0"
+         xml:lang="en-GB"
+         xml:id="pacbook.db.rels">
+	<title>DBRels</title>
+	<refentry>
+		<refnamediv>
+			<refname>DBRels.xsl</refname>
+			<refpurpose>Creates automatic links between sections in a document.</refpurpose>
+		</refnamediv>
+		<refsynopsisdiv>
+			<title>Parameters</title>
+			<synopsis>[linkHome] [linkPart] [linkStyle]</synopsis>
+			<itemizedlist>
+				<listitem>
+					<para><emphasis role="strong">linkHome</emphasis> (URI) — the XLink role used to identify the start of automatic links; default <uri>http://www.iana.org/assignments/relation/item</uri>.</para>
+				</listitem>
+				<listitem>
+					<para><emphasis role="strong">linkPart</emphasis> (URI) — the XLink role used to identify the targets of automatic links; default <uri>http://www.iana.org/assignments/relation/collection</uri>.</para>
+				</listitem>
+				<listitem>
+					<para><emphasis role="strong">linkStyle</emphasis> (String) — the style string that determines the content of the automatic links;
+						default <literal>select: title</literal>.</para>
+				</listitem>
+			</itemizedlist>
+		</refsynopsisdiv>
+		<refsect1>
+			<title>Input</title>
+			<para>A DocBook document. The start locations and sections to be included in automatic links must be marked up as described below.</para>
+		</refsect1>
+		<refsect1>
+			<title>Output</title>
+			<para>A DocBook document, identical to the input but with automatic links between sections of the document.</para>
+		</refsect1>
+		<refsect1>
+			<title>Description</title>
+			<para>To use this stylesheet you must assign a name to each set of related sections. You mark up the location for a list of automatic links by adding, in the <tag class="element">info</tag> section at the start of a chapter or section, an <tag class="element">extendedlink</tag> element with the <literal>xl:role</literal> attribute set to <uri>http://www.iana.org/assignments/relation/item.</uri></para>
+			<para>Within this <tag class="element">extendedlink</tag> element, add an <tag class="element">arc</tag> child element whose <literal>xl:to</literal> attribute contains the name you have assigned to this set of related sections. (You can add more than one <tag class="element">arc</tag> element if you want to create links to several named sets of related sections.)</para>
+			<para>It would be good practice for this <tag class="element">extendedlink</tag> element also to contain a <tag class="element">locator</tag> element to point to the chapters or sections which this link contains, but the stylesheet does not look for a locator. It looks for matching chapters or section as described below.</para>
+			<para>In each chapter or section that you want to include in a set of related sections, you must add an <tag class="element">extendedlink</tag> element with the <literal>xl:role</literal> attribute set to <uri>http://www.iana.org/assignments/relation/collection</uri>. This must contain an XLink resource element whose <literal>xl:label</literal> attribute contains the name you have assigned to this set of related sections. (You can add more than one XLink resource element if you want to include this chapter or section in several named sets of related sections.)</para>
+			<para>The stylesheet recurses through the document and copies each element. If any chapter or section of the document is marked as the start of an automatic link, the stylesheet builds an <tag class="element">itemizedlist</tag> containing links to all the chapters or sections which are marked to be included in that named set of related sections.</para>
+			<para>The list is positioned after any body text, but before any subsections. Each link in the list is an <tag class="element">xref</tag> element; the content is determined by the <literal>xrefstyle</literal> attribute, which by default is set to <literal>select: title</literal>.</para>
+			<refsect2>
+				<title>Resource Elements</title>
+				<para>DocBook 5.0 does not have XLink resource elements. For this purpose, PACBook provides a custom layer for the DocBook 5.0 chema which adds a <tag class="element">resource</tag> element to the <tag class="element">extendedlink</tag> element. See the <link xl:href="#PACBook-Schema">PACBook RNG schema</link>. (In DocBook 5.1 it may be possible to use a <tag class="element">link</tag> element with the <literal>xl:type='resource'</literal> attribute, but this has not been tested.)</para>
+			</refsect2>
+			<refsect2>
+				<title>Link Titles</title>
+				<para>Before the <tag class="element">itemizedlist</tag> of links, the stylesheet creates an introductory <tag class="element">para</tag> element in the language determined by the nearest ancestor <literal>xml:lang</literal> attribute. By default, this contains the text called <literal>links</literal> from <literal>DataLabels.xml</literal>. In English, this is ‬“See the following sections:”. The supported languages are German, English, Spanish, French, Dutch and Swedish.</para>
+				<para>It is possible to specify different text for the introductory paragraph by adding an XLink title element to the <tag class="element">extendedlink</tag> that marks the start of the automatic link. This is not possible in DocBook 5.0. The <link xl:href="#PACBook-Schema">PACBook RNG schema</link> adds a <tag class="element">title</tag> element to <tag class="element">extendedlink</tag> to enable this. (In DocBook 5.1, you may be able to use a <tag class="element">link xl:type='title'</tag> element within the <tag class="element">extendedlink</tag>, but this has not been tested.)</para>
+			</refsect2>
+			<refsect2>
+				<title>Note</title>
+				<para><link xl:href="https://tools.ietf.org/html/rfc6573">RFC 6573</link> specifies that the <literal>item</literal> relation points <emphasis>from</emphasis> the collection <emphasis>towards</emphasis> the item; the <literal>collection</literal> relation points <emphasis>from</emphasis> the item <emphasis>towards</emphasis> the collection.</para>
+			</refsect2>
+		</refsect1>
+	</refentry>
+</article>

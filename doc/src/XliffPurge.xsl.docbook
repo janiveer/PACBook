@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://stanleysecurity.github.io/PACBook/css/Docbook.css" type="text/css"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:its="http://www.w3.org/2005/11/its"
+         xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+         xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
+         xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+         version="5.0-variant PACBook"
+         its:version="2.0"
+         xml:lang="en-GB"
+         xml:id="ID">
+	<title>DocTools</title>
+	<refentry>
+		<refnamediv>
+			<refname></refname>
+			<refpurpose></refpurpose>
+		</refnamediv>
+		<refsynopsisdiv>
+			<synopsis></synopsis>
+		</refsynopsisdiv>
+<para>
+  Purges completed translation units from an
+  <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+  file.
+</para>
+<sect1 id="parameters">
+  <title>Parameters</title>
+  <para>
+    None.
+  </para>
+</sect1>
+<sect1 id="input">
+  <title>Input</title>
+  <para>
+    An
+    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+    document.
+  </para>
+</sect1>
+<sect1 id="output">
+  <title>Output</title>
+  <para>
+    An
+    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+    document.
+  </para>
+</sect1>
+<sect1 id="description">
+  <title>Description</title>
+  <para>
+    The stylesheet copies the structure and content of the input
+    document to the output document. If any translation units have a
+    target with the attribute
+    <literal>state=&quot;translated&quot;</literal>, they are not copied
+    to the output document.
+  </para>
+  <para>
+    This stylesheet may be useful if you have partially translated a
+    differential
+    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+    file, and have just run
+    <ulink url="XlateMerge.xsl">XlateMerge.xsl</ulink> to merge the
+    completed translation units back into the main
+    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+    file.
+  </para>
+</sect1>
+	</refentry>
+</article>

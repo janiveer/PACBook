@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://stanleysecurity.github.io/PACBook/css/Docbook.css" type="text/css"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:its="http://www.w3.org/2005/11/its"
+         xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+         xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
+         xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+         version="5.0-variant PACBook"
+         its:version="2.0"
+         xml:lang="en-GB"
+         xml:id="ID">
+	<title>DocTools</title>
+	<refentry>
+		<refnamediv>
+			<refname></refname>
+			<refpurpose></refpurpose>
+		</refnamediv>
+		<refsynopsisdiv>
+			<synopsis></synopsis>
+		</refsynopsisdiv>
+<para>
+  Translates any XML document into the specified languages.
+</para>
+<sect1 id="parameters">
+  <title>Parameters</title>
+  <para>
+    <literal>Language</literal>
+  </para>
+  <para>
+    <emphasis role="strong">Language</emphasis> (string) — List of ISO
+    language codes, separated by <literal>;</literal>
+  </para>
+</sect1>
+<sect1 id="input">
+  <title>Input</title>
+  <para>
+    An XML document. You must mark up the source document with:
+  </para>
+  <orderedlist numeration="arabic">
+    <listitem>
+      <para>
+        <ulink url="RDF-Translations">Translation metadata</ulink>,
+        showing the location of the
+        <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+        files which contain the translations of the document.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        The <literal>xlf:id</literal> attributes which uniquely identify
+        each translation string.
+      </para>
+    </listitem>
+  </orderedlist>
+  <para>
+    In the <ulink url="RDF-Translations">translation metadata</ulink>,
+    one of the specified translations should have the language code
+    <literal>zxx</literal> and should point to a file which contains the
+    separator text to display between each language.
+  </para>
+</sect1>
+<sect1 id="output">
+  <title>Output</title>
+  <para>
+    A multi-lingual XML document.
+  </para>
+</sect1>
+<sect1 id="description">
+  <title>Description</title>
+  <para>
+    The stylesheet reconstructs the structure of the source file. For
+    each translatable string, it looks first for the
+    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+    file that corresponds to the <literal>zxx</literal> output language.
+    If the
+    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+    file is found, it searches for the translated string and sets that
+    as the separator text; if the separator text is not specified for
+    this translatable string, or if the separator text file is not
+    found, a middle dot <literal> · </literal> is set as the separator
+    text.
+  </para>
+  <para>
+    The stylesheet outputs the source translatable string to the output
+    file. Then, the stylesheet parses the list of target languages. For
+    each target language, it first outputs the separator text. Then it
+    looks for the
+    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+    file that corresponds to the specified language. If the
+    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+    file is found, it searches for the translated string and includes it
+    in the output document. If the
+    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+    file or the translated string are not found, the source string is
+    copied to the output document again.
+  </para>
+  <para>
+    If the translatable string is marked with the
+    <literal>its:translate=&quot;no&quot;</literal> attribute, the
+    source string is simply copied to the output document and the list
+    of output languages is not parsed.
+  </para>
+  <sect2 id="note">
+    <title>Note</title>
+    <para>
+      The language of the output document is set to
+      <literal>xml:lang=&quot;mul&quot;</literal>, the ISO code for
+      multiple languages.
+    </para>
+  </sect2>
+</sect1>
+	</refentry>
+</article>

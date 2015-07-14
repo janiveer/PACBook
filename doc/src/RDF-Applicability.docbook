@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://stanleysecurity.github.io/PACBook/css/Docbook.css" type="text/css"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:its="http://www.w3.org/2005/11/its"
+         xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+         xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
+         xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+         version="5.0-variant PACBook"
+         its:version="2.0"
+         xml:lang="en-GB"
+         xml:id="ID">
+	<title>DocTools</title>
+	<refentry>
+		<refnamediv>
+			<refname></refname>
+			<refpurpose></refpurpose>
+		</refnamediv>
+		<refsynopsisdiv>
+			<synopsis></synopsis>
+		</refsynopsisdiv>
+<para>
+  You can add applicability metadata to a DocBook document to declare
+  the hardware or software products that the document applies to.
+</para>
+<sect1 id="where-to-add-applicability-metadata">
+  <title>Where to Add Applicability Metadata</title>
+  <para>
+    Applicability metadata takes the form of RDF triples. For a DocBook
+    5.0 document, you add it to the <literal>&lt;info&gt;</literal>
+    element at the start of the document.
+  </para>
+</sect1>
+<sect1 id="how-to-write-it">
+  <title>How to Write It</title>
+  <para>
+    Typical applicability metadata for a DocBook document looks like
+    this:
+  </para>
+  <programlisting>
+&lt;rdf:RDF xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;
+         xmlns:bibo=&quot;http://purl.org/ontology/bibo/&quot;
+         xmlns:vivo=&quot;http://vivoweb.org/ontology/core#&quot;
+         xmlns:doap=&quot;http://usefulinc.com/ns/doap#&quot;&gt;
+    &lt;bibo:Document rdf:about=&quot;&quot;&gt;
+        &lt;vivo:hasSubjectArea&gt;
+            &lt;rdf:Bag&gt;
+                &lt;rdf:li rdf:parseType=&quot;Resource&quot;&gt;
+                    &lt;doap:shortdesc&gt;P/N 1234&lt;/doap:shortdesc&gt;
+                    &lt;doap:name&gt;Foo 3000&lt;/doap:name&gt;
+                    &lt;doap:description&gt;Quantum Accelerator&lt;/doap:description&gt;
+                    &lt;doap:revision&gt;1.0.1&lt;/doap:revision&gt;
+                &lt;/rdf:li&gt;
+                &lt;rdf:li rdf:parseType=&quot;Resource&quot;&gt;
+                    &lt;doap:shortdesc&gt;P/N 5678&lt;/doap:shortdesc&gt;
+                    &lt;doap:name&gt;Foo Explorer&lt;/doap:name&gt;
+                    &lt;doap:description&gt;Config File Viewer&lt;/doap:description&gt;
+                    &lt;doap:revision&gt;1.0.2&lt;/doap:revision&gt;
+                &lt;/rdf:li&gt;
+            &lt;/rdf:Bag&gt;
+        &lt;/vivo:hasSubjectArea&gt;
+        &lt;!-- Other RDF properties ... --&gt;
+    &lt;/bibo:Document&gt;
+&lt;/rdf:RDF&gt;
+</programlisting>
+  <para>
+    In this example:
+  </para>
+  <itemizedlist>
+    <listitem>
+      <para>
+        The <literal>&lt;bibo:Document&gt;</literal> element declares
+        that this file is a document and that this document is the
+        subject of the applicability metadata.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        The <literal>&lt;vivo:hasSubjectArea&gt;</literal> element
+        declares that this document applies to the following products.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        The products are indicated by <literal>&lt;rdf:li&gt;</literal>
+        elements all wrapped within the
+        <literal>&lt;rdf:Bag&gt;</literal> element. Each
+        <literal>&lt;rdf:li&gt;</literal> element has
+        <literal>rdf:parseType</literal> set to
+        <literal>Resource</literal>; this enables you to specify the
+        properties of each product inline.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        The properties of each product are indicated by elements in the
+        <literal>doap</literal> namespace. In PACBook,
+        <literal>&lt;doap:shortdesc&gt;</literal> is used for the
+        product’s part number, <literal>&lt;doap:name&gt;</literal> is
+        used for the product name,
+        <literal>&lt;doap:description&gt;</literal> for a description of
+        the product and <literal>&lt;doap:revision&gt;</literal> for the
+        product version number.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Note that you need to declare the <literal>rdf</literal>,
+        <literal>bibo</literal>, <literal>vivo</literal> and
+        <literal>doap</literal> namespaces.
+      </para>
+    </listitem>
+  </itemizedlist>
+</sect1>
+<sect1 id="roadmap">
+  <title>Roadmap</title>
+  <para>
+    The ultimate intention is that each
+    <literal>&lt;rdf:li&gt;</literal> could point to an external RDF
+    resource which contains the details of the product in a single
+    location, e.g. in a products database. This is not yet implemented.
+  </para>
+</sect1>
+	</refentry>
+</article>

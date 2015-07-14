@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://stanleysecurity.github.io/PACBook/css/Docbook.css" type="text/css"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:its="http://www.w3.org/2005/11/its"
+         xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+         xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
+         xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+         version="5.0-variant PACBook"
+         its:version="2.0"
+         xml:lang="en-GB"
+         xml:id="ID">
+	<title>DBLists</title>
+	<refentry>
+		<refnamediv>
+			<refname>DBLists.xsl</refname>
+			<refpurpose>Turns simple inline lists into punctuated lists and adds a final “and” or “or” in the appropriate language.</refpurpose>
+		</refnamediv>
+		<refsynopsisdiv>
+			<title>Parameters</title>
+			<para>None.</para>
+		</refsynopsisdiv>
+		<refsect1>
+			<title>Input</title>
+			<para>A DocBook document containing <tag class="element">simplelist type='inline'</tag> elements.</para>
+		</refsect1>
+		<refsect1>
+			<title>Output</title>
+			<para>A DocBook document, identical to the input except that any <tag class="element">simplelist type='inline'</tag> elements are replaced with punctuated inline lists with a final “and” or “or” in the appropriate language.</para>
+		</refsect1>
+		<refsect1>
+			<title>Description</title>
+			<para>The stylesheet recurses through the document and copies each element. For each <tag class="element">simplelist type='inline'</tag> element, the members of the list are output as a comma separated inline list.</para>
+			<para>If the <literal>role</literal> attribute of the <tag class="element">simplelist</tag> is set to <literal>and</literal>, the conjunction “and” is added before the final member of the list in the language specified by the nearest ancestor <literal>xml:lang</literal> element. Likewise, if the <literal>role</literal> attribute of the <tag class="element">simplelist</tag> is set to <literal>or</literal>, the conjunction “or” is added before the final member of the list in the language specified by the nearest ancestor <literal>xml:lang</literal> element.</para>
+			<para>This stylesheet has similar functionality to the way <tag class="element">simplelist type='inline'</tag> elements are processed by the DocBook XSL stylesheets. The differences are:</para>
+			<orderedlist numeration="arabic">
+				<listitem>
+					<para>The final conjunction is specified via the <literal>role</literal> attribute.</para>
+				</listitem>
+				<listitem>
+					<para>For languages which require it, the final conjunction is output within a wrapper element with the <literal>ling:type='depend'</literal> attribute. This enables you to use the <link xl:href="#LingDepend.xsl">LingDepend.xsl</link> stylesheet on the output file to select the correct form of the final conjunction, depending on the phonetic environment.</para>
+				</listitem>
+			</orderedlist>
+			<para>For example, in Spanish, if the <literal>role</literal> attribute is set to <literal>and</literal>, the <link xl:href="#LingDepend.xsl">LingDepend.xsl</link> stylesheet will change the final conjunction to “e” if the following word begins with an “i” sound, or “y” otherwise. (There must be wrapper elements, e.g. <tag class="element">phrase</tag>, around each term in the list, using the <literal>ling:pron</literal> attribute to indicate the initial sound of each term.)</para>
+			<para>The final conjunctions are specified in the <literal>DataLabels.xml</literal> file. The supported languages are German, English, Spanish, Finnish, French, Italian, Norwegian Bokmål, Dutch, Portuguese, Swedish and Simplified Chinese.</para>
+		</refsect1>
+	</refentry>
+</article>

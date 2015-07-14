@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://stanleysecurity.github.io/PACBook/css/Docbook.css" type="text/css"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:its="http://www.w3.org/2005/11/its"
+         xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+         xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
+         xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+         version="5.0-variant PACBook"
+         its:version="2.0"
+         xml:lang="en-GB"
+         xml:id="ID">
+	<title>DocTools</title>
+	<para>PACBook enables you to:</para>
+	<sect1>
+		<title>Transclusion stylesheets</title>
+		<orderedlist numeration="arabic">
+			<listitem>
+				<para>Perform parametrised transclusion … <link xl:href="#TransParam.xsl">TransParam.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Fix up duplicate IDs … <link xl:href="#TransID.xsl">TransID.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Fix up links to duplicate IDs or links to non-existent targets … <link xl:href="#TransLinks.xsl">TransLinks.xsl</link></para>
+			</listitem>
+		</orderedlist>
+	</sect1>
+	<sect1>
+		<title>Linguistic stylesheets</title>
+		<orderedlist numeration="arabic">
+			<listitem>
+				<para>Select the correct form of transcluded terms, depending on their syntactic environment … <link xl:href="#LingHead.xsl">LingHead.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Inflect text which depends syntactically on any transcluded terms … <link xl:href="#LingDepend.xsl">LingDepend.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Select the correct orthographic case for text, depending on environment … <link xl:href="#LingCasing.xsl">LingCasing.xsl</link></para>
+			</listitem>
+		</orderedlist>
+	</sect1>
+	<sect1>
+		<title>Text stylesheets</title>
+		<orderedlist numeration="arabic">
+			<listitem>
+				<para>Punctuate abbreviations correctly so they don’t have two full stops at the end of a sentence … <link xl:href="#TextAbbrev.xsl">TextAbbrev.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Localise number formatting … <link xl:href="#TextNumbers.xsl">TextNumbers.xsl</link></para>
+			</listitem>
+		</orderedlist>
+	</sect1>
+	<sect1>
+		<title>DocBook stylesheets</title>
+		<orderedlist numeration="arabic">
+			<listitem>
+				<para>Resolve image references against xml:base … <link xl:href="#DBImage.xsl">DBImage.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Resolve image references against the XML Catalog … <link xl:href="#RefResolve.xsl">RefResolve.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Perform enhanced DocBook conditional profiling … <link xl:href="#DBProfile.xsl">DBProfile.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Create automatic titles for DocBook admonitions … <link xl:href="#DBAdmon.xsl">DBAdmon.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Perform enhanced formatting of DocBook simple lists — select the correct form of conjunctions based on the phonetic environment, for languages which demand it … <link xl:href="#DBLists.xsl">DBLists.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Create revision history and applicability tables based on the document metadata … <link xl:href="#DBProcs.xsl">DBProcs.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Perform enhanced DocBook glossary processing — include terms in the glossary if they are referred to by other terms … <link xl:href="#DBGloss.xsl">DBGloss.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Create automatic links between DocBook sections, based on shared labels … <link xl:href="#DBRels.xsl">DBRels.xsl</link></para>
+			</listitem>
+		</orderedlist>
+	</sect1>
+	<sect1>
+		<title>Translation stylesheets</title>
+		<orderedlist numeration="arabic">
+			<listitem>
+				<para>Translate the document using a single XLIFF file … <link xl:href="#XlateConvert.xsl">XlateConvert.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Create multilingual translations, using several XLIFF files … <link xl:href="#XlateCombine.xsl">XlateCombine.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Fix up IDs in multilingual translations … <link xl:href="#XlateID.xsl">XlateID.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Mark up elements in a file for translation … <link xl:href="#XlateMarkup.xsl">XlateMarkup.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Extract translation elements to an XLIFF file … <link xl:href="#XlateExtract.xsl">XlateExtract.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Compare document to existing XLIFF file and create diff file … <link xl:href="#XlateDiff.xsl">XlateDiff.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Merge new translation units into existing XLIFF file … <link xl:href="#XlateMerge.xsl">XlateMerge.xsl</link></para>
+			</listitem>
+		</orderedlist>
+	</sect1>
+	<sect1>
+		<title>XLIFF management stylesheets</title>
+		<orderedlist numeration="arabic">
+			<listitem>
+				<para>Remove duplicate translation units from XLIFF file … <link xl:href="#XliffDupe.xsl">XliffDupe.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Remove completed translation units from XLIFF file … <link xl:href="#XliffPurge.xsl">XliffPurge.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Escape inline markup in an XLIFF file … <link xl:href="#XliffRaw.xsl">XliffRaw.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Unescape inline markup in an XLIFF file … <link xl:href="#XliffTemp.xsl">XliffTemp.xsl</link>, <link xl:href="#XliffTag.xsl">XliffTag.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Export an XLIFF file to CSV … <link xl:href="#Xliff2CSV.xsl">Xliff2CSV.xsl</link></para>
+			</listitem>
+			<listitem>
+				<para>Import from Microsoft Excel XML to XLIFF … <link xl:href="#XL2Xliff.xsl">XL2Xliff.xsl</link></para>
+			</listitem>
+		</orderedlist>
+		<sect2 id="note">
+			<title>Note</title>
+			<para>PACBook also provides a <link xl:href="#PACBook-Schema">custom schema</link> to enable all of these features in DocBook 5.0.</para>
+			<para>It’s important to note that PACBook is not a natural language processor. The author or translator must mark up text for linguistic processing by hand.</para>
+		</sect2>
+	</sect1>
+</article>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://stanleysecurity.github.io/PACBook/css/Docbook.css" type="text/css"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:its="http://www.w3.org/2005/11/its"
+         xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+         xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
+         xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+         version="5.0-variant PACBook"
+         its:version="2.0"
+         xml:lang="en-GB"
+         xml:id="ID">
+	<title>DocTools</title>
+	<refentry>
+		<refnamediv>
+			<refname></refname>
+			<refpurpose></refpurpose>
+		</refnamediv>
+		<refsynopsisdiv>
+			<synopsis></synopsis>
+		</refsynopsisdiv>
+<para>
+  Converts an
+  <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+  file with <literal>&lt;g&gt;</literal>, <literal>&lt;x&gt;</literal>,
+  <literal>&lt;ph&gt;</literal> and <literal>&lt;mrk&gt;</literal>
+  elements to an
+  <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+  file with escaped inline markup.
+</para>
+<sect1 id="parameters">
+  <title>Parameters</title>
+  <para>
+    <literal>[DefaultNS]</literal>
+  </para>
+  <itemizedlist>
+    <listitem>
+      <para>
+        <emphasis role="strong">DefaultNS</emphasis> (URI) — The URI of
+        the default namespace of the inline elements. Default is the
+        DocBook namespace.
+      </para>
+    </listitem>
+  </itemizedlist>
+</sect1>
+<sect1 id="input">
+  <title>Input</title>
+  <para>
+    An
+    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+    document containing <literal>&lt;g&gt;</literal>,
+    <literal>&lt;ph&gt;</literal>, <literal>&lt;x&gt;</literal> and
+    <literal>&lt;mrk&gt;</literal> elements.
+  </para>
+</sect1>
+<sect1 id="output">
+  <title>Output</title>
+  <para>
+    An
+    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+    document containing escaped inline markup. This the format used by
+    PACBook.
+  </para>
+</sect1>
+<sect1 id="description">
+  <title>Description</title>
+  <para>
+    The stylesheet copies the structure and content of the input
+    document to the output document. Any <literal>&lt;g&gt;</literal>,
+    <literal>&lt;ph&gt;</literal>, <literal>&lt;x&gt;</literal> and
+    <literal>&lt;mrk&gt;</literal> elements within the
+    <literal>&lt;source&gt;</literal> elements in the input document are
+    transformed as follows.
+  </para>
+  <para>
+    Any <literal>&lt;x&gt;</literal> elements whose
+    <literal>ctype</literal> attribute is <literal>lb</literal> are
+    exported as escaped <literal>&lt;?linebreak?&gt;</literal>
+    processing instructions.
+  </para>
+  <para>
+    Any <literal>&lt;x&gt;</literal> elements whose
+    <literal>ctype</literal> attribute starts with
+    <literal>x-pi-</literal> are exported as escaped processing
+    instructions with no content. The name of the processing instruction
+    is taken from the <literal>ctype</literal> attribute.
+  </para>
+  <para>
+    Any <literal>&lt;ph&gt;</literal> elements whose
+    <literal>ctype</literal> attribute starts with
+    <literal>x-pi-</literal> are exported as escaped processing
+    instructions with content. The name of the processing instruction is
+    taken from the <literal>ctype</literal> attribute. The content of
+    the <literal>&lt;ph&gt;</literal> element is exported as the content
+    of the processing instruction.
+  </para>
+  <para>
+    Any other <literal>&lt;x&gt;</literal> elements are exported as
+    escaped elements containing no content. The namespace and name of
+    the element are taken from the <literal>ctype</literal> attribute.
+    If the namespace of the element is the same as the namespace
+    specified by the <literal>DefaultNS</literal> parameter — by
+    default, DocBook — the namespace prefix is not output.
+  </para>
+  <para>
+    Any other <literal>&lt;ph&gt;</literal> elements are exported as
+    escaped elements containing no content. The namespace and name of
+    the element are taken from the <literal>ctype</literal> attribute.
+    If the namespace of the element is the same as the namespace
+    specified by the <literal>DefaultNS</literal> parameter — by
+    default, DocBook — the namespace prefix is not output. The content
+    of the <literal>&lt;ph&gt;</literal> element is exported as a
+    <literal>content:ref</literal> attribute on the exported element.
+  </para>
+  <para>
+    Any <literal>&lt;g&gt;</literal> elements are exported as escaped
+    elements containing content. The namespace and name of the element
+    are taken from the <literal>ctype</literal> attribute. If the
+    namespace of the element is the same as the namespace specified by
+    the <literal>DefaultNS</literal> parameter — by default, DocBook —
+    the namespace prefix is not output.
+  </para>
+  <para>
+    Child attributes of the <literal>&lt;g&gt;</literal> or
+    <literal>&lt;x&gt;</literal> element are added to the elements in
+    the output file. If the attribute is in an explicit namespace, the
+    attribute is exported in the same namespace. If the attribute is in
+    the <literal>urn:x-no-namespace</literal> namespace, it is exported
+    in no namespace. If the attribute is in no namespace or the
+    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+    namespace, it is ignored.
+  </para>
+  <para>
+    Any <literal>&lt;mrk mtype=&quot;term&quot;&gt;</literal> elements
+    are exported as <literal>its:term=&quot;yes&quot;</literal>
+    attributes on the parent exported element. The content of the
+    <literal>&lt;mrk&gt;</literal> element becomes the content of the
+    parent exported element.
+  </para>
+  <para>
+    Any <literal>&lt;mrk mtype=&quot;phrase&quot;&gt;</literal> elements
+    are exported as <literal>its:locNote</literal> attributes on the
+    parent exported element. The value of the <literal>comment</literal>
+    attribute is exported as value of the <literal>its:locNote</literal>
+    attribute. The content of the <literal>&lt;mrk&gt;</literal> element
+    becomes the content of the parent exported element.
+  </para>
+  <para>
+    Any <literal>&lt;g&gt;</literal>, <literal>&lt;ph&gt;</literal>,
+    <literal>&lt;x&gt;</literal> and <literal>&lt;mrk&gt;</literal>
+    elements within the <literal>&lt;target&gt;</literal> elements in
+    the input document are transformed as above, using the attributes of
+    the corresponding <literal>&lt;g&gt;</literal>,
+    <literal>&lt;ph&gt;</literal>, <literal>&lt;x&gt;</literal> and
+    <literal>&lt;mrk&gt;</literal> elements within the associated
+    <literal>&lt;source&gt;</literal> element.
+  </para>
+  <para>
+    This stylesheet forms a round trip with the
+    <ulink url="XliffTemp.xsl">XliffTemp.xsl</ulink> and
+    <ulink url="XliffTag.xsl">XliffTag.xsl</ulink> stylesheets.
+  </para>
+</sect1>
+	</refentry>
+</article>

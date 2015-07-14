@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://stanleysecurity.github.io/PACBook/css/Docbook.css" type="text/css"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:its="http://www.w3.org/2005/11/its"
+         xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+         xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
+         xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+         version="5.0-variant PACBook"
+         its:version="2.0"
+         xml:lang="en-GB"
+         xml:id="ID">
+	<title>DocTools</title>
+	<refentry>
+		<refnamediv>
+			<refname></refname>
+			<refpurpose></refpurpose>
+		</refnamediv>
+		<refsynopsisdiv>
+			<synopsis></synopsis>
+		</refsynopsisdiv>
+<para>
+  Adds a language code to <literal>xml:id</literal> attributes and the
+  links that refer to them.
+</para>
+<sect1 id="parameters">
+  <title>Parameters</title>
+  <para>
+    <literal>[maxRecurseDepth]</literal>
+  </para>
+  <itemizedlist>
+    <listitem>
+      <para>
+        <emphasis role="strong">noFixupURI</emphasis> (URI) — the XLink
+        role used to identify links which should not be fixed up;
+        default <literal>http://schema.org/significantLink</literal>.
+      </para>
+    </listitem>
+  </itemizedlist>
+</sect1>
+<sect1 id="input">
+  <title>Input</title>
+  <para>
+    An XML document. The root element of the document must have an
+    <literal>xml:lang</literal> attribute.
+  </para>
+</sect1>
+<sect1 id="output">
+  <title>Output</title>
+  <para>
+    An XML document.
+  </para>
+</sect1>
+<sect1 id="description">
+  <title>Description</title>
+  <para>
+    This stylesheet copies the source document, and adds the language
+    code specified on the document’s root element to the end of all
+    <literal>xml:id</literal> attributes and all
+    <literal>xl:href</literal> attributes which contain a fragment
+    identifier.
+  </para>
+  <para>
+    If you do not want the language code to be added to an
+    <literal>xl:href</literal> attribute, you must add an
+    <literal>xl:role</literal> attribute to the linking element and set
+    its value to the URI specified by the <literal>noFixupURI</literal>
+    parameter, <literal>http://schema.org/significantLink</literal> by
+    default.
+  </para>
+  <para>
+    In DocBook files, the language code is also added to all
+    <literal>linkend</literal> and <literal>endterm</literal> attributes
+    and to every value in <literal>arearefs</literal> attributes. This
+    is not affected by the <literal>xl:role</literal> attribute.
+  </para>
+  <para>
+    In all cases the language code is separated from the value to which
+    it is added by a full stop.
+  </para>
+  <para>
+    This stylesheet is meant to be used when combining several
+    translated documents into a multi-lingual document.
+  </para>
+</sect1>
+	</refentry>
+</article>

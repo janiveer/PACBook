@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://stanleysecurity.github.io/PACBook/css/Docbook.css" type="text/css"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:its="http://www.w3.org/2005/11/its"
+         xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+         xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
+         xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+         version="5.0-variant PACBook"
+         its:version="2.0"
+         xml:lang="en-GB"
+         xml:id="ID">
+	<title>DocTools</title>
+	<refentry>
+		<refnamediv>
+			<refname></refname>
+			<refpurpose></refpurpose>
+		</refnamediv>
+		<refsynopsisdiv>
+			<synopsis></synopsis>
+		</refsynopsisdiv>
+<para>
+  Marks up translatable elements in an XML document with a unique
+  <literal>xlf:id</literal> attribute.
+</para>
+<sect1 id="parameters">
+  <title>Parameters</title>
+  <para>
+    <literal>[ITS] [Counter] [Carried]</literal>
+  </para>
+  <itemizedlist>
+    <listitem>
+      <para>
+        <emphasis role="strong">ITS</emphasis> (URI) — URI of the
+        <ulink url="http://www.w3.org/TR/its20/">ITS</ulink> rules file,
+        absolute or relative to the stylesheet
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        <emphasis role="strong">Counter</emphasis> (URI) — URI of the
+        input counter file, absolute or relative to the input document
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        <emphasis role="strong">Carried</emphasis> (URI) — URI of the
+        output counter file, absolute or relative to the input document
+      </para>
+    </listitem>
+  </itemizedlist>
+</sect1>
+<sect1 id="input">
+  <title>Input</title>
+  <para>
+    An XML document. DocBook is supported by default; SVG to follow.
+  </para>
+</sect1>
+<sect1 id="output">
+  <title>Output</title>
+  <para>
+    An XML document, identical to the input except that translation
+    strings are uniquely identified by auto-generated
+    <literal>xlf:id</literal> attributes.
+  </para>
+</sect1>
+<sect1 id="description">
+  <title>Description</title>
+  <para>
+    The stylesheet first looks for the translation unit counter
+    specified by the <literal>Counter</literal> parameter. This
+    translation unit counter is an automatically-generated XML document
+    containing a single element,
+    <literal>&lt;data:counter xmlns:data=&quot;urn:x-pacbook:data&quot;&gt;</literal>.
+    The <literal>&lt;data:counter&gt;</literal> element contains a text
+    node, which must be an integer. It can also have a single attribute,
+    <literal>prefix</literal>, which should contain an alphanumeric
+    string.
+  </para>
+  <para>
+    The purpose of the translation unit counter is to keep track of the
+    translation unit IDs which have been assigned to this document, and
+    ensure that newly marked-up translatable elements get unique IDs.
+    The simplest use case would be to have a single translation unit
+    counter for all your documents. Realistically you would use more
+    than one translation counter. Several related documents might share
+    a translation unit counter; this would imply that the related
+    documents are all translated together, using a single
+    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+    file for each target language. You could also, if you wanted, use a
+    different prefix with each translation unit counter, but this is not
+    necessary.
+  </para>
+  <para>
+    If the translation unit counter is not specified, it is assumed to
+    be <literal>counter.xml</literal> in the same location as the input
+    document.
+  </para>
+  <para>
+    If the specified translation unit counter is not found, the prefix
+    is assumed to be <literal>u</literal> and the count is set to 0.
+  </para>
+  <para>
+    The stylesheet then looks for the specified
+    <ulink url="http://www.w3.org/TR/its20/">ITS</ulink> rules file.
+    This is a set of
+    <ulink url="http://www.w3.org/TR/its20/">ITS</ulink> 2.0 rules that
+    specify which elements in the input file correspond to translation
+    units. For each <literal>&lt;its:withTextRule&gt;</literal> element
+    in the <ulink url="http://www.w3.org/TR/its20/">ITS</ulink> rules
+    file, if the <literal>withinText</literal> attribute is set to
+    <literal>no</literal>, the elements specified by the
+    <literal>selector</literal> attribute correspond to translation
+    units. If no <ulink url="http://www.w3.org/TR/its20/">ITS</ulink>
+    rules file is specified, the default is the
+    <literal>DocBook.its</literal> file supplied with this stylesheet.
+  </para>
+  <para>
+    The stylesheet then copies the structure and content of the input
+    document to the output document. Any elements which match the
+    specified <ulink url="http://www.w3.org/TR/its20/">ITS</ulink> rules
+    are marked up with a unique <literal>xlf:id</literal> attribute, as
+    long as:
+  </para>
+  <orderedlist numeration="arabic">
+    <listitem>
+      <para>
+        They are <emphasis>not</emphasis> marked with the
+        <literal>its:translate=&quot;no&quot;</literal> attribute, and
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        They do not have an <literal>xlf:id</literal> attribute already.
+      </para>
+    </listitem>
+  </orderedlist>
+  <para>
+    Furthermore, any elements which are marked with the
+    <literal>its:translate=&quot;yes&quot;</literal> attribute are also
+    marked up with a unique <literal>xlf:id</literal> attribute, as long
+    as they do not have an <literal>xlf:id</literal> attribute already.
+  </para>
+  <para>
+    The value of the <literal>xlf:id</literal> attribute consists of the
+    specified prefix, followed by a sequential count of the newly marked
+    up translatable elements, starting at the next number after the
+    number specified in the translation unit counter, if any. (The
+    <literal>xlf:id</literal> attribute is used in preference to
+    <literal>xml:id</literal> because transclusion might mean that the
+    same translatable element occurs in several places in the same
+    document, and <literal>xml:id</literal> must contain unique values.)
+  </para>
+  <para>
+    Finally, the new total number of marked up translatable elements is
+    written out to the translation unit counter file specified by the
+    <literal>Carried</literal> parameter. By default, this is assumed to
+    be <literal>counter.xml</literal> in the same location as the input
+    document, thus overwriting the original translation unit counter
+    file with the new total.
+  </para>
+  <para>
+    In theory, this stylesheet can be used to mark up any XML document,
+    as long as a correctly formatted
+    <ulink url="http://www.w3.org/TR/its20/">ITS</ulink> rules file is
+    supplied. However, you must make sure that any namespaces specified
+    in the <ulink url="http://www.w3.org/TR/its20/">ITS</ulink> rules
+    file are also declared in this stylesheet.
+  </para>
+</sect1>
+	</refentry>
+</article>

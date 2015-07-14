@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://stanleysecurity.github.io/PACBook/css/Docbook.css" type="text/css"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:its="http://www.w3.org/2005/11/its"
+         xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+         xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
+         xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+         version="5.0-variant PACBook"
+         its:version="2.0"
+         xml:lang="en-GB"
+         xml:id="ID">
+	<title>DocTools</title>
+	<refentry>
+		<refnamediv>
+			<refname></refname>
+			<refpurpose></refpurpose>
+		</refnamediv>
+		<refsynopsisdiv>
+			<synopsis></synopsis>
+		</refsynopsisdiv>
+<para>
+  Copies translatable elements from an XML document to a new
+  <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+  file.
+</para>
+<sect1 id="parameters">
+  <title>Parameters</title>
+  <para>
+    <literal>Source</literal>
+  </para>
+  <itemizedlist>
+    <listitem>
+      <para>
+        <emphasis role="strong">Source</emphasis> (string) — the name of
+        the source document
+      </para>
+    </listitem>
+  </itemizedlist>
+</sect1>
+<sect1 id="input">
+  <title>Input</title>
+  <para>
+    An XML document. You must mark up the source document with:
+  </para>
+  <orderedlist numeration="arabic">
+    <listitem>
+      <para>
+        The <literal>xlf:id</literal> attributes which uniquely identify
+        each translation string.
+      </para>
+    </listitem>
+  </orderedlist>
+</sect1>
+<sect1 id="output">
+  <title>Output</title>
+  <para>
+    An
+    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
+    document.
+  </para>
+</sect1>
+<sect1 id="description">
+  <title>Description</title>
+  <para>
+    The stylesheet examines the source file for translatable elements.
+    (A translatable element is one which has an
+    <literal>xlf:id</literal> attribute and does not have the
+    <literal>its:translate=&quot;no&quot;</literal> attribute.)
+  </para>
+  <para>
+    For each translatable element, a new translation unit is written to
+    the output document which contains this translatable element as its
+    source.
+  </para>
+  <para>
+    For DocBook files, a header is added containing some bibliographical
+    metadata from the source file —
+    <literal>db:biblioid[@class='pubsnumber']</literal>,
+    <literal>db:edition</literal> and <literal>db:releaseinfo</literal>.
+  </para>
+  <para>
+    Any inline markup within the translatable element is escaped. This
+    enables you to examine the inline markup in a translation editor
+    such as Virtaal.
+  </para>
+</sect1>
+	</refentry>
+</article>

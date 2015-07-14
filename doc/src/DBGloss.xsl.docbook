@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://stanleysecurity.github.io/PACBook/css/Docbook.css" type="text/css"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:its="http://www.w3.org/2005/11/its"
+         xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+         xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
+         xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+         version="5.0-variant PACBook"
+         its:version="2.0"
+         xml:lang="en-GB"
+         xml:id="pacbook.db.gloss">
+	<title>DBGloss</title>
+	<refentry>
+		<refnamediv>
+			<refname>DBGloss.xsl</refname>
+			<refpurpose>Builds glossaries automatically and adds XLink titles to glossary terms in the document.</refpurpose>
+		</refnamediv>
+		<refsynopsisdiv>
+			<title>Parameters</title>
+			<synopsis>[maxRecurseDepth]</synopsis>
+			<itemizedlist>
+				<listitem>
+					<para>
+						<emphasis role="strong">maxRecurseDepth</emphasis> (Integer) —
+						the maximum number of recursions that the stylesheet should make when following <tag class="element">glosssee</tag> and <tag class="element">glossseealso</tag> links; default 8.</para>
+				</listitem>
+			</itemizedlist>
+		</refsynopsisdiv>
+		<refsect1>
+			<title>Input</title>
+			<para>A DocBook document. Any glossary which is to be build automatically must be marked up as described below.</para>
+		</refsect1>
+		<refsect1>
+			<title>Output</title>
+			<para>A DocBook document, identical to the input except the glossary is built and glossary entries have XLink titles.</para>
+		</refsect1>
+		<refsect1>
+			<title>Description</title>
+			<para>The stylesheet recurses through the document and copies each element. If any element is a <tag class="element">glossary</tag> with the <literal>role='collection'</literal> attribute, the stylesheet checks every <tag class="element">glossentry</tag> element to see if it is referenced by a <tag class="element">glossterm</tag> element in the document. If it is, the <tag class="element">glossentry</tag> is written to the output document.</para>
+			<para>The functionality of this stylesheet is based on the glossary collection function in the DocBook XSL stylesheets, with the following differences:</para>
+			<orderedlist numeration="arabic">
+				<listitem>
+					<para>Glossary entries which are referenced within the glossary via <tag class="element">glosssee</tag> and <tag class="element">glossseealso</tag> elements are included in the built glossary.</para>
+				</listitem>
+				<listitem>
+					<para>It is assumed that all required <tag class="element">glossentry</tag> elements are already included in the glossary. To include an external glossary, use XInclude.</para>
+				</listitem>
+			</orderedlist>
+			<para>For example:</para>
+			<programlisting><![CDATA[
+<glossary role="collection">
+    <xi:include href="http://DBK/Topics/Common/modules/gloss_access_full.docbook"
+                xpointer="xmlns(db=http://docbook.org/ns/docbook)
+                          xpath(//db:glossary/node())"/>
+</glossary>
+			]]></programlisting>
+			<para>When following <tag class="element">glosssee</tag> and <tag class="element">glossseealso</tag> elements, there is a risk that the stylesheet will get trapped in circular references. To avoid this, the stylesheet will only recurse through 8 <tag class="element">glosssee</tag> or <tag class="element">glossseealso</tag> links. You can change the recursion depth by passing the <literal>maxRecurseDepth</literal>
+				parameter to the stylesheet.</para>
+			<para>In addition to this, the stylesheet also adds an <literal>xl:title</literal> attribute to every <tag class="element">glossterm</tag> element in the document. This contains the text of the referenced glossary definition. As a result, if you use the DocBook XSL stylesheets to transform the document into a web page, web site or compiled HTML help file, users will be able see a preview of a glossary definition by hovering the mouse pointer on the glossary term.</para>
+			<para>To use this stylesheet, <tag class="element">glossentry</tag>
+				elements must have an <literal>xml:id</literal> attribute and <tag class="element">glossterm</tag> elements must reference them via their <literal>linkend</literal> or <literal>xl:href</literal>
+				attributes.</para>
+		</refsect1>
+	</refentry>
+</article>
