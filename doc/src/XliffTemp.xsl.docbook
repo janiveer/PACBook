@@ -10,59 +10,32 @@
          version="5.0-variant PACBook"
          its:version="2.0"
          xml:lang="en-GB"
-         xml:id="ID">
-	<title>DocTools</title>
+         xml:id="pacbook.xliff.temp">
+	<title>XliffTemp</title>
 	<refentry>
+		<refmeta>
+			<refentrytitle>XliffTemp</refentrytitle>
+		</refmeta>
 		<refnamediv>
-			<refname></refname>
-			<refpurpose></refpurpose>
+			<refname>XliffTemp.xsl</refname>
+			<refpurpose>Unescapes escaped markup in an <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> file.</refpurpose>
 		</refnamediv>
 		<refsynopsisdiv>
-			<synopsis></synopsis>
+			<title>Parameters</title>
+			<para>None.</para>
 		</refsynopsisdiv>
-<para>
-  Unescapes escaped markup in an
-  <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-  file.
-</para>
-<sect1 id="parameters">
-  <title>Parameters</title>
-  <para>
-    None.
-  </para>
-</sect1>
-<sect1 id="input">
-  <title>Input</title>
-  <para>
-    An
-    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-    document containing escaped inline markup.
-  </para>
-</sect1>
-<sect1 id="output">
-  <title>Output</title>
-  <para>
-    A temporary, invalid
-    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-    document containing unescaped inline markup.
-  </para>
-</sect1>
-<sect1 id="description">
-  <title>Description</title>
-  <para>
-    The stylesheet copies the structure and content of the input
-    document to the output document. Any escaped inline markup within
-    the input document is unescaped.
-  </para>
-  <para>
-    The output of this stylesheet is intended to be used as input for
-    <ulink url="XliffTag.xsl">XliffTag.xsl</ulink>, which turns the
-    inline markup into valid
-    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-    <literal>&lt;g&gt;</literal>, <literal>&lt;ph&gt;</literal>,
-    <literal>&lt;x&gt;</literal> and <literal>&lt;mrk&gt;</literal>
-    elements.
-  </para>
-</sect1>
+		<refsect1>
+			<title>Input</title>
+			<para>An <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> document containing escaped inline markup.</para>
+		</refsect1>
+		<refsect1>
+			<title>Output</title>
+			<para>A temporary, invalid <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> document containing unescaped inline markup.</para>
+		</refsect1>
+		<refsect1>
+			<title>Description</title>
+			<para>The stylesheet copies the structure and content of the input document to the output document. Any escaped inline markup within the input document is unescaped.</para>
+			<para>The output of this stylesheet is intended to be used as input for <link xl:href="#XliffTag.xsl">XliffTag.xsl</link>, which turns the inline markup into valid <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> <tag class="element">g</tag>, <tag class="element">ph</tag>, <tag class="element">x</tag> and <tag class="element">mrk</tag> elements.</para>
+		</refsect1>
 	</refentry>
 </article>

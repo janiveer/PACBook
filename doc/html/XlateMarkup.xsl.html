@@ -1,27 +1,117 @@
-<p>Marks up translatable elements in an XML document with a unique <code>xlf:id</code> attribute.</p>
-<h2 id="parameters">Parameters</h2>
-<p><code>[ITS] [Counter] [Carried]</code></p>
-<ul>
-<li><strong>ITS</strong> (URI) — URI of the <a href="http://www.w3.org/TR/its20/">ITS</a> rules file, absolute or relative to the stylesheet<br /></li>
-<li><strong>Counter</strong> (URI) — URI of the input counter file, absolute or relative to the input document<br /></li>
-<li><strong>Carried</strong> (URI) — URI of the output counter file, absolute or relative to the input document</li>
-</ul>
-<h2 id="input">Input</h2>
-<p>An XML document. DocBook is supported by default; SVG to follow.</p>
-<h2 id="output">Output</h2>
-<p>An XML document, identical to the input except that translation strings are uniquely identified by auto-generated <code>xlf:id</code> attributes.</p>
-<h2 id="description">Description</h2>
-<p>The stylesheet first looks for the translation unit counter specified by the <code>Counter</code> parameter. This translation unit counter is an automatically-generated XML document containing a single element, <code>&lt;data:counter xmlns:data=&quot;urn:x-pacbook:data&quot;&gt;</code>. The <code>&lt;data:counter&gt;</code> element contains a text node, which must be an integer. It can also have a single attribute, <code>prefix</code>, which should contain an alphanumeric string.</p>
-<p>The purpose of the translation unit counter is to keep track of the translation unit IDs which have been assigned to this document, and ensure that newly marked-up translatable elements get unique IDs. The simplest use case would be to have a single translation unit counter for all your documents. Realistically you would use more than one translation counter. Several related documents might share a translation unit counter; this would imply that the related documents are all translated together, using a single <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file for each target language. You could also, if you wanted, use a different prefix with each translation unit counter, but this is not necessary.</p>
-<p>If the translation unit counter is not specified, it is assumed to be <code>counter.xml</code> in the same location as the input document.</p>
-<p>If the specified translation unit counter is not found, the prefix is assumed to be <code>u</code> and the count is set to 0.</p>
-<p>The stylesheet then looks for the specified <a href="http://www.w3.org/TR/its20/">ITS</a> rules file. This is a set of <a href="http://www.w3.org/TR/its20/">ITS</a> 2.0 rules that specify which elements in the input file correspond to translation units. For each <code>&lt;its:withTextRule&gt;</code> element in the <a href="http://www.w3.org/TR/its20/">ITS</a> rules file, if the <code>withinText</code> attribute is set to <code>no</code>, the elements specified by the <code>selector</code> attribute correspond to translation units. If no <a href="http://www.w3.org/TR/its20/">ITS</a> rules file is specified, the default is the <code>DocBook.its</code> file supplied with this stylesheet.</p>
-<p>The stylesheet then copies the structure and content of the input document to the output document. Any elements which match the specified <a href="http://www.w3.org/TR/its20/">ITS</a> rules are marked up with a unique <code>xlf:id</code> attribute, as long as:</p>
-<ol>
-<li>They are <em>not</em> marked with the <code>its:translate=&quot;no&quot;</code> attribute, and<br /></li>
-<li>They do not have an <code>xlf:id</code> attribute already.</li>
-</ol>
-<p>Furthermore, any elements which are marked with the <code>its:translate=&quot;yes&quot;</code> attribute are also marked up with a unique <code>xlf:id</code> attribute, as long as they do not have an <code>xlf:id</code> attribute already.</p>
-<p>The value of the <code>xlf:id</code> attribute consists of the specified prefix, followed by a sequential count of the newly marked up translatable elements, starting at the next number after the number specified in the translation unit counter, if any. (The <code>xlf:id</code> attribute is used in preference to <code>xml:id</code> because transclusion might mean that the same translatable element occurs in several places in the same document, and <code>xml:id</code> must contain unique values.)</p>
-<p>Finally, the new total number of marked up translatable elements is written out to the translation unit counter file specified by the <code>Carried</code> parameter. By default, this is assumed to be <code>counter.xml</code> in the same location as the input document, thus overwriting the original translation unit counter file with the new total.</p>
-<p>In theory, this stylesheet can be used to mark up any XML document, as long as a correctly formatted <a href="http://www.w3.org/TR/its20/">ITS</a> rules file is supplied. However, you must make sure that any namespaces specified in the <a href="http://www.w3.org/TR/its20/">ITS</a> rules file are also declared in this stylesheet.</p>
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>XlateMarkup</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.xlate.html" title="Translation Stylesheets">
+      <link rel="prev" href="pacbook.xlate.html" title="Translation Stylesheets">
+      <link rel="next" href="XlateExtract.xsl.html" title="XlateExtract">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="pacbook.xlate.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xlate.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XlateExtract.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="XlateMarkup.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">XlateMarkup</span></h2>
+            <p>XlateMarkup.xsl &#8212; Marks up translatable elements in an XML document with a unique <code class="sgmltag-attribute">xlf:id</code> attribute.
+            </p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2><pre class="synopsis">[ITS] [Counter] [Carried]</pre><div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p><em class="parameter"><code>ITS</code></em> (URI) &#8212; URI of the <a class="link" href="http://www.w3.org/TR/its20/" target="_blank">ITS</a> rules file, absolute or relative to the stylesheet
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><em class="parameter"><code>Counter</code></em> (URI) &#8212; URI of the input counter file, absolute or relative to the input document
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><em class="parameter"><code>Carried</code></em> (URI) &#8212; URI of the output counter file, absolute or relative to the input document
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="refsect1" id="d0e2688">
+            <h2>Input</h2>
+            <p>An XML document. DocBook is supported by default; SVG to follow.</p>
+         </div>
+         <div class="refsect1" id="d0e2693">
+            <h2>Output</h2>
+            <p>An XML document, identical to the input except that translation strings are uniquely identified by auto-generated <code class="sgmltag-attribute">xlf:id</code> attributes.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e2701">
+            <h2>Description</h2>
+            <p>The stylesheet first looks for the translation unit counter specified by the <em class="parameter"><code>Counter</code></em> parameter. This translation unit counter is an automatically-generated XML document containing a single element, <code class="sgmltag-element">data:counter xmlns:data='urn:x-pacbook:data'</code>. The <code class="sgmltag-element">data:counter</code> element contains a text node, which must be an integer. It can also have a single attribute, <code class="sgmltag-attribute">prefix</code>, which should contain an alphanumeric string.
+            </p>
+            <p>The purpose of the translation unit counter is to keep track of the translation unit IDs which have been assigned to this
+               document, and ensure that newly marked-up translatable elements get unique IDs. The simplest use case would be to have a single
+               translation unit counter for all your documents. Realistically you would use more than one translation counter. Several related
+               documents might share a translation unit counter; this would imply that the related documents are all translated together,
+               using a single <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file for each target language. You could also, if you wanted, use a different prefix with each translation unit counter,
+               but this is not necessary.
+            </p>
+            <p>If the translation unit counter is not specified, it is assumed to be <code class="filename">counter.xml</code> in the same location as the input document.
+            </p>
+            <p>If the specified translation unit counter is not found, the prefix is assumed to be <code class="sgmltag-attvalue">u</code> and the count is set to 0.
+            </p>
+            <p>The stylesheet then looks for the specified <a class="link" href="http://www.w3.org/TR/its20/" target="_blank">ITS</a> rules file. This is a set of <a class="link" href="http://www.w3.org/TR/its20/" target="_blank">ITS</a> 2.0 rules that specify which elements in the input file correspond to translation units. For each <code class="sgmltag-element">its:withTextRule</code> element in the <a class="link" href="http://www.w3.org/TR/its20/" target="_blank">ITS</a> rules file, if the <code class="sgmltag-attribute">withinText</code> attribute is set to <code class="sgmltag-attvalue">no</code>, the elements specified by the <code class="sgmltag-attribute">selector</code> attribute correspond to translation units. If no <a class="link" href="http://www.w3.org/TR/its20/" target="_blank">ITS</a> rules file is specified, the default is the <code class="filename">DocBook.its</code> file supplied with this stylesheet.
+            </p>
+            <p>The stylesheet then copies the structure and content of the input document to the output document. Any elements which match
+               the specified <a class="link" href="http://www.w3.org/TR/its20/" target="_blank">ITS</a> rules are marked up with a unique <code class="sgmltag-attribute">xlf:id</code> attribute, as long as:
+            </p>
+            <div class="orderedlist">
+               <ol class="orderedlist" type="1">
+                  <li class="listitem">
+                     <p>They are <span class="emphasis"><em>not</em></span> marked with the <code class="sgmltag-attribute">its:translate='no'</code> attribute, and:
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>They do not have an <code class="sgmltag-attribute">xlf:id</code> attribute already.
+                     </p>
+                  </li>
+               </ol>
+            </div>
+            <p>Furthermore, any elements which are marked with the <code class="sgmltag-attribute">its:translate='yes'</code> attribute are also marked up with a unique <code class="sgmltag-attribute">xlf:id</code> attribute, as long as they do not have an <code class="sgmltag-attribute">xlf:id</code> attribute already.
+            </p>
+            <p>The value of the <code class="sgmltag-attribute">xlf:id</code> attribute consists of the specified prefix, followed by a sequential count of the newly marked up translatable elements,
+               starting at the next number after the number specified in the translation unit counter, if any. (The <code class="sgmltag-attribute">xlf:id</code> attribute is used in preference to <code class="sgmltag-attribute">xml:id</code> because transclusion might mean that the same translatable element occurs in several places in the same document, and <code class="sgmltag-attribute">xml:id</code> must contain unique values.)
+            </p>
+            <p>Finally, the new total number of marked up translatable elements is written out to the translation unit counter file specified
+               by the <em class="parameter"><code>Carried</code></em> parameter. By default, this is assumed to be <code class="filename">counter.xml</code> in the same location as the input document, thus overwriting the original translation unit counter file with the new total.
+            </p>
+            <p>In theory, this stylesheet can be used to mark up any XML document, as long as a correctly formatted <a class="link" href="http://www.w3.org/TR/its20/" target="_blank">ITS</a> rules file is supplied. However, you must make sure that any namespaces specified in the <a class="link" href="http://www.w3.org/TR/its20/" target="_blank">ITS</a> rules file are also declared in this stylesheet.
+            </p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="pacbook.xlate.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xlate.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XlateExtract.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

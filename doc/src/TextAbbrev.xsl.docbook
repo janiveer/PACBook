@@ -10,96 +10,50 @@
          version="5.0-variant PACBook"
          its:version="2.0"
          xml:lang="en-GB"
-         xml:id="ID">
-	<title>DocTools</title>
+         xml:id="pacbook.text.abbrev">
+	<title>TextAbbrev</title>
 	<refentry>
+		<refmeta>
+			<refentrytitle>TextAbbrev</refentrytitle>
+		</refmeta>
 		<refnamediv>
-			<refname></refname>
-			<refpurpose></refpurpose>
+			<refname>TextAbbrev.xsl</refname>
+			<refpurpose>Makes sure that abbreviations are punctuated correctly after transclusion.</refpurpose>
 		</refnamediv>
 		<refsynopsisdiv>
-			<synopsis></synopsis>
+			<title>Parameters</title>
+			<synopsis>[abbrevClassRef]</synopsis>
+			<itemizedlist>
+				<listitem>
+					<para><parameter>abbrevClassRef</parameter> (URI) — a URI that identifies abbreviations. Default <uri>http://dbpedia.org/ontology/abbreviation</uri>.</para>
+				</listitem>
+			</itemizedlist>
 		</refsynopsisdiv>
-<para>
-  Makes sure that abbreviations are punctuated correctly after
-  transclusion.
-</para>
-<sect1 id="parameters">
-  <title>Parameters</title>
-  <para>
-    <literal>[abbrevClassRef]</literal>
-  </para>
-  <itemizedlist>
-    <listitem>
-      <para>
-        <emphasis role="strong">abbrevClassRef</emphasis> (URI) — a URI
-        that identifies abbreviations. Default
-        http://dbpedia.org/ontology/abbreviation.
-      </para>
-    </listitem>
-  </itemizedlist>
-</sect1>
-<sect1 id="input">
-  <title>Input</title>
-  <para>
-    An XML document. Any abbreviations whose punctuation needs checking
-    must be marked up with ITS 2.0 text analysis attributes as described
-    below.
-  </para>
-</sect1>
-<sect1 id="output">
-  <title>Output</title>
-  <para>
-    An XML document, identical to the input except that abbreviations
-    are punctuated correctly.
-  </para>
-</sect1>
-<sect1 id="description">
-  <title>Description</title>
-  <para>
-    The stylesheet recurses through the document and copies each
-    element. If any element has the attribute
-    <literal>its:taClassRef='http://dbpedia.org/ontology/abbreviation'</literal>,
-    the stylesheet adds punctuation to the element according to the
-    following algorithm:
-  </para>
-  <orderedlist numeration="arabic">
-    <listitem>
-      <para>
-        If the text within the element already ends with a full stop,
-        the full stop is stripped off;
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        If there is a full stop immediately following the element, the
-        element is written to the output document with no following full
-        stop; otherwise, the element is written to the output document
-        with a following full stop.
-      </para>
-    </listitem>
-  </orderedlist>
-  <para>
-    This means that the abbreviation will be written out with just one
-    following full stop. If you transclude the abbreviation at the end
-    of sentence it will <emphasis>not</emphasis> end up with two
-    following full stops.
-  </para>
-  <para>
-    To use the <literal>its:taClassRef</literal> attribute you must set
-    <literal>its:version='2.0'</literal> on the element or on the
-    containing document.
-  </para>
-</sect1>
-<sect1 id="roadmap">
-  <title>Roadmap</title>
-  <para>
-    In DocBook files, this stylesheet matches
-    <literal>&lt;abbrev&gt;</literal> elements as well as elements with
-    the
-    <literal>its:taClassRef='http://dbpedia.org/ontology/abbreviation'</literal>
-    attribute. This may be removed in a future release.
-  </para>
-</sect1>
+		<refsect1>
+			<title>Input</title>
+			<para>An XML document. Any abbreviations whose punctuation needs checking must be marked up with ITS 2.0 text analysis attributes as described below.</para>
+		</refsect1>
+		<refsect1>
+			<title>Output</title>
+			<para>An XML document, identical to the input except that abbreviations are punctuated correctly.</para>
+		</refsect1>
+		<refsect1>
+			<title>Description</title>
+			<para>The stylesheet recurses through the document and copies each element. If any element has the attribute <tag class="attribute">its:taClassRef='http://dbpedia.org/ontology/abbreviation'</tag>, the stylesheet adds punctuation to the element according to the following algorithm:</para>
+			<orderedlist numeration="arabic">
+				<listitem>
+					<para>If the text within the element already ends with a full stop, the full stop is stripped off;</para>
+				</listitem>
+				<listitem>
+					<para>If there is a full stop immediately following the element, the element is written to the output document with no following full stop; otherwise, the element is written to the output document with a following full stop.</para>
+				</listitem>
+			</orderedlist>
+			<para>This means that the abbreviation will be written out with just one following full stop. If you transclude the abbreviation at the end of sentence it will <emphasis>not</emphasis> end up with two following full stops.</para>
+			<para>To use the <tag class="attribute">its:taClassRef</tag> attribute you must set <tag class="attribute">its:version='2.0'</tag> on the element or on the containing document.</para>
+		</refsect1>
+		<refsect1>
+			<title>Roadmap</title>
+			<para>In DocBook files, this stylesheet matches <tag class="element">abbrev</tag> elements as well as elements with the <tag class="attribute">its:taClassRef='http://dbpedia.org/ontology/abbreviation'</tag> attribute. This may be removed in a future release.</para>
+		</refsect1>
 	</refentry>
 </article>

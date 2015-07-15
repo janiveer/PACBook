@@ -10,137 +10,51 @@
          version="5.0-variant PACBook"
          its:version="2.0"
          xml:lang="en-GB"
-         xml:id="ID">
-	<title>DocTools</title>
-	<refentry>
-		<refnamediv>
-			<refname></refname>
-			<refpurpose></refpurpose>
-		</refnamediv>
-		<refsynopsisdiv>
-			<synopsis></synopsis>
-		</refsynopsisdiv>
-<para>
-  Not all of PACBook’s features are natively available in DocBook 5.0.
-  PACBook provides a custom RelaxNG schema to enable them.
-</para>
-<para>
-  <literal>pacbook.rng</literal> adds the following features to the
-  DocBook 5.0 <literal>docbookxi.rng</literal> schema.
-</para>
-<sect1 id="elements">
-  <title>Elements</title>
-  <para>
-    <literal>pacbook.rng</literal> adds the following elements in the
-    DocBook namespace.
-  </para>
-  <itemizedlist>
-    <listitem>
-      <para>
-        An optional <literal>&lt;title&gt;</literal> element as an
-        initial child of the <literal>&lt;extendedlink&gt;</literal>
-        element. This can contain text and all inline elements. It takes
-        all common DocBook attributes. By default the
-        <literal>xl:type</literal> attribute is set to
-        <literal>title</literal>. This element enables you to define a
-        title for an extended link.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Any number of optional <literal>&lt;resource&gt;</literal>
-        elements within the <literal>&lt;extendedlink&gt;</literal>
-        element. This can contain text, all block elements and all
-        inline elements. It takes all common DocBook attributes. By
-        default the <literal>xl:type</literal> attribute is set to
-        <literal>resource</literal>. This element enables you to define
-        a resource in an extended link.
-      </para>
-    </listitem>
-  </itemizedlist>
-</sect1>
-<sect1 id="attributes">
-  <title>Attributes</title>
-  <para>
-    <literal>pacbook.rng</literal> adds the following to the DocBook
-    common attributes:
-  </para>
-  <itemizedlist>
-    <listitem>
-      <para>
-        All ITS 2.0 local attributes in the
-        <ulink url="http://www.w3.org/TR/its20/">ITS</ulink> namespace.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        The <literal>xlf:id</literal> attribute. This is in the
-        <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-        namespace and contains an NMToken. It is used for PACBook
-        translation — see
-        <ulink url="XlateMarkup.xsl">XlateMarkup.xsl</ulink>.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        The <literal>content:ref</literal> attribute. This is in the
-        <ulink url="http://stanleysecurity.github.io/PACBook/ns/transclusion">PACBook
-        transclusion</ulink> namespace and contains an NMToken. It is
-        used for parametrised transclusion — see
-        <ulink url="TransParam.xsl">TransParam.xsl</ulink>.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        The following linguistic markup attributes. They are in the
-        <ulink url="http://stanleysecurity.github.io/PACBook/ns/linguistics">PACBook
-        linguistics</ulink> namespace and contain NMTokens. They are
-        used for linguistic pre-processing.
-      </para>
-    </listitem>
-  </itemizedlist>
-  <para>
-    <literal>ling:type</literal> — marks government and binding. Set to
-    <literal>head</literal> for inflected head nouns,
-    <literal>depend</literal> for inflected dependent words. See
-    <ulink url="LingHead.xsl">LingHead.xsl</ulink>,
-    <ulink url="LingDepend.xsl">LingDepend.xsl</ulink>.
-  </para>
-  <para>
-    <literal>ling:pron</literal> — marks pronunciation of a head word.
-    See <ulink url="LingDepend.xsl">LingDepend.xsl</ulink>.
-  </para>
-  <para>
-    <literal>ling:gen</literal> — marks syntactic gender. See
-    <ulink url="LingDepend.xsl">LingDepend.xsl</ulink>.
-  </para>
-  <para>
-    <literal>ling:num</literal> — marks syntactic number. See
-    <ulink url="LingDepend.xsl">LingDepend.xsl</ulink>.
-  </para>
-  <para>
-    <literal>ling:case</literal> — marks syntactic case. See
-    <ulink url="LingHead.xsl">LingHead.xsl</ulink>,
-    <ulink url="LingDepend.xsl">LingDepend.xsl</ulink>.
-  </para>
-  <para>
-    <literal>ling:class</literal> — marks syntactic definiteness. See
-    <ulink url="LingHead.xsl">LingHead.xsl</ulink>,
-    <ulink url="LingDepend.xsl">LingDepend.xsl</ulink>.
-  </para>
-  <para>
-    <literal>ling:orth</literal> — marks orthographic case. See
-    <ulink url="LingCasing.xsl">LingCasing.xsl</ulink>.
-  </para>
-  <sect2 id="note">
-    <title>Note</title>
-    <para>
-      PACBook also adds the <literal>outputformat</literal> attribute in
-      the DocBook namespace as a common attribute. This is due to be
-      added in DocBook 5.1 anyway; I’ve added it to PACBook because I
-      found it useful.
-    </para>
-  </sect2>
-</sect1>
-	</refentry>
+         xml:id="pacbook.schema">
+	<title>PACBook Schema</title>
+	<para>Not all of PACBook’s features are natively available in DocBook 5.0. PACBook provides a custom RelaxNG schema to enable them.
+	</para>
+	<para><filename>pacbook.rng</filename> adds the following features to the DocBook 5.0 <filename>docbookxi.rng</filename> schema.
+	</para>
+	<section>
+		<title>Elements</title>
+		<para><filename>pacbook.rng</filename> adds the following elements in the DocBook namespace.</para>
+		<itemizedlist>
+			<listitem>
+				<para>An optional <tag class="element">title</tag> element as an initial child of the <tag class="element">extendedlink</tag> element. This can contain text and all inline elements. It takes all common DocBook attributes. By default the <tag class="attribute">xl:type</tag> attribute is set to <tag class="attvalue">title</tag>. This element enables you to define a title for an extended link.</para>
+			</listitem>
+			<listitem>
+				<para>Any number of optional <tag class="element">resource</tag> elements within the <tag class="element">extendedlink</tag> element. This can contain text, all block elements and all inline elements. It takes all common DocBook attributes. By default the <tag class="attribute">xl:type</tag> attribute is set to <tag class="attvalue">resource</tag>. This element enables you to define a resource in an extended link.</para>
+			</listitem>
+		</itemizedlist>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<para><filename>pacbook.rng</filename> adds the following to the DocBook common attributes.</para>
+		<itemizedlist>
+			<listitem>
+				<para>All ITS 2.0 local attributes in the <link xl:href="http://www.w3.org/TR/its20/">ITS</link> namespace.</para>
+			</listitem>
+			<listitem>
+				<para>The <tag class="attribute">xlf:id</tag> attribute. This is in the <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> namespace and contains an NMToken. It is used for PACBook translation — see <link xl:href="#XlateMarkup.xsl">XlateMarkup.xsl</link>.</para>
+			</listitem>
+			<listitem>
+				<para>The <tag class="attribute">content:ref</tag> attribute. This is in the <link xl:href="http://stanleysecurity.github.io/PACBook/ns/transclusion">PACBook transclusion</link> namespace and contains an NMToken. It is used for parametrised transclusion — see <link xl:href="#TransParam.xsl">TransParam.xsl</link>.</para>
+			</listitem>
+			<listitem>
+				<para>The following linguistic markup attributes. They are in the <link xl:href="http://stanleysecurity.github.io/PACBook/ns/linguistics">PACBook linguistics</link> namespace and contain NMTokens. They are used for linguistic pre-processing.</para>
+				<para><tag class="attribute">ling:type</tag> — marks government and binding. Set to <tag class="attvalue">head</tag> for inflected head nouns, <tag class="attvalue">depend</tag> for inflected dependent words. See <link xl:href="#LingHead.xsl">LingHead.xsl</link>, <link xl:href="#LingDepend.xsl">LingDepend.xsl</link>.</para>
+				<para><tag class="attribute">ling:pron</tag> — marks pronunciation of a head word. See <link xl:href="#LingDepend.xsl">LingDepend.xsl</link>.</para>
+				<para><tag class="attribute">ling:gen</tag> — marks syntactic gender. See <link xl:href="#LingDepend.xsl">LingDepend.xsl</link>.</para>
+				<para><tag class="attribute">ling:num</tag> — marks syntactic number. See <link xl:href="#LingDepend.xsl">LingDepend.xsl</link>.</para>
+				<para><tag class="attribute">ling:case</tag> — marks syntactic case. See <link xl:href="#LingHead.xsl">LingHead.xsl</link>, <link xl:href="#LingDepend.xsl">LingDepend.xsl</link>.</para>
+				<para><tag class="attribute">ling:class</tag> — marks syntactic definiteness. See <link xl:href="#LingHead.xsl">LingHead.xsl</link>, <link xl:href="#LingDepend.xsl">LingDepend.xsl</link>.</para>
+				<para><tag class="attribute">ling:orth</tag> — marks orthographic case. See <link xl:href="#LingCasing.xsl">LingCasing.xsl</link>.</para>
+			</listitem>
+		</itemizedlist>
+		<section>
+			<title>Note</title>
+			<para>PACBook also adds the <tag class="attribute">outputformat</tag> attribute in the DocBook namespace as a common attribute. This is due to be added in DocBook 5.1 anyway; I’ve added it to PACBook because I found it useful.</para>
+		</section>
+	</section>
 </article>

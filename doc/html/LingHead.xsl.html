@@ -1,20 +1,104 @@
-<p>Selects the required declension of head nouns in an XML document.</p>
-<h2 id="parameters">Parameters</h2>
-<p>None.</p>
-<h2 id="input">Input</h2>
-<p>An XML document. You must mark up the source document with linguistic attributes describing the syntactic case and / or definiteness required for each head noun in the document.</p>
-<h2 id="output">Output</h2>
-<p>An XML document, identical to the input except that head nouns are declined for syntactic case and / or definiteness.</p>
-<h2 id="description">Description</h2>
-<p>The stylesheet recurses through the document and copies each element. If any element is marked as a head noun, the stylesheet selects the correct declension based on the syntactic case and definiteness specified by the nearest ancestor element.</p>
-<p>This is useful when you need to transclude a term into a sentence and want to select the correct form of the term, depending on the case and / or definiteness required in the target sentence.</p>
-<p>When you define a noun for transclusion, you must include in the transcluded text all the possible forms of the head noun in the current language. Each form must be wrapped in a suitable spanning element, e.g. <code>&lt;phrase&gt;</code> in DocBook, <code>&lt;ph&gt;</code> in DITA or <code>&lt;span&gt;</code> in HTML. Each form should have the <code>ling:type='head'</code> to indicate that it is a head noun, and should also have <code>ling:case</code> and <code>ling:class</code> attributes to specify the case and / or definiteness of each form, depending on the language.</p>
-<p>At each location where the term is to be transcluded, you must wrap the transcluded term and any preceding or following dependent words, e.g. articles or adjectives, in another spanning element. This spanning element should be marked up with the case and / or definiteness you require for this instance of the term, depending on the current language.</p>
-<ul>
-<li><p>The <code>ling:case</code> attribute may have any string value, as long as it matches a value used to mark case in the PACBook syntactic dictionary for the current language. In the PACBook syntactic dictionaries, the values used are <code>nom</code> for nominative, <code>acc</code> for accusative, <code>gen</code> for genitive and <code>dat</code> for dative. The <code>gen</code> case is used to mark the possessive in English. If the stylesheet cannot determine the required case for a transcluded term, it assumes the nominative form is required.</p></li>
-<li><p>The <code>ling:class</code> attribute may have any string value, as long as it matches a value used to mark inflectional class in the PACBook syntactic dictionary for the current language. In the PACBook syntactic dictionaries, the values used in German are <code>strong</code>, <code>weak</code> and <code>mixed</code>; the values used in Dutch, Swedish and Norwegian are <code>ind</code> for indefinite, <code>def</code> for definite. If the stylesheet cannot determine the required inflectional class for a transcluded term, it assumes the indefinite form is required.</p></li>
-</ul>
-<p>The namespace URI for the linguistic attributes is <code>http://stanleysecurity.github.io/PACBook/ns/linguistics</code>.</p>
-<p>This stylesheet should be applied after the head nouns have all been transcluded into place. When the stylesheet finds a head element, it checks whether the element’s definiteness and / or case match the definiteness and / or case of the nearest ancestor element. If they match, the head element is copied to the output; if not, the head element and all its descendent elements are deleted.</p>
-<h2 id="roadmap">Roadmap</h2>
-<p>In DocBook files, this stylesheet matches <code>&lt;token&gt;</code> elements as well as elements with the <code>ling:type='head'</code> attribute. This may be removed in a future release.</p>
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>LingHead</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.ling.html" title="Linguistic Stylesheets">
+      <link rel="prev" href="LingDepend.xsl.html" title="LingDepend">
+      <link rel="next" href="pacbook.text.html" title="Text Stylesheets">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="LingDepend.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.ling.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="pacbook.text.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="LingHead.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">LingHead</span></h2>
+            <p>LingHead.xsl &#8212; Selects the required declension of head nouns in an XML document.</p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2>
+            <p>None.</p>
+         </div>
+         <div class="refsect1" id="d0e1382">
+            <h2>Input</h2>
+            <p>An XML document. You must mark up the source document with linguistic attributes describing the syntactic case and&nbsp;/ or definiteness
+               required for each head noun in the document.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e1387">
+            <h2>Output</h2>
+            <p>An XML document, identical to the input except that head nouns are declined for syntactic case and&nbsp;/ or definiteness.</p>
+         </div>
+         <div class="refsect1" id="d0e1392">
+            <h2>Description</h2>
+            <p>The stylesheet recurses through the document and copies each element. If any element is marked as a head noun, the stylesheet
+               selects the correct declension based on the syntactic case and definiteness specified by the nearest ancestor element.
+            </p>
+            <p>This is useful when you need to transclude a term into a sentence and want to select the correct form of the term, depending
+               on the case and / or definiteness required in the target sentence.
+            </p>
+            <p>When you define a noun for transclusion, you must include in the transcluded text all the possible forms of the head noun
+               in the current language. Each form must be wrapped in a suitable spanning element, e.g. <code class="sgmltag-element">phrase</code> in DocBook, <code class="sgmltag-element">ph</code> in DITA or <code class="sgmltag-element">span</code> in HTML. Each form should have the <code class="sgmltag-attribute">ling:type='head'</code> attribute to indicate that it is a head noun, and should also have <code class="sgmltag-attribute">ling:case</code> and <code class="sgmltag-attribute">ling:class</code> attributes to specify the case and / or definiteness of each form, depending on the language.
+            </p>
+            <p>At each location where the term is to be transcluded, you must wrap the transcluded term and any preceding or following dependent
+               words, e.g. articles or adjectives, in another spanning element. This spanning element should be marked up with the case and
+               / or definiteness you require for this instance of the term, depending on the current language.
+            </p>
+            <div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p>The <code class="sgmltag-attribute">ling:case</code> attribute may have any string value, as long as it matches a value used to mark case in the PACBook syntactic dictionary
+                        for the current language. In the PACBook syntactic dictionaries, the values used are <code class="sgmltag-attvalue">nom</code> for nominative, <code class="sgmltag-attvalue">acc</code> for accusative, <code class="sgmltag-attvalue">gen</code> for genitive and <code class="sgmltag-attvalue">dat</code> for dative. The <code class="sgmltag-attvalue">gen</code> case is used to mark the possessive in English. If the stylesheet cannot determine the required case for a transcluded term,
+                        it assumes the nominative form is required.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>The <code class="sgmltag-attribute">ling:class</code> attribute may have any string value, as long as it matches a value used to mark inflectional class in the PACBook syntactic
+                        dictionary for the current language. In the PACBook syntactic dictionaries, the values used in German are <code class="sgmltag-attvalue">strong</code>, <code class="sgmltag-attvalue">weak</code> and <code class="sgmltag-attvalue">mixed</code>; the values used in Dutch, Swedish and Norwegian are <code class="sgmltag-attvalue">ind</code> for indefinite, <code class="sgmltag-attvalue">def</code> for definite. If the stylesheet cannot determine the required inflectional class for a transcluded term, it assumes the indefinite
+                        form is required.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+            <p>The namespace URI for the linguistic attributes is <code class="uri">http://stanleysecurity.github.io/PACBook/ns/linguistics</code>.
+            </p>
+            <p>This stylesheet should be applied after the head nouns have all been transcluded into place. When the stylesheet finds a head
+               element, it checks whether the element&#8217;s definiteness and&nbsp;/ or case match the definiteness and&nbsp;/ or case of the nearest ancestor
+               element. If they match, the head element is copied to the output; if not, the head element and all its descendent elements
+               are deleted.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e1471">
+            <h2>Roadmap</h2>
+            <p>In DocBook files, this stylesheet matches <code class="sgmltag-element">token</code> elements as well as elements with the <code class="sgmltag-attribute">ling:type='head'</code> attribute. This may be removed in a future release.
+            </p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="LingDepend.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.ling.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="pacbook.text.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

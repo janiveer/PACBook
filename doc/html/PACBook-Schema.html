@@ -1,25 +1,135 @@
-<p>Not all of PACBook’s features are natively available in DocBook 5.0. PACBook provides a custom RelaxNG schema to enable them.</p>
-<p><code>pacbook.rng</code> adds the following features to the DocBook 5.0 <code>docbookxi.rng</code> schema.</p>
-<h2 id="elements">Elements</h2>
-<p><code>pacbook.rng</code> adds the following elements in the DocBook namespace.</p>
-<ul>
-<li><p>An optional <code>&lt;title&gt;</code> element as an initial child of the <code>&lt;extendedlink&gt;</code> element. This can contain text and all inline elements. It takes all common DocBook attributes. By default the <code>xl:type</code> attribute is set to <code>title</code>. This element enables you to define a title for an extended link.</p></li>
-<li><p>Any number of optional <code>&lt;resource&gt;</code> elements within the <code>&lt;extendedlink&gt;</code> element. This can contain text, all block elements and all inline elements. It takes all common DocBook attributes. By default the <code>xl:type</code> attribute is set to <code>resource</code>. This element enables you to define a resource in an extended link.</p></li>
-</ul>
-<h2 id="attributes">Attributes</h2>
-<p><code>pacbook.rng</code> adds the following to the DocBook common attributes:</p>
-<ul>
-<li><p>All ITS 2.0 local attributes in the <a href="http://www.w3.org/TR/its20/">ITS</a> namespace.</p></li>
-<li><p>The <code>xlf:id</code> attribute. This is in the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> namespace and contains an NMToken. It is used for PACBook translation — see <a href="XlateMarkup.xsl">XlateMarkup.xsl</a>.</p></li>
-<li><p>The <code>content:ref</code> attribute. This is in the <a href="http://stanleysecurity.github.io/PACBook/ns/transclusion">PACBook transclusion</a> namespace and contains an NMToken. It is used for parametrised transclusion — see <a href="TransParam.xsl">TransParam.xsl</a>.</p></li>
-<li><p>The following linguistic markup attributes. They are in the <a href="http://stanleysecurity.github.io/PACBook/ns/linguistics">PACBook linguistics</a> namespace and contain NMTokens. They are used for linguistic pre-processing.</p></li>
-</ul>
-<p><code>ling:type</code> — marks government and binding. Set to <code>head</code> for inflected head nouns, <code>depend</code> for inflected dependent words. See <a href="LingHead.xsl">LingHead.xsl</a>, <a href="LingDepend.xsl">LingDepend.xsl</a>.</p>
-<p><code>ling:pron</code> — marks pronunciation of a head word. See <a href="LingDepend.xsl">LingDepend.xsl</a>.</p>
-<p><code>ling:gen</code> — marks syntactic gender. See <a href="LingDepend.xsl">LingDepend.xsl</a>.</p>
-<p><code>ling:num</code> — marks syntactic number. See <a href="LingDepend.xsl">LingDepend.xsl</a>.</p>
-<p><code>ling:case</code> — marks syntactic case. See <a href="LingHead.xsl">LingHead.xsl</a>, <a href="LingDepend.xsl">LingDepend.xsl</a>.</p>
-<p><code>ling:class</code> — marks syntactic definiteness. See <a href="LingHead.xsl">LingHead.xsl</a>, <a href="LingDepend.xsl">LingDepend.xsl</a>.</p>
-<p><code>ling:orth</code> — marks orthographic case. See <a href="LingCasing.xsl">LingCasing.xsl</a>.</p>
-<h3 id="note">Note</h3>
-<p>PACBook also adds the <code>outputformat</code> attribute in the DocBook namespace as a common attribute. This is due to be added in DocBook 5.1 anyway; I’ve added it to PACBook because I found it useful.</p>
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>PACBook Schema</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.intro.html" title="Introduction">
+      <link rel="prev" href="Overview.html" title="Overview">
+      <link rel="next" href="RDF-Applicability.html" title="RDF Applicability">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="Overview.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.intro.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="RDF-Applicability.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="section" id="PACBook-Schema">
+         <div class="titlepage">
+            <div>
+               <div>
+                  <h2 class="title">PACBook Schema</h2>
+               </div>
+            </div>
+         </div>
+         <p>Not all of PACBook&#8217;s features are natively available in DocBook 5.0. PACBook provides a custom RelaxNG schema to enable them.
+            	
+         </p>
+         <p><code class="filename">pacbook.rng</code> adds the following features to the DocBook 5.0 <code class="filename">docbookxi.rng</code> schema.
+            	
+         </p>
+         <div class="section" id="d0e242">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">Elements</h3>
+                  </div>
+               </div>
+            </div>
+            <p><code class="filename">pacbook.rng</code> adds the following elements in the DocBook namespace.
+            </p>
+            <div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p>An optional <code class="sgmltag-element">title</code> element as an initial child of the <code class="sgmltag-element">extendedlink</code> element. This can contain text and all inline elements. It takes all common DocBook attributes. By default the <code class="sgmltag-attribute">xl:type</code> attribute is set to <code class="sgmltag-attvalue">title</code>. This element enables you to define a title for an extended link.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>Any number of optional <code class="sgmltag-element">resource</code> elements within the <code class="sgmltag-element">extendedlink</code> element. This can contain text, all block elements and all inline elements. It takes all common DocBook attributes. By default
+                        the <code class="sgmltag-attribute">xl:type</code> attribute is set to <code class="sgmltag-attvalue">resource</code>. This element enables you to define a resource in an extended link.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="section" id="d0e280">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">Attributes</h3>
+                  </div>
+               </div>
+            </div>
+            <p><code class="filename">pacbook.rng</code> adds the following to the DocBook common attributes.
+            </p>
+            <div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p>All ITS 2.0 local attributes in the <a class="link" href="http://www.w3.org/TR/its20/" target="_blank">ITS</a> namespace.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>The <code class="sgmltag-attribute">xlf:id</code> attribute. This is in the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> namespace and contains an NMToken. It is used for PACBook translation &#8212; see <a class="link" href="XlateMarkup.xsl.html" title="XlateMarkup">XlateMarkup.xsl</a>.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>The <code class="sgmltag-attribute">content:ref</code> attribute. This is in the <a class="link" href="http://stanleysecurity.github.io/PACBook/ns/transclusion" target="_blank">PACBook transclusion</a> namespace and contains an NMToken. It is used for parametrised transclusion &#8212; see <a class="link" href="TransParam.xsl.html" title="TransParam">TransParam.xsl</a>.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>The following linguistic markup attributes. They are in the <a class="link" href="http://stanleysecurity.github.io/PACBook/ns/linguistics" target="_blank">PACBook linguistics</a> namespace and contain NMTokens. They are used for linguistic pre-processing.
+                     </p>
+                     <p><code class="sgmltag-attribute">ling:type</code>&nbsp;&#8212; marks government and binding. Set to <code class="sgmltag-attvalue">head</code> for inflected head nouns, <code class="sgmltag-attvalue">depend</code> for inflected dependent words. See <a class="link" href="LingHead.xsl.html" title="LingHead">LingHead.xsl</a>, <a class="link" href="LingDepend.xsl.html" title="LingDepend">LingDepend.xsl</a>.
+                     </p>
+                     <p><code class="sgmltag-attribute">ling:pron</code>&nbsp;&#8212; marks pronunciation of a head word. See <a class="link" href="LingDepend.xsl.html" title="LingDepend">LingDepend.xsl</a>.
+                     </p>
+                     <p><code class="sgmltag-attribute">ling:gen</code>&nbsp;&#8212; marks syntactic gender. See <a class="link" href="LingDepend.xsl.html" title="LingDepend">LingDepend.xsl</a>.
+                     </p>
+                     <p><code class="sgmltag-attribute">ling:num</code>&nbsp;&#8212; marks syntactic number. See <a class="link" href="LingDepend.xsl.html" title="LingDepend">LingDepend.xsl</a>.
+                     </p>
+                     <p><code class="sgmltag-attribute">ling:case</code>&nbsp;&#8212; marks syntactic case. See <a class="link" href="LingHead.xsl.html" title="LingHead">LingHead.xsl</a>, <a class="link" href="LingDepend.xsl.html" title="LingDepend">LingDepend.xsl</a>.
+                     </p>
+                     <p><code class="sgmltag-attribute">ling:class</code>&nbsp;&#8212; marks syntactic definiteness. See <a class="link" href="LingHead.xsl.html" title="LingHead">LingHead.xsl</a>, <a class="link" href="LingDepend.xsl.html" title="LingDepend">LingDepend.xsl</a>.
+                     </p>
+                     <p><code class="sgmltag-attribute">ling:orth</code>&nbsp;&#8212; marks orthographic case. See <a class="link" href="LingCasing.xsl.html" title="LingCasing">LingCasing.xsl</a>.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+            <div class="section" id="d0e388">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h4 class="title">Note</h4>
+                     </div>
+                  </div>
+               </div>
+               <p>PACBook also adds the <code class="sgmltag-attribute">outputformat</code> attribute in the DocBook namespace as a common attribute. This is due to be added in DocBook 5.1 anyway; I&#8217;ve added it to
+                  PACBook because I found it useful.
+               </p>
+            </div>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="Overview.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.intro.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="RDF-Applicability.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

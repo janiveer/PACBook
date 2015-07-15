@@ -10,145 +10,71 @@
          version="5.0-variant PACBook"
          its:version="2.0"
          xml:lang="en-GB"
-         xml:id="ID">
-	<title>DocTools</title>
+         xml:id="pacbook.ling.casing">
+	<title>LingCasing</title>
 	<refentry>
+		<refmeta>
+			<refentrytitle>LingCasing</refentrytitle>
+		</refmeta>
 		<refnamediv>
-			<refname></refname>
-			<refpurpose></refpurpose>
+			<refname>LingCasing.xsl</refname>
+			<refpurpose>Sets the orthographic case of specified text in an XML document.</refpurpose>
 		</refnamediv>
 		<refsynopsisdiv>
-			<synopsis></synopsis>
+			<title>Parameters</title>
+			<synopsis>[ShortWords]</synopsis>
+			<itemizedlist>
+				<listitem>
+					<para><parameter>ShortWords</parameter> (string) — English words which should not be capitalised in title case.</para>
+				</listitem>
+			</itemizedlist>
 		</refsynopsisdiv>
-<para>
-  Sets the orthographic case of specified text in an XML document.
-</para>
-<sect1 id="parameters">
-  <title>Parameters</title>
-  <para>
-    <literal>[ShortWords]</literal>
-  </para>
-  <itemizedlist>
-    <listitem>
-      <para>
-        <emphasis role="strong">ShortWords</emphasis> (string) — English
-        words which should not be capitalised in title case.
-      </para>
-    </listitem>
-  </itemizedlist>
-</sect1>
-<sect1 id="input">
-  <title>Input</title>
-  <para>
-    An XML document. You must mark up the source document with
-    linguistic attributes describing the orthographic case which is
-    required for the specified text — see description below.
-  </para>
-</sect1>
-<sect1 id="output">
-  <title>Output</title>
-  <para>
-    An XML document, identical to the input except that marked text is
-    set to the required orthographic case.
-  </para>
-</sect1>
-<sect1 id="description">
-  <title>Description</title>
-  <para>
-    The stylesheet recurses through the document and copies each
-    element. If any element has the <literal>ling:orth</literal>
-    attribute, the stylesheet changes the case of the text nodes in this
-    element and all descendent elements.
-  </para>
-  <para>
-    This is useful for transclusion. If you transclude a term at the
-    start of a sentence, you may want to set the case of the transcluded
-    term to sentence case. If you transclude a term into a title, you
-    may want to set the case of the transcluded term to title case.
-  </para>
-  <para>
-    This stylesheet is only relevant to languages which use orthographic
-    case. The stylesheet supports all alphabets supported by the
-    <ulink url="http://xsltsl.sourceforge.net/">XSL Standard
-    Library</ulink> string stylesheets, including Latin, Greek and
-    Cyrillic.
-  </para>
-  <para>
-    The namespace URI for the linguistic attributes is
-    <literal>http://stanleysecurity.github.io/PACBook/ns/linguistics</literal>.
-  </para>
-  <para>
-    The <literal>ling:orth</literal> attribute may have any of the
-    following values:
-  </para>
-  <itemizedlist>
-    <listitem>
-      <para>
-        upper
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        lower
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        sentence
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        title
-      </para>
-    </listitem>
-  </itemizedlist>
-  <sect2 id="upper">
-    <title>Upper</title>
-    <para>
-      Changes the case of text nodes to upper case. This is applied to
-      text in the current element and all descendent elements, unless
-      any descendent elements have a different
-      <literal>ling:orth</literal> attribute.
-    </para>
-  </sect2>
-  <sect2 id="lower">
-    <title>Lower</title>
-    <para>
-      Changes the case of text nodes to lower case. This is applied to
-      text in the current element and all descendent elements, unless
-      any descendent elements have a different
-      <literal>ling:orth</literal> attribute.
-    </para>
-  </sect2>
-  <sect2 id="sentence">
-    <title>Sentence</title>
-    <para>
-      Finds the first text node child of the current element and changes
-      the first character of the word to upper case. The rest of the
-      text nodes in this element and all descendent elements are left
-      unchanged, unless any descendent elements have a different
-      <literal>ling:orth</literal> attribute.
-    </para>
-  </sect2>
-  <sect2 id="title">
-    <title>Title</title>
-    <para>
-      Splits the text into words (at spaces). If a word is
-      <emphasis>not</emphasis> listed in the
-      <literal>ShortWords</literal> parameter, changes the first
-      character of the word to upper case. This is applied to text nodes
-      in the current element and all descendent elements, unless any
-      descendent elements have a different <literal>ling:orth</literal>
-      attribute.
-    </para>
-    <para>
-      Title case only supports English. For other languages, use
-      sentence case. The default value of the
-      <literal>ShortWords</literal> parameter is hard coded into the
-      stylesheet.
-    </para>
-  </sect2>
-</sect1>
+		<refsect1>
+			<title>Input</title>
+			<para>An XML document. You must mark up the source document with linguistic attributes describing the orthographic case which is required for the specified text — see description below.</para>
+		</refsect1>
+		<refsect1>
+			<title>Output</title>
+			<para>An XML document, identical to the input except that marked text is set to the required orthographic case.</para>
+		</refsect1>
+		<refsect1>
+			<title>Description</title>
+			<para>The stylesheet recurses through the document and copies each element. If any element has the <tag class="attribute">ling:orth</tag> attribute, the stylesheet changes the case of the text nodes in this element and all descendent elements.</para>
+			<para>This is useful for transclusion. If you transclude a term at the start of a sentence, you may want to set the case of the transcluded term to sentence case. If you transclude a term into a title, you may want to set the case of the transcluded term to title case.</para>
+			<para>This stylesheet is only relevant to languages which use orthographic case. The stylesheet supports all alphabets supported by the <link xl:href="http://xsltsl.sourceforge.net/">XSL Standard Library</link> string stylesheets, including Latin, Greek and Cyrillic.</para>
+			<para>The namespace URI for the linguistic attributes is <uri>http://stanleysecurity.github.io/PACBook/ns/linguistics</uri>.</para>
+			<para>The <tag class="attribute">ling:orth</tag> attribute may have any of the following values:</para>
+			<itemizedlist>
+				<listitem>
+					<para>upper</para>
+				</listitem>
+				<listitem>
+					<para>lower</para>
+				</listitem>
+				<listitem>
+					<para>sentence</para>
+				</listitem>
+				<listitem>
+					<para>title</para>
+				</listitem>
+			</itemizedlist>
+			<refsect2>
+				<title>Upper</title>
+				<para>Changes the case of text nodes to upper case. This is applied to text in the current element and all descendent elements, unless any descendent elements have a different <tag class="attribute">ling:orth</tag> attribute.</para>
+			</refsect2>
+			<refsect2>
+				<title>Lower</title>
+				<para>Changes the case of text nodes to lower case. This is applied to text in the current element and all descendent elements, unless any descendent elements have a different <tag class="attribute">ling:orth</tag> attribute.</para>
+			</refsect2>
+			<refsect2>
+				<title>Sentence</title>
+				<para>Finds the first text node child of the current element and changes the first character of the word to upper case. The rest of the text nodes in this element and all descendent elements are left unchanged, unless any descendent elements have a different <tag class="attribute">ling:orth</tag> attribute.</para>
+			</refsect2>
+			<refsect2>
+				<title>Title</title>
+				<para>Splits the text into words (at spaces). If a word is <emphasis>not</emphasis> listed in the <parameter>ShortWords</parameter> parameter, changes the first character of the word to upper case. This is applied to text nodes in the current element and all descendent elements, unless any descendent elements have a different <tag class="attribute">ling:orth</tag> attribute.</para>
+				<para>Title case only supports English. For other languages, use sentence case. The default value of the <parameter>ShortWords</parameter> parameter is hard coded into the stylesheet.</para>
+			</refsect2>
+		</refsect1>
 	</refentry>
 </article>

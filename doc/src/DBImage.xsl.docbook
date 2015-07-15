@@ -13,9 +13,12 @@
          xml:id="pacbook.db.images">
 	<title>DBImage</title>
 	<refentry>
+		<refmeta>
+			<refentrytitle>DBImage</refentrytitle>
+		</refmeta>
 		<refnamediv>
 			<refname>DBImage.xsl</refname>
-			<refpurpose>Resolves image file references against all ancestor <literal>xml:base</literal> attributes.</refpurpose>
+			<refpurpose>Resolves image file references against all ancestor <tag class="attribute">xml:base</tag> attributes.</refpurpose>
 		</refnamediv>
 		<refsynopsisdiv>
 			<title>Parameters</title>
@@ -23,16 +26,16 @@
 		</refsynopsisdiv>
 		<refsect1 xml:id="input">
 			<title>Input</title>
-			<para>A DocBook document. Chapters or sections which have been transcluded must have <literal>xml:base</literal> attributes giving their origin, either absolute or relative to the complete document.</para>
+			<para>A DocBook document. Chapters or sections which have been transcluded must have <tag class="attribute">xml:base</tag> attributes giving their origin, either absolute or relative to the complete document.</para>
 		</refsect1>
 		<refsect1 xml:id="output">
 			<title>Output</title>
-			<para>A DocBook document, identical to the input except that any image file references are resolved against all ancestor <literal>xml:base</literal> attributes.</para>
+			<para>A DocBook document, identical to the input except that any image file references are resolved against all ancestor <tag class="attribute">xml:base</tag> attributes.</para>
 		</refsect1>
 		<refsect1 xml:id="description">
 			<title>Description</title>
-			<para>The stylesheet recurses through the document and copies each element. For each <tag class="element">imagedata</tag> element, if there is a <literal>fileref</literal> attribute, it is resolved against all ancestor <literal>xml:base</literal> attributes and written to the output document.</para>
-			<para>It is assumed that document modules refer to image files relative to their own location. You can use this stylesheet to modify image file references to point to the location of the original image relative to the assembled document’s location. The transclusion or assembly process used to build the document must add <literal>xml:base</literal> attributes to show the origin of each document module.</para>
+			<para>The stylesheet recurses through the document and copies each element. For each <tag class="element">imagedata</tag> element, if there is a <tag class="attribute">fileref</tag> attribute, it is resolved against all ancestor <tag class="attribute">xml:base</tag> attributes and written to the output document.</para>
+			<para>It is assumed that document modules refer to image files relative to their own location. You can use this stylesheet to modify image file references to point to the location of the original image relative to the assembled document’s location. The transclusion or assembly process used to build the document must add <tag class="attribute">xml:base</tag> attributes to show the origin of each document module.</para>
 		</refsect1>
 	</refentry>
 </article>

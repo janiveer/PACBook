@@ -1,30 +1,129 @@
-<p>Uses a <a href="http://www.tei-c.org/">TEI</a> syntactic dictionary to inflect specified words, e.g. determiners, adjectives, and relative pronouns, in an XML document.</p>
-<h2 id="parameters">Parameters</h2>
-<p><code>[Verbose]</code></p>
-<ul>
-<li><strong>Verbose</strong> (Boolean) — Whether full error messages should be displayed.</li>
-</ul>
-<h2 id="input">Input</h2>
-<p>An XML document. You must mark up the source document with linguistic attributes identifying the dependent words in the document and describing the syntactic and / or phonetic environment for each dependent word.</p>
-<h2 id="output">Output</h2>
-<p>An XML document, identical to the input except that dependent words are inflected by phonology, case, gender and number.</p>
-<h2 id="description">Description</h2>
-<p>The stylesheet recurses through the document and copies each element. If any element has the attribute <code>ling:type='depend'</code>, the stylesheet changes the text nodes in this element to match the phonological and syntactic environment.</p>
-<p>This is useful for transclusion. If you transclude a term into a document, you can inflect dependent words such as determiners, adjectives, and relative pronouns which surround the transcluded term.</p>
-<p>To determine the phonetic environment for a dependent word, the stylesheet looks for the nearest following sibling element which has a <code>ling:pron</code> attribute, or which has a child element with a <code>ling:pron</code> attribute.</p>
-<p>To determine the syntactic environment for a dependent word, the stylesheet looks for the nearest element in the document tree with a <code>ling:num</code>, <code>ling:case</code>, <code>ling:gen</code> or <code>ling:class</code> attribute. In elements containing a single head word, these attributes can be marked on the head word. (The head word must be wrapped in a suitable element such as <code>&lt;phrase&gt;</code> in DocBook.) In elements containing multiple head words, attributes which are intrinsic to the head word (i.e. <code>ling:num</code> and <code>ling:gen</code>) may be marked on the head word, and attributes which describe the syntactic role of the word in the sentence (i.e. <code>ling:case</code> and <code>ling:class</code>) may be marked on another wrapper element that surrounds a single head word and all its dependent words.</p>
-<p>The linguistic attributes are as follows:</p>
-<ul>
-<li><p><code>ling:pron</code> — Indicates the pronunciation or phonetic environment that the head word governs. This is not the full pronunciation of the word. For most languages that require this feature, <code>ling:pron=&quot;V&quot;</code> indicates that<br />the word is pronounced with an initial vowel; <code>ling:pron=&quot;C&quot;</code> that the word is pronounced with an initial consonant. The value of the attribute can be tailored to the language. So for Italian, <code>ling:pron=&quot;S&quot;</code> indicates that the word is pronounced with an initial “s” cluster, “gn”, “ps”, “x” or “z”. For Spanish, <code>ling:pron=&quot;A&quot;</code> indicates that the word has an initial stressed “a”.</p></li>
-<li><p><code>ling:num</code> — Indicates grammatical number. Possible values are <code>sg</code> singular, <code>pl</code> plural, etc.</p></li>
-<li><p><code>ling:case</code> — Indicates grammatical case. Possible values are <code>nom</code> nominative, <code>gen</code> genitive, <code>dat</code> dative, <code>acc</code> accusative, etc.</p></li>
-<li><p><code>ling:gen</code> — Indicates grammatical gender. Possible values are <code>c</code> common, <code>m</code> masculine, <code>f</code> feminine, <code>n</code> neutral, etc.</p></li>
-<li><p><code>ling:class</code> — Indicates the inflection class. Possible values are <code>def</code> definite, <code>ind</code> indefinite, <code>strong</code>, <code>weak</code>, <code>mixed</code>, etc.</p></li>
-</ul>
-<p>The namespace URI for the linguistic attributes is <code>http://stanleysecurity.github.io/PACBook/ns/linguistics</code>.</p>
-<p>Having found the head word and determined the syntactic and phonetic environment, the stylesheet looks for the correct syntactic dictionary for the current language, as specified by the nearest ancestor <code>xml:lang</code> attribute. The syntactic dictionaries are XML dictionaries using a schema which complies with the dictionary module of the Text Encoding Initiative <a href="http://www.tei-c.org/">TEI</a>. The dictionaries are primarily designed to handle words in closed semantic categories, e.g. definite and indefinite articles, demonstrative adjectives. The dictionaries also contains common contractions, such as German <em>im</em>, <em>vom</em>, <em>beim</em>, or French <em>des</em>, <em>aux</em>. Words in open semantic categories pose more of a problem. They does not yet contain very many adjectives.</p>
-<p>The syntactic dictionaries for the supported languages are stored in the <code>tei</code> subdirectory.</p>
-<p>The stylesheet uses the text content of the dependent word to look up the correct word in the dictionary. It then uses the syntactic and phonetic environment to select the correct inflected form of the word, and copies this into the document.</p>
-<p>If the <code>Verbose</code> parameter is set to true, i.e. anything other than 0 or the empty string, detailed messages are displayed as each dependent word is inflected. This can help to work out what’s gone wrong when a word is not inflected properly.</p>
-<h2 id="roadmap">Roadmap</h2>
-<p>In DocBook files, this stylesheet matches <code>&lt;wordasword&gt;</code> elements as well as elements with the <code>ling:type='depend'</code> attribute. This may be removed in a future release.</p>
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>LingDepend</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.ling.html" title="Linguistic Stylesheets">
+      <link rel="prev" href="LingCasing.xsl.html" title="LingCasing">
+      <link rel="next" href="LingHead.xsl.html" title="LingHead">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="LingCasing.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.ling.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="LingHead.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="LingDepend.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">LingDepend</span></h2>
+            <p>LingDepend.xsl &#8212; Uses a <a class="link" href="http://www.tei-c.org/" target="_blank">TEI</a> syntactic dictionary to inflect specified words, e.g. determiners, adjectives, and relative pronouns, in an XML document.
+            </p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2><pre class="synopsis">[Verbose]</pre><div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p><em class="parameter"><code>Verbose</code></em> (Boolean) &#8212; Whether full error messages should be displayed.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="refsect1" id="d0e1175">
+            <h2>Input</h2>
+            <p>An XML document. You must mark up the source document with linguistic attributes identifying the dependent words in the document
+               and describing the syntactic and / or phonetic environment for each dependent word.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e1180">
+            <h2>Output</h2>
+            <p>An XML document, identical to the input except that dependent words are inflected by phonology, case, gender and number.</p>
+         </div>
+         <div class="refsect1" id="d0e1185">
+            <h2>Description</h2>
+            <p>The stylesheet recurses through the document and copies each element. If any element has the attribute <code class="sgmltag-attribute">ling:type='depend'</code>, the stylesheet changes the text nodes in this element to match the phonological and syntactic environment.
+            </p>
+            <p>This is useful for transclusion. If you transclude a term into a document, you can inflect dependent words such as determiners,
+               adjectives, and relative pronouns which surround the transcluded term.
+            </p>
+            <p>To determine the phonetic environment for a dependent word, the stylesheet looks for the nearest following sibling element
+               which has a <code class="sgmltag-attribute">ling:pron</code> attribute, or which has a child element with a <code class="sgmltag-attribute">ling:pron</code> attribute.
+            </p>
+            <p>To determine the syntactic environment for a dependent word, the stylesheet looks for the nearest element in the document
+               tree with a <code class="sgmltag-attribute">ling:num</code>, <code class="sgmltag-attribute">ling:case</code>, <code class="sgmltag-attribute">ling:gen</code> or <code class="sgmltag-attribute">ling:class</code> attribute. In elements containing a single head word, these attributes can be marked on the head word. (The head word must
+               be wrapped in a suitable element such as <code class="sgmltag-element">phrase</code> in DocBook.) In elements containing multiple head words, attributes which are intrinsic to the head word (i.e. <code class="sgmltag-attribute">ling:num</code> and <code class="sgmltag-attribute">ling:gen</code>) may be marked on the head word, and attributes which describe the syntactic role of the word in the sentence (i.e. <code class="sgmltag-attribute">ling:case</code> and <code class="sgmltag-attribute">ling:class</code>) may be marked on another wrapper element that surrounds a single head word and all its dependent words.
+            </p>
+            <p>The linguistic attributes are as follows:</p>
+            <div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p><code class="sgmltag-attribute">ling:pron</code> &#8212; Indicates the pronunciation or phonetic environment that the head word governs. This is not the full pronunciation of the
+                        word. For most languages that require this feature, <code class="sgmltag-attribute">ling:pron="V"</code> indicates that the word is pronounced with an initial vowel; <code class="sgmltag-attribute">ling:pron="C"</code> that the word is pronounced with an initial consonant. The value of the attribute can be tailored to the language. So for
+                        Italian, <code class="sgmltag-attribute">ling:pron="S"</code> indicates that the word is pronounced with an initial &#8220;s&#8221; cluster, &#8220;gn&#8221;, &#8220;ps&#8221;, &#8220;x&#8221; or &#8220;z&#8221;. For Spanish, <code class="sgmltag-attribute">ling:pron="A"</code> indicates that the word has an initial stressed &#8220;a&#8221;.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><code class="sgmltag-attribute">ling:num</code> &#8212; Indicates grammatical number. Possible values are <code class="sgmltag-attvalue">sg</code> singular, <code class="sgmltag-attvalue">pl</code> plural, etc.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><code class="sgmltag-attribute">ling:case</code> &#8212; Indicates grammatical case. Possible values are <code class="sgmltag-attvalue">nom</code> nominative, <code class="sgmltag-attvalue">gen</code> genitive, <code class="sgmltag-attvalue">dat</code> dative, <code class="sgmltag-attvalue">acc</code> accusative, etc.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><code class="sgmltag-attribute">ling:gen</code> &#8212; Indicates grammatical gender. Possible values are <code class="sgmltag-attvalue">c</code> common, <code class="sgmltag-attvalue">m</code> masculine, <code class="sgmltag-attvalue">f</code> feminine, <code class="sgmltag-attvalue">n</code> neutral, etc.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><code class="sgmltag-attribute">ling:class</code> &#8212; Indicates the inflection class. Possible values are <code class="sgmltag-attvalue">def</code> definite, <code class="sgmltag-attvalue">ind</code> indefinite, <code class="sgmltag-attvalue">strong</code>, <code class="sgmltag-attvalue">weak</code>, <code class="sgmltag-attvalue">mixed</code>, etc.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+            <p>The namespace URI for the linguistic attributes is <code class="uri">http://stanleysecurity.github.io/PACBook/ns/linguistics</code>.
+            </p>
+            <p>Having found the head word and determined the syntactic and phonetic environment, the stylesheet looks for the correct syntactic
+               dictionary for the current language, as specified by the nearest ancestor <code class="sgmltag-attribute">xml:lang</code> attribute. The syntactic dictionaries are XML dictionaries using a schema which complies with the dictionary module of the
+               Text Encoding Initiative <a class="link" href="http://www.tei-c.org/" target="_blank">TEI</a>. The dictionaries are primarily designed to handle words in closed semantic categories, e.g. definite and indefinite articles,
+               demonstrative adjectives. The dictionaries also contains common contractions, such as German <span class="foreignphrase"><em class="foreignphrase">im</em></span>, <span class="foreignphrase"><em class="foreignphrase">vom</em></span>, <span class="foreignphrase"><em class="foreignphrase">beim</em></span>, or French <span class="foreignphrase"><em class="foreignphrase">des</em></span>, <span class="foreignphrase"><em class="foreignphrase">aux</em></span>. Words in open semantic categories pose more of a problem. They does not yet contain very many adjectives.
+            </p>
+            <p>The syntactic dictionaries for the supported languages are stored in the <code class="filename">tei</code> subdirectory.
+            </p>
+            <p>The stylesheet uses the text content of the dependent word to look up the correct word in the dictionary. It then uses the
+               syntactic and phonetic environment to select the correct inflected form of the word, and copies this into the document.
+            </p>
+            <p>If the <em class="parameter"><code>Verbose</code></em> parameter is set to true, i.e. anything other than 0 or the empty string, detailed messages are displayed as each dependent
+               word is inflected. This can help to work out what&#8217;s gone wrong when a word is not inflected properly.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e1357">
+            <h2>Roadmap</h2>
+            <p>In DocBook files, this stylesheet matches <code class="sgmltag-element">wordasword</code> elements as well as elements with the <code class="sgmltag-attribute">ling:type='depend'</code> attribute. This may be removed in a future release.
+            </p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="LingCasing.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.ling.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="LingHead.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

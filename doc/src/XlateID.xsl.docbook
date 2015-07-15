@@ -10,79 +10,40 @@
          version="5.0-variant PACBook"
          its:version="2.0"
          xml:lang="en-GB"
-         xml:id="ID">
-	<title>DocTools</title>
+         xml:id="pacbook.xlate.id">
+	<title>XlateID</title>
 	<refentry>
+		<refmeta>
+			<refentrytitle>XlateID</refentrytitle>
+		</refmeta>
 		<refnamediv>
-			<refname></refname>
-			<refpurpose></refpurpose>
+			<refname>XlateID.xsl</refname>
+			<refpurpose>Adds a language code to <tag class="attribute">xml:id</tag> attributes and the links that refer to them.</refpurpose>
 		</refnamediv>
 		<refsynopsisdiv>
-			<synopsis></synopsis>
+			<title>Parameters</title>
+			<synopsis>[noFixupURI]</synopsis>
+			<itemizedlist>
+				<listitem>
+					<para><parameter>noFixupURI</parameter> (URI) — the XLink role used to identify links which should not be fixed up; default <uri>http://schema.org/significantLink</uri>.</para>
+				</listitem>
+			</itemizedlist>
 		</refsynopsisdiv>
-<para>
-  Adds a language code to <literal>xml:id</literal> attributes and the
-  links that refer to them.
-</para>
-<sect1 id="parameters">
-  <title>Parameters</title>
-  <para>
-    <literal>[maxRecurseDepth]</literal>
-  </para>
-  <itemizedlist>
-    <listitem>
-      <para>
-        <emphasis role="strong">noFixupURI</emphasis> (URI) — the XLink
-        role used to identify links which should not be fixed up;
-        default <literal>http://schema.org/significantLink</literal>.
-      </para>
-    </listitem>
-  </itemizedlist>
-</sect1>
-<sect1 id="input">
-  <title>Input</title>
-  <para>
-    An XML document. The root element of the document must have an
-    <literal>xml:lang</literal> attribute.
-  </para>
-</sect1>
-<sect1 id="output">
-  <title>Output</title>
-  <para>
-    An XML document.
-  </para>
-</sect1>
-<sect1 id="description">
-  <title>Description</title>
-  <para>
-    This stylesheet copies the source document, and adds the language
-    code specified on the document’s root element to the end of all
-    <literal>xml:id</literal> attributes and all
-    <literal>xl:href</literal> attributes which contain a fragment
-    identifier.
-  </para>
-  <para>
-    If you do not want the language code to be added to an
-    <literal>xl:href</literal> attribute, you must add an
-    <literal>xl:role</literal> attribute to the linking element and set
-    its value to the URI specified by the <literal>noFixupURI</literal>
-    parameter, <literal>http://schema.org/significantLink</literal> by
-    default.
-  </para>
-  <para>
-    In DocBook files, the language code is also added to all
-    <literal>linkend</literal> and <literal>endterm</literal> attributes
-    and to every value in <literal>arearefs</literal> attributes. This
-    is not affected by the <literal>xl:role</literal> attribute.
-  </para>
-  <para>
-    In all cases the language code is separated from the value to which
-    it is added by a full stop.
-  </para>
-  <para>
-    This stylesheet is meant to be used when combining several
-    translated documents into a multi-lingual document.
-  </para>
-</sect1>
+		<refsect1>
+			<title>Input</title>
+			<para>An XML document. The root element of the document must have an <tag class="attribute">xml:lang</tag> attribute.</para>
+		</refsect1>
+		<refsect1>
+			<title>Output</title>
+			<para>An XML document.</para>
+		</refsect1>
+		<refsect1>
+			<title>Description</title>
+			<para>This stylesheet copies the source document, and adds the language code specified on the document’s root element to the end of all <tag class="attribute">xml:id</tag> attributes and all <tag class="attribute">xl:href</tag> attributes which contain a fragment identifier.</para>
+			<para>If you do not want the language code to be added to an <tag class="attribute">xl:href</tag> attribute, you must add an <tag class="attribute">xl:role</tag> attribute to the linking element and set its value to the URI specified by the <parameter>noFixupURI</parameter> parameter, <uri>http://schema.org/significantLink</uri> by default.</para>
+			<para>In DocBook files, the language code is also added to all <tag class="attribute">linkend</tag> and <tag class="attribute">endterm</tag> attributes and to every value in <tag class="attribute">arearefs</tag> attributes. This is not affected by the <tag class="attribute">xl:role</tag> attribute.</para>
+			<para>In all cases the language code is separated from the value to which it is added by a full stop.</para>
+			<para>This stylesheet is meant to be used when combining several translated documents into a multi-lingual document.</para>
+		</refsect1>
 	</refentry>
 </article>

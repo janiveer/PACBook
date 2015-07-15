@@ -13,6 +13,9 @@
          xml:id="pacbook.db.procs">
 	<title>DBProcs</title>
 	<refentry>
+		<refmeta>
+			<refentrytitle>DBProcs</refentrytitle>
+		</refmeta>
 		<refnamediv>
 			<refname>DBProcs.xsl</refname>
 			<refpurpose>Transforms PAC processing instructions in DocBook documents.</refpurpose>
@@ -35,20 +38,20 @@
 			<refsect2>
 				<title><tag class="xmlpi">pac-revhistory</tag></title>
 				<para>You can use this processing instruction to place a revision history table at a precise place in the document. When the stylesheet encounters this processing instruction, it builds a DocBook <tag class="element">informaltable</tag> containing four columns: <emphasis role="strong">Version</emphasis>, <emphasis role="strong">Date</emphasis>, <emphasis role="strong">Author</emphasis> and <emphasis role="strong">Detail</emphasis>. The table uses the CALS table model.</para>
-				<para>The table header is populated in the language specified by the nearest ancestor <literal>xml:lang</literal> attribute. The labels are taken from <literal>DataLabels.xml</literal>. The only fully-supported languages at present are German, English, Spanish, French and Dutch.</para>
+				<para>The table header is populated in the language specified by the nearest ancestor <tag class="attribute">xml:lang</tag> attribute. The labels are taken from <filename>DataLabels.xml</filename>. The only fully-supported languages at present are German, English, Spanish, French and Dutch.</para>
 				<para>Each table row is populated by the details given in the <tag class="element">revhistory</tag> element in the document’s <tag class="element">info</tag> section, if there is one.</para>
-				<para>The attributes of the <tag class="element">informaltable</tag>, e.g. framing, row separators and column separators, are given by the <literal>pac.revhistory.table</literal> attribute set. The attributes of the four columns, e.g. column width, are given by the <literal>pac.revhistory.col.version</literal>, <literal>pac.revhistory.col.date</literal>, <literal>pac.revhistory.col.author</literal> and <literal>pac.revhistory.col.detail</literal> attribute sets.</para>
+				<para>The attributes of the <tag class="element">informaltable</tag>, e.g. framing, row separators and column separators, are given by the <tag class="attribute">pac.revhistory.table</tag> attribute set. The attributes of the four columns, e.g. column width, are given by the <literal>pac.revhistory.col.version</literal>, <literal>pac.revhistory.col.date</literal>, <literal>pac.revhistory.col.author</literal> and <tag class="attribute">pac.revhistory.col.detail</tag> attribute sets.</para>
 			</refsect2>
 			<refsect2>
 				<title><tag class="xmlpi">pac-applicability</tag></title>
 				<para>You can use this processing instruction to place an applicability table at a precise place in the document. When the stylesheet encounters this processing instruction, it builds a DocBook <tag class="element">informaltable</tag> containing four columns: <emphasis role="strong">Product</emphasis>, <emphasis role="strong">Name</emphasis>, <emphasis role="strong">Detail</emphasis> and <emphasis role="strong">Version</emphasis>. The table uses the CALS table model.</para>
-				<para>The table header is populated in the language specified by the nearest ancestor <literal>xml:lang</literal> attribute. The labels are taken from <literal>DataLabels.xml</literal>. The only fully-supported languages at present are German, English, French and Dutch.</para>
+				<para>The table header is populated in the language specified by the nearest ancestor <tag class="attribute">xml:lang</tag> attribute. The labels are taken from <filename>DataLabels.xml</filename>. The only fully-supported languages at present are German, English, French and Dutch.</para>
 				<para>Each table row is populated by the details given in the document’s <link xl:href="#RDF-Applicability">applicability metadata</link>, if there are any.</para>
-				<para>The attributes of the <tag class="element">informaltable</tag>, e.g. framing, row separators and column separators, are given by the <literal>pac.applicability.table</literal> attribute set. The attributes of the four columns, e.g. column width, are given by the <literal>pac.applicability.col.product</literal>, <literal>pac.applicability.col.name</literal>, <literal>pac.applicability.col.detail</literal> and <literal>pac.applicability.col.version</literal> attribute sets.</para>
+				<para>The attributes of the <tag class="element">informaltable</tag>, e.g. framing, row separators and column separators, are given by the <tag class="attribute">pac.applicability.table</tag> attribute set. The attributes of the four columns, e.g. column width, are given by the <literal>pac.applicability.col.product</literal>, <literal>pac.applicability.col.name</literal>, <literal>pac.applicability.col.detail</literal> and <tag class="attribute">pac.applicability.col.version</tag> attribute sets.</para>
 			</refsect2>
 			<refsect2>
 				<title><tag class="xmlpi">pac-pubsnumber</tag></title>
-				<para>When the stylesheet encounters this processing instruction it creates a copy of the content of the <tag class="element">biblioid @class='pubsnumber'</tag> element in the document’s <tag class="element">info</tag> section, if there is one.</para>
+				<para>When the stylesheet encounters this processing instruction it creates a copy of the content of the <tag class="element">biblioid class='pubsnumber'</tag> element in the document’s <tag class="element">info</tag> section, if there is one.</para>
 			</refsect2>
 			<refsect2>
 				<title><tag class="xmlpi">pac-edition</tag></title>
@@ -56,7 +59,7 @@
 			</refsect2>
 			<refsect2>
 				<title><tag class="xmlpi">pac-releaseinfo</tag></title>
-				<para>When the stylesheet encounters this processing instruction it creates a copy of the value of the <literal>status</literal> attribute on the document’s root element, if there is one.</para>
+				<para>When the stylesheet encounters this processing instruction it creates a copy of the value of the <tag class="attribute">status</tag> attribute on the document’s root element, if there is one.</para>
 			</refsect2>
 		</refsect1>
 		<refsect1>

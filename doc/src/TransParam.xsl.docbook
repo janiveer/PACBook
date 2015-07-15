@@ -10,170 +10,62 @@
          version="5.0-variant PACBook"
          its:version="2.0"
          xml:lang="en-GB"
-         xml:id="ID">
-	<title>DocTools</title>
+         xml:id="pacbook.trans.param">
+	<title>TransParam</title>
 	<refentry>
+		<refmeta>
+			<refentrytitle>TransParam</refentrytitle>
+		</refmeta>
 		<refnamediv>
-			<refname></refname>
-			<refpurpose></refpurpose>
+			<refname>TransParam.xsl</refname>
+			<refpurpose>Enables parametrised transclusion.</refpurpose>
 		</refnamediv>
 		<refsynopsisdiv>
-			<synopsis></synopsis>
+			<title>Parameters</title>
+			<synopsis>[defRole]</synopsis>
+			<itemizedlist>
+				<listitem>
+					<para><parameter>defRole</parameter> (URI) — A URI which identifies the transclusion XLink role. Default is <uri>http://stanleysecurity.github.io/PACBook/role/transclusion</uri>.</para>
+				</listitem>
+			</itemizedlist>
 		</refsynopsisdiv>
-<para>
-  Enables parametrised transclusion.
-</para>
-<sect1 id="parameters">
-  <title>Parameters</title>
-  <para>
-    <literal>[defRole]</literal>
-  </para>
-  <itemizedlist>
-    <listitem>
-      <para>
-        <emphasis role="strong">defRole</emphasis> (URI) — A URI which
-        identifies the transclusion XLink role. Default is
-        http://stanleysecurity.github.io/PACBook/role/transclusion.
-      </para>
-    </listitem>
-  </itemizedlist>
-</sect1>
-<sect1 id="input">
-  <title>Input</title>
-  <para>
-    An XML document containing transclusion definitions and references.
-  </para>
-</sect1>
-<sect1 id="output">
-  <title>Output</title>
-  <para>
-    An XML document, identical to the input except that transclusion
-    references are replaced by their definitions.
-  </para>
-</sect1>
-<sect1 id="description">
-  <title>Description</title>
-  <para>
-    This stylesheet enables you to transclude small snippets of XML to
-    other locations within the document. It is complementary to the
-    standard XML methods of transclusion using XInclude, in that it
-    enables you to redefine text replacements locally. It is based on
-    early versions of the
-    <ulink url="http://docbook.org/docs/transclusion">proposed standard
-    for DocBook transclusion</ulink>.
-  </para>
-  <para>
-    Transclusion can be divided into large scale, context-free
-    transclusion and small scale, parametrised transclusion. It is often
-    necessary to perform the two types of transclusion in separate
-    steps. For example, in DocBook, using an assembly to include
-    chapters or sections in a book is also large scale and context-free.
-    This stylesheet, on the other hand, is designed for small scale,
-    parametrised transclusion; for example, inserting a product name at
-    multiple locations in the document.
-  </para>
-  <para>
-    To define XML snippets for transclusion (“definitions”) create an
-    extended link element with the specified transclusion role URI in
-    the metadata at the start of the document. Within this extended link
-    element add XLink resource elements which contain the XML text or
-    elements for transclusion. (To refer to an external set of
-    definitions, use XInclude to transclude the parameter definitions
-    into the document!) Each XLink resource must have an
-    <literal>xl:label</literal> attribute which enables you to refer to
-    this resource.
-  </para>
-  <para>
-    To redefine resources locally, e.g. within a single section of the
-    document, add new XLink resources in the same way to the metadata at
-    the start of that section.
-  </para>
-  <para>
-    To mark the places where the XML snippets should be transcluded
-    (“references”) add elements with the <literal>content:ref</literal>
-    attribute to the body of the document. The
-    <literal>content:ref</literal> attribute should contain the name of
-    the resource that you want to include at this point. Which element
-    you use depends on the circumstances. For purposes of validation you
-    should use an element which is permitted at the location of the
-    reference. In most cases you may want to use an empty generic
-    wrapper element, such as <literal>&lt;phrase&gt;</literal> in
-    DocBook.
-  </para>
-  <para>
-    The namespace URI for the <literal>content:ref</literal> attribute
-    is http://stanleysecurity.github.io/PACBook/ns/transclusion.
-  </para>
-  <para>
-    When the stylesheet is run, it parses the document and finds any
-    element with the <literal>content:ref</literal> attribute. When it
-    does so, it finds the nearest ancestor element which contains an
-    extended link element with the specified transclusion role URI,
-    which in turn contains an XLink resource whose
-    <literal>xl:label</literal> attribute matches the
-    <literal>content:ref</literal> attribute. The stylesheet keeps the
-    reference element, but replaces the content of the element with the
-    content of the XLink resource.
-  </para>
-  <para>
-    You should run this stylesheet after initial large scale,
-    context-free transclusion. If any of your translation strings
-    contain transclusion references, you may need to run this stylesheet
-    after translation instead.
-  </para>
-  <para>
-    Small scale, inline transclusion can have linguistic consequences.
-    See <ulink url="LingHead.xsl">LingHead.xsl</ulink>,
-    <ulink url="LingDepend.xsl">LingDepend.xsl</ulink>,
-    <ulink url="LingCasing.xsl">LingCasing.xsl</ulink> and
-    <ulink url="TextAbbrev.xsl">TextAbbrev.xsl</ulink> for details of
-    stylesheets that attempt to deal with these problems.
-  </para>
-  <sect2 id="notes">
-    <title>Notes</title>
-    <itemizedlist>
-      <listitem>
-        <para>
-          In order to avoid the problem of duplicate IDs, transclusion
-          resources simply should not contain XML IDs. You could use a
-          schematron rule to enforce this.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          It is the responsibility of the author to ensure that the
-          content of the transclusion resources is valid in all the
-          locations where it is transcluded. You may want to validate
-          the document after parametrised transclusion is complete.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          DocBook 5.0 does not have XLink resource elements. For this
-          purpose, PACBook provides a custom layer for the DocBook 5.0
-          schema which adds a <literal>&lt;resource&gt;</literal>
-          element to the <literal>&lt;extendedlink&gt;</literal>
-          element. (In DocBook 5.1 it may be possible to use a
-          <literal>&lt;link&gt;</literal> element with the
-          <literal>xl:type='resource'</literal> attribute, but this has
-          not been tested.) The PACBook schema also adds the
-          <literal>content:ref</literal> attribute to the common
-          attributes. See the <ulink url="PACBook-Schema">PACBook RNG
-          schema</ulink>.
-        </para>
-      </listitem>
-    </itemizedlist>
-  </sect2>
-</sect1>
-<sect1 id="roadmap">
-  <title>Roadmap</title>
-  <para>
-    Extended links are overloaded in PACBook. Perhaps find some other
-    markup for parametrised transclusion definitions, e.g.
-    <ulink url="http://purl.org/spar/doco">DoCO</ulink> or the
-    <ulink url="http://www.essepuntato.it/2008/12/pattern">Document
-    Structural Patterns Ontology</ulink>.
-  </para>
-</sect1>
+		<refsect1>
+			<title>Input</title>
+			<para>An XML document containing transclusion definitions and references.</para>
+		</refsect1>
+		<refsect1>
+			<title>Output</title>
+			<para>An XML document, identical to the input except that transclusion references are replaced by their definitions.</para>
+		</refsect1>
+		<refsect1>
+			<title>Description</title>
+			<para>This stylesheet enables you to transclude small snippets of XML to other locations within the document. It is complementary to the standard XML methods of transclusion using XInclude, in that it enables you to redefine text replacements locally. It is based on early versions of the <link xl:href="http://docbook.org/docs/transclusion">proposed standard for DocBook transclusion</link>.</para>
+			<para>Transclusion can be divided into large scale, context-free transclusion and small scale, parametrised transclusion. It is often necessary to perform the two types of transclusion in separate steps. For example, in DocBook, using an assembly to include chapters or sections in a book is also large scale and context-free. This stylesheet, on the other hand, is designed for small scale, parametrised transclusion; for example, inserting a product name at multiple locations in the document.</para>
+			<para>To define XML snippets for transclusion (<firstterm>definitions</firstterm>) create an extended link element with the specified transclusion role URI in the metadata at the start of the document. Within this extended link element add XLink resource elements which contain the XML text or elements for transclusion. (To refer to an external set of definitions, use XInclude to transclude the parameter definitions into the document!) Each XLink resource must have an <tag class="attribute">xl:label</tag> attribute which enables you to refer to this resource.</para>
+			<para>To redefine resources locally, e.g. within a single section of the document, add new XLink resources in the same way to the metadata at the start of that section.</para>
+			<para>To mark the places where the XML snippets should be transcluded (<firstterm>references</firstterm>) add elements with the <tag class="attribute">content:ref</tag> attribute to the body of the document. The <tag class="attribute">content:ref</tag> attribute should contain the name of the resource that you want to include at this point. Which element you use depends on the circumstances. For purposes of validation you should use an element which is permitted at the location of the reference. In most cases you may want to use an empty generic wrapper element, such as <tag class="element">phrase</tag> in DocBook.</para>
+			<para>The namespace URI for the <tag class="attribute">content:ref</tag> attribute is <uri>http://stanleysecurity.github.io/PACBook/ns/transclusion</uri>.</para>
+			<para>When the stylesheet is run, it parses the document and finds any element with the <tag class="attribute">content:ref</tag> attribute. When it does so, it finds the nearest ancestor element which contains an extended link element with the specified transclusion role URI, which in turn contains an XLink resource whose <tag class="attribute">xl:label</tag> attribute matches the <tag class="attribute">content:ref</tag> attribute. The stylesheet keeps the reference element, but replaces the content of the element with the content of the XLink resource.</para>
+			<para>You should run this stylesheet after initial large scale, context-free transclusion. If any of your translation strings contain transclusion references, you may need to run this stylesheet after translation instead.</para>
+			<para>Small scale, inline transclusion can have linguistic consequences. See <link xl:href="#LingHead.xsl">LingHead.xsl</link>, <link xl:href="#LingDepend.xsl">LingDepend.xsl</link>, <link xl:href="#LingCasing.xsl">LingCasing.xsl</link> and <link xl:href="#TextAbbrev.xsl">TextAbbrev.xsl</link> for details of stylesheets that attempt to deal with these problems.</para>
+			<refsect2>
+				<title>Notes</title>
+				<itemizedlist>
+					<listitem>
+						<para>In order to avoid the problem of duplicate IDs, transclusion resources simply should not contain XML IDs. You could use a schematron rule to enforce this.</para>
+					</listitem>
+					<listitem>
+						<para>It is the responsibility of the author to ensure that the content of the transclusion resources is valid in all the locations where it is transcluded. You may want to validate the document after parametrised transclusion is complete.</para>
+					</listitem>
+					<listitem>
+						<para>DocBook 5.0 does not have XLink resource elements. For this purpose, PACBook provides a custom layer for the DocBook 5.0 schema which adds a <tag class="element">resource</tag> element to the <tag class="element">extendedlink</tag> element. (In DocBook 5.1 it may be possible to use a <tag class="element">link</tag> element with the <tag class="attribute">xl:type='resource'</tag> attribute, but this has not been tested.) The PACBook schema also adds the <tag class="attribute">content:ref</tag> attribute to the common attributes. See the <link xl:href="#PACBook-Schema">PACBook RNG schema</link>.</para>
+					</listitem>
+				</itemizedlist>
+			</refsect2>
+		</refsect1>
+		<refsect1>
+			<title>Roadmap</title>
+			<para>Extended links are overloaded in PACBook. Perhaps find some other markup for parametrised transclusion definitions, e.g. <link xl:href="http://purl.org/spar/doco">DoCO</link> or the <link xl:href="http://www.essepuntato.it/2008/12/pattern">Document Structural Patterns Ontology</link>.</para>
+		</refsect1>
 	</refentry>
 </article>

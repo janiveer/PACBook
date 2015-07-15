@@ -1,31 +1,125 @@
-<p>Sets the orthographic case of specified text in an XML document.</p>
-<h2 id="parameters">Parameters</h2>
-<p><code>[ShortWords]</code></p>
-<ul>
-<li><strong>ShortWords</strong> (string) — English words which should not be capitalised in title case.</li>
-</ul>
-<h2 id="input">Input</h2>
-<p>An XML document. You must mark up the source document with linguistic attributes describing the orthographic case which is required for the specified text — see description below.</p>
-<h2 id="output">Output</h2>
-<p>An XML document, identical to the input except that marked text is set to the required orthographic case.</p>
-<h2 id="description">Description</h2>
-<p>The stylesheet recurses through the document and copies each element. If any element has the <code>ling:orth</code> attribute, the stylesheet changes the case of the text nodes in this element and all descendent elements.</p>
-<p>This is useful for transclusion. If you transclude a term at the start of a sentence, you may want to set the case of the transcluded term to sentence case. If you transclude a term into a title, you may want to set the case of the transcluded term to title case.</p>
-<p>This stylesheet is only relevant to languages which use orthographic case. The stylesheet supports all alphabets supported by the <a href="http://xsltsl.sourceforge.net/">XSL Standard Library</a> string stylesheets, including Latin, Greek and Cyrillic.</p>
-<p>The namespace URI for the linguistic attributes is <code>http://stanleysecurity.github.io/PACBook/ns/linguistics</code>.</p>
-<p>The <code>ling:orth</code> attribute may have any of the following values:</p>
-<ul>
-<li>upper<br /></li>
-<li>lower<br /></li>
-<li>sentence<br /></li>
-<li>title</li>
-</ul>
-<h3 id="upper">Upper</h3>
-<p>Changes the case of text nodes to upper case. This is applied to text in the current element and all descendent elements, unless any descendent elements have a different <code>ling:orth</code> attribute.</p>
-<h3 id="lower">Lower</h3>
-<p>Changes the case of text nodes to lower case. This is applied to text in the current element and all descendent elements, unless any descendent elements have a different <code>ling:orth</code> attribute.</p>
-<h3 id="sentence">Sentence</h3>
-<p>Finds the first text node child of the current element and changes the first character of the word to upper case. The rest of the text nodes in this element and all descendent elements are left unchanged, unless any descendent elements have a different <code>ling:orth</code> attribute.</p>
-<h3 id="title">Title</h3>
-<p>Splits the text into words (at spaces). If a word is <em>not</em> listed in the <code>ShortWords</code> parameter, changes the first character of the word to upper case. This is applied to text nodes in the current element and all descendent elements, unless any descendent elements have a different <code>ling:orth</code> attribute.</p>
-<p>Title case only supports English. For other languages, use sentence case. The default value of the <code>ShortWords</code> parameter is hard coded into the stylesheet.</p>
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>LingCasing</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.ling.html" title="Linguistic Stylesheets">
+      <link rel="prev" href="pacbook.ling.html" title="Linguistic Stylesheets">
+      <link rel="next" href="LingDepend.xsl.html" title="LingDepend">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="pacbook.ling.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.ling.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="LingDepend.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="LingCasing.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">LingCasing</span></h2>
+            <p>LingCasing.xsl &#8212; Sets the orthographic case of specified text in an XML document.</p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2><pre class="synopsis">[ShortWords]</pre><div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p><em class="parameter"><code>ShortWords</code></em> (string) &#8212; English words which should not be capitalised in title case.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="refsect1" id="d0e1061">
+            <h2>Input</h2>
+            <p>An XML document. You must mark up the source document with linguistic attributes describing the orthographic case which is
+               required for the specified text &#8212; see description below.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e1066">
+            <h2>Output</h2>
+            <p>An XML document, identical to the input except that marked text is set to the required orthographic case.</p>
+         </div>
+         <div class="refsect1" id="d0e1071">
+            <h2>Description</h2>
+            <p>The stylesheet recurses through the document and copies each element. If any element has the <code class="sgmltag-attribute">ling:orth</code> attribute, the stylesheet changes the case of the text nodes in this element and all descendent elements.
+            </p>
+            <p>This is useful for transclusion. If you transclude a term at the start of a sentence, you may want to set the case of the
+               transcluded term to sentence case. If you transclude a term into a title, you may want to set the case of the transcluded
+               term to title case.
+            </p>
+            <p>This stylesheet is only relevant to languages which use orthographic case. The stylesheet supports all alphabets supported
+               by the <a class="link" href="http://xsltsl.sourceforge.net/" target="_blank">XSL Standard Library</a> string stylesheets, including Latin, Greek and Cyrillic.
+            </p>
+            <p>The namespace URI for the linguistic attributes is <code class="uri">http://stanleysecurity.github.io/PACBook/ns/linguistics</code>.
+            </p>
+            <p>The <code class="sgmltag-attribute">ling:orth</code> attribute may have any of the following values:
+            </p>
+            <div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p>upper</p>
+                  </li>
+                  <li class="listitem">
+                     <p>lower</p>
+                  </li>
+                  <li class="listitem">
+                     <p>sentence</p>
+                  </li>
+                  <li class="listitem">
+                     <p>title</p>
+                  </li>
+               </ul>
+            </div>
+            <div class="refsect2" id="d0e1109">
+               <h3>Upper</h3>
+               <p>Changes the case of text nodes to upper case. This is applied to text in the current element and all descendent elements,
+                  unless any descendent elements have a different <code class="sgmltag-attribute">ling:orth</code> attribute.
+               </p>
+            </div>
+            <div class="refsect2" id="d0e1117">
+               <h3>Lower</h3>
+               <p>Changes the case of text nodes to lower case. This is applied to text in the current element and all descendent elements,
+                  unless any descendent elements have a different <code class="sgmltag-attribute">ling:orth</code> attribute.
+               </p>
+            </div>
+            <div class="refsect2" id="d0e1125">
+               <h3>Sentence</h3>
+               <p>Finds the first text node child of the current element and changes the first character of the word to upper case. The rest
+                  of the text nodes in this element and all descendent elements are left unchanged, unless any descendent elements have a different
+                  <code class="sgmltag-attribute">ling:orth</code> attribute.
+               </p>
+            </div>
+            <div class="refsect2" id="d0e1133">
+               <h3>Title</h3>
+               <p>Splits the text into words (at spaces). If a word is <span class="emphasis"><em>not</em></span> listed in the <em class="parameter"><code>ShortWords</code></em> parameter, changes the first character of the word to upper case. This is applied to text nodes in the current element and
+                  all descendent elements, unless any descendent elements have a different <code class="sgmltag-attribute">ling:orth</code> attribute.
+               </p>
+               <p>Title case only supports English. For other languages, use sentence case. The default value of the <em class="parameter"><code>ShortWords</code></em> parameter is hard coded into the stylesheet.
+               </p>
+            </div>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="pacbook.ling.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.ling.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="LingDepend.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

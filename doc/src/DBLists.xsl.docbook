@@ -13,6 +13,9 @@
          xml:id="ID">
 	<title>DBLists</title>
 	<refentry>
+		<refmeta>
+			<refentrytitle>DBLists</refentrytitle>
+		</refmeta>
 		<refnamediv>
 			<refname>DBLists.xsl</refname>
 			<refpurpose>Turns simple inline lists into punctuated lists and adds a final “and” or “or” in the appropriate language.</refpurpose>
@@ -32,18 +35,18 @@
 		<refsect1>
 			<title>Description</title>
 			<para>The stylesheet recurses through the document and copies each element. For each <tag class="element">simplelist type='inline'</tag> element, the members of the list are output as a comma separated inline list.</para>
-			<para>If the <literal>role</literal> attribute of the <tag class="element">simplelist</tag> is set to <literal>and</literal>, the conjunction “and” is added before the final member of the list in the language specified by the nearest ancestor <literal>xml:lang</literal> element. Likewise, if the <literal>role</literal> attribute of the <tag class="element">simplelist</tag> is set to <literal>or</literal>, the conjunction “or” is added before the final member of the list in the language specified by the nearest ancestor <literal>xml:lang</literal> element.</para>
+			<para>If the <tag class="attribute">role</tag> attribute of the <tag class="element">simplelist</tag> is set to <tag class="attvalue">and</tag>, the conjunction “and” is added before the final member of the list in the language specified by the nearest ancestor <tag class="attribute">xml:lang</tag> attribute. Likewise, if the <tag class="attribute">role</tag> attribute of the <tag class="element">simplelist</tag> is set to <tag class="attvalue">or</tag>, the conjunction “or” is added before the final member of the list in the language specified by the nearest ancestor <tag class="attribute">xml:lang</tag> attribute.</para>
 			<para>This stylesheet has similar functionality to the way <tag class="element">simplelist type='inline'</tag> elements are processed by the DocBook XSL stylesheets. The differences are:</para>
 			<orderedlist numeration="arabic">
 				<listitem>
-					<para>The final conjunction is specified via the <literal>role</literal> attribute.</para>
+					<para>The final conjunction is specified via the <tag class="attribute">role</tag> attribute.</para>
 				</listitem>
 				<listitem>
-					<para>For languages which require it, the final conjunction is output within a wrapper element with the <literal>ling:type='depend'</literal> attribute. This enables you to use the <link xl:href="#LingDepend.xsl">LingDepend.xsl</link> stylesheet on the output file to select the correct form of the final conjunction, depending on the phonetic environment.</para>
+					<para>For languages which require it, the final conjunction is output within a wrapper element with the <tag class="attribute">ling:type='depend'</tag> attribute. This enables you to use the <link xl:href="#LingDepend.xsl">LingDepend.xsl</link> stylesheet on the output file to select the correct form of the final conjunction, depending on the phonetic environment.</para>
 				</listitem>
 			</orderedlist>
-			<para>For example, in Spanish, if the <literal>role</literal> attribute is set to <literal>and</literal>, the <link xl:href="#LingDepend.xsl">LingDepend.xsl</link> stylesheet will change the final conjunction to “e” if the following word begins with an “i” sound, or “y” otherwise. (There must be wrapper elements, e.g. <tag class="element">phrase</tag>, around each term in the list, using the <literal>ling:pron</literal> attribute to indicate the initial sound of each term.)</para>
-			<para>The final conjunctions are specified in the <literal>DataLabels.xml</literal> file. The supported languages are German, English, Spanish, Finnish, French, Italian, Norwegian Bokmål, Dutch, Portuguese, Swedish and Simplified Chinese.</para>
+			<para>For example, in Spanish, if the <tag class="attribute">role</tag> attribute is set to <tag class="attvalue">and</tag>, the <link xl:href="#LingDepend.xsl">LingDepend.xsl</link> stylesheet will change the final conjunction to <foreignphrase>e</foreignphrase> if the following word begins with an “i” sound, or <foreignphrase>y</foreignphrase> otherwise. (There must be wrapper elements, e.g. <tag class="element">phrase</tag>, around each term in the list, using the <tag class="attribute">ling:pron</tag> attribute to indicate the initial sound of each term.)</para>
+			<para>The final conjunctions are specified in the <filename>DataLabels.xml</filename> file. The supported languages are German, English, Spanish, Finnish, French, Italian, Norwegian Bokmål, Dutch, Portuguese, Swedish and Simplified Chinese.</para>
 		</refsect1>
 	</refentry>
 </article>

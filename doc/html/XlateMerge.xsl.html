@@ -1,25 +1,107 @@
-<p>Checks an XML document against an existing translation and a differential translation in the specified language and generates a new <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file merging the two translations.</p>
-<h2 id="parameters">Parameters</h2>
-<p><code>(Language | Xliff)  Diff</code></p>
-<ul>
-<li><strong>Language</strong> (string) — ISO language code,<br /></li>
-<li><strong>Xliff</strong> (URI) — The URI of the original <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file<br /></li>
-<li><strong>Diff</strong> (URI) — The URI of the differential <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file</li>
-</ul>
-<h2 id="input">Input</h2>
-<p>An XML document. You must mark up the source document with:</p>
-<ol>
-<li>The <code>xlf:id</code> attributes which uniquely identify each translation string.<br /></li>
-<li>Optionally, <a href="RDF-Translations">translation metadata</a>, showing the location of the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> files which contain the translations of the document — this is only required if you are not specifying the <code>Xliff</code> parameter explicitly.</li>
-</ol>
-<h2 id="output">Output</h2>
-<p>An <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> document.</p>
-<h2 id="description">Description</h2>
-<p>The stylesheet examines the source file for translatable elements. (A translatable element is one which has an <code>xlf:id</code> attribute and does not have the <code>its:translate=&quot;no&quot;</code> attribute.)</p>
-<p>For each translatable element, the stylesheet searches the differential <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file for the translation unit with the same <code>xlf:id</code>. If found, and if the target of the translation unit has the attribute <code>status=&quot;translated&quot;</code>, this translation unit is copied to the output.</p>
-<p>If the translation unit is not found in the differential <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file, the stylesheet looks for the specified original <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file, or if not specified, the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file that corresponds to the specified output language, according to the <a href="RDF-Translations">translation metadata</a>.</p>
-<p>If the original <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file is found, the stylesheet searches for the translation unit with the same <code>xlf:id</code>. If found, this translation unit is copied to the output.</p>
-<p>If the corresponding translation unit does not exist in the differential <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file or the original <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file, there is no output.</p>
-<p>If the original <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file is not found, there is no output.</p>
-<h3 id="note">Note</h3>
-<p>In the output file, all <code>&lt;trans-unit&gt;</code> elements are contained in a single, flat <code>&lt;file&gt;</code> element. Any multiple <code>&lt;file&gt;</code> or <code>&lt;group&gt;</code> elements from the original or differential <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> files are not copied to the output file.</p>
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>XlateMerge</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.xlate.html" title="Translation Stylesheets">
+      <link rel="prev" href="XlateDiff.xsl.html" title="XlateDiff">
+      <link rel="next" href="pacbook.xliff.html" title="XLIFF Stylesheets">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XlateDiff.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xlate.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="pacbook.xliff.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="XlateMerge.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">XlateMerge</span></h2>
+            <p>XlateMerge.xsl &#8212; Checks an XML document against an existing translation and a differential translation in the specified language
+               and generates a new <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file merging the two translations.
+            </p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2><pre class="synopsis">(Language | Xliff)  Diff</pre><div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p><em class="parameter"><code>Language</code></em> (string) &#8212; ISO language code,
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><em class="parameter"><code>Xliff</code></em> (URI) &#8212; The URI of the original <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><em class="parameter"><code>Diff</code></em> (URI) &#8212; The URI of the differential <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="refsect1" id="d0e3315">
+            <h2>Input</h2>
+            <p>An XML document. You must mark up the source document with:</p>
+            <div class="orderedlist">
+               <ol class="orderedlist" type="1">
+                  <li class="listitem">
+                     <p>The <code class="sgmltag-attribute">xlf:id</code> attributes which uniquely identify each translation string.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>Optionally, <a class="link" href="RDF-Translations.html" title="RDF Translations">translation metadata</a>, showing the location of the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> files which contain the translations of the document &#8212; this is only required if you are not specifying the <em class="parameter"><code>Xliff</code></em> parameter explicitly.
+                     </p>
+                  </li>
+               </ol>
+            </div>
+         </div>
+         <div class="refsect1" id="d0e3339">
+            <h2>Output</h2>
+            <p>An <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> document.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e3347">
+            <h2>Description</h2>
+            <p>The stylesheet examines the source file for translatable elements. (A translatable element is one which has an <code class="sgmltag-attribute">xlf:id</code> attribute and does not have the <code class="sgmltag-attribute">its:translate='no'</code> attribute.)
+            </p>
+            <p>For each translatable element, the stylesheet searches the differential <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file for the translation unit with the same <code class="sgmltag-attribute">xlf:id</code>. If found, and if the target of the translation unit has the attribute <code class="sgmltag-attribute">status='translated'</code>, this translation unit is copied to the output.
+            </p>
+            <p>If the translation unit is not found in the differential <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file, the stylesheet looks for the specified original <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file, or if not specified, the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file that corresponds to the specified output language, according to the <a class="link" href="RDF-Translations.html" title="RDF Translations">translation metadata</a>.
+            </p>
+            <p>If the original <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file is found, the stylesheet searches for the translation unit with the same <code class="sgmltag-attribute">xlf:id</code>. If found, this translation unit is copied to the output.
+            </p>
+            <p>If the corresponding translation unit does not exist in the differential <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file or the original <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file, there is no output.
+            </p>
+            <p>If the original <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file is not found, there is no output.
+            </p>
+            <div class="refsect2" id="d0e3404">
+               <h3>Note</h3>
+               <p>In the output file, all <code class="sgmltag-element">trans-unit</code> elements are contained in a single, flat <code class="sgmltag-element">file</code> element. Any multiple <code class="sgmltag-element">file</code> or <code class="sgmltag-element">group</code> elements from the original or differential <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> files are not copied to the output file.
+               </p>
+            </div>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XlateDiff.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xlate.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="pacbook.xliff.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

@@ -1,22 +1,77 @@
-<p>You can add applicability metadata to a DocBook document to declare the hardware or software products that the document applies to.</p>
-<h2 id="where-to-add-applicability-metadata">Where to Add Applicability Metadata</h2>
-<p>Applicability metadata takes the form of RDF triples. For a DocBook 5.0 document, you add it to the <code>&lt;info&gt;</code> element at the start of the document.</p>
-<h2 id="how-to-write-it">How to Write It</h2>
-<p>Typical applicability metadata for a DocBook document looks like this:</p>
-<pre><code>&lt;rdf:RDF xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;
-         xmlns:bibo=&quot;http://purl.org/ontology/bibo/&quot;
-         xmlns:vivo=&quot;http://vivoweb.org/ontology/core#&quot;
-         xmlns:doap=&quot;http://usefulinc.com/ns/doap#&quot;&gt;
-    &lt;bibo:Document rdf:about=&quot;&quot;&gt;
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>RDF Applicability</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.intro.html" title="Introduction">
+      <link rel="prev" href="PACBook-Schema.html" title="PACBook Schema">
+      <link rel="next" href="RDF-Translations.html" title="RDF Translations">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="PACBook-Schema.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.intro.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="RDF-Translations.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="section" id="RDF-Applicability">
+         <div class="titlepage">
+            <div>
+               <div>
+                  <h2 class="title">RDF Applicability</h2>
+               </div>
+            </div>
+         </div>
+         <p>You can add applicability metadata to a DocBook document to declare the hardware or software products that the document applies
+            to.
+            	
+         </p>
+         <div class="section" id="d0e402">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">Where to Add Applicability Metadata</h3>
+                  </div>
+               </div>
+            </div>
+            <p>Applicability metadata takes the form of RDF triples. For a DocBook 5.0 document, you add it to the <code class="sgmltag-element">info</code> element at the start of the document.
+            </p>
+         </div>
+         <div class="section" id="d0e410">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">How to Write It</h3>
+                  </div>
+               </div>
+            </div>
+            <p>Typical applicability metadata for a DocBook document looks like this:</p><pre class="programlisting">
+&lt;rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:bibo="http://purl.org/ontology/bibo/"
+         xmlns:vivo="http://vivoweb.org/ontology/core#"
+         xmlns:doap="http://usefulinc.com/ns/doap#"&gt;
+    &lt;bibo:Document rdf:about=""&gt;
         &lt;vivo:hasSubjectArea&gt;
             &lt;rdf:Bag&gt;
-                &lt;rdf:li rdf:parseType=&quot;Resource&quot;&gt;
+                &lt;rdf:li rdf:parseType="Resource"&gt;
                     &lt;doap:shortdesc&gt;P/N 1234&lt;/doap:shortdesc&gt;
                     &lt;doap:name&gt;Foo 3000&lt;/doap:name&gt;
                     &lt;doap:description&gt;Quantum Accelerator&lt;/doap:description&gt;
                     &lt;doap:revision&gt;1.0.1&lt;/doap:revision&gt;
                 &lt;/rdf:li&gt;
-                &lt;rdf:li rdf:parseType=&quot;Resource&quot;&gt;
+                &lt;rdf:li rdf:parseType="Resource"&gt;
                     &lt;doap:shortdesc&gt;P/N 5678&lt;/doap:shortdesc&gt;
                     &lt;doap:name&gt;Foo Explorer&lt;/doap:name&gt;
                     &lt;doap:description&gt;Config File Viewer&lt;/doap:description&gt;
@@ -26,14 +81,54 @@
         &lt;/vivo:hasSubjectArea&gt;
         &lt;!-- Other RDF properties ... --&gt;
     &lt;/bibo:Document&gt;
-&lt;/rdf:RDF&gt;</code></pre>
-<p>In this example:</p>
-<ul>
-<li><p>The <code>&lt;bibo:Document&gt;</code> element declares that this file is a document and that this document is the subject of the applicability metadata.</p></li>
-<li><p>The <code>&lt;vivo:hasSubjectArea&gt;</code> element declares that this document applies to the following products.</p></li>
-<li><p>The products are indicated by <code>&lt;rdf:li&gt;</code> elements all wrapped within the <code>&lt;rdf:Bag&gt;</code> element. Each <code>&lt;rdf:li&gt;</code> element has <code>rdf:parseType</code> set to <code>Resource</code>; this enables you to specify the properties of each product inline.</p></li>
-<li><p>The properties of each product are indicated by elements in the <code>doap</code> namespace. In PACBook, <code>&lt;doap:shortdesc&gt;</code> is used for the product’s part number, <code>&lt;doap:name&gt;</code> is used for the product name, <code>&lt;doap:description&gt;</code> for a description of the product and <code>&lt;doap:revision&gt;</code> for the product version number.</p></li>
-<li><p>Note that you need to declare the <code>rdf</code>, <code>bibo</code>, <code>vivo</code> and <code>doap</code> namespaces.</p></li>
-</ul>
-<h2 id="roadmap">Roadmap</h2>
-<p>The ultimate intention is that each <code>&lt;rdf:li&gt;</code> could point to an external RDF resource which contains the details of the product in a single location, e.g. in a products database. This is not yet implemented.</p>
+&lt;/rdf:RDF&gt;
+		</pre><p>In this example:</p>
+            <div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p>The <code class="sgmltag-element">bibo:Document</code> element declares that this file is a document and that this document is the subject of the applicability metadata.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>The <code class="sgmltag-element">vivo:hasSubjectArea</code> element declares that this document applies to the following products.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>The products are indicated by <code class="sgmltag-element">rdf:li</code> elements all wrapped within the <code class="sgmltag-element">rdf:Bag</code> element. Each <code class="sgmltag-element">rdf:li</code> element has <code class="sgmltag-attribute">rdf:parseType</code> set to <code class="sgmltag-attvalue">Resource</code>; this enables you to specify the properties of each product inline.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>The properties of each product are indicated by elements in the <code class="sgmltag-namespace">doap</code> namespace. In PACBook, <code class="sgmltag-element">doap:shortdesc</code> is used for the product&#8217;s part number, <code class="sgmltag-element">doap:name</code> is used for the product name, <code class="sgmltag-element">doap:description</code> for a description of the product and <code class="sgmltag-element">doap:revision</code> for the product version number.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>Note that you need to declare the <code class="sgmltag-namespace">rdf</code>, <code class="sgmltag-namespace">bibo</code>, <code class="sgmltag-namespace">vivo</code> and <code class="sgmltag-namespace">doap</code> namespaces.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="section" id="d0e483">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">Roadmap</h3>
+                  </div>
+               </div>
+            </div>
+            <p>The ultimate intention is that each <code class="sgmltag-element">rdf:li</code> could point to an external RDF resource which contains the details of the product in a single location, e.g. in a products
+               database. This is not yet implemented.
+            </p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="PACBook-Schema.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.intro.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="RDF-Translations.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

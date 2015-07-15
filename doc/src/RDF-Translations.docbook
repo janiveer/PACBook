@@ -10,130 +10,56 @@
          version="5.0-variant PACBook"
          its:version="2.0"
          xml:lang="en-GB"
-         xml:id="ID">
-	<title>DocTools</title>
-	<refentry>
-		<refnamediv>
-			<refname></refname>
-			<refpurpose></refpurpose>
-		</refnamediv>
-		<refsynopsisdiv>
-			<synopsis></synopsis>
-		</refsynopsisdiv>
-<para>
-  To use the PACBook stylesheets to translate an XML document, you need
-  to tell PACBook where the translations for that document are. You do
-  this by adding translation metadata to the document.
-</para>
-<sect1 id="where-to-add-translation-metadata">
-  <title>Where to Add Translation Metadata</title>
-  <para>
-    Translation metadata takes the form of RDF triples. You add it to
-    the metadata section of the XML document. So, for a DocBook 5.0
-    document, you add it to the <literal>&lt;info&gt;</literal> element
-    at the start of the document. For an SVG document, you add it to the
-    <literal>&lt;metadata&gt;</literal> element at the start of the
-    document.
-  </para>
-</sect1>
-<sect1 id="how-to-write-it">
-  <title>How to Write It</title>
-  <para>
-    Typical translation metadata for a DocBook document looks like this:
-  </para>
-  <programlisting>
-&lt;rdf:RDF xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;
-         xmlns:bibo=&quot;http://purl.org/ontology/bibo/&quot;
-         xmlns:vivo=&quot;http://vivoweb.org/ontology/core#&quot;
-    &lt;bibo:Document rdf:about=&quot;&quot;&gt;
-        &lt;vivo:hasTranslation xml:base=&quot;http://DBK/Topics/512_Series/xlate/&quot;&gt;
-            &lt;rdf:Alt&gt;
-                &lt;rdf:li xml:lang=&quot;de&quot; rdf:resource=&quot;ac_de.xliff&quot;/&gt;
-                &lt;rdf:li xml:lang=&quot;es&quot; rdf:resource=&quot;ac_es.xliff&quot;/&gt;
-                &lt;rdf:li xml:lang=&quot;fr&quot; rdf:resource=&quot;ac_fr.xliff&quot;/&gt;
-                &lt;rdf:li xml:lang=&quot;nb&quot; rdf:resource=&quot;ac_nb.xliff&quot;/&gt;
-                &lt;rdf:li xml:lang=&quot;nl&quot; rdf:resource=&quot;ac_nl.xliff&quot;/&gt;
-                &lt;rdf:li xml:lang=&quot;sv&quot; rdf:resource=&quot;ac_sv.xliff&quot;/&gt;
-                &lt;rdf:li xml:lang=&quot;zh&quot; rdf:resource=&quot;ac_zh.xliff&quot;/&gt;
-            &lt;/rdf:Alt&gt;
-        &lt;/vivo:hasTranslation&gt;
-        &lt;!-- Other RDF properties ... --&gt;
-    &lt;/bibo:Document&gt;
-&lt;/rdf:RDF&gt;
-</programlisting>
-  <para>
-    In this example:
-  </para>
-  <itemizedlist>
-    <listitem>
-      <para>
-        The <literal>&lt;bibo:Document&gt;</literal> element declares
-        that this file is a document and that it this document is the
-        subject of the translation metadata. You could (but don’t have
-        to) use <literal>&lt;bibo:Image&gt;</literal> instead of
-        <literal>&lt;bibo:Document&gt;</literal> in translation metadata
-        that applies to an SVG file.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        The <literal>&lt;vivo:hasTranslation&gt;</literal> element
-        declares that this document has translations associated with it.
-        The optional <literal>xml:base</literal> attribute can be used
-        to indicate where all the translations are.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        The translations are indicated by
-        <literal>&lt;rdf:li&gt;</literal> elements all wrapped within
-        the <literal>&lt;rdf:Alt&gt;</literal> element. For each
-        translation, the <literal>xml:lang</literal> attribute
-        represents the language; the <literal>rdf:resource</literal>
-        attribute shows the name of the
-        <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-        file which contains the translation in that language. The
-        <literal>rdf:resource</literal> attribute may contain an
-        absolute or relative URI; if relative, it is combined with the
-        <literal>xml:base</literal> attribute of the
-        <literal>&lt;vivo:hasTranslation&gt;</literal> element to define
-        the full URI.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Notice that you need to declare the <literal>rdf</literal>,
-        <literal>bibo</literal> and <literal>vivo</literal> namespaces.
-      </para>
-    </listitem>
-  </itemizedlist>
-</sect1>
-<sect1 id="translation-metadata-for-part-of-a-document">
-  <title>Translation Metadata for Part of a Document</title>
-  <para>
-    Different parts of a document might store their translations in
-    different
-    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-    files. To specify translation metadata for part of a file, you add
-    it to the metadata section for that part. So, to specify translation
-    metadata that only applies to a particular chapter in a DocBook
-    file, you would add the translation metadata to the
-    <literal>&lt;info&gt;</literal> element at the start of the chapter.
-    This would override any translation metadata at the start of the
-    book.
-  </para>
-  <para>
-    You could (but don’t have to) use
-    <literal>&lt;bibo:DocumentPart&gt;</literal> instead of
-    <literal>&lt;bibo:Document&gt;</literal> in translation metadata
-    that only applies to part of a document.
-  </para>
-  <para>
-    To work out which XLIFF file to use when translating a particular
-    element, the PACBook stylesheets look for the nearest ancestor
-    element which has a child element which contains translation
-    metadata as described above.
-  </para>
-</sect1>
-	</refentry>
+         xml:id="pacbook.rdf.translations">
+	<title>RDF Translations</title>
+	<para>To use the PACBook stylesheets to translate an XML document, you need to tell PACBook where the translations for that document are. You do this by adding translation metadata to the document.</para>
+	<section>
+		<title>Where to Add Translation Metadata</title>
+		<para>Translation metadata takes the form of RDF triples. You add it to the metadata section of the XML document. So, for a DocBook 5.0 document, you add it to the <tag class="element">info</tag> element at the start of the document. For an SVG document, you add it to the <tag class="element">metadata</tag> element at the start of the document.</para>
+	</section>
+	<section>
+		<title>How to Write It</title>
+		<para>Typical translation metadata for a DocBook document looks like this:</para>
+		<programlisting><![CDATA[
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:bibo="http://purl.org/ontology/bibo/"
+         xmlns:vivo="http://vivoweb.org/ontology/core#"
+    <bibo:Document rdf:about="">
+        <vivo:hasTranslation xml:base="http://DBK/Topics/512_Series/xlate/">
+            <rdf:Alt>
+                <rdf:li xml:lang="de" rdf:resource="ac_de.xliff"/>
+                <rdf:li xml:lang="es" rdf:resource="ac_es.xliff"/>
+                <rdf:li xml:lang="fr" rdf:resource="ac_fr.xliff"/>
+                <rdf:li xml:lang="nb" rdf:resource="ac_nb.xliff"/>
+                <rdf:li xml:lang="nl" rdf:resource="ac_nl.xliff"/>
+                <rdf:li xml:lang="sv" rdf:resource="ac_sv.xliff"/>
+                <rdf:li xml:lang="zh" rdf:resource="ac_zh.xliff"/>
+            </rdf:Alt>
+        </vivo:hasTranslation>
+        <!-- Other RDF properties ... -->
+    </bibo:Document>
+</rdf:RDF>
+		]]></programlisting>
+		<para>In this example:</para>
+		<itemizedlist>
+			<listitem>
+				<para>The <tag class="element">bibo:Document</tag> element declares that this file is a document and that it this document is the subject of the translation metadata. You could (but don’t have to) use <tag class="element">bibo:Image</tag> instead of <tag class="element">bibo:Document</tag> in translation metadata that applies to an SVG file.</para>
+			</listitem>
+			<listitem>
+				<para>The <tag class="element">vivo:hasTranslation</tag> element declares that this document has translations associated with it. The optional <tag class="attribute">xml:base</tag> attribute can be used to indicate where all the translations are.</para>
+			</listitem>
+			<listitem>
+				<para>The translations are indicated by <tag class="element">rdf:li</tag> elements all wrapped within the <tag class="element">rdf:Alt</tag> element. For each translation, the <tag class="attribute">xml:lang</tag> attribute represents the language; the <tag class="attribute">rdf:resource</tag> attribute shows the name of the <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> file which contains the translation in that language. The <tag class="attribute">rdf:resource</tag> attribute may contain an absolute or relative URI; if relative, it is combined with the <tag class="attribute">xml:base</tag> attribute of the <tag class="element">vivo:hasTranslation</tag> element to define the full URI.</para>
+			</listitem>
+			<listitem>
+				<para>Note that you need to declare the <tag class="namespace">rdf</tag>, <tag class="namespace">bibo</tag> and <tag class="namespace">vivo</tag> namespaces.</para>
+			</listitem>
+		</itemizedlist>
+	</section>
+	<section>
+		<title>Translation Metadata for Part of a Document</title>
+		<para>Different parts of a document might store their translations in different <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> files. To specify translation metadata for part of a file, you add it to the metadata section for that part. So, to specify translation metadata that only applies to a particular chapter in a DocBook file, you would add the translation metadata to the <tag class="element">info</tag> element at the start of the chapter. This would override any translation metadata at the start of the book.</para>
+		<para>You could (but don’t have to) use <tag class="element">bibo:DocumentPart</tag> instead of <tag class="element">bibo:Document</tag> in translation metadata that only applies to part of a document.</para>
+		<para>To work out which XLIFF file to use when translating a particular element, the PACBook stylesheets look for the nearest ancestor element which has a child element which contains translation metadata as described above.</para>
+	</section>
 </article>

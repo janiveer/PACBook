@@ -10,162 +10,55 @@
          version="5.0-variant PACBook"
          its:version="2.0"
          xml:lang="en-GB"
-         xml:id="ID">
-	<title>DocTools</title>
+         xml:id="pacbook.xliff.tag">
+	<title>XliffTag</title>
 	<refentry>
+		<refmeta>
+			<refentrytitle>XliffTag</refentrytitle>
+		</refmeta>
 		<refnamediv>
-			<refname></refname>
-			<refpurpose></refpurpose>
+			<refname>XliffTag.xsl</refname>
+			<refpurpose>Converts a temporary, invalid <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> file with unescaped inline markup to a valid XLIFF file with <tag class="element">g</tag>, <tag class="element">x</tag>, <tag class="element">ph</tag> and <tag class="element">mrk</tag> elements.</refpurpose>
 		</refnamediv>
 		<refsynopsisdiv>
-			<synopsis></synopsis>
+			<title>Parameters</title>
+			<synopsis>[DefaultNS]</synopsis>
+			<itemizedlist>
+				<listitem>
+					<para><parameter>DefaultNS</parameter> (URI) — The URI of the default namespace of the inline elements. Default is the DocBook namespace.</para>
+				</listitem>
+			</itemizedlist>
 		</refsynopsisdiv>
-<para>
-  Converts a temporary, invalid
-  <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-  file with unescaped inline markup to a valid XLIFF file with
-  <literal>&lt;g&gt;</literal>, <literal>&lt;x&gt;</literal>,
-  <literal>&lt;ph&gt;</literal> and <literal>&lt;mrk&gt;</literal>
-  elements.
-</para>
-<sect1 id="parameters">
-  <title>Parameters</title>
-  <para>
-    <literal>[DefaultNS]</literal>
-  </para>
-  <itemizedlist>
-    <listitem>
-      <para>
-        <emphasis role="strong">DefaultNS</emphasis> (URI) — The URI of
-        the default namespace of the inline elements. Default is the
-        DocBook namespace.
-      </para>
-    </listitem>
-  </itemizedlist>
-</sect1>
-<sect1 id="input">
-  <title>Input</title>
-  <para>
-    A temporary, invalid
-    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-    document containing unescaped inline markup.
-  </para>
-</sect1>
-<sect1 id="output">
-  <title>Output</title>
-  <para>
-    An
-    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-    document containing <literal>&lt;g&gt;</literal>,
-    <literal>&lt;ph&gt;</literal>, <literal>&lt;x&gt;</literal> and
-    <literal>&lt;mrk&gt;</literal> elements. This is the format
-    preferred by many translation houses.
-  </para>
-</sect1>
-<sect1 id="description">
-  <title>Description</title>
-  <para>
-    The stylesheet copies the structure and content of the input
-    document to the output document. Any inline markup within the input
-    document is transformed as follows.
-  </para>
-  <para>
-    Processing instructions with no content are exported as
-    <literal>&lt;x&gt;</literal> elements. The <literal>ctype</literal>
-    attribute is set to <literal>x-pi-</literal> plus the name of the
-    processing instruction. As an exception, the
-    <literal>&lt;?linebreak?&gt;</literal> processing instruction is
-    exported as an <literal>&lt;x&gt;</literal> element with
-    <literal>ctype=&quot;lb&quot;</literal>.
-  </para>
-  <para>
-    Processing instructions containing text are exported as
-    <literal>&lt;ph&gt;</literal> elements. The <literal>ctype</literal>
-    attribute is set to <literal>x-pi-</literal> plus the name of the
-    processing instruction. The content of the processing instruction is
-    exported as the content of the <literal>&lt;ph&gt;</literal>
-    element.
-  </para>
-  <para>
-    Elements containing no content are exported as
-    <literal>&lt;x&gt;</literal> elements. The <literal>ctype</literal>
-    attribute is set to <literal>x-</literal>, followed by the prefix
-    associated with the namespace of the current element, followed by a
-    hyphen, followed by the name of the current element. If the
-    namespace of the element is not specified, it is assumed to be the
-    namespace associated with the URI specified by the
-    <literal>DefaultNS</literal> parameter — by default, DocBook.
-  </para>
-  <para>
-    Elements containing content are exported as
-    <literal>&lt;g&gt;</literal> elements. The <literal>ctype</literal>
-    attribute is set to <literal>x-</literal>, followed by the prefix
-    associated with the namespace of the current element, followed by a
-    hyphen, followed by the name of the current element. If the
-    namespace of the element is not specified, it is assumed to be the
-    namespace associated with the URI specified by the
-    <literal>DefaultNS</literal> parameter — by default, DocBook.
-  </para>
-  <para>
-    The <literal>&lt;g&gt;</literal> or <literal>&lt;x&gt;</literal>
-    elements have an <literal>id</literal> attribute whose value is
-    unique and is based on the ID of the current translation unit.
-  </para>
-  <para>
-    Child attributes of the elements in the input file are added to the
-    <literal>&lt;g&gt;</literal> or <literal>&lt;x&gt;</literal>
-    element. If the attribute is in an explicit namespace, the attribute
-    is exported in the same namespace. If the attribute is in no
-    namespace, it is exported in a special namespace whose prefix is
-    <literal>nn</literal> and whose URI is
-    <literal>urn:x-no-namespace</literal>. This is to distinguish
-    between
-    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-    attributes and attributes from the source file.
-  </para>
-  <para>
-    There are three exceptions:
-  </para>
-  <itemizedlist>
-    <listitem>
-      <para>
-        Elements with the <literal>content:ref</literal> attribute are
-        exported as <literal>&lt;ph&gt;</literal> elements whose content
-        is the value of the <literal>content:ref</literal> attribute.
-        This makes the translation unit read more naturally and can help
-        the translators establish the correct word order and
-        punctuation. The <literal>ctype</literal> and other attributes
-        of this <literal>&lt;ph&gt;</literal> element are set as above.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        The <literal>its:term=&quot;yes&quot;</literal> attribute is
-        exported as a child
-        <literal>&lt;mrk mtype=&quot;term&quot;&gt;</literal> element
-        which contains the content of the parent element.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        The <literal>its:locNote</literal> attribute is exported as a
-        child <literal>&lt;mrk mtype=&quot;phrase&quot;&gt;</literal>
-        element which contains the content of the parent element. The
-        value of the <literal>its:locNote</literal> attribute is
-        exported as a <literal>comment</literal> attribute on the
-        <literal>&lt;mrk mtype=&quot;phrase&quot;&gt;</literal> element.
-      </para>
-    </listitem>
-  </itemizedlist>
-  <para>
-    The content of the <literal>&lt;source&gt;</literal> element is
-    copied to any <literal>&lt;target&gt;</literal> element which is
-    currently empty. This is to meet the requirements of translation
-    houses who prefer the <literal>&lt;target&gt;</literal> element to
-    start with the <literal>&lt;source&gt;</literal> text. The output of
-    the <ulink url="XliffTemp.xsl">XliffTemp.xsl</ulink> stylesheet is
-    intended to be used as input for this stylesheet.
-  </para>
-</sect1>
+		<refsect1>
+			<title>Input</title>
+			<para>A temporary, invalid <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> document containing unescaped inline markup.</para>
+		</refsect1>
+		<refsect1>
+			<title>Output</title>
+			<para>An <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> document containing <tag class="element">g</tag>, <tag class="element">ph</tag>, <tag class="element">x</tag> and <tag class="element">mrk</tag> elements. This is the format preferred by many translation houses.</para>
+		</refsect1>
+		<refsect1>
+			<title>Description</title>
+			<para>The stylesheet copies the structure and content of the input document to the output document. Any inline markup within the input document is transformed as follows.</para>
+			<para>Processing instructions with no content are exported as <tag class="element">x</tag> elements. The <tag class="attribute">ctype</tag> attribute is set to <tag class="attvalue">x-pi-</tag> plus the name of the processing instruction. As an exception, the <tag class="xmlpi">linebreak</tag> processing instruction is exported as an <tag class="element">x</tag> element with <tag class="attribute">ctype='lb'</tag>.</para>
+			<para>Processing instructions containing text are exported as <tag class="element">ph</tag> elements. The <tag class="attribute">ctype</tag> attribute is set to <tag class="attvalue">x-pi-</tag> plus the name of the processing instruction. The content of the processing instruction is exported as the content of the <tag class="element">ph</tag> element.</para>
+			<para>Elements containing no content are exported as <tag class="element">x</tag> elements. The <tag class="attribute">ctype</tag> attribute is set to <tag class="attvalue">x-</tag>, followed by the prefix associated with the namespace of the current element, followed by a hyphen, followed by the name of the current element. If the namespace of the element is not specified, it is assumed to be the namespace associated with the URI specified by the <parameter>DefaultNS</parameter> parameter — by default, DocBook.</para>
+			<para>Elements containing content are exported as <tag class="element">g</tag> elements. The <tag class="attribute">ctype</tag> attribute is set to <tag class="attvalue">x-</tag>, followed by the prefix associated with the namespace of the current element, followed by a hyphen, followed by the name of the current element. If the namespace of the element is not specified, it is assumed to be the namespace associated with the URI specified by the <parameter>DefaultNS</parameter> parameter — by default, DocBook.</para>
+			<para>The <tag class="element">g</tag> or <tag class="element">x</tag> elements have an <tag class="attribute">id</tag> attribute whose value is unique and is based on the ID of the current translation unit.</para>
+			<para>Child attributes of the elements in the input file are added to the <tag class="element">g</tag> or <tag class="element">x</tag> element. If the attribute is in an explicit namespace, the attribute is exported in the same namespace. If the attribute is in no namespace, it is exported in a special namespace whose prefix is <tag class="prefix">nn</tag> and whose URI is <uri>urn:x-no-namespace</uri>. This is to distinguish between <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> attributes and attributes from the source file.</para>
+			<para>There are three exceptions:</para>
+			<itemizedlist>
+				<listitem>
+					<para>Elements with the <tag class="attribute">content:ref</tag> attribute are exported as <tag class="element">ph</tag> elements whose content is the value of the <tag class="attribute">content:ref</tag> attribute. This makes the translation unit read more naturally and can help the translators establish the correct word order and punctuation. The <tag class="attribute">ctype</tag> and other attributes of this <tag class="element">ph</tag> element are set as above.</para>
+				</listitem>
+				<listitem>
+					<para>The <tag class="attribute">its:term='yes'</tag> attribute is exported as a child <tag class="element">mrk mtype='term'</tag> element which contains the content of the parent element.</para>
+				</listitem>
+				<listitem>
+					<para>The <tag class="attribute">its:locNote</tag> attribute is exported as a child <tag class="element">mrk mtype='phrase'</tag> element which contains the content of the parent element. The value of the <tag class="attribute">its:locNote</tag> attribute is exported as a <tag class="attribute">comment</tag> attribute on the <tag class="element">mrk mtype='phrase'</tag> element.</para>
+				</listitem>
+			</itemizedlist>
+			<para>The content of the <tag class="element">source</tag> element is copied to any <tag class="element">target</tag> element which is currently empty. This is to meet the requirements of translation houses who prefer the <tag class="element">target</tag> element to start with the <tag class="element">source</tag> text. The output of the <link xl:href="#XliffTemp.xsl">XliffTemp.xsl</link> stylesheet is intended to be used as input for this stylesheet.</para>
+		</refsect1>
 	</refentry>
 </article>

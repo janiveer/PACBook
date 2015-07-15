@@ -10,10 +10,10 @@
          version="5.0-variant PACBook"
          its:version="2.0"
          xml:lang="en-GB"
-         xml:id="ID">
-	<title>DocTools</title>
+         xml:id="pacbook.home">
+	<title>Overview</title>
 	<para>PACBook enables you to:</para>
-	<sect1>
+	<section>
 		<title>Transclusion stylesheets</title>
 		<orderedlist numeration="arabic">
 			<listitem>
@@ -26,8 +26,8 @@
 				<para>Fix up links to duplicate IDs or links to non-existent targets … <link xl:href="#TransLinks.xsl">TransLinks.xsl</link></para>
 			</listitem>
 		</orderedlist>
-	</sect1>
-	<sect1>
+	</section>
+	<section>
 		<title>Linguistic stylesheets</title>
 		<orderedlist numeration="arabic">
 			<listitem>
@@ -40,8 +40,8 @@
 				<para>Select the correct orthographic case for text, depending on environment … <link xl:href="#LingCasing.xsl">LingCasing.xsl</link></para>
 			</listitem>
 		</orderedlist>
-	</sect1>
-	<sect1>
+	</section>
+	<section>
 		<title>Text stylesheets</title>
 		<orderedlist numeration="arabic">
 			<listitem>
@@ -51,8 +51,8 @@
 				<para>Localise number formatting … <link xl:href="#TextNumbers.xsl">TextNumbers.xsl</link></para>
 			</listitem>
 		</orderedlist>
-	</sect1>
-	<sect1>
+	</section>
+	<section>
 		<title>DocBook stylesheets</title>
 		<orderedlist numeration="arabic">
 			<listitem>
@@ -80,8 +80,8 @@
 				<para>Create automatic links between DocBook sections, based on shared labels … <link xl:href="#DBRels.xsl">DBRels.xsl</link></para>
 			</listitem>
 		</orderedlist>
-	</sect1>
-	<sect1>
+	</section>
+	<section>
 		<title>Translation stylesheets</title>
 		<orderedlist numeration="arabic">
 			<listitem>
@@ -106,8 +106,8 @@
 				<para>Merge new translation units into existing XLIFF file … <link xl:href="#XlateMerge.xsl">XlateMerge.xsl</link></para>
 			</listitem>
 		</orderedlist>
-	</sect1>
-	<sect1>
+	</section>
+	<section>
 		<title>XLIFF management stylesheets</title>
 		<orderedlist numeration="arabic">
 			<listitem>
@@ -129,10 +129,10 @@
 				<para>Import from Microsoft Excel XML to XLIFF … <link xl:href="#XL2Xliff.xsl">XL2Xliff.xsl</link></para>
 			</listitem>
 		</orderedlist>
-		<sect2 id="note">
+		<section id="note">
 			<title>Note</title>
 			<para>PACBook also provides a <link xl:href="#PACBook-Schema">custom schema</link> to enable all of these features in DocBook 5.0.</para>
 			<para>It’s important to note that PACBook is not a natural language processor. The author or translator must mark up text for linguistic processing by hand.</para>
-		</sect2>
-	</sect1>
+		</section>
+	</section>
 </article>

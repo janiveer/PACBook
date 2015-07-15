@@ -10,95 +10,54 @@
          version="5.0-variant PACBook"
          its:version="2.0"
          xml:lang="en-GB"
-         xml:id="ID">
-	<title>DocTools</title>
+         xml:id="pacbook.ref.resolve">
+	<title>RefResolve</title>
 	<refentry>
+		<refmeta>
+			<refentrytitle>RefResolve</refentrytitle>
+		</refmeta>
 		<refnamediv>
-			<refname></refname>
-			<refpurpose></refpurpose>
+			<refname>Refresolve.xsl</refname>
+			<refpurpose>Uses the Apache Catalog Resolver to resolve URIs, e.g. image file references, against an XML catalog.</refpurpose>
 		</refnamediv>
 		<refsynopsisdiv>
-			<synopsis></synopsis>
+			<title>Parameters</title>
+			<para>None.</para>
 		</refsynopsisdiv>
-<para>
-  Uses the Apache Catalog Resolver to resolve URIs, e.g. image file
-  references, against an XML catalog.
-</para>
-<sect1 id="parameters">
-  <title>Parameters</title>
-  <para>
-    None.
-  </para>
-</sect1>
-<sect1 id="input">
-  <title>Input</title>
-  <para>
-    A DocBook document, in which some images have a
-    <literal>fileref</literal> attribute which is set to a URI.
-  </para>
-</sect1>
-<sect1 id="output">
-  <title>Output</title>
-  <para>
-    A DocBook document, identical to the input except that any
-    <literal>fileref</literal> attributes are resolved against the XML
-    catalog.
-  </para>
-</sect1>
-<sect1 id="description">
-  <title>Description</title>
-  <para>
-    The stylesheet recurses through the document and copies each
-    element. If any element has the attribute
-    <literal>fileref</literal>, which contains a URI starting with
-    <literal>http://</literal>, the stylesheet resolves the URI against
-    the XML catalog.
-  </para>
-  <para>
-    This is useful if you wish to reference remote resources in the
-    document.
-  </para>
-</sect1>
-<sect1 id="notes">
-  <title>Notes</title>
-  <para>
-    This stylesheet only works with Java-based XSLT processors. It has
-    been tested with Saxon 6.5.5. To use it, you must:
-  </para>
-  <orderedlist numeration="arabic">
-    <listitem>
-      <para>
-        Download the XML Catalog Resolver from the
-        <ulink url="http://xerces.apache.org/xml-commons/">Apache XML
-        Commons</ulink>.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Set up your XML catalog correctly.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Configure your <literal>CatalogManager.properties</literal> file
-        to point to your XML catalog.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Add <literal>resolver.jar</literal> and
-        <literal>CatalogManager.properties</literal> to your classpath
-        when you invoke the XSLT processor.
-      </para>
-    </listitem>
-  </orderedlist>
-</sect1>
-<sect1 id="roadmap">
-  <title>Roadmap</title>
-  <para>
-    Generalise to work with any specified attribute in any specified
-    namespace.
-  </para>
-</sect1>
+		<refsect1>
+			<title>Input</title>
+			<para>A DocBook document, in which some images have a <tag class="attribute">fileref</tag> attribute which is set to a URI.</para>
+		</refsect1>
+		<refsect1>
+			<title>Output</title>
+			<para>A DocBook document, identical to the input except that any <tag class="attribute">fileref</tag> attributes are resolved against the XML catalog.</para>
+		</refsect1>
+		<refsect1>
+			<title>Description</title>
+			<para>The stylesheet recurses through the document and copies each element. If any element has the attribute <tag class="attribute">fileref</tag>, which contains a URI starting with <uri>http://</uri>, the stylesheet resolves the URI against the XML catalog.</para>
+			<para>This is useful if you wish to reference remote resources in the document.</para>
+		</refsect1>
+		<refsect1>
+			<title>Notes</title>
+			<para>This stylesheet only works with Java-based XSLT processors. It has been tested with Saxon 6.5.5. To use it, you must:</para>
+			<orderedlist numeration="arabic">
+				<listitem>
+					<para>Download the XML Catalog Resolver from the <link xl:href="http://xerces.apache.org/xml-commons/">Apache XML Commons</link>.</para>
+				</listitem>
+				<listitem>
+					<para>Set up your XML catalog correctly.</para>
+				</listitem>
+				<listitem>
+					<para>Configure your <filename>CatalogManager.properties</filename> file to point to your XML catalog.</para>
+				</listitem>
+				<listitem>
+					<para>Add <filename>resolver.jar</filename> and the directory containing <filename>CatalogManager.properties</filename> to your classpath when you invoke the XSLT processor.</para>
+				</listitem>
+			</orderedlist>
+		</refsect1>
+		<refsect1>
+			<title>Roadmap</title>
+			<para>Generalise to work with any specified attribute in any specified namespace.</para>
+		</refsect1>
 	</refentry>
 </article>

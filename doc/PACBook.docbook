@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://www.jabadaw.com/PAC/files/Docbook.css" type="text/css"?>
+<book xmlns="http://docbook.org/ns/docbook"
+      xmlns:xl="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
+      xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+      xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+      version="5.0-variant PACBook"
+      xml:lang="en-GB"
+      xml:id="pacbook">
+	<title>PACBook</title>
+	<subtitle>Reference Guide</subtitle>
+	<info>
+		<copyright>
+			<year><?dbtimestamp format="Y"?></year>
+			<holder>Simon Dew</holder>
+		</copyright>
+		<authorgroup>
+			<author>
+				<personname>
+					<firstname></firstname>
+					<surname>Simon Dew</surname>
+				</personname>
+			</author>
+		</authorgroup>
+		<edition>1.0</edition>
+		<releaseinfo><xi:include href="build.number" parse="text">
+			<xi:fallback>DRAFT</xi:fallback>
+		</xi:include></releaseinfo>
+		<date><?dbtimestamp format="b Y"?></date>
+		<revhistory>
+			<revision>
+				<revnumber>1.0</revnumber>
+				<date>15/07/2015</date>
+				<authorinitials>SD</authorinitials>
+				<revremark>Initial release.</revremark>
+			</revision>
+		</revhistory>
+	</info>
+	<chapter xml:id="pacbook.intro">
+		<title>Introduction</title>
+		<section xml:id="Overview">
+			<?dbhtml stop-chunking?>
+			<xi:include href="src/Home.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:article/node())"/>
+		</section>
+		<section xml:id="PACBook-Schema">
+			<?dbhtml stop-chunking?>
+			<xi:include href="src/PACBook-Schema.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:article/node())"/>
+		</section>
+		<section xml:id="RDF-Applicability">
+			<?dbhtml stop-chunking?>
+			<xi:include href="src/RDF-Applicability.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:article/node())"/>
+		</section>
+		<section xml:id="RDF-Translations">
+			<?dbhtml stop-chunking?>
+			<xi:include href="src/RDF-Translations.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:article/node())"/>
+		</section>
+	</chapter>
+	<reference xml:id="pacbook.trans">
+		<title>Transclusion Stylesheets</title>
+		<refentry xml:id="TransID.xsl">
+			<xi:include href="src/TransID.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="TransLinks.xsl">
+			<xi:include href="src/TransLinks.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="TransParam.xsl">
+			<xi:include href="src/TransParam.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+	</reference>
+	<reference xml:id="pacbook.ling">
+		<title>Linguistic Stylesheets</title>
+		<refentry xml:id="LingCasing.xsl">
+			<xi:include href="src/LingCasing.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="LingDepend.xsl">
+			<xi:include href="src/LingDepend.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="LingHead.xsl">
+			<xi:include href="src/LingHead.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+	</reference>
+	<reference xml:id="pacbook.text">
+		<title>Text Stylesheets</title>
+		<refentry xml:id="TextAbbrev.xsl">
+			<xi:include href="src/TextAbbrev.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="TextNumbers.xsl">
+			<xi:include href="src/TextNumbers.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+	</reference>
+	<reference xml:id="pacbook.docbook">
+		<title>DocBook Stylesheets</title>
+		<refentry xml:id="DBAdmon.xsl">
+			<xi:include href="src/DBAdmon.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="DBGloss.xsl">
+			<xi:include href="src/DBGloss.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="DBImage.xsl">
+			<xi:include href="src/DBImage.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="DBLists.xsl">
+			<xi:include href="src/DBLists.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="DBProcs.xsl">
+			<xi:include href="src/DBProcs.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="DBProfile.xsl">
+			<xi:include href="src/DBProfile.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="DBRels.xsl">
+			<xi:include href="src/DBRels.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="RefResolve.xsl">
+			<xi:include href="src/RefResolve.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+	</reference>
+	<reference xml:id="pacbook.xlate">
+		<title>Translation Stylesheets</title>
+		<refentry xml:id="XlateMarkup.xsl">
+			<xi:include href="src/XlateMarkup.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="XlateExtract.xsl">
+			<xi:include href="src/XlateExtract.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="XlateConvert.xsl">
+			<xi:include href="src/XlateConvert.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="XlateCombine.xsl">
+			<xi:include href="src/XlateCombine.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="XlateID.xsl">
+			<xi:include href="src/XlateID.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="XlateDiff.xsl">
+			<xi:include href="src/XlateDiff.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="XlateMerge.xsl">
+			<xi:include href="src/XlateMerge.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+	</reference>
+	<reference xml:id="pacbook.xliff">
+		<title>XLIFF Stylesheets</title>
+		<refentry xml:id="XL2Xliff.xsl">
+			<xi:include href="src/XL2Xliff.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="Xliff2CSV.xsl">
+			<xi:include href="src/Xliff2CSV.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="XliffDupe.xsl">
+			<xi:include href="src/XliffDupe.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="XliffPurge.xsl">
+			<xi:include href="src/XliffPurge.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="XliffRaw.xsl">
+			<xi:include href="src/XliffRaw.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="XliffTag.xsl">
+			<xi:include href="src/XliffTag.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+		<refentry xml:id="XliffTemp.xsl">
+			<xi:include href="src/XliffTemp.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
+		</refentry>
+	</reference>
+</book>

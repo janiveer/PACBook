@@ -1,29 +1,120 @@
-<p>Enables fine-grained fixup of simple link attributes after transclusion.</p>
-<h2 id="parameters">Parameters</h2>
-<p><code>[linkRole]</code></p>
-<ul>
-<li><strong>linkRole</strong> (URI) — A URI which identifies the link fixup XLink role. Default is <a href="http://stanleysecurity.github.io/PACBook/role/link">http://stanleysecurity.github.io/PACBook/role/link</a>.</li>
-</ul>
-<h2 id="input">Input</h2>
-<p>An XML document containing extended links to fix up simple link attributes as described below.</p>
-<h2 id="output">Output</h2>
-<p>An XML document, identical to the input except that simple link attributes are fixed up.</p>
-<h2 id="description">Description</h2>
-<p>This stylesheet is useful in two scenarios:</p>
-<ol>
-<li><p>If you have a subdocument which contains XML IDs and which must be included in an assembly file or master document in two or more places. In order to avoid validation errors, each ID must be unique. The process of making duplicate IDs unique is called ID fixup. After you have fixed up IDs, you may also need to fix up <em>inbound</em> cross references or links that point to those IDs.</p></li>
-<li><p>If you want to include a subdocument containing <em>outbound</em> cross references or links to IDs in other subdocuments which are not present in the current assembly file or master document. You can fix up these links to redirect them to other IDs which are known to be present.</p></li>
-</ol>
-<p>This stylesheet enables you to specify by hand how links should be fixed up, using XLink.</p>
-<p>In the assembly file or master document, at the start of each section where you want to fix up links or cross references, you must add an extended link element with the <code>xl:role</code> attribute set to the specified link fixup role URI. For each link or cross-reference that needs fixing up, the extended link should contain:</p>
-<ol>
-<li><p>A locator element with an <code>xl:label</code> attribute unique within the extended link, whose <code>xl:href</code> attribute is set to a link location that you want to fix up.</p></li>
-<li><p>A locator element with an <code>xl:label</code> attribute unique within the extended link, whose <code>xl:href</code> attribute is set to the link location that you want the link or cross reference to use.</p></li>
-<li><p>An arc element whose <code>xl:from</code> attribute is set to the <code>xl:label</code> attribute of the start locator and whose <code>xl:to</code> attribute is set to the <code>xl:label</code> attribute of the fixup locator.</p></li>
-</ol>
-<p>When run, the stylesheet recurses through the document and copies each element. If any element has an <code>xl:href</code> attribute, the stylesheet looks for the nearest ancestor element which contains an extended link whose <code>xl:role</code> attribute is set to the specified link fixup role URI <em>and</em> which contains a locator element whose <code>xl:href</code> attribute is the same as the current <code>xl:href</code> attribute. If it finds a matching locator, the stylesheet follows the arc to the target locator and replaces the value of the current <code>xl:href</code> attribute with the value indicated by the target locator’s <code>xl:href</code> attribute.</p>
-<p>For DocBook documents, this stylesheet also fixes up <code>linkend</code> attributes and the content of <code>arearefs</code> attributes in the same way.</p>
-<p>You should run this stylesheet after transclusion. If any of your translation strings contain simple links, you may need to run this stylesheet after translation instead.</p>
-<p>For fixing up IDs after transclusion, see <a href="TransID.xsl">TransID.xsl</a>.</p>
-<h2 id="roadmap">Roadmap</h2>
-<p>At present this stylesheet requires that the extended links, locators and arcs are DocBook <code>&lt;extendedlink&gt;</code>, <code>&lt;locator&gt;</code> and <code>&lt;arc&gt;</code> elements, meaning that the stylesheet only works with DocBook. In future releases, this stylesheet will be updated to work with any elements with attributes <code>xl:type='extended'</code>, <code>xl:type='locator'</code> or <code>xl:type='arc'</code>. This will make the stylesheets work with any XLink-compliant XML schema, including DocBook 5.1.</p>
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>TransLinks</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.trans.html" title="Transclusion Stylesheets">
+      <link rel="prev" href="TransID.xsl.html" title="TransID">
+      <link rel="next" href="TransParam.xsl.html" title="TransParam">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="TransID.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.trans.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="TransParam.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="TransLinks.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">TransLinks</span></h2>
+            <p>TransLinks.xsl &#8212; Enables fine-grained fixup of simple link attributes after transclusion.</p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2><pre class="synopsis">[linkRole]</pre><div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p><em class="parameter"><code>linkRole</code></em> (URI)&nbsp;&#8212; A URI which identifies the link fixup XLink role. Default is <code class="uri">http://stanleysecurity.github.io/PACBook/role/link</code>.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="refsect1" id="d0e764">
+            <h2>Input</h2>
+            <p>An XML document containing extended links to fix up simple link attributes as described below.</p>
+         </div>
+         <div class="refsect1" id="d0e769">
+            <h2>Output</h2>
+            <p>An XML document, identical to the input except that simple link attributes are fixed up.</p>
+         </div>
+         <div class="refsect1" id="d0e774">
+            <h2>Description</h2>
+            <p>This stylesheet is useful in two scenarios:</p>
+            <div class="orderedlist">
+               <ol class="orderedlist" type="1">
+                  <li class="listitem">
+                     <p>If you have a subdocument which contains XML IDs and which must be included in an assembly file or master document in two
+                        or more places. In order to avoid validation errors, each ID must be unique. The process of making duplicate IDs unique is
+                        called ID fixup. After you have fixed up IDs, you may also need to fix up <span class="emphasis"><em>inbound</em></span> cross references or links that point to those IDs.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>If you want to include a subdocument containing <span class="emphasis"><em>outbound</em></span> cross references or links to IDs in other subdocuments which are not present in the current assembly file or master document.
+                        You can fix up these links to redirect them to other IDs which are known to be present.
+                     </p>
+                  </li>
+               </ol>
+            </div>
+            <p>This stylesheet enables you to specify by hand how links should be fixed up, using XLink.</p>
+            <p>In the assembly file or master document, at the start of each section where you want to fix up links or cross references,
+               you must add an extended link element with the <code class="sgmltag-attribute">xl:role</code> attribute set to the specified link fixup role URI. For each link or cross-reference that needs fixing up, the extended link
+               should contain:
+            </p>
+            <div class="orderedlist">
+               <ol class="orderedlist" type="1">
+                  <li class="listitem">
+                     <p>A locator element with an <code class="sgmltag-attribute">xl:label</code> attribute unique within the extended link, whose <code class="sgmltag-attribute">xl:href</code> attribute is set to a link location that you want to fix up.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>A locator element with an <code class="sgmltag-attribute">xl:label</code> attribute unique within the extended link, whose <code class="sgmltag-attribute">xl:href</code> attribute is set to the link location that you want the link or cross reference to use.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>An arc element whose <code class="sgmltag-attribute">xl:from</code> attribute is set to the <code class="sgmltag-attribute">xl:label</code> attribute of the start locator and whose <code class="sgmltag-attribute">xl:to</code> attribute is set to the <code class="sgmltag-attribute">xl:label</code> attribute of the fixup locator.
+                     </p>
+                  </li>
+               </ol>
+            </div>
+            <p>When run, the stylesheet recurses through the document and copies each element. If any element has an <code class="sgmltag-attribute">xl:href</code> attribute, the stylesheet looks for the nearest ancestor element which contains an extended link whose <code class="sgmltag-attribute">xl:role</code> attribute is set to the specified link fixup role URI <span class="emphasis"><em>and</em></span> which contains a locator element whose <code class="sgmltag-attribute">xl:href</code> attribute is the same as the current <code class="sgmltag-attribute">xl:href</code> attribute. If it finds a matching locator, the stylesheet follows the arc to the target locator and replaces the value of
+               the current <code class="sgmltag-attribute">xl:href</code> attribute with the value indicated by the target locator&#8217;s <code class="sgmltag-attribute">xl:href</code> attribute.
+            </p>
+            <p>For DocBook documents, this stylesheet also fixes up <code class="sgmltag-attribute">linkend</code> attributes and the content of <code class="sgmltag-attribute">arearefs</code> attributes in the same way.
+            </p>
+            <p>You should run this stylesheet after transclusion. If any of your translation strings contain simple links, you may need to
+               run this stylesheet after translation instead.
+            </p>
+            <p>For fixing up IDs after transclusion, see <a class="link" href="TransID.xsl.html" title="TransID">TransID.xsl</a>.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e871">
+            <h2>Roadmap</h2>
+            <p>At present this stylesheet requires that the extended links, locators and arcs are DocBook <code class="sgmltag-element">extendedlink</code>, <code class="sgmltag-element">locator</code> and <code class="sgmltag-element">arc</code> elements, meaning that the stylesheet only works with DocBook. In future releases, this stylesheet will be updated to work
+               with any elements with attributes <code class="sgmltag-attribute">xl:type='extended'</code>, <code class="sgmltag-attribute">xl:type='locator'</code> or <code class="sgmltag-attribute">xl:type='arc'</code>. This will make the stylesheets work with any XLink-compliant XML schema, including DocBook 5.1.
+            </p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="TransID.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.trans.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="TransParam.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

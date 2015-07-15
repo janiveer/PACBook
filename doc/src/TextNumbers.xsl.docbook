@@ -10,94 +10,43 @@
          version="5.0-variant PACBook"
          its:version="2.0"
          xml:lang="en-GB"
-         xml:id="ID">
-	<title>DocTools</title>
+         xml:id="pacbook.text.numbers">
+	<title>TextNumbers</title>
 	<refentry>
+		<refmeta>
+			<refentrytitle>TextNumbers</refentrytitle>
+		</refmeta>
 		<refnamediv>
-			<refname></refname>
-			<refpurpose></refpurpose>
+			<refname>TextNumbers.xsl</refname>
+			<refpurpose>Makes sure that numbers are punctuated correctly according to the document language.</refpurpose>
 		</refnamediv>
 		<refsynopsisdiv>
-			<synopsis></synopsis>
+			<title>Parameters</title>
+			<synopsis>[numberClassRef]</synopsis>
+			<itemizedlist>
+				<listitem>
+					<para><parameter>numberClassRef</parameter> (URI) — a URI that identifies numbers. Default <uri>http://dbpedia.org/ontology/number</uri>.</para>
+				</listitem>
+			</itemizedlist>
 		</refsynopsisdiv>
-<para>
-  Makes sure that numbers are punctuated correctly according to the
-  document language.
-</para>
-<sect1 id="parameters">
-  <title>Parameters</title>
-  <para>
-    <literal>[numberClassRef]</literal>
-  </para>
-  <itemizedlist>
-    <listitem>
-      <para>
-        <emphasis role="strong">numberClassRef</emphasis> (URI) — a URI
-        that identifies numbers. Default
-        http://dbpedia.org/ontology/number.
-      </para>
-    </listitem>
-  </itemizedlist>
-</sect1>
-<sect1 id="input">
-  <title>Input</title>
-  <para>
-    An XML document. Any numbers which need localisation must be marked
-    up with ITS 2.0 text analysis attributes as described below.
-  </para>
-</sect1>
-<sect1 id="output">
-  <title>Output</title>
-  <para>
-    An XML document, identical to the input except that numbers are
-    localised.
-  </para>
-</sect1>
-<sect1 id="description">
-  <title>Description</title>
-  <para>
-    The stylesheet recurses through the document and copies each
-    element. If any element has the attribute
-    <literal>its:taClassRef='http://dbpedia.org/ontology/number'</literal>
-    and contains just a plain XML number, i.e. with no grouping
-    separators and a full stop for the decimal separator, the stylesheet
-    formats the number according to the language defined by the nearest
-    ancestor <literal>xml:lang</literal> attribute.
-  </para>
-  <para>
-    Usually you would rely on translators to localise the format of
-    numbers in the document. This stylesheet is useful if you want to
-    enforce a consistent number format for each locale, or if any
-    translation strings contain just numbers and you don’t want to
-    bother translating them.
-  </para>
-  <para>
-    The following languages are currently supported:
-    <literal>en-GB</literal>, <literal>en-US</literal>,
-    <literal>fr</literal>, <literal>de</literal>, <literal>nl</literal>,
-    <literal>es</literal>, <literal>sv</literal>, <literal>nb</literal>,
-    <literal>pt</literal>, <literal>it</literal>, <literal>fi</literal>,
-    <literal>zh</literal> and the special ISO language codes
-    <literal>und</literal>, <literal>mul</literal>,
-    <literal>mis</literal> and <literal>zxx</literal>. The localisation
-    formats are taken from
-    <ulink url="http://www-01.ibm.com/support/knowledgecenter/SSS28S_3.0.0/com.ibm.help.forms.doc/locale_spec/i_xfdl_r_locale_quick_reference.html">IBM</ulink>.
-  </para>
-  <para>
-    To use the <literal>its:taClassRef</literal> attribute you must set
-    <literal>its:version='2.0'</literal> on the element or on the
-    containing document.
-  </para>
-</sect1>
-<sect1 id="roadmap">
-  <title>Roadmap</title>
-  <para>
-    In DocBook files, this stylesheet matches
-    <literal>&lt;abbrev&gt;</literal> elements as well as elements with
-    the
-    <literal>its:taClassRef='http://dbpedia.org/ontology/number'</literal>
-    attribute. This may be removed in a future release.
-  </para>
-</sect1>
+		<refsect1>
+			<title>Input</title>
+			<para>An XML document. Any numbers which need localisation must be marked up with ITS 2.0 text analysis attributes as described below.</para>
+		</refsect1>
+		<refsect1>
+			<title>Output</title>
+			<para>An XML document, identical to the input except that numbers are localised.</para>
+		</refsect1>
+		<refsect1>
+			<title>Description</title>
+			<para>The stylesheet recurses through the document and copies each element. If any element has the attribute <tag class="attribute">its:taClassRef='http://dbpedia.org/ontology/number'</tag> and contains just a plain XML number, i.e. with no grouping separators and a full stop for the decimal separator, the stylesheet formats the number according to the language defined by the nearest ancestor <tag class="attribute">xml:lang</tag> attribute.</para>
+			<para>Usually you would rely on translators to localise the format of numbers in the document. This stylesheet is useful if you want to enforce a consistent number format for each locale, or if any translation strings contain just numbers and you don’t want to bother translating them.</para>
+			<para>The following languages are currently supported: <literal>en-GB</literal>, <literal>en-US</literal>, <literal>fr</literal>, <literal>de</literal>, <literal>nl</literal>, <literal>es</literal>, <literal>sv</literal>, <literal>nb</literal>, <literal>pt</literal>, <literal>it</literal>, <literal>fi</literal>, <literal>zh</literal> and the special ISO language codes <literal>und</literal>, <literal>mul</literal>, <literal>mis</literal> and <literal>zxx</literal>. The localisation formats are taken from <link xl:href="http://www-01.ibm.com/support/knowledgecenter/SSS28S_3.0.0/com.ibm.help.forms.doc/locale_spec/i_xfdl_r_locale_quick_reference.html">IBM</link>.</para>
+			<para>To use the <tag class="attribute">its:taClassRef</tag> attribute you must set <tag class="attribute">its:version='2.0'</tag> on the element or on the containing document.</para>
+		</refsect1>
+		<refsect1>
+			<title>Roadmap</title>
+			<para>In DocBook files, this stylesheet matches <tag class="element">abbrev</tag> elements as well as elements with the <tag class="attribute">its:taClassRef='http://dbpedia.org/ontology/number'</tag> attribute. This may be removed in a future release.</para>
+		</refsect1>
 	</refentry>
 </article>

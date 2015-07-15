@@ -1,14 +1,76 @@
-<p>Exports from a Microsoft Excel 2003 XML workbook to an <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file.</p>
-<h2 id="parameters">Parameters</h2>
-<p>None.</p>
-<h2 id="input">Input</h2>
-<p>A Microsoft Excel 2003 XML workbook.</p>
-<h2 id="output">Output</h2>
-<p>An <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file.</p>
-<h2 id="description">Description</h2>
-<p>The stylesheet exports the content of a Microsoft Excel 2003 XML workbook to an <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file.</p>
-<p>The workbook’s <code>Source</code> custom property is exported as the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file’s <code>original</code> property. The <code>Language</code> custom property is exported as the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file’s <code>source-language</code> property. The <code>Destination</code> custom property is exported as the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file’s <code>target-language</code> property.</p>
-<p>The <code>Title</code>, <code>Subject</code> and <code>Version</code> properties of the workbook are exported to the <code>note</code> element within the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file’s <code>header</code> element.</p>
-<p>The spreadsheet to be exported must be titled <code>Xlate</code>. Every other spreadsheet in the workbook is ignored.</p>
-<p>Within the exported spreadsheet, each row is exported to a single translation unit. The first row in the spreadsheet is assumed to be a header row and is ignored.</p>
-<p>In each row, the content of the first column is exported as the <code>ID</code> attribute of the translation unit. The content of the second column is exported as the content of the <code>source</code> element. The content of the third column is exported as the content of the <code>target</code> element. The content of the fourth column, if any, is exported as the content of the <code>note</code> element. All other content is ignored.</p>
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>XL2Xliff</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.xliff.html" title="XLIFF Stylesheets">
+      <link rel="prev" href="pacbook.xliff.html" title="XLIFF Stylesheets">
+      <link rel="next" href="Xliff2CSV.xsl.html" title="Xliff2CSV">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="pacbook.xliff.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xliff.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="Xliff2CSV.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="XL2Xliff.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">XL2Xliff</span></h2>
+            <p>XL2Xliff.xsl &#8212; Imports from a Microsoft Excel 2003 XML workbook to an <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file.
+            </p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2>
+            <p>None.</p>
+         </div>
+         <div class="refsect1" id="d0e3444">
+            <h2>Input</h2>
+            <p>A Microsoft Excel 2003 XML workbook.</p>
+         </div>
+         <div class="refsect1" id="d0e3449">
+            <h2>Output</h2>
+            <p>An <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e3457">
+            <h2>Description</h2>
+            <p>The stylesheet exports the content of a Microsoft Excel 2003 XML workbook to an <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file.
+            </p>
+            <p>The workbook&#8217;s <span class="property">Source</span> custom property is exported as the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file&#8217;s <code class="sgmltag-attribute">original</code> attribute. The <span class="property">Language</span> custom property is exported as the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file&#8217;s <code class="sgmltag-attribute">source-language</code> attribute. The <span class="property">Destination</span> custom property is exported as the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file&#8217;s <code class="sgmltag-attribute">target-language</code> attribute.
+            </p>
+            <p>The <span class="property">Title</span>, <span class="property">Subject</span> and <span class="property">Version</span> properties of the workbook are exported to the <code class="sgmltag-element">note</code> element within the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file&#8217;s <code class="sgmltag-element">header</code> element.
+            </p>
+            <p>The spreadsheet to be exported must be titled <code class="literal">Xlate</code>. Every other spreadsheet in the workbook is ignored.
+            </p>
+            <p>Within the exported spreadsheet, each row is exported to a single translation unit. The first row in the spreadsheet is assumed
+               to be a header row and is ignored.
+            </p>
+            <p>In each row, the content of the first column is exported as the <code class="sgmltag-attribute">ID</code> attribute of the translation unit. The content of the second column is exported as the content of the <code class="sgmltag-element">source</code> element. The content of the third column is exported as the content of the <code class="sgmltag-element">target</code> element. The content of the fourth column, if any, is exported as the content of the <code class="sgmltag-element">note</code> element. All other content is ignored.
+            </p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="pacbook.xliff.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xliff.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="Xliff2CSV.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

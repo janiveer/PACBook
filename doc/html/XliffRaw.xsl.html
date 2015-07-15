@@ -1,23 +1,98 @@
-<p>Converts an <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file with <code>&lt;g&gt;</code>, <code>&lt;x&gt;</code>, <code>&lt;ph&gt;</code> and <code>&lt;mrk&gt;</code> elements to an <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> file with escaped inline markup.</p>
-<h2 id="parameters">Parameters</h2>
-<p><code>[DefaultNS]</code></p>
-<ul>
-<li><strong>DefaultNS</strong> (URI) — The URI of the default namespace of the inline elements. Default is the DocBook namespace.</li>
-</ul>
-<h2 id="input">Input</h2>
-<p>An <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> document containing <code>&lt;g&gt;</code>, <code>&lt;ph&gt;</code>, <code>&lt;x&gt;</code> and <code>&lt;mrk&gt;</code> elements.</p>
-<h2 id="output">Output</h2>
-<p>An <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> document containing escaped inline markup. This the format used by PACBook.</p>
-<h2 id="description">Description</h2>
-<p>The stylesheet copies the structure and content of the input document to the output document. Any <code>&lt;g&gt;</code>, <code>&lt;ph&gt;</code>, <code>&lt;x&gt;</code> and <code>&lt;mrk&gt;</code> elements within the <code>&lt;source&gt;</code> elements in the input document are transformed as follows.</p>
-<p>Any <code>&lt;x&gt;</code> elements whose <code>ctype</code> attribute is <code>lb</code> are exported as escaped <code>&lt;?linebreak?&gt;</code> processing instructions.</p>
-<p>Any <code>&lt;x&gt;</code> elements whose <code>ctype</code> attribute starts with <code>x-pi-</code> are exported as escaped processing instructions with no content. The name of the processing instruction is taken from the <code>ctype</code> attribute.</p>
-<p>Any <code>&lt;ph&gt;</code> elements whose <code>ctype</code> attribute starts with <code>x-pi-</code> are exported as escaped processing instructions with content. The name of the processing instruction is taken from the <code>ctype</code> attribute. The content of the <code>&lt;ph&gt;</code> element is exported as the content of the processing instruction.</p>
-<p>Any other <code>&lt;x&gt;</code> elements are exported as escaped elements containing no content. The namespace and name of the element are taken from the <code>ctype</code> attribute. If the namespace of the element is the same as the namespace specified by the <code>DefaultNS</code> parameter — by default, DocBook — the namespace prefix is not output.</p>
-<p>Any other <code>&lt;ph&gt;</code> elements are exported as escaped elements containing no content. The namespace and name of the element are taken from the <code>ctype</code> attribute. If the namespace of the element is the same as the namespace specified by the <code>DefaultNS</code> parameter — by default, DocBook — the namespace prefix is not output. The content of the <code>&lt;ph&gt;</code> element is exported as a <code>content:ref</code> attribute on the exported element.</p>
-<p>Any <code>&lt;g&gt;</code> elements are exported as escaped elements containing content. The namespace and name of the element are taken from the <code>ctype</code> attribute. If the namespace of the element is the same as the namespace specified by the <code>DefaultNS</code> parameter — by default, DocBook — the namespace prefix is not output.</p>
-<p>Child attributes of the <code>&lt;g&gt;</code> or <code>&lt;x&gt;</code> element are added to the elements in the output file. If the attribute is in an explicit namespace, the attribute is exported in the same namespace. If the attribute is in the <code>urn:x-no-namespace</code> namespace, it is exported in no namespace. If the attribute is in no namespace or the <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</a> namespace, it is ignored.</p>
-<p>Any <code>&lt;mrk mtype=&quot;term&quot;&gt;</code> elements are exported as <code>its:term=&quot;yes&quot;</code> attributes on the parent exported element. The content of the <code>&lt;mrk&gt;</code> element becomes the content of the parent exported element.</p>
-<p>Any <code>&lt;mrk mtype=&quot;phrase&quot;&gt;</code> elements are exported as <code>its:locNote</code> attributes on the parent exported element. The value of the <code>comment</code> attribute is exported as value of the <code>its:locNote</code> attribute. The content of the <code>&lt;mrk&gt;</code> element becomes the content of the parent exported element.</p>
-<p>Any <code>&lt;g&gt;</code>, <code>&lt;ph&gt;</code>, <code>&lt;x&gt;</code> and <code>&lt;mrk&gt;</code> elements within the <code>&lt;target&gt;</code> elements in the input document are transformed as above, using the attributes of the corresponding <code>&lt;g&gt;</code>, <code>&lt;ph&gt;</code>, <code>&lt;x&gt;</code> and <code>&lt;mrk&gt;</code> elements within the associated <code>&lt;source&gt;</code> element.</p>
-<p>This stylesheet forms a round trip with the <a href="XliffTemp.xsl">XliffTemp.xsl</a> and <a href="XliffTag.xsl">XliffTag.xsl</a> stylesheets.</p>
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>XliffRaw</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.xliff.html" title="XLIFF Stylesheets">
+      <link rel="prev" href="XliffPurge.xsl.html" title="XliffPurge">
+      <link rel="next" href="XliffTag.xsl.html" title="XliffTag">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XliffPurge.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xliff.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XliffTag.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="XliffRaw.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">XliffRaw</span></h2>
+            <p>XliffRaw.xsl &#8212; Converts an <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file with <code class="sgmltag-element">g</code>, <code class="sgmltag-element">x</code>, <code class="sgmltag-element">ph</code> and <code class="sgmltag-element">mrk</code> elements to an <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file with escaped inline markup.
+            </p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2><pre class="synopsis">[DefaultNS]</pre><div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p><em class="parameter"><code>DefaultNS</code></em> (URI)&nbsp;&#8212; The URI of the default namespace of the inline elements. Default is the DocBook namespace.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="refsect1" id="d0e3738">
+            <h2>Input</h2>
+            <p>An <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> document containing <code class="sgmltag-element">g</code>, <code class="sgmltag-element">ph</code>, <code class="sgmltag-element">x</code> and <code class="sgmltag-element">mrk</code> elements.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e3758">
+            <h2>Output</h2>
+            <p>An <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> document containing escaped inline markup. This the format used by PACBook.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e3766">
+            <h2>Description</h2>
+            <p>The stylesheet copies the structure and content of the input document to the output document. Any <code class="sgmltag-element">g</code>, <code class="sgmltag-element">ph</code>, <code class="sgmltag-element">x</code> and <code class="sgmltag-element">mrk</code> elements within the <code class="sgmltag-element">source</code> elements in the input document are transformed as follows.
+            </p>
+            <p>Any <code class="sgmltag-element">x</code> elements whose <code class="sgmltag-attribute">ctype</code> attribute is <code class="sgmltag-attvalue">lb</code> are exported as escaped <code class="sgmltag-xmlpi">&lt;?linebreak?&gt;</code> processing instructions.
+            </p>
+            <p>Any <code class="sgmltag-element">x</code> elements whose <code class="sgmltag-attribute">ctype</code> attribute starts with <code class="sgmltag-attvalue">x-pi-</code> are exported as escaped processing instructions with no content. The name of the processing instruction is taken from the
+               <code class="sgmltag-attribute">ctype</code> attribute.
+            </p>
+            <p>Any <code class="sgmltag-element">ph</code> elements whose <code class="sgmltag-attribute">ctype</code> attribute starts with <code class="sgmltag-attvalue">x-pi-</code> are exported as escaped processing instructions with content. The name of the processing instruction is taken from the <code class="sgmltag-attribute">ctype</code> attribute. The content of the <code class="sgmltag-element">ph</code> element is exported as the content of the processing instruction.
+            </p>
+            <p>Any other <code class="sgmltag-element">x</code> elements are exported as escaped elements containing no content. The namespace and name of the element are taken from the
+               <code class="sgmltag-attribute">ctype</code> attribute. If the namespace of the element is the same as the namespace specified by the <em class="parameter"><code>DefaultNS</code></em> parameter &#8212; by default, DocBook &#8212; the namespace prefix is not output.
+            </p>
+            <p>Any other <code class="sgmltag-element">ph</code> elements are exported as escaped elements containing no content. The namespace and name of the element are taken from the
+               <code class="sgmltag-attribute">ctype</code> attribute. If the namespace of the element is the same as the namespace specified by the <em class="parameter"><code>DefaultNS</code></em> parameter &#8212; by default, DocBook &#8212; the namespace prefix is not output. The content of the <code class="sgmltag-element">ph</code> element is exported as a <code class="sgmltag-attribute">content:ref</code> attribute on the exported element.
+            </p>
+            <p>Any <code class="sgmltag-element">g</code> elements are exported as escaped elements containing content. The namespace and name of the element are taken from the <code class="sgmltag-attribute">ctype</code> attribute. If the namespace of the element is the same as the namespace specified by the <em class="parameter"><code>DefaultNS</code></em> parameter &#8212; by default, DocBook &#8212; the namespace prefix is not output.
+            </p>
+            <p>Child attributes of the <code class="sgmltag-element">g</code> or <code class="sgmltag-element">x</code> element are added to the elements in the output file. If the attribute is in an explicit namespace, the attribute is exported
+               in the same namespace. If the attribute is in the <code class="uri">urn:x-no-namespace</code> namespace, it is exported in no namespace. If the attribute is in no namespace or the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> namespace, it is ignored.
+            </p>
+            <p>Any <code class="sgmltag-element">mrk mtype='term'</code> elements are exported as <code class="sgmltag-attribute">its:term='yes'</code> attributes on the parent exported element. The content of the <code class="sgmltag-element">mrk</code> element becomes the content of the parent exported element.
+            </p>
+            <p>Any <code class="sgmltag-element">mrk mtype='phrase'</code> elements are exported as <code class="sgmltag-attribute">its:locNote</code> attributes on the parent exported element. The value of the <code class="sgmltag-attribute">comment</code> attribute is exported as value of the <code class="sgmltag-attribute">its:locNote</code> attribute. The content of the <code class="sgmltag-element">mrk</code> element becomes the content of the parent exported element.
+            </p>
+            <p>Any <code class="sgmltag-element">g</code>, <code class="sgmltag-element">ph</code>, <code class="sgmltag-element">x</code> and <code class="sgmltag-element">mrk</code> elements within the <code class="sgmltag-element">target</code> elements in the input document are transformed as above, using the attributes of the corresponding <code class="sgmltag-element">g</code>, <code class="sgmltag-element">ph</code>, <code class="sgmltag-element">x</code> and <code class="sgmltag-element">mrk</code> elements within the associated <code class="sgmltag-element">source</code> element.
+            </p>
+            <p>This stylesheet forms a round trip with the <a class="link" href="XliffTemp.xsl.html" title="XliffTemp">XliffTemp.xsl</a> and <a class="link" href="XliffTag.xsl.html" title="XliffTag">XliffTag.xsl</a> stylesheets.
+            </p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XliffPurge.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xliff.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XliffTag.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

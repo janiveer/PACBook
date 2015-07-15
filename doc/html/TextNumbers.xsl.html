@@ -1,17 +1,85 @@
-<p>Makes sure that numbers are punctuated correctly according to the document language.</p>
-<h2 id="parameters">Parameters</h2>
-<p><code>[numberClassRef]</code></p>
-<ul>
-<li><strong>numberClassRef</strong> (URI) — a URI that identifies numbers. Default <a href="http://dbpedia.org/ontology/number">http://dbpedia.org/ontology/number</a>.</li>
-</ul>
-<h2 id="input">Input</h2>
-<p>An XML document. Any numbers which need localisation must be marked up with ITS 2.0 text analysis attributes as described below.</p>
-<h2 id="output">Output</h2>
-<p>An XML document, identical to the input except that numbers are localised.</p>
-<h2 id="description">Description</h2>
-<p>The stylesheet recurses through the document and copies each element. If any element has the attribute <code>its:taClassRef='http://dbpedia.org/ontology/number'</code> and contains just a plain XML number, i.e. with no grouping separators and a full stop for the decimal separator, the stylesheet formats the number according to the language defined by the nearest ancestor <code>xml:lang</code> attribute.</p>
-<p>Usually you would rely on translators to localise the format of numbers in the document. This stylesheet is useful if you want to enforce a consistent number format for each locale, or if any translation strings contain just numbers and you don’t want to bother translating them.</p>
-<p>The following languages are currently supported: <code>en-GB</code>, <code>en-US</code>, <code>fr</code>, <code>de</code>, <code>nl</code>, <code>es</code>, <code>sv</code>, <code>nb</code>, <code>pt</code>, <code>it</code>, <code>fi</code>, <code>zh</code> and the special ISO language codes <code>und</code>, <code>mul</code>, <code>mis</code> and <code>zxx</code>. The localisation formats are taken from <a href="http://www-01.ibm.com/support/knowledgecenter/SSS28S_3.0.0/com.ibm.help.forms.doc/locale_spec/i_xfdl_r_locale_quick_reference.html">IBM</a>.</p>
-<p>To use the <code>its:taClassRef</code> attribute you must set <code>its:version='2.0'</code> on the element or on the containing document.</p>
-<h2 id="roadmap">Roadmap</h2>
-<p>In DocBook files, this stylesheet matches <code>&lt;abbrev&gt;</code> elements as well as elements with the <code>its:taClassRef='http://dbpedia.org/ontology/number'</code> attribute. This may be removed in a future release.</p>
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>TextNumbers</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.text.html" title="Text Stylesheets">
+      <link rel="prev" href="TextAbbrev.xsl.html" title="TextAbbrev">
+      <link rel="next" href="pacbook.docbook.html" title="DocBook Stylesheets">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="TextAbbrev.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.text.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="pacbook.docbook.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="TextNumbers.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">TextNumbers</span></h2>
+            <p>TextNumbers.xsl &#8212; Makes sure that numbers are punctuated correctly according to the document language.</p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2><pre class="synopsis">[numberClassRef]</pre><div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p><em class="parameter"><code>numberClassRef</code></em> (URI) &#8212; a URI that identifies numbers. Default <code class="uri">http://dbpedia.org/ontology/number</code>.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="refsect1" id="d0e1580">
+            <h2>Input</h2>
+            <p>An XML document. Any numbers which need localisation must be marked up with ITS 2.0 text analysis attributes as described
+               below.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e1585">
+            <h2>Output</h2>
+            <p>An XML document, identical to the input except that numbers are localised.</p>
+         </div>
+         <div class="refsect1" id="d0e1590">
+            <h2>Description</h2>
+            <p>The stylesheet recurses through the document and copies each element. If any element has the attribute <code class="sgmltag-attribute">its:taClassRef='http://dbpedia.org/ontology/number'</code> and contains just a plain XML number, i.e. with no grouping separators and a full stop for the decimal separator, the stylesheet
+               formats the number according to the language defined by the nearest ancestor <code class="sgmltag-attribute">xml:lang</code> attribute.
+            </p>
+            <p>Usually you would rely on translators to localise the format of numbers in the document. This stylesheet is useful if you
+               want to enforce a consistent number format for each locale, or if any translation strings contain just numbers and you don&#8217;t
+               want to bother translating them.
+            </p>
+            <p>The following languages are currently supported: <code class="literal">en-GB</code>, <code class="literal">en-US</code>, <code class="literal">fr</code>, <code class="literal">de</code>, <code class="literal">nl</code>, <code class="literal">es</code>, <code class="literal">sv</code>, <code class="literal">nb</code>, <code class="literal">pt</code>, <code class="literal">it</code>, <code class="literal">fi</code>, <code class="literal">zh</code> and the special ISO language codes <code class="literal">und</code>, <code class="literal">mul</code>, <code class="literal">mis</code> and <code class="literal">zxx</code>. The localisation formats are taken from <a class="link" href="http://www-01.ibm.com/support/knowledgecenter/SSS28S_3.0.0/com.ibm.help.forms.doc/locale_spec/i_xfdl_r_locale_quick_reference.html" target="_blank">IBM</a>.
+            </p>
+            <p>To use the <code class="sgmltag-attribute">its:taClassRef</code> attribute you must set <code class="sgmltag-attribute">its:version='2.0'</code> on the element or on the containing document.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e1664">
+            <h2>Roadmap</h2>
+            <p>In DocBook files, this stylesheet matches <code class="sgmltag-element">abbrev</code> elements as well as elements with the <code class="sgmltag-attribute">its:taClassRef='http://dbpedia.org/ontology/number'</code> attribute. This may be removed in a future release.
+            </p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="TextAbbrev.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.text.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="pacbook.docbook.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

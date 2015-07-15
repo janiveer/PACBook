@@ -1,20 +1,93 @@
-<p>Uses the Apache Catalog Resolver to resolve URIs, e.g. image file references, against an XML catalog.</p>
-<h2 id="parameters">Parameters</h2>
-<p>None.</p>
-<h2 id="input">Input</h2>
-<p>A DocBook document, in which some images have a <code>fileref</code> attribute which is set to a URI.</p>
-<h2 id="output">Output</h2>
-<p>A DocBook document, identical to the input except that any <code>fileref</code> attributes are resolved against the XML catalog.</p>
-<h2 id="description">Description</h2>
-<p>The stylesheet recurses through the document and copies each element. If any element has the attribute <code>fileref</code>, which contains a URI starting with <code>http://</code>, the stylesheet resolves the URI against the XML catalog.</p>
-<p>This is useful if you wish to reference remote resources in the document.</p>
-<h2 id="notes">Notes</h2>
-<p>This stylesheet only works with Java-based XSLT processors. It has been tested with Saxon 6.5.5. To use it, you must:</p>
-<ol>
-<li><p>Download the XML Catalog Resolver from the <a href="http://xerces.apache.org/xml-commons/">Apache XML Commons</a>.</p></li>
-<li><p>Set up your XML catalog correctly.</p></li>
-<li><p>Configure your <code>CatalogManager.properties</code> file to point to your XML catalog.</p></li>
-<li><p>Add <code>resolver.jar</code> and <code>CatalogManager.properties</code> to your classpath when you invoke the XSLT processor.</p></li>
-</ol>
-<h2 id="roadmap">Roadmap</h2>
-<p>Generalise to work with any specified attribute in any specified namespace.</p>
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>RefResolve</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.docbook.html" title="DocBook Stylesheets">
+      <link rel="prev" href="DBRels.xsl.html" title="DBRels">
+      <link rel="next" href="pacbook.xlate.html" title="Translation Stylesheets">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="DBRels.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.docbook.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="pacbook.xlate.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="RefResolve.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">RefResolve</span></h2>
+            <p>Refresolve.xsl &#8212; Uses the Apache Catalog Resolver to resolve URIs, e.g. image file references, against an XML catalog.</p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2>
+            <p>None.</p>
+         </div>
+         <div class="refsect1" id="d0e2585">
+            <h2>Input</h2>
+            <p>A DocBook document, in which some images have a <code class="sgmltag-attribute">fileref</code> attribute which is set to a URI.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e2593">
+            <h2>Output</h2>
+            <p>A DocBook document, identical to the input except that any <code class="sgmltag-attribute">fileref</code> attributes are resolved against the XML catalog.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e2601">
+            <h2>Description</h2>
+            <p>The stylesheet recurses through the document and copies each element. If any element has the attribute <code class="sgmltag-attribute">fileref</code>, which contains a URI starting with <code class="uri">http://</code>, the stylesheet resolves the URI against the XML catalog.
+            </p>
+            <p>This is useful if you wish to reference remote resources in the document.</p>
+         </div>
+         <div class="refsect1" id="d0e2614">
+            <h2>Notes</h2>
+            <p>This stylesheet only works with Java-based XSLT processors. It has been tested with Saxon 6.5.5. To use it, you must:</p>
+            <div class="orderedlist">
+               <ol class="orderedlist" type="1">
+                  <li class="listitem">
+                     <p>Download the XML Catalog Resolver from the <a class="link" href="http://xerces.apache.org/xml-commons/" target="_blank">Apache XML Commons</a>.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>Set up your XML catalog correctly.</p>
+                  </li>
+                  <li class="listitem">
+                     <p>Configure your <code class="filename">CatalogManager.properties</code> file to point to your XML catalog.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>Add <code class="filename">resolver.jar</code> and the directory containing <code class="filename">CatalogManager.properties</code> to your classpath when you invoke the XSLT processor.
+                     </p>
+                  </li>
+               </ol>
+            </div>
+         </div>
+         <div class="refsect1" id="d0e2644">
+            <h2>Roadmap</h2>
+            <p>Generalise to work with any specified attribute in any specified namespace.</p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="DBRels.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.docbook.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="pacbook.xlate.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

@@ -1,17 +1,86 @@
-<p>Turns simple inline lists into punctuated lists and adds a final “and” or “or” in the appropriate language.</p>
-<h2 id="parameters">Parameters</h2>
-<p>None.</p>
-<h2 id="input">Input</h2>
-<p>A DocBook document containing <code>&lt;simplelist type='inline'&gt;</code> elements.</p>
-<h2 id="output">Output</h2>
-<p>A DocBook document, identical to the input except that any <code>&lt;simplelist type='inline'&gt;</code> elements are replaced with punctuated inline lists with a final “and” or “or” in the appropriate language.</p>
-<h2 id="description">Description</h2>
-<p>The stylesheet recurses through the document and copies each element. For each <code>&lt;simplelist type='inline'&gt;</code> element, the members of the list are output as a comma separated inline list.</p>
-<p>If the <code>role</code> attribute of the <code>&lt;simplelist&gt;</code> is set to <code>and</code>, the conjunction “and” is added before the final member of the list in the language specified by the nearest ancestor <code>xml:lang</code> element. Likewise, if the <code>role</code> attribute of the <code>&lt;simplelist&gt;</code> is set to <code>or</code>, the conjunction “or” is added before the final member of the list in the language specified by the nearest ancestor <code>xml:lang</code> element.</p>
-<p>This stylesheet has similar functionality to the way <code>&lt;simplelist type='inline'&gt;</code> elements are processed by the DocBook XSL stylesheets. The differences are:</p>
-<ol>
-<li><p>The final conjunction is specified via the <code>role</code> attribute.</p></li>
-<li><p>For languages which require it, the final conjunction is output within a wrapper element with the <code>ling:type='depend'</code> attribute. This enables you to use the <a href="LingDepend.xsl">LingDepend.xsl</a> stylesheet on the output file to select the correct form of the final conjunction, depending on the phonetic environment.</p></li>
-</ol>
-<p>For example, in Spanish, if the <code>role</code> attribute is set to <code>and</code>, the <a href="LingDepend.xsl">LingDepend.xsl</a> stylesheet will change the final conjunction to “e” if the following word begins with an “i” sound, or “y” otherwise. (There must be wrapper elements, e.g. <code>&lt;phrase&gt;</code>, around each term in the list, using the <code>ling:pron</code> attribute to indicate the initial sound of each term.)</p>
-<p>The final conjunctions are specified in the <code>DataLabels.xml</code> file. The supported languages are German, English, Spanish, Finnish, French, Italian, Norwegian Bokmål, Dutch, Portuguese, Swedish and Simplified Chinese.</p>
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>DBLists</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.docbook.html" title="DocBook Stylesheets">
+      <link rel="prev" href="DBImage.xsl.html" title="DBImage">
+      <link rel="next" href="DBProcs.xsl.html" title="DBProcs">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="DBImage.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.docbook.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="DBProcs.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="DBLists.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">DBLists</span></h2>
+            <p>DBLists.xsl &#8212; Turns simple inline lists into punctuated lists and adds a final &#8220;and&#8221; or &#8220;or&#8221; in the appropriate language.</p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2>
+            <p>None.</p>
+         </div>
+         <div class="refsect1" id="d0e1990">
+            <h2>Input</h2>
+            <p>A DocBook document containing <code class="sgmltag-element">simplelist type='inline'</code> elements.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e1998">
+            <h2>Output</h2>
+            <p>A DocBook document, identical to the input except that any <code class="sgmltag-element">simplelist type='inline'</code> elements are replaced with punctuated inline lists with a final &#8220;and&#8221; or &#8220;or&#8221; in the appropriate language.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e2006">
+            <h2>Description</h2>
+            <p>The stylesheet recurses through the document and copies each element. For each <code class="sgmltag-element">simplelist type='inline'</code> element, the members of the list are output as a comma separated inline list.
+            </p>
+            <p>If the <code class="sgmltag-attribute">role</code> attribute of the <code class="sgmltag-element">simplelist</code> is set to <code class="sgmltag-attvalue">and</code>, the conjunction &#8220;and&#8221; is added before the final member of the list in the language specified by the nearest ancestor <code class="sgmltag-attribute">xml:lang</code> attribute. Likewise, if the <code class="sgmltag-attribute">role</code> attribute of the <code class="sgmltag-element">simplelist</code> is set to <code class="sgmltag-attvalue">or</code>, the conjunction &#8220;or&#8221; is added before the final member of the list in the language specified by the nearest ancestor <code class="sgmltag-attribute">xml:lang</code> attribute.
+            </p>
+            <p>This stylesheet has similar functionality to the way <code class="sgmltag-element">simplelist type='inline'</code> elements are processed by the DocBook XSL stylesheets. The differences are:
+            </p>
+            <div class="orderedlist">
+               <ol class="orderedlist" type="1">
+                  <li class="listitem">
+                     <p>The final conjunction is specified via the <code class="sgmltag-attribute">role</code> attribute.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>For languages which require it, the final conjunction is output within a wrapper element with the <code class="sgmltag-attribute">ling:type='depend'</code> attribute. This enables you to use the <a class="link" href="LingDepend.xsl.html" title="LingDepend">LingDepend.xsl</a> stylesheet on the output file to select the correct form of the final conjunction, depending on the phonetic environment.
+                     </p>
+                  </li>
+               </ol>
+            </div>
+            <p>For example, in Spanish, if the <code class="sgmltag-attribute">role</code> attribute is set to <code class="sgmltag-attvalue">and</code>, the <a class="link" href="LingDepend.xsl.html" title="LingDepend">LingDepend.xsl</a> stylesheet will change the final conjunction to <span class="foreignphrase"><em class="foreignphrase">e</em></span> if the following word begins with an &#8220;i&#8221; sound, or <span class="foreignphrase"><em class="foreignphrase">y</em></span> otherwise. (There must be wrapper elements, e.g. <code class="sgmltag-element">phrase</code>, around each term in the list, using the <code class="sgmltag-attribute">ling:pron</code> attribute to indicate the initial sound of each term.)
+            </p>
+            <p>The final conjunctions are specified in the <code class="filename">DataLabels.xml</code> file. The supported languages are German, English, Spanish, Finnish, French, Italian, Norwegian Bokm&aring;l, Dutch, Portuguese,
+               Swedish and Simplified Chinese.
+            </p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="DBImage.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.docbook.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="DBProcs.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

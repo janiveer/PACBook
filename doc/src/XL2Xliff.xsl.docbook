@@ -10,88 +10,36 @@
          version="5.0-variant PACBook"
          its:version="2.0"
          xml:lang="en-GB"
-         xml:id="ID">
-	<title>DocTools</title>
+         xml:id="pacbook.xliff.import">
+	<title>XL2Xliff</title>
 	<refentry>
+		<refmeta>
+			<refentrytitle>XL2Xliff</refentrytitle>
+		</refmeta>
 		<refnamediv>
-			<refname></refname>
-			<refpurpose></refpurpose>
+			<refname>XL2Xliff.xsl</refname>
+			<refpurpose>Imports from a Microsoft Excel 2003 XML workbook to an <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> file.</refpurpose>
 		</refnamediv>
 		<refsynopsisdiv>
-			<synopsis></synopsis>
+			<title>Parameters</title>
+			<para>None.</para>
 		</refsynopsisdiv>
-<para>
-  Exports from a Microsoft Excel 2003 XML workbook to an
-  <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-  file.
-</para>
-<sect1 id="parameters">
-  <title>Parameters</title>
-  <para>
-    None.
-  </para>
-</sect1>
-<sect1 id="input">
-  <title>Input</title>
-  <para>
-    A Microsoft Excel 2003 XML workbook.
-  </para>
-</sect1>
-<sect1 id="output">
-  <title>Output</title>
-  <para>
-    An
-    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-    file.
-  </para>
-</sect1>
-<sect1 id="description">
-  <title>Description</title>
-  <para>
-    The stylesheet exports the content of a Microsoft Excel 2003 XML
-    workbook to an
-    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-    file.
-  </para>
-  <para>
-    The workbook’s <literal>Source</literal> custom property is exported
-    as the
-    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-    file’s <literal>original</literal> property. The
-    <literal>Language</literal> custom property is exported as the
-    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-    file’s <literal>source-language</literal> property. The
-    <literal>Destination</literal> custom property is exported as the
-    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-    file’s <literal>target-language</literal> property.
-  </para>
-  <para>
-    The <literal>Title</literal>, <literal>Subject</literal> and
-    <literal>Version</literal> properties of the workbook are exported
-    to the <literal>note</literal> element within the
-    <ulink url="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</ulink>
-    file’s <literal>header</literal> element.
-  </para>
-  <para>
-    The spreadsheet to be exported must be titled
-    <literal>Xlate</literal>. Every other spreadsheet in the workbook is
-    ignored.
-  </para>
-  <para>
-    Within the exported spreadsheet, each row is exported to a single
-    translation unit. The first row in the spreadsheet is assumed to be
-    a header row and is ignored.
-  </para>
-  <para>
-    In each row, the content of the first column is exported as the
-    <literal>ID</literal> attribute of the translation unit. The content
-    of the second column is exported as the content of the
-    <literal>source</literal> element. The content of the third column
-    is exported as the content of the <literal>target</literal> element.
-    The content of the fourth column, if any, is exported as the content
-    of the <literal>note</literal> element. All other content is
-    ignored.
-  </para>
-</sect1>
+		<refsect1>
+			<title>Input</title>
+			<para>A Microsoft Excel 2003 XML workbook.</para>
+		</refsect1>
+		<refsect1>
+			<title>Output</title>
+			<para>An <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> file.</para>
+		</refsect1>
+		<refsect1>
+			<title>Description</title>
+			<para>The stylesheet exports the content of a Microsoft Excel 2003 XML workbook to an <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> file.</para>
+			<para>The workbook’s <property>Source</property> custom property is exported as the <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> file’s <tag class="attribute">original</tag> attribute. The <property>Language</property> custom property is exported as the <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> file’s <tag class="attribute">source-language</tag> attribute. The <property>Destination</property> custom property is exported as the <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> file’s <tag class="attribute">target-language</tag> attribute.</para>
+			<para>The <property>Title</property>, <property>Subject</property> and <property>Version</property> properties of the workbook are exported to the <tag class="element">note</tag> element within the <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> file’s <tag class="element">header</tag> element.</para>
+			<para>The spreadsheet to be exported must be titled <literal>Xlate</literal>. Every other spreadsheet in the workbook is ignored.</para>
+			<para>Within the exported spreadsheet, each row is exported to a single translation unit. The first row in the spreadsheet is assumed to be a header row and is ignored.</para>
+			<para>In each row, the content of the first column is exported as the <tag class="attribute">ID</tag> attribute of the translation unit. The content of the second column is exported as the content of the <tag class="element">source</tag> element. The content of the third column is exported as the content of the <tag class="element">target</tag> element. The content of the fourth column, if any, is exported as the content of the <tag class="element">note</tag> element. All other content is ignored.</para>
+		</refsect1>
 	</refentry>
 </article>

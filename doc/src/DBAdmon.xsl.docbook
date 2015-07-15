@@ -13,6 +13,9 @@
          xml:id="pacbook.db.admon">
 	<title>DBAdmon</title>
 	<refentry>
+		<refmeta>
+			<refentrytitle>DBAdmon</refentrytitle>
+		</refmeta>
 		<refnamediv>
 			<refname>DBAdmon.xsl</refname>
 			<refpurpose>Creates automatic titles for admonitions in a DocBook document.</refpurpose>
@@ -31,7 +34,7 @@
 		</refsect1>
 		<refsect1>
 			<title>Description</title>
-			<para>The stylesheet recurses through the document and copies each element. When it finds the title element of an admonition, if the title element is empty, the stylesheet gets the language specified by the nearest ancestor <literal>xml:lang</literal> attribute and looks up the correct wording for the title in the <literal>DataLabels.xml</literal> file.</para>
+			<para>The stylesheet recurses through the document and copies each element. When it finds the title element of an admonition, if the title element is empty, the stylesheet gets the language specified by the nearest ancestor <tag class="attribute">xml:lang</tag> attribute and looks up the correct wording for the title in the <filename>DataLabels.xml</filename> file.</para>
 			<para>The relevant title strings in the <literal>DataLabels.xml</literal> file are called <literal>important</literal>, <literal>caution</literal>, <literal>note</literal>, <literal>tip</literal> and <literal>warning</literal>.</para>
 			<para>If the admonition is a <tag class="element">note</tag> or a <tag class="element">tip</tag> and it contains more than one <tag class="element">para</tag> element, the stylesheet uses the <literal>notes</literal> and <literal>tips</literal> strings respectively.</para>
 			<para>The following languages are currently supported: <literal>de</literal>, <literal>en</literal>, <literal>fr</literal>, <literal>nl</literal>, <literal>es</literal>, <literal>sv</literal>, <literal>nb</literal>, <literal>pt</literal>, <literal>it</literal>, <literal>fi</literal> and <literal>zh</literal>.</para>
