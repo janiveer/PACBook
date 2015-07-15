@@ -43,7 +43,7 @@
 		<para>In this example:</para>
 		<itemizedlist>
 			<listitem>
-				<para>The <tag class="element">bibo:Document</tag> element declares that this file is a document and that it this document is the subject of the translation metadata. You could (but don’t have to) use <tag class="element">bibo:Image</tag> instead of <tag class="element">bibo:Document</tag> in translation metadata that applies to an SVG file.</para>
+				<para>The <tag class="element">bibo:Document</tag> element declares that this file is a document and that it is the subject of the translation metadata. You could (but don’t have to) use <tag class="element">bibo:Image</tag> instead of <tag class="element">bibo:Document</tag> in translation metadata that applies to an SVG file.</para>
 			</listitem>
 			<listitem>
 				<para>The <tag class="element">vivo:hasTranslation</tag> element declares that this document has translations associated with it. The optional <tag class="attribute">xml:base</tag> attribute can be used to indicate where all the translations are.</para>

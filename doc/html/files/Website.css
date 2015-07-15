@@ -8,26 +8,27 @@ html{
 body{
 	margin: 0px;
 	padding: 8px;
-	font-family: Segoe UI, Arial, sans-serif;
+	font-family: Frutiger Linotype, Segoe UI, Arial, Helvetica, sans-serif;
 	font-size: 1.0em;
 	background-attachment: fixed ! important;
 	background-position: center center ! important
 }
+
 div.breadcrumbs{
 	color: rgb(89,89,89);
-	font-family: Segoe UI, Arial, sans-serif;
 	font-size: 0.8em
 }
+
 h1,h2,h3,h4,h5{
 	margin-left: 0cm;
 	margin-right: 0cm;
 	margin-top: 2.4em;
 	margin-bottom: 1.2em;
 	line-height: 1;
-	font-family: Segoe UI, Arial, sans-serif;
 	font-weight: bold;
 	font-size: 1.2em
 }
+
 h1.cover,
 h2.cover,
 p.copyright,
@@ -35,67 +36,74 @@ p.releaseinfo,
 p.address{
 	color: rgb(89,89,89)
 }
+
 h1.cover{
 	margin-top: 0em;
 	margin-bottom: 0.9em;
 	font-size: 2.4em;
 }
+
 h2.cover{
 	font-size: 2.0em
 }
+
 h3.author,
 h3.corpauthor{
 	display: none
 }
+
 h1.title, h2.title, h3.title, h4.title{
 	font-size: 1.6em
 }
+
 div.simplesect div.titlepage h2.title,
 div.simplesect div.titlepage h3.title,
 div.simplesect div.titlepage h4.title,
 div.simplesect div.titlepage h5.title{
 	font-size: 1.2em
 }
+
 div.example p.title{
 	font-size: 1.2em
 }
+
 p{
 	margin-bottom: 1.2em;
 	line-height: 1.2em;
-	font-family: Segoe UI, Arial, sans-serif;
 	font-size: 1.0em;
 	color: black;
 	clear: none
 }
+
 *.draft div.added{
 	border-top: 5px solid #99ff99;
 	background-color: inherit ! important;
 	text-decoration: inherit ! important
 }
+
 *.draft div.deleted{
 	border-top: 5px solid #ff7f7f;
 	text-decoration: inherit ! important;
 	background-color: inherit ! important
 }
+
 *.draft div.changed{
 	border-top: 5px solid #ffff99;
 	background-color: inherit ! important
 }
+
 div.off{
 }
+
 div.revhistory{
 	display: none
 }
-/*
-div.chapter{
-	position: absolute;
-	width: 95%
-}
-*/
+
 div.mediaobject{
 	margin-bottom: 1em;
 	text-align: center
 }
+
 div.logo{
 	margin-top: 3em;
 	margin-left: -8px;
@@ -103,115 +111,104 @@ div.logo{
 	padding: 8px;
 	background-color: #ffd200
 }
+
 div.literallayout{
 	display: block;
 	margin-top: -1.2em;
 	margin-bottom: -1.2em
 }
+
 tr.segtitle{
 	display: none
 }
+
 div.variablelist table{
 	width: 100%
 }
+
 div.variablelist table tbody{
 	vertical-align: top
 }
+
 div.variablelist table tbody tr{
 	background-color: silver
 }
+
 div.variablelist table tbody tr td:first-child{
 	width: auto
 }
+
 div.variablelist table tbody tr td:first-child + td{
 	width: 85%
 }
+
 ul[type='none']{
 	list-style-type: none
 	}
+
 ul.itemizedlist{
 	list-style-type: disc
 	}
+
 ol.substeps{
 	list-style-type: lower-roman ! important
 	}
+
 ul.stepalternatives,
 ol.stepalternatives{
-/*
-	margin-top: -1.2em;
-*/
 	margin-left: 0px;
 	list-style-type: none;
 	padding-left: 0px ! important
 }
-/*
-li.step p + ul.stepalternatives,
-li.step p + ol.stepalternatives{
-	margin-top: 0px ! important
-}
-*/
+
 ul.stepalternatives li.step,
 ol.stepalternatives li.step{
 	display: block;
 	padding-left: 0px ! important
 }
-/*
-ul.stepalternatives li.step p:first-child,
-ol.stepalternatives li.step p:first-child{
-	margin-top: 0em ! important
-}
-*/
+
 p.address{
 	white-space: pre-line
-/*	white-space: normal */
 }
+
 p.copyright{
 	font-size: 1.2em
 }
+
 p.releaseinfo{
 	font-size: 1.2em;
 	font-weight: bold
 }
+
 div.note table:first-child tr:first-child td,
 div.note table:first-child tbody tr:first-child td{
 	width: 33px ! important
 }
+
 div.note table:first-child tr td p:first-child,
 div.note table:first-child tbody tr td p:first-child{
 	margin-top: 0em
 }
-/* div.navheader{
-	position: absolute;
-	top: auto
-} */
-/*
-div.navfooter{
-	position: absolute;
-	bottom: 100%
-}
-*/
-/*
-div.chapter div.toc{
-	position: absolute;
-	top: 100%
-}
-*/
+
 dt{
 	margin-top: 0em;
 	margin-bottom: 0em;
 	line-height: 1.2em;
-	font-family: Segoe UI, Arial, sans-serif;
+	font-family: Segoe UI, Arial, Helvetica, sans-serif;
 	font-size: 1.0em;
 	color: black;
 	clear: none
 }
+
 div.glossary dl dt,
 div.glosslist dl dt{
 	font-weight: bold
 }
+
 div.caption p{
 	font-size: 0.9em
 }
+
 span.guimenu,
 span.guisubmenu,
 span.guimenuitem,
@@ -221,87 +218,117 @@ span.optional,
 span.code{
 	font-weight: bold
 }
+
 span.wintitle{
 	font-weight: inherit
 }
+
 span.remark{
 	background-color: yellow
 }
+
 span.emphasis{
 	text-decoration: underline
 }
+
+pre.programlisting,
+pre.synopsis{
+	font-family: Inconsolata, Consolas, Courier New, monospace
+}
+
 strong.userinput{
-	font-family: Courier New, monospace;
+	font-family: Inconsolata, Consolas, Courier New, monospace;
 	font-weight: normal
 }
-code.code,
-code.filename,
-code.option,
-code.uri,
-code.systemitem{
-	font-family: Segoe UI, Arial, sans-serif;
-	font-weight: bold
-}
-code.interfacename,
-code.literal{
-	font-family: Frutiger Linotype, Arial, sans-serif
-}
+
 code{
 	font-family: inherit;
-	font-weight: inherit
+	font-weight: bold
 }
+
+code.sgmltag-starttag:before,
+code.sgmltag-emptytag:before,
+code.sgmltag-element:before{
+	font-weight: bold;
+	content: '<'
+}
+
+code.sgmltag-endtag:before{
+	font-weight: bold;
+	content: '</'
+}
+
+code.sgmltag-emptytag:after{
+	font-weight: bold;
+	content: '/>'
+}
+
+code.sgmltag-starttag:after,
+code.sgmltag-endtag:after,
+code.sgmltag-element:after{
+	font-weight: bold;
+	content: '>'
+}
+
 em{
 	font-style: normal
 }
+
 em.firstterm{
 	font-style: normal;
 	font-weight: bold ! important
 }
+
 em.replaceable{
-	font-style: italic;
-	font-weight: bold;
-}
-em.replaceable code{
-	font-family: Segoe UI, Arial, sans-serif;
 	font-style: italic;
 	font-weight: bold
 }
+
+em.foreignphrase{
+	font-style: italic
+}
+
+em.replaceable code{
+	font-family: inherit;
+	font-style: italic;
+	font-weight: bold
+}
+
 th{
 	margin-left: 0cm;
 	margin-top: 1.2em;
-	font-family: Segoe UI, Arial, sans-serif;
+	font-family: inherit;
 	font-size: 1.0em;
 	color: black;
 	font-weight: bold;
 	text-align: left
 }
+
 cite,
 em.citetitle{
 	font-style: italic
 }
+
 a.glossterm,
 a.glossseealso{
 	color: darkred
 	}
+
 a.xref i{
 	font-style: normal ! important
 	}
+
 span.inlinemediaobject img{
 	vertical-align: text-bottom;
 	width: auto ! important
 }
-/*
-img.Floating{
-	position: absolute;
-	left: 0cm;
-	vertical-align: bottom
-}
-*/
+
 td.auto-generated{
 	display: none;
 }
+
 sup.footnote,
 sup.footnoteref,
 div.footnote sup.simpara{
-	font-family: Arial, sans-serif
+	font-family: Segoe UI, Arial, Helvetica, sans-serif
 }
