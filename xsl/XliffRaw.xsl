@@ -401,6 +401,7 @@
 		Attributes
 		==========
 		If the attribute is in the XLIFF namespace or no namespace, ignore it.
+		If the attribute is in {urn:x-xml-namespace}, recreate it in the xml namespace.
 		If the attribute is in {urn:x-no-namespace}, recreate it in no namespace.
 		Otherwise, recreate the attribute in the correct namespace.
 	</xd:doc>
@@ -412,6 +413,9 @@
 				<xsl:choose>
 					<xsl:when test="$AttribNS='urn:x-no-namespace'">
 						<xsl:value-of select="''"/>
+					</xsl:when>
+					<xsl:when test="$AttribNS='urn:x-xml-namespace'">
+						<xsl:value-of select="'xml:'"/>
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:value-of select="document('data/DataNamespaces.xml')//data:namespace[@uri=$AttribNS]/@prefix"/>
@@ -459,7 +463,8 @@
 		Look through each namespace in the namespace document.
 		If the current CType is based on this namespace’s prefix,
 		then output this namespace’s prefix, unless this namespace
-		is no namespace or the default namespace.
+		is no namespace or the default namespace. (There are no
+		likely elements in the xml namespace.)
 	</xd:doc>
 	<xsl:template name="GetPrefixFromCType">
 		<xsl:param name="CType"/>
