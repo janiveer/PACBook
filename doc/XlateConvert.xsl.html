@@ -1,0 +1,75 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>XlateConvert</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.xlate.html" title="Translation Stylesheets">
+      <link rel="prev" href="XlateExtract.xsl.html" title="XlateExtract">
+      <link rel="next" href="XlateCombine.xsl.html" title="XlateCombine">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XlateExtract.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xlate.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XlateCombine.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="XlateConvert.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">XlateConvert</span></h2>
+            <p>XlateConvert.xsl &#8212; Translates any XML document into the specified language.</p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2><pre class="synopsis">Language</pre><p><em class="parameter"><code>Language</code></em> (string) &#8212; ISO language code
+            </p>
+         </div>
+         <div class="refsect1" id="d0e2914">
+            <h2>Input</h2>
+            <p>An XML document. You must mark up the source document with:</p>
+            <div class="orderedlist">
+               <ol class="orderedlist" type="1">
+                  <li class="listitem">
+                     <p><a class="link" href="RDF-Translations.html" title="RDF Translations">Translation metadata</a>, showing the location of the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> files which contain the translations of the document.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>The <code class="sgmltag-attribute">xlf:id</code> attributes which uniquely identify each translation string.
+                     </p>
+                  </li>
+               </ol>
+            </div>
+         </div>
+         <div class="refsect1" id="d0e2934">
+            <h2>Output</h2>
+            <p>A translated XML document.</p>
+         </div>
+         <div class="refsect1" id="d0e2939">
+            <h2>Description</h2>
+            <p>The stylesheet reconstructs the structure of the source file. For each translatable string, it looks for the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file that corresponds to the specified output language. If the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file is found, it searches for the translated string and includes it in the output document. If the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file or the translated string are not found, or if the translatable string is marked with the <code class="sgmltag-attribute">its:translate='no'</code> attribute, the source string is copied to the output document.
+            </p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XlateExtract.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xlate.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XlateCombine.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

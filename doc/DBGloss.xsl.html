@@ -1,0 +1,101 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>DBGloss</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.docbook.html" title="DocBook Stylesheets">
+      <link rel="prev" href="DBAdmon.xsl.html" title="DBAdmon">
+      <link rel="next" href="DBImage.xsl.html" title="DBImage">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="DBAdmon.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.docbook.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="DBImage.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="DBGloss.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">DBGloss</span></h2>
+            <p>DBGloss.xsl &#8212; Builds glossaries automatically and adds XLink titles to glossary terms in the document.</p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2><pre class="synopsis">[maxRecurseDepth]</pre><div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p>
+                        						<span class="strong"><strong>maxRecurseDepth</strong></span> (Integer) &#8212;
+                        						the maximum number of recursions that the stylesheet should make when following <code class="sgmltag-element">glosssee</code> and <code class="sgmltag-element">glossseealso</code> links; default 8.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="refsect1" id="d0e1830">
+            <h2>Input</h2>
+            <p>A DocBook document. Any glossary which is to be build automatically must be marked up as described below.</p>
+         </div>
+         <div class="refsect1" id="d0e1835">
+            <h2>Output</h2>
+            <p>A DocBook document, identical to the input except the glossary is built and glossary entries have XLink titles.</p>
+         </div>
+         <div class="refsect1" id="d0e1840">
+            <h2>Description</h2>
+            <p>The stylesheet recurses through the document and copies each element. If any element is a <code class="sgmltag-element">glossary</code> with the <code class="sgmltag-attribute">role='collection'</code> attribute, the stylesheet checks every <code class="sgmltag-element">glossentry</code> element to see if it is referenced by a <code class="sgmltag-element">glossterm</code> element in the document. If it is, the <code class="sgmltag-element">glossentry</code> is written to the output document.
+            </p>
+            <p>The functionality of this stylesheet is based on the glossary collection function in the DocBook XSL stylesheets, with the
+               following differences:
+            </p>
+            <div class="orderedlist">
+               <ol class="orderedlist" type="1">
+                  <li class="listitem">
+                     <p>Glossary entries which are referenced within the glossary via <code class="sgmltag-element">glosssee</code> and <code class="sgmltag-element">glossseealso</code> elements are included in the built glossary.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>It is assumed that all required <code class="sgmltag-element">glossentry</code> elements are already included in the glossary. To include an external glossary, use XInclude.
+                     </p>
+                  </li>
+               </ol>
+            </div>
+            <p>For example:</p><pre class="programlisting">
+&lt;glossary role="collection"&gt;
+    &lt;xi:include href="http://DBK/Topics/Common/modules/gloss_access_full.docbook"
+                xpointer="xmlns(db=http://docbook.org/ns/docbook)
+                          xpath(//db:glossary/node())"/&gt;
+&lt;/glossary&gt;
+			</pre><p>When following <code class="sgmltag-element">glosssee</code> and <code class="sgmltag-element">glossseealso</code> elements, there is a risk that the stylesheet will get trapped in circular references. To avoid this, the stylesheet will
+               only recurse through 8 <code class="sgmltag-element">glosssee</code> or <code class="sgmltag-element">glossseealso</code> links. You can change the recursion depth by passing the <em class="parameter"><code>maxRecurseDepth</code></em> parameter to the stylesheet.
+            </p>
+            <p>In addition to this, the stylesheet also adds an <code class="sgmltag-attribute">xl:title</code> attribute to every <code class="sgmltag-element">glossterm</code> element in the document. This contains the text of the referenced glossary definition. As a result, if you use the DocBook
+               XSL stylesheets to transform the document into a web page, web site or compiled HTML help file, users will be able see a preview
+               of a glossary definition by hovering the mouse pointer on the glossary term.
+            </p>
+            <p>To use this stylesheet, <code class="sgmltag-element">glossentry</code> elements must have an <code class="sgmltag-attribute">xml:id</code> attribute and <code class="sgmltag-element">glossterm</code> elements must reference them via their <code class="sgmltag-attribute">linkend</code> or <code class="sgmltag-attribute">xl:href</code> attributes.
+            </p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="DBAdmon.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.docbook.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="DBImage.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

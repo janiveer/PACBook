@@ -1,0 +1,111 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>XliffTag</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.xliff.html" title="XLIFF Stylesheets">
+      <link rel="prev" href="XliffRaw.xsl.html" title="XliffRaw">
+      <link rel="next" href="XliffTemp.xsl.html" title="XliffTemp">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XliffRaw.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xliff.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XliffTemp.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="XliffTag.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">XliffTag</span></h2>
+            <p>XliffTag.xsl &#8212; Converts a temporary, invalid <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file with unescaped inline markup to a valid XLIFF file with <code class="sgmltag-element">g</code>, <code class="sgmltag-element">x</code>, <code class="sgmltag-element">ph</code> and <code class="sgmltag-element">mrk</code> elements.
+            </p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2><pre class="synopsis">[DefaultNS]</pre><div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p><em class="parameter"><code>DefaultNS</code></em> (URI)&nbsp;&#8212; The URI of the default namespace of the inline elements. Default is the DocBook namespace.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="refsect1" id="d0e3987">
+            <h2>Input</h2>
+            <p>A temporary, invalid <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> document containing unescaped inline markup.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e3995">
+            <h2>Output</h2>
+            <p>An <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> document containing <code class="sgmltag-element">g</code>, <code class="sgmltag-element">ph</code>, <code class="sgmltag-element">x</code> and <code class="sgmltag-element">mrk</code> elements. This is the format preferred by many translation houses.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e4015">
+            <h2>Description</h2>
+            <p>The stylesheet copies the structure and content of the input document to the output document. Any inline markup within the
+               input document is transformed as follows.
+            </p>
+            <p>Processing instructions with no content are exported as <code class="sgmltag-element">x</code> elements. The <code class="sgmltag-attribute">ctype</code> attribute is set to <code class="sgmltag-attvalue">x-pi-</code> plus the name of the processing instruction. As an exception, the <code class="sgmltag-xmlpi">&lt;?linebreak?&gt;</code> processing instruction is exported as an <code class="sgmltag-element">x</code> element with <code class="sgmltag-attribute">ctype='lb'</code>.
+            </p>
+            <p>Processing instructions containing text are exported as <code class="sgmltag-element">ph</code> elements. The <code class="sgmltag-attribute">ctype</code> attribute is set to <code class="sgmltag-attvalue">x-pi-</code> plus the name of the processing instruction. The content of the processing instruction is exported as the content of the
+               <code class="sgmltag-element">ph</code> element.
+            </p>
+            <p>Elements containing no content are exported as <code class="sgmltag-element">x</code> elements. The <code class="sgmltag-attribute">ctype</code> attribute is set to <code class="sgmltag-attvalue">x-</code>, followed by the prefix associated with the namespace of the current element, followed by a hyphen, followed by the name
+               of the current element. If the namespace of the element is not specified, it is assumed to be the namespace associated with
+               the URI specified by the <em class="parameter"><code>DefaultNS</code></em> parameter &#8212; by default, DocBook.
+            </p>
+            <p>Elements containing content are exported as <code class="sgmltag-element">g</code> elements. The <code class="sgmltag-attribute">ctype</code> attribute is set to <code class="sgmltag-attvalue">x-</code>, followed by the prefix associated with the namespace of the current element, followed by a hyphen, followed by the name
+               of the current element. If the namespace of the element is not specified, it is assumed to be the namespace associated with
+               the URI specified by the <em class="parameter"><code>DefaultNS</code></em> parameter &#8212; by default, DocBook.
+            </p>
+            <p>The <code class="sgmltag-element">g</code> or <code class="sgmltag-element">x</code> elements have an <code class="sgmltag-attribute">id</code> attribute whose value is unique and is based on the ID of the current translation unit.
+            </p>
+            <p>Child attributes of the elements in the input file are added to the <code class="sgmltag-element">g</code> or <code class="sgmltag-element">x</code> element. If the attribute is in an explicit namespace, the attribute is exported in the same namespace. If the attribute
+               is in no namespace, it is exported in a special namespace whose prefix is <code class="sgmltag-prefix">nn</code> and whose URI is <code class="uri">urn:x-no-namespace</code>. This is to distinguish between <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> attributes and attributes from the source file.
+            </p>
+            <p>There are three exceptions:</p>
+            <div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p>Elements with the <code class="sgmltag-attribute">content:ref</code> attribute are exported as <code class="sgmltag-element">ph</code> elements whose content is the value of the <code class="sgmltag-attribute">content:ref</code> attribute. This makes the translation unit read more naturally and can help the translators establish the correct word order
+                        and punctuation. The <code class="sgmltag-attribute">ctype</code> and other attributes of this <code class="sgmltag-element">ph</code> element are set as above.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>The <code class="sgmltag-attribute">its:term='yes'</code> attribute is exported as a child <code class="sgmltag-element">mrk mtype='term'</code> element which contains the content of the parent element.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>The <code class="sgmltag-attribute">its:locNote</code> attribute is exported as a child <code class="sgmltag-element">mrk mtype='phrase'</code> element which contains the content of the parent element. The value of the <code class="sgmltag-attribute">its:locNote</code> attribute is exported as a <code class="sgmltag-attribute">comment</code> attribute on the <code class="sgmltag-element">mrk mtype='phrase'</code> element.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+            <p>The content of the <code class="sgmltag-element">source</code> element is copied to any <code class="sgmltag-element">target</code> element which is currently empty. This is to meet the requirements of translation houses who prefer the <code class="sgmltag-element">target</code> element to start with the <code class="sgmltag-element">source</code> text. The output of the <a class="link" href="XliffTemp.xsl.html" title="XliffTemp">XliffTemp.xsl</a> stylesheet is intended to be used as input for this stylesheet.
+            </p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XliffRaw.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xliff.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XliffTemp.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

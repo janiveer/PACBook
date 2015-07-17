@@ -1,0 +1,70 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>DBImage</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.docbook.html" title="DocBook Stylesheets">
+      <link rel="prev" href="DBGloss.xsl.html" title="DBGloss">
+      <link rel="next" href="DBLists.xsl.html" title="DBLists">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="DBGloss.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.docbook.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="DBLists.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="DBImage.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">DBImage</span></h2>
+            <p>DBImage.xsl &#8212; Resolves image file references against all ancestor <code class="sgmltag-attribute">xml:base</code> attributes.
+            </p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2>
+            <p>None.</p>
+         </div>
+         <div class="refsect1" id="input">
+            <h2>Input</h2>
+            <p>A DocBook document. Chapters or sections which have been transcluded must have <code class="sgmltag-attribute">xml:base</code> attributes giving their origin, either absolute or relative to the complete document.
+            </p>
+         </div>
+         <div class="refsect1" id="output">
+            <h2>Output</h2>
+            <p>A DocBook document, identical to the input except that any image file references are resolved against all ancestor <code class="sgmltag-attribute">xml:base</code> attributes.
+            </p>
+         </div>
+         <div class="refsect1" id="description">
+            <h2>Description</h2>
+            <p>The stylesheet recurses through the document and copies each element. For each <code class="sgmltag-element">imagedata</code> element, if there is a <code class="sgmltag-attribute">fileref</code> attribute, it is resolved against all ancestor <code class="sgmltag-attribute">xml:base</code> attributes and written to the output document.
+            </p>
+            <p>It is assumed that document modules refer to image files relative to their own location. You can use this stylesheet to modify
+               image file references to point to the location of the original image relative to the assembled document&#8217;s location. The transclusion
+               or assembly process used to build the document must add <code class="sgmltag-attribute">xml:base</code> attributes to show the origin of each document module.
+            </p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="DBGloss.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.docbook.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="DBLists.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

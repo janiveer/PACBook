@@ -1,0 +1,88 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Xliff2CSV</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.xliff.html" title="XLIFF Stylesheets">
+      <link rel="prev" href="XL2Xliff.xsl.html" title="XL2Xliff">
+      <link rel="next" href="XliffDupe.xsl.html" title="XliffDupe">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XL2Xliff.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xliff.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XliffDupe.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="Xliff2CSV.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">Xliff2CSV</span></h2>
+            <p>Xliff2CSV.xsl &#8212; Exports an <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file to a tab or comma delimited text file.
+            </p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2><pre class="synopsis">[EOL] [Separator] [Delimiter] [Header]</pre><div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p><em class="parameter"><code>EOL</code></em> (String)&nbsp;&#8212; The line ending characters. Default carriage return + line feed.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><em class="parameter"><code>Separator</code></em>&nbsp;(String) &#8212; The character between fields. Default tab.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><em class="parameter"><code>Delimiter</code></em>&nbsp;(String) &#8212; Character surrounding fields. Default single quote.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p><em class="parameter"><code>Header</code></em>&nbsp;(Boolean) &#8212; Whether or not the first row is a header row. Default false.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="refsect1" id="d0e3573">
+            <h2>Input</h2>
+            <p>An <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> document.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e3581">
+            <h2>Output</h2>
+            <p>A tab or comma delimited text file.</p>
+         </div>
+         <div class="refsect1" id="d0e3586">
+            <h2>Description</h2>
+            <p>The stylesheet exports the content of an <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file as a UTF-8 encoded, tab or comma delimited text file. This can be imported into a spreadsheet.
+            </p>
+            <p>The first column contains the translation unit ID, second column the <code class="sgmltag-attribute">resname</code> attribute, third column the source text, fourth column the target text and fifth column notes, if any.
+            </p>
+            <p>If the <em class="parameter"><code>Header</code></em> parameter is set to true, i.e. anything other than 0 or the empty string, the first row of the exported text file is a header
+               row containing the text <span class="quote">&#8220;<span class="quote">ID</span>&#8221;</span>, source language code, target language code, <span class="quote">&#8220;<span class="quote">Notes</span>&#8221;</span>.
+            </p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XL2Xliff.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xliff.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XliffDupe.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

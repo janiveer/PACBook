@@ -1,0 +1,87 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>XlateCombine</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.xlate.html" title="Translation Stylesheets">
+      <link rel="prev" href="XlateConvert.xsl.html" title="XlateConvert">
+      <link rel="next" href="XlateID.xsl.html" title="XlateID">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XlateConvert.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xlate.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XlateID.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="XlateCombine.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">XlateCombine</span></h2>
+            <p>XlateCombine.xsl &#8212; Translates any XML document into the specified languages.</p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2><pre class="synopsis">Language</pre><p><em class="parameter"><code>Language</code></em> (string) &#8212; List of ISO language codes, separated by <code class="literal">;</code></p>
+         </div>
+         <div class="refsect1" id="d0e2976">
+            <h2>Input</h2>
+            <p>An XML document. You must mark up the source document with:</p>
+            <div class="orderedlist">
+               <ol class="orderedlist" type="1">
+                  <li class="listitem">
+                     <p><a class="link" href="RDF-Translations.html" title="RDF Translations">Translation metadata</a>, showing the location of the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> files which contain the translations of the document.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>The <code class="sgmltag-attribute">xlf:id</code> attributes which uniquely identify each translation string.
+                     </p>
+                  </li>
+               </ol>
+            </div>
+            <p>In the <a class="link" href="RDF-Translations.html" title="RDF Translations">translation metadata</a>, one of the specified translations should have the language code <code class="literal">zxx</code> and should point to a file which contains the separator text to display between each language.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e3004">
+            <h2>Output</h2>
+            <p>A multi-lingual XML document.</p>
+         </div>
+         <div class="refsect1" id="d0e3009">
+            <h2>Description</h2>
+            <p>The stylesheet reconstructs the structure of the source file. For each translatable string, it looks first for the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file that corresponds to the <code class="literal">zxx</code> output language. If the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file is found, it searches for the translated string and sets that as the separator text; if the separator text is not specified
+               for this translatable string, or if the separator text file is not found, a middle dot <code class="literal">&nbsp;&middot;&nbsp;</code> is set as the separator text.
+            </p>
+            <p>The stylesheet outputs the source translatable string to the output file. Then, the stylesheet parses the list of target languages.
+               For each target language, it first outputs the separator text. Then it looks for the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file that corresponds to the specified language. If the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file is found, it searches for the translated string and includes it in the output document. If the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file or the translated string are not found, the source string is copied to the output document again.
+            </p>
+            <p>If the translatable string is marked with the <code class="sgmltag-attribute">its:translate='no'</code> attribute, the source string is simply copied to the output document and the list of output languages is not parsed.
+            </p>
+            <div class="refsect2" id="d0e3042">
+               <h3>Note</h3>
+               <p>The language of the output document is set to <code class="sgmltag-attribute">xml:lang='mul'</code>, the ISO code for multiple languages.
+               </p>
+            </div>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XlateConvert.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xlate.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XlateID.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,87 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>XlateExtract</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.xlate.html" title="Translation Stylesheets">
+      <link rel="prev" href="XlateMarkup.xsl.html" title="XlateMarkup">
+      <link rel="next" href="XlateConvert.xsl.html" title="XlateConvert">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XlateMarkup.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xlate.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XlateConvert.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="XlateExtract.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">XlateExtract</span></h2>
+            <p>XlateExtract.xsl &#8212; Copies translatable elements from an XML document to a new <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file.
+            </p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2><pre class="synopsis">Source</pre><div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p><em class="parameter"><code>Source</code></em> (string) &#8212; the name of the source document
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="refsect1" id="d0e2850">
+            <h2>Input</h2>
+            <p>An XML document. You must mark up the source document with:</p>
+            <div class="orderedlist">
+               <ol class="orderedlist" type="1">
+                  <li class="listitem">
+                     <p>The <code class="sgmltag-attribute">xlf:id</code> attributes which uniquely identify each translation string.
+                     </p>
+                  </li>
+               </ol>
+            </div>
+         </div>
+         <div class="refsect1" id="d0e2862">
+            <h2>Output</h2>
+            <p>An <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> document.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e2870">
+            <h2>Description</h2>
+            <p>The stylesheet examines the source file for translatable elements. (A translatable element is one which has an <code class="sgmltag-attribute">xlf:id</code> attribute and does not have the <code class="sgmltag-attribute">its:translate='no'</code> attribute.)
+            </p>
+            <p>For each translatable element, a new translation unit is written to the output document which contains this translatable element
+               as its source.
+            </p>
+            <p>For DocBook files, a header is added containing some bibliographical metadata from the source file &#8212; <code class="sgmltag-element">db:biblioid class='pubsnumber'</code>, <code class="sgmltag-element">db:edition</code> and <code class="sgmltag-element">db:releaseinfo</code>.
+            </p>
+            <p>Any inline markup within the translatable element is escaped. This enables you to examine the inline markup in a translation
+               editor such as Virtaal.
+            </p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XlateMarkup.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xlate.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XlateConvert.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,78 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>XlateID</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.xlate.html" title="Translation Stylesheets">
+      <link rel="prev" href="XlateCombine.xsl.html" title="XlateCombine">
+      <link rel="next" href="XlateDiff.xsl.html" title="XlateDiff">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XlateCombine.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xlate.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XlateDiff.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="XlateID.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">XlateID</span></h2>
+            <p>XlateID.xsl &#8212; Adds a language code to <code class="sgmltag-attribute">xml:id</code> attributes and the links that refer to them.
+            </p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2><pre class="synopsis">[noFixupURI]</pre><div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p><em class="parameter"><code>noFixupURI</code></em> (URI) &#8212; the XLink role used to identify links which should not be fixed up; default <code class="uri">http://schema.org/significantLink</code>.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="refsect1" id="d0e3076">
+            <h2>Input</h2>
+            <p>An XML document. The root element of the document must have an <code class="sgmltag-attribute">xml:lang</code> attribute.
+            </p>
+         </div>
+         <div class="refsect1" id="d0e3084">
+            <h2>Output</h2>
+            <p>An XML document.</p>
+         </div>
+         <div class="refsect1" id="d0e3089">
+            <h2>Description</h2>
+            <p>This stylesheet copies the source document, and adds the language code specified on the document&#8217;s root element to the end
+               of all <code class="sgmltag-attribute">xml:id</code> attributes and all <code class="sgmltag-attribute">xl:href</code> attributes which contain a fragment identifier.
+            </p>
+            <p>If you do not want the language code to be added to an <code class="sgmltag-attribute">xl:href</code> attribute, you must add an <code class="sgmltag-attribute">xl:role</code> attribute to the linking element and set its value to the URI specified by the <em class="parameter"><code>noFixupURI</code></em> parameter, <code class="uri">http://schema.org/significantLink</code> by default.
+            </p>
+            <p>In DocBook files, the language code is also added to all <code class="sgmltag-attribute">linkend</code> and <code class="sgmltag-attribute">endterm</code> attributes and to every value in <code class="sgmltag-attribute">arearefs</code> attributes. This is not affected by the <code class="sgmltag-attribute">xl:role</code> attribute.
+            </p>
+            <p>In all cases the language code is separated from the value to which it is added by a full stop.</p>
+            <p>This stylesheet is meant to be used when combining several translated documents into a multi-lingual document.</p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XlateCombine.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xlate.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XlateDiff.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

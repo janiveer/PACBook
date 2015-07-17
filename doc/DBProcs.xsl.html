@@ -1,0 +1,108 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>DBProcs</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="pacbook.docbook.html" title="DocBook Stylesheets">
+      <link rel="prev" href="DBLists.xsl.html" title="DBLists">
+      <link rel="next" href="DBProfile.xsl.html" title="DBProfile">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="DBLists.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.docbook.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="DBProfile.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="refentry" id="DBProcs.xsl">
+         <div class="titlepage"></div>
+         <div class="refnamediv">
+            <h2><span class="refentrytitle">DBProcs</span></h2>
+            <p>DBProcs.xsl &#8212; Transforms PAC processing instructions in DocBook documents.</p>
+         </div>
+         <div class="refsynopsisdiv">
+            <h2>Parameters</h2>
+            <p>None.</p>
+         </div>
+         <div class="refsect1" id="d0e2103">
+            <h2>Input</h2>
+            <p>A DocBook file containing PAC processing instructions as described below.</p>
+         </div>
+         <div class="refsect1" id="d0e2108">
+            <h2>Output</h2>
+            <p>A DocBook file in which the PAC processing instructions have been transformed as described below.</p>
+         </div>
+         <div class="refsect1" id="d0e2113">
+            <h2>Description</h2>
+            <p>The stylesheet copies the structure and content of the input document to the output document. Any PAC processing instructions
+               within the input document are transformed as follows.
+            </p>
+            <div class="refsect2" id="d0e2118">
+               <h3><code class="sgmltag-xmlpi">&lt;?pac-revhistory?&gt;</code></h3>
+               <p>You can use this processing instruction to place a revision history table at a precise place in the document. When the stylesheet
+                  encounters this processing instruction, it builds a DocBook <code class="sgmltag-element">informaltable</code> containing four columns: <span class="strong"><strong>Version</strong></span>, <span class="strong"><strong>Date</strong></span>, <span class="strong"><strong>Author</strong></span> and <span class="strong"><strong>Detail</strong></span>. The table uses the CALS table model.
+               </p>
+               <p>The table header is populated in the language specified by the nearest ancestor <code class="sgmltag-attribute">xml:lang</code> attribute. The labels are taken from <code class="filename">DataLabels.xml</code>. The only fully-supported languages at present are German, English, Spanish, French and Dutch.
+               </p>
+               <p>Each table row is populated by the details given in the <code class="sgmltag-element">revhistory</code> element in the document&#8217;s <code class="sgmltag-element">info</code> section, if there is one.
+               </p>
+               <p>The attributes of the <code class="sgmltag-element">informaltable</code>, e.g. framing, row separators and column separators, are given by the <code class="sgmltag-attribute">pac.revhistory.table</code> attribute set. The attributes of the four columns, e.g. column width, are given by the <code class="literal">pac.revhistory.col.version</code>, <code class="literal">pac.revhistory.col.date</code>, <code class="literal">pac.revhistory.col.author</code> and <code class="sgmltag-attribute">pac.revhistory.col.detail</code> attribute sets.
+               </p>
+            </div>
+            <div class="refsect2" id="d0e2175">
+               <h3><code class="sgmltag-xmlpi">&lt;?pac-applicability?&gt;</code></h3>
+               <p>You can use this processing instruction to place an applicability table at a precise place in the document. When the stylesheet
+                  encounters this processing instruction, it builds a DocBook <code class="sgmltag-element">informaltable</code> containing four columns: <span class="strong"><strong>Product</strong></span>, <span class="strong"><strong>Name</strong></span>, <span class="strong"><strong>Detail</strong></span> and <span class="strong"><strong>Version</strong></span>. The table uses the CALS table model.
+               </p>
+               <p>The table header is populated in the language specified by the nearest ancestor <code class="sgmltag-attribute">xml:lang</code> attribute. The labels are taken from <code class="filename">DataLabels.xml</code>. The only fully-supported languages at present are German, English, French and Dutch.
+               </p>
+               <p>Each table row is populated by the details given in the document&#8217;s <a class="link" href="RDF-Applicability.html" title="RDF Applicability">applicability metadata</a>, if there are any.
+               </p>
+               <p>The attributes of the <code class="sgmltag-element">informaltable</code>, e.g. framing, row separators and column separators, are given by the <code class="sgmltag-attribute">pac.applicability.table</code> attribute set. The attributes of the four columns, e.g. column width, are given by the <code class="literal">pac.applicability.col.product</code>, <code class="literal">pac.applicability.col.name</code>, <code class="literal">pac.applicability.col.detail</code> and <code class="sgmltag-attribute">pac.applicability.col.version</code> attribute sets.
+               </p>
+            </div>
+            <div class="refsect2" id="d0e2229">
+               <h3><code class="sgmltag-xmlpi">&lt;?pac-pubsnumber?&gt;</code></h3>
+               <p>When the stylesheet encounters this processing instruction it creates a copy of the content of the <code class="sgmltag-element">biblioid class='pubsnumber'</code> element in the document&#8217;s <code class="sgmltag-element">info</code> section, if there is one.
+               </p>
+            </div>
+            <div class="refsect2" id="d0e2241">
+               <h3><code class="sgmltag-xmlpi">&lt;?pac-edition?&gt;</code></h3>
+               <p>When the stylesheet encounters this processing instruction it creates a copy of the content of the <code class="sgmltag-element">edition</code> element in the document&#8217;s <code class="sgmltag-element">info</code> section, if there is one.
+               </p>
+            </div>
+            <div class="refsect2" id="d0e2253">
+               <h3><code class="sgmltag-xmlpi">&lt;?pac-releaseinfo?&gt;</code></h3>
+               <p>When the stylesheet encounters this processing instruction it creates a copy of the value of the <code class="sgmltag-attribute">status</code> attribute on the document&#8217;s root element, if there is one.
+               </p>
+            </div>
+         </div>
+         <div class="refsect1" id="d0e2262">
+            <h2>Roadmap</h2>
+            <p>The <code class="sgmltag-xmlpi">&lt;?pac-releaseinfo?&gt;</code> processing instruction should actually output the document&#8217;s release info...
+            </p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="DBLists.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.docbook.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="DBProfile.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>
