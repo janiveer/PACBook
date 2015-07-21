@@ -13,7 +13,7 @@
          xml:id="pacbook.home">
 	<title>Overview</title>
 	<para>PACBook enables you to:</para>
-	<section>
+	<section xml:id="Home-Trans">
 		<title>Transclusion stylesheets</title>
 		<orderedlist numeration="arabic">
 			<listitem>
@@ -27,7 +27,7 @@
 			</listitem>
 		</orderedlist>
 	</section>
-	<section>
+	<section xml:id="Home-Ling">
 		<title>Linguistic stylesheets</title>
 		<orderedlist numeration="arabic">
 			<listitem>
@@ -41,7 +41,7 @@
 			</listitem>
 		</orderedlist>
 	</section>
-	<section>
+	<section xml:id="Home-Text">
 		<title>Text stylesheets</title>
 		<orderedlist numeration="arabic">
 			<listitem>
@@ -52,7 +52,7 @@
 			</listitem>
 		</orderedlist>
 	</section>
-	<section>
+	<section xml:id="Home-DB">
 		<title>DocBook stylesheets</title>
 		<orderedlist numeration="arabic">
 			<listitem>
@@ -81,7 +81,7 @@
 			</listitem>
 		</orderedlist>
 	</section>
-	<section>
+	<section xml:id="Home-Xlate">
 		<title>Translation stylesheets</title>
 		<orderedlist numeration="arabic">
 			<listitem>
@@ -107,7 +107,7 @@
 			</listitem>
 		</orderedlist>
 	</section>
-	<section>
+	<section xml:id="Home-Xliff">
 		<title>XLIFF management stylesheets</title>
 		<orderedlist numeration="arabic">
 			<listitem>

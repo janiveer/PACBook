@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://stanleysecurity.github.io/PACBook/css/Docbook.css" type="text/css"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:its="http://www.w3.org/2005/11/its"
+         xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
+         xmlns:ling="http://stanleysecurity.github.io/PACBook/ns/linguistics"
+         xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion"
+         version="5.0-variant PACBook"
+         its:version="2.0"
+         xml:lang="en-GB"
+         xml:id="pacbook.linguistic.processing">
+  <title>Linguistic Processing</title>
+  <section xml:id="Linguistic-Processing-Intro">
+    <title>Introduction</title>
+    <para>Transclusion can be divided into large scale, <link
+    xl:href="http://en.wikipedia.org/wiki/Transclusion#Context_neutrality">context-free
+    transclusion</link> and small scale, <link
+    xl:href="http://en.wikipedia.org/wiki/Transclusion#Parameterization">parametrised
+    transclusion</link>. For example, in DocBook, using an assembly to include chapters
+    or sections in a book is large scale and context-free. Inserting a product name at
+    multiple locations in the document is small scale, parametrised transclusion. Small
+    snippets of text might be transcluded in several ways: via entities, <link
+    xl:href="http://www.w3.org/TR/xinclude/">XInclude</link> elements, or using the
+    PACBook <link xl:href="#TransParam.xsl">TransParam.xsl</link> stylesheet.</para>
+    <para>All the examples on this page assume you are using the PACBook <link
+    xl:href="TransParam.xsl">TransParam.xsl</link> stylesheet and are marked up
+    accordingly; you could almost as easily use entities or XInclude instead, but the
+    markup would be different.</para>
+    <para>It's sometimes desirable that the content of the transcluded term should vary
+    in some way. Perhaps a different brand name is used for different markets; or perhaps
+    a generic document is used for lots of different products, and you want to include
+    the correct product name in each version of the document.</para>
+    <para>There are several different methods that you could use to vary the content of
+    the transcluded term. One is by local redefinition of the transclusion text. This is
+    implemented by the PACBook <link xl:href="#TransParam.xsl">TransParam.xsl</link>
+    stylesheet. Another is by combining transclusion and conditional processing. For
+    example, using the PACBook markup, you could create a transclusion resource called
+    <systemitem>Product_Name</systemitem> containing the possible product names, like
+    so:</para>
+    <programlisting><![CDATA[
+<resource xl:label="Product_Name">
+  <phrase vendor="ACME">Euro 500</phrase>
+  <phrase vendor="Yoyodyne">Oz 500</phrase>
+</resource>
+    ]]></programlisting>
+    <para>You would then use the <link xl:href="#TransParam.xsl">TransParam.xsl</link>
+    stylesheet to transclude the conditional phrases wherever the product name was
+    required:</para>
+    <programlisting><![CDATA[
+<title>Installing <phrase content:ref="Product_Name"/></title>
+    ]]></programlisting>
+    <para>Parametrised transclusion gives:</para>
+    <programlisting><![CDATA[
+<title>Installing <phrase>
+  <phrase vendor="ACME">Euro 500</phrase>
+  <phrase vendor="Yoyodyne">Oz 500</phrase>
+</phrase></title>
+    ]]></programlisting>
+    <para>You would then use conditional processing, e.g. with the DocBook XSL parameter
+    <parameter>profile.vendor</parameter>, to select the correct product name for the
+    required vendor.</para>
+    <para>Small scale, parametrised transclusion can have linguistic consequences. These
+    problems can often be avoided by careful wording and translation. In some
+    circumstances, though, they may be unavoidable.</para>
+  </section>
+  <section xml:id="Linguistic-Processing-Problem-1">
+    <title>Problem 1: Inflecting Dependent Words</title>
+    <para>If the transcluded word or phrase is the <link
+    xl:href="https://en.wikipedia.org/wiki/Head_(linguistics)">head</link> of a noun
+    phrase, further changes may be required in <link
+    xl:href="https://en.wikipedia.org/wiki/Dependent_(grammar)">dependent</link> words.
+    To take an obvious example from English:</para>
+    <programlisting><![CDATA[
+<title>Configuring a <phrase content:ref="Product_Name"/> Server</title>
+    ]]></programlisting>
+    <para>Parametrised transclusion and profiling for the ACME vendor gives:</para>
+    <programlisting><![CDATA[
+<title>Configuring a <phrase>
+  <phrase vendor="ACME">Euro 500</phrase>
+</phrase> Server</title>
+    ]]></programlisting>
+    <para>... which is correct. However, profiling for the Yoyodyne vendor gives:</para>
+    <programlisting><![CDATA[
+<title>Configuring a <phrase>
+  <phrase vendor="Yoyodyne">Oz 500</phrase>
+</phrase> Server</title>
+    ]]></programlisting>
+    <para>... which is incorrect. The word <wordasword>a</wordasword> should be
+    <wordasword>an</wordasword>.</para>
+    <para>In languages other than English, dependent words can also vary according to the
+    syntactic environment. For example, a document may use conditional processing to
+    select the term <wordasword>PC</wordasword>, <wordasword>tablet</wordasword> or
+    <wordasword>phone</wordasword>, depending on the operating system or architecture for
+    which the document is published. The terms <wordasword>PC</wordasword>,
+    <wordasword>tablet</wordasword> and <wordasword>phone</wordasword> may have different
+    genders in other languages, so dependent articles and adjectives will also have to
+    change in agreement with the selected term.</para>
+  </section>
+  <section xml:id="Linguistic-Processing-Problem-2">
+    <title>Problem 2: Declining the Head Word</title>
+    <para>In many languages other than English, the form of the transcluded snippet
+    itself might vary, depending on the role of the term in the sentence. (This usually
+    only applies if the transcluded text is a common noun, rather than a brand name.) For
+    instance, in Swedish a definite term might need to take a different form to an
+    indefinite term, e.g. <foreignphrase>organisationsenheten</foreignphrase> <quote>the
+    organisational unit</quote>, <foreignphrase>organisationsenhet</foreignphrase>
+    <quote>organisational unit</quote>. In German, a genitive or dative term might take a
+    different form to the usual nominative form, e.g.
+    <foreignphrase>Schlüsselinhaber</foreignphrase> <quote>keyholders</quote>
+    (nominative), <foreignphrase>Schlüsselinhabern</foreignphrase>
+    <quote>keyholders</quote> (dative).</para>
+    <para>It is tempting for the author to attempt to work around this simply by
+    including the word endings in the document outside of the transcluded text. This is
+    inadvisable, as some terms may require different endings: for example in Swedish,
+    neuter nouns have a different definite ending to common nouns. Also, some words may
+    have internal changes as well as different endings, e.g. umlaut in German.</para>
+    <para>This problem is acknowledged, in the context of translations, in the <link xl:href="https://jfearn.fedorapeople.org/en-US/Publican/4.0/html/Users_Guide/chap-Publican-Users_Guide-Creating_a_document.html#sect-Publican-Users_Guide-Entities_and_translation">Publican documentation</link>.</para>
+  </section>
+  <section xml:id="Linguistic-Processing-Principles">
+    <title>Principles</title>
+    <para>PACBook uses the following mechanism to select the correct form of a
+    transcluded head word and any dependent words:</para>
+    <itemizedlist>
+      <listitem>
+        <para>The author and / or translator(s) must use the linguistic markup scheme
+        described below. To decline a transcluded head word, you must mark up the
+        different forms of the word to be transcluded <emphasis>and</emphasis> mark up
+        which form is required at every location where the term is to be transcluded. To
+        inflect any dependent words, you need to mark up any linguistic features of the
+        transcluded term which affect dependent words <emphasis>and</emphasis> mark up
+        the dependent words in the document.</para>
+      </listitem>
+      <listitem>
+        <para>Linguistic pre-processing is broken down into several small steps: (1)
+        performing parametrised transclusion; (2) selecting the correct form of head
+        words; (3) conditional profiling; and (4) selecting the correct form of dependent
+        words from a syntactic dictionary. The document is then passed on to the next
+        step in the publication toolchain.</para>
+      </listitem>
+      <listitem>
+        <para>As pre-processing is not accomplished in a single step, it is necessary to
+        use some kind of build script or <link
+        xl:href="http://www.w3.org/TR/xproc/">XProc</link> pipeline to automate the
+        publication process.</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section xml:id="Linguistic-Processing-Markup">
+    <title>Linguistic Markup</title>
+    <para>PACBook linguistic markup consists of the following XML attributes. It may be
+    necessary to customise or extend the markup schema of the document to include these
+    attributes. These attributes are defined as name tokens (NMTOKEN); the possible
+    values are not enumerated.</para>
+    <para>The PACBook extension, which adds these attributes to the DocBook 5.0 schema,
+    is described in <link xl:href="#PACBook-Schema">PACBook schema</link>.</para>
+    <para>Linguistic attributes must be applied to a wrapper element. If no suitable
+    in-line element is available, a generic element such as DocBook <tag
+    class="element">phrase</tag>, DITA <tag class="element">ph</tag> or Mallard <tag
+    class="element">span</tag> can be used.</para>
+    <para>The namespace URI for the linguistic attributes is
+    <uri>http://stanleysecurity.github.io/PACBook/ns/linguistics</uri>.</para>
+    <variablelist>
+      <varlistentry>
+        <term><tag class="attribute">ling:type</tag></term>
+        <listitem>
+          <para>Has two possible values: <tag class="attvalue">head</tag> is used to mark
+          the possible forms of a head word; <tag class="attvalue">depend</tag> is used
+          to mark a dependent word.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><tag class="attribute">ling:pron</tag></term>
+        <listitem>
+          <para>Indicates the pronunciation or phonetic environment that the head word
+          governs. This is not the full pronunciation of the word. For most languages
+          that require this feature, <tag class="attribute">ling:pron='V'</tag> indicates
+          that the word is pronounced with an initial vowel; <tag
+          class="attribute">ling:pron='C'</tag> that the word is pronounced with an
+          initial consonant. The value of the attribute can be tailored to the language.
+          So for Italian, <tag class="attribute">ling:pron='S'</tag> indicates that the
+          word is pronounced with an initial <quote>s</quote> cluster, <quote>gn</quote>,
+          <quote>ps</quote>, <quote>x</quote> or <quote>z</quote>. For Spanish, <tag
+          class="attribute">ling:pron='A'</tag> indicates that the word has an initial
+          stressed <quote>a</quote>.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><tag class="attribute">ling:num</tag></term>
+        <listitem>
+          <para>Indicates grammatical number. Possible values are <tag
+          class="attvalue">sg</tag> singular, <tag class="attvalue">pl</tag> plural,
+          etc.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><tag class="attribute">ling:case</tag></term>
+        <listitem>
+          <para>Indicates grammatical case. May have any string value, as long as it
+          matches a value used to mark case in the PACBook syntactic dictionary for the
+          current language. In the PACBook syntactic dictionaries, the values used are:
+          <tag class="attvalue">nom</tag> nominative,
+          <tag class="attvalue">gen</tag> genitive,
+          <tag class="attvalue">dat</tag> dative,
+          <tag class="attvalue">acc</tag> accusative.
+          You can use the <tag class="attvalue">gen</tag> case to mark the possessive in
+          English.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <tag class="attribute">ling:gen</tag>
+        </term>
+        <listitem>
+          <para>Indicates grammatical gender. Possible values are
+          <tag class="attvalue">c</tag> common,
+          <tag class="attvalue">m</tag> masculine,
+          <tag class="attvalue">f</tag> feminine,
+          <tag class="attvalue">n</tag> neutral, etc.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <tag class="attribute">ling:class</tag>
+        </term>
+        <listitem>
+          <para>Indicates the inflection class. May have any string value, as long as it
+          matches a value used to mark inflectional class in the PACBook syntactic
+          dictionary for the current language. In the PACBook syntactic dictionaries, the
+          values used in German are <tag class="attvalue">strong</tag>, <tag
+          class="attvalue">weak</tag> and <tag class="attvalue">mixed</tag>; the values
+          used in Dutch, Swedish and Norwegian are <tag class="attvalue">ind</tag> for
+          indefinite, <tag class="attvalue">def</tag> for definite.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <sidebar>
+      <title>Why mark the pronunciation of the head word? Why not just look at the
+      spelling?</title>
+      <para>Because the spelling of a word doesn't necessarily indicate its
+      pronunciation. For example, in English the word <wordasword>Europe</wordasword> is
+      written with an initial vowel but pronounced with an initial consonant, i.e. a
+      <quote>y</quote> sound. An acronym like <acronym>XML</acronym> is written with an
+      initial consonant but pronounced with an initial vowel, i.e. <quote>ex em
+      el</quote>.</para>
+    </sidebar>
+  </section>
+  <section xml:id="Linguistic-Processing-Head">
+    <title>Head Markup</title>
+    <para>When you define a transclusion resource containing a head word, you must also
+    mark attributes on the head word to indicate any linguistic features which demand
+    agreement from dependent words. The head word must be wrapped in a suitable spanning
+    element.</para>
+    <para>The linguistic features which demand agreement vary from language to language.
+    In English, the only one you have to worry about is the pronunciation of the head
+    word.</para>
+    <informalexample>
+      <para>This example in English shows the pronunciation of the transcluded terms:</para>
+      <programlisting><![CDATA[
+<resource xl:label="Product_Name">
+  <phrase vendor="ACME" ling:pron="C">Euro 500</phrase>
+  <phrase vendor="Yoyodyne" ling:pron="V">Oz 500</phrase>
+</resource>
+      ]]></programlisting>
+    </informalexample>
+  </section>
+  <section xml:id="Linguistic-Processing-Depend">
+    <title>Dependent Markup</title>
+    <para>A dependent word should have the <tag
+    class="attribute">ling:type='depend'</tag> attribute to indicate that it is a
+    dependent word. Again, this linguistic attribute must be applied to a wrapper
+    element.</para>
+    <para>The content of this element must consist only of text. This text is used to
+    look up the correct inflected form of the word in the dictionary.</para>
+    <para>Other linguistic attributes, e.g. <tag class="attribute">ling:class</tag>, can
+    be applied to this element if required.</para>
+    <para>The words which you must mark up as dependent words vary from language to
+    language. In English, the only one you have to worry about is the indefinite article
+    <wordasword>a</wordasword>.</para>
+    <informalexample>
+      <para>This example in English shows that the word <wordasword>a</wordasword> is a
+      dependent word:</para>
+      <programlisting><![CDATA[
+<title>Configuring <wordasword ling:type="depend">a</wordasword>
+<phrase content:ref="Product_Name"/> Server</title>
+      ]]></programlisting>
+    </informalexample>
+    <para>In sentences containing multiple head words, you must surround each head word
+    and all its dependent words with another, semantically empty wrapper element, so that
+    the stylesheet knows which words depend on which head. (This is not necessary with
+    dependent words which vary only in relation to the phonetic environment; they always
+    look for the nearest phonetic markup.)</para>
+    <informalexample>
+      <para>This example in German shows that the word <foreignphrase>ein</foreignphrase>
+      is dependent on the first instance of the transcluded term, and the word
+      <foreignphrase>der</foreignphrase> is dependent on the second instance, which takes
+      the genitive case:</para>
+      <programlisting><![CDATA[
+<para>Wenn <phrase><wordasword ling:type="depend">ein</wordasword>
+<phrase content:ref="Device"/></phrase> konfiguriert wird,
+werden die Details <phrase><wordasword ling:type="depend">der</wordasword>
+<phrase content:ref="Device" ling:case="gen"/></phrase> auf der Weboberfläche
+angezeigt.</para>
+      ]]></programlisting>
+    </informalexample>
+  </section>
+  <section xml:id="Linguistic-Processing-Definitions">
+    <title>Declension Markup</title>
+    <para>If the head noun is declinable, you must include in the transclusion resource
+    all the possible forms of the noun in the current language. Again, each form must be
+    wrapped in a suitable spanning element. Each form should have the <tag
+    class="attribute">ling:type='head'</tag> attribute to indicate that it is a form of
+    the head noun, and should also have <tag class="attribute">ling:case</tag> and <tag
+    class="attribute">ling:class</tag> attributes to specify the case and / or
+    definiteness of each form, depending on the language.</para>
+    <informalexample>
+      <para>This transclusion resource in Swedish specifies all the forms of the term
+      <quote>organisational unit</quote>:</para>
+      <programlisting><![CDATA[
+<resource xl:label="Organisational_Unit">
+  <phrase ling:gen="c" ling:num="sg">
+    <phrase ling:type="head" ling:case="nom" ling:class="ind">organisationsenhet</phrase>
+    <phrase ling:type="head" ling:case="gen" ling:class="ind">organisationsenhets</phrase>
+    <phrase ling:type="head" ling:case="nom" ling:class="def">organisationsenheten</phrase>
+    <phrase ling:type="head" ling:case="gen" ling:class="def">organisationsenhetens</phrase>
+  </phrase>
+</resource>
+      ]]></programlisting>
+      <para>Note that for convenience the complete declension is wrapped again in an
+      element which marks the gender and number. These are required for inflecting any
+      dependent words.</para>
+      <para>It is currently assumed that you will define separate transclusion resources
+      for the singular and plural forms of a word.</para>
+    </informalexample>
+  </section>
+  <section xml:id="Linguistic-Processing-References">
+    <title>Specifying the Required Form</title>
+    <para>At each location where a declinable term is to be transcluded, you must mark up
+    the case and / or definiteness you require for this instance of the term, depending
+    on the current language. This may require that you use another spanning element to
+    wrap the location where the term is to be transcluded.</para>
+    <informalexample>
+      <para>This example in Swedish specifies that the transcluded term must be
+      definite:</para>
+      <programlisting><![CDATA[
+<para>Om nödvändigt, välj <phrase content:ref="Organisational_Unit" ling:class="def"/>.</para>
+      ]]></programlisting>
+    </informalexample>
+  </section>
+  <section xml:id="Linguistic-Processing-Dictionary">
+    <title>Dictionary</title>
+    <para>The syntactic dictionaries are XML dictionaries using a schema which complies
+    with the dictionary module of the <link xl:href="http://www.tei-c.org/">Text Encoding
+    Initiative</link> (TEI). The dictionaries are primarily designed to handle words in
+    closed semantic categories, e.g. definite and indefinite articles, demonstrative
+    adjectives.</para>
+    <para>The dictionaries also contain common contractions, such as German
+    <foreignphrase>im</foreignphrase>, <foreignphrase>vom</foreignphrase>,
+    <foreignphrase>beim</foreignphrase>, or French <foreignphrase>des</foreignphrase>,
+    <foreignphrase>aux</foreignphrase>.</para>
+    <para>Words in open semantic categories pose more of a problem. The dictionaries do
+    not yet contain very many adjectives. It would be possible, but time consuming, to
+    build comprehensive dictionaries by hand. Ideally this process could be automated by
+    taking information from on-line dictionaries such as <link
+    xl:href="https://en.wiktionary.org">Wiktionary</link>.</para>
+  </section>
+  <section xml:id="Linguistic-Processing-Stylesheets">
+    <title>Stylesheets</title>
+    <para>The <link xl:href="#LingHead.xsl">LingHead.xsl</link> stylesheet enables you to
+    select the required declension of head nouns in an XML document, according to the
+    case and / or definiteness required in the target sentence.</para>
+    <para>The <link xl:href="#LingDepend.xsl">LingDepend.xsl</link> stylesheet enables
+    you to inflect dependent words in an XML document, e.g. determiners, adjectives, and
+    relative pronouns, according to the syntactic and / or phonetic environment for each
+    dependent word.</para>
+  </section>
+  <section xml:id="Linguistic-Processing-Examples">
+    <title>Examples</title>
+    <example>
+      <title>French</title>
+      <para>Original:</para>
+      <programlisting><![CDATA[
+<title>Pour configurer <wordasword ling:type="depend">le</wordasword>
+<phrase content:ref="Device"/></title>
+        ]]></programlisting>
+      <para>After transclusion:</para>
+      <programlisting><![CDATA[
+<title>Pour configurer <wordasword ling:type="depend">le</wordasword>
+<phrase>
+  <phrase os="tablet" ling:gen="f" ling:pron="C">tablette</phrase>
+  <phrase os="PC" ling:gen="m" ling:pron="V">ordinateur</phrase>
+</phrase></title>
+        ]]></programlisting>
+      <para>(No head noun inflection necessary.)</para>
+      <para>After conditional processing:</para>
+      <programlisting><![CDATA[
+<title>Pour configurer <wordasword ling:type="depend">le</wordasword>
+<phrase>
+  <phrase os="tablet" ling:gen="f" ling:pron="C">tablette</phrase>
+</phrase></title>
+
+<title>Pour configurer <wordasword ling:type="depend">le</wordasword>
+<phrase>
+  <phrase os="PC" ling:gen="m" ling:pron="V">ordinateur</phrase>
+</phrase></title>
+        ]]></programlisting>
+      <para>After dependent word inflection:</para>
+      <programlisting><![CDATA[
+<title>Pour configurer <wordasword ling:type="depend">la </wordasword>
+<phrase>
+  <phrase os="tablet" ling:gen="f" ling:pron="C">tablette</phrase>
+</phrase></title>
+
+<title>Pour configurer
+<wordasword ling:type="depend">l’</wordasword>
+<phrase>
+  <phrase os="PC" ling:gen="m" ling:pron="V">ordinateur</phrase>
+</phrase></title>
+        ]]></programlisting>
+    </example>
+    <example>
+      <title>German</title>
+      <para>Original:</para>
+      <programlisting><![CDATA[
+<para>Die Einstellung der IP-Adresse ist in
+<wordasword ling:type="depend">dies</wordasword>
+<phrase content:ref="Doc" ling:case="dat"/>
+nicht enthalten.</para>
+        ]]></programlisting>
+      <para>After transclusion:</para>
+      <programlisting><![CDATA[
+<para>Die Einstellung der IP-Adresse ist in
+<wordasword ling:type="depend">dies</wordasword>
+<phrase ling:case="dat">
+  <phrase audience="PDF" ling:gen="n" ling:num="sg">
+    <phrase ling:type="head" ling:case="nom">Dokument</phrase>
+    <phrase ling:type="head" ling:case="acc">Dokument</phrase>
+    <phrase ling:type="head" ling:case="gen">Dokuments</phrase>
+    <phrase ling:type="head" ling:case="dat">Dokument</phrase>
+  </phrase>
+  <phrase audience="CHM" ling:gen="f" ling:num="sg">
+    <phrase ling:type="head" ling:case="nom">Hilfedatei</phrase>
+    <phrase ling:type="head" ling:case="acc">Hilfedatei</phrase>
+    <phrase ling:type="head" ling:case="gen">Hilfedatei</phrase>
+    <phrase ling:type="head" ling:case="dat">Hilfedatei</phrase>
+  </phrase>
+</phrase>
+nicht enthalten.</para>
+        ]]></programlisting>
+      <para>After head noun declension:</para>
+      <programlisting><![CDATA[
+<para>Die Einstellung der IP-Adresse ist in
+<wordasword ling:type="depend">dies</wordasword>
+<phrase ling:case="dat">
+  <phrase audience="PDF" ling:gen="n" ling:num="sg">
+    <phrase ling:type="head" ling:case="dat">Dokument</phrase>
+  </phrase>
+  <phrase audience="CHM" ling:gen="f" ling:num="sg">
+    <phrase ling:type="head" ling:case="dat">Hilfedatei</phrase>
+  </phrase>
+</phrase>
+nicht enthalten.</para>
+        ]]></programlisting>
+      <para>After conditional processing:</para>
+      <programlisting><![CDATA[
+<para>Die Einstellung der IP-Adresse ist in
+<wordasword ling:type="depend">dies</wordasword>
+<phrase ling:case="dat">
+  <phrase audience="PDF" ling:gen="n" ling:num="sg">
+    <phrase ling:type="head" ling:case="dat">Dokument</phrase>
+  </phrase>
+</phrase>
+nicht enthalten.</para>
+
+<para>Die Einstellung der IP-Adresse ist in
+<wordasword ling:type="depend">dies</wordasword>
+<phrase ling:case="dat">
+  <phrase audience="CHM" ling:gen="f" ling:num="sg">
+    <phrase ling:type="head" ling:case="dat">Hilfedatei</phrase>
+  </phrase>
+</phrase>
+nicht enthalten.</para>
+        ]]></programlisting>
+      <para>After dependent word inflection:</para>
+      <programlisting><![CDATA[
+<para>Die Einstellung der IP-Adresse ist in
+<wordasword ling:type="depend">diesem</wordasword>
+<phrase ling:case="dat">
+  <phrase audience="PDF" ling:gen="n" ling:num="sg">
+    <phrase ling:type="head" ling:case="dat">Dokument</phrase>
+  </phrase>
+</phrase>
+nicht enthalten.</para>
+
+<para>Die Einstellung der IP-Adresse ist in
+<wordasword ling:type="depend">dieser</wordasword>
+<phrase ling:case="dat">
+  <phrase audience="CHM" ling:gen="f" ling:num="sg">
+    <phrase ling:type="head" ling:case="dat">Hilfedatei</phrase>
+  </phrase>
+</phrase>
+nicht enthalten.</para>
+        ]]></programlisting>
+    </example>
+  </section>
+  <section xml:id="Linguistic-Processing-Limitations">
+    <title>Limitations</title>
+    <para>This mechanism is only suited for inflecting the dependent words within a noun
+    phrase, i.e. determiners and adjectives. It cannot conjugate verbs, e.g. to select
+    the correct (singular or plural) form of the verb based on the number of the
+    subject.</para>
+    <para>The solution is has been developed primarily for western European languages. It
+    has been tested with English, German, French, Spanish, Dutch, Swedish, Italian,
+    Portuguese, Norwegian Bokmål and Finnish. It may be possible to use it with, for
+    example, Arabic, Chinese or Japanese, but further development would be
+    required.</para>
+  </section>
+</article>

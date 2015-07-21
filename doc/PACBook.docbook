@@ -9,7 +9,7 @@
       xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2"
       version="5.0-variant PACBook"
       xml:lang="en-GB"
-      xml:id="pacbook">
+      xml:id="PACBook">
 	<title>PACBook</title>
 	<subtitle>Reference Guide</subtitle>
 	<info>
@@ -39,11 +39,15 @@
 			</revision>
 		</revhistory>
 	</info>
-	<chapter xml:id="pacbook.intro">
+	<chapter xml:id="Intro">
 		<title>Introduction</title>
 		<section xml:id="Overview">
 			<?dbhtml stop-chunking?>
 			<xi:include href="src/Home.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:article/node())"/>
+		</section>
+		<section xml:id="Linguistic-Processing">
+			<?dbhtml stop-chunking?>
+			<xi:include href="src/Linguistic-Processing.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:article/node())"/>
 		</section>
 		<section xml:id="PACBook-Schema">
 			<?dbhtml stop-chunking?>
@@ -58,7 +62,7 @@
 			<xi:include href="src/RDF-Translations.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:article/node())"/>
 		</section>
 	</chapter>
-	<reference xml:id="pacbook.trans">
+	<reference xml:id="Trans">
 		<title>Transclusion Stylesheets</title>
 		<refentry xml:id="TransID.xsl">
 			<xi:include href="src/TransID.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
@@ -70,7 +74,7 @@
 			<xi:include href="src/TransParam.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
 		</refentry>
 	</reference>
-	<reference xml:id="pacbook.ling">
+	<reference xml:id="Ling">
 		<title>Linguistic Stylesheets</title>
 		<refentry xml:id="LingCasing.xsl">
 			<xi:include href="src/LingCasing.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
@@ -82,7 +86,7 @@
 			<xi:include href="src/LingHead.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
 		</refentry>
 	</reference>
-	<reference xml:id="pacbook.text">
+	<reference xml:id="Text">
 		<title>Text Stylesheets</title>
 		<refentry xml:id="TextAbbrev.xsl">
 			<xi:include href="src/TextAbbrev.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
@@ -91,7 +95,7 @@
 			<xi:include href="src/TextNumbers.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
 		</refentry>
 	</reference>
-	<reference xml:id="pacbook.docbook">
+	<reference xml:id="DB">
 		<title>DocBook Stylesheets</title>
 		<refentry xml:id="DBAdmon.xsl">
 			<xi:include href="src/DBAdmon.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
@@ -118,7 +122,7 @@
 			<xi:include href="src/RefResolve.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
 		</refentry>
 	</reference>
-	<reference xml:id="pacbook.xlate">
+	<reference xml:id="Xlate">
 		<title>Translation Stylesheets</title>
 		<refentry xml:id="XlateMarkup.xsl">
 			<xi:include href="src/XlateMarkup.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
@@ -142,7 +146,7 @@
 			<xi:include href="src/XlateMerge.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>
 		</refentry>
 	</reference>
-	<reference xml:id="pacbook.xliff">
+	<reference xml:id="Xliff">
 		<title>XLIFF Stylesheets</title>
 		<refentry xml:id="XL2Xliff.xsl">
 			<xi:include href="src/XL2Xliff.xsl.docbook" xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(//db:refentry/node())"/>

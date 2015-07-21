@@ -9,9 +9,9 @@
       <link rel="stylesheet" type="text/css" href="files/Website.css">
       <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
       <link rel="home" href="index.html" title="PACBook">
-      <link rel="up" href="pacbook.trans.html" title="Transclusion Stylesheets">
+      <link rel="up" href="Trans.html" title="Transclusion Stylesheets">
       <link rel="prev" href="TransLinks.xsl.html" title="TransLinks">
-      <link rel="next" href="pacbook.ling.html" title="Linguistic Stylesheets">
+      <link rel="next" href="Ling.html" title="Linguistic Stylesheets">
       <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
       <meta name="format-detection" content="telephone=no">
@@ -21,7 +21,7 @@
          <table width="100%" summary="Navigation">
             <tr>
                <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
-               <td width="60%" align="right"><a accesskey="p" href="TransLinks.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.trans.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="pacbook.ling.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="TransLinks.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="Trans.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="Ling.html"><img src="files/icons/next.svg" alt="Next"></a></td>
             </tr>
          </table>
       </div>
@@ -42,24 +42,19 @@
                </ul>
             </div>
          </div>
-         <div class="refsect1" id="d0e917">
+         <div class="refsect1" id="d0e1450">
             <h2>Input</h2>
             <p>An XML document containing transclusion definitions and references.</p>
          </div>
-         <div class="refsect1" id="d0e922">
+         <div class="refsect1" id="d0e1455">
             <h2>Output</h2>
             <p>An XML document, identical to the input except that transclusion references are replaced by their definitions.</p>
          </div>
-         <div class="refsect1" id="d0e927">
+         <div class="refsect1" id="d0e1460">
             <h2>Description</h2>
-            <p>This stylesheet enables you to transclude small snippets of XML to other locations within the document. It is complementary
-               to the standard XML methods of transclusion using XInclude, in that it enables you to redefine text replacements locally.
-               It is based on early versions of the <a class="link" href="http://docbook.org/docs/transclusion" target="_blank">proposed standard for DocBook transclusion</a>.
-            </p>
-            <p>Transclusion can be divided into large scale, context-free transclusion and small scale, parametrised transclusion. It is
-               often necessary to perform the two types of transclusion in separate steps. For example, in DocBook, using an assembly to
-               include chapters or sections in a book is also large scale and context-free. This stylesheet, on the other hand, is designed
-               for small scale, parametrised transclusion; for example, inserting a product name at multiple locations in the document.
+            <p>This stylesheet enables you to transclude small snippets of XML; for example, to insert a product name at multiple locations
+               in the document. It is complementary to the standard XML methods of transclusion using XInclude, in that it enables you to
+               redefine text replacements locally. It is based on early versions of the <a class="link" href="http://docbook.org/docs/transclusion" target="_blank">proposed standard for DocBook transclusion</a>.
             </p>
             <p>To define XML snippets for transclusion (<em class="firstterm">definitions</em>) create an extended link element with the specified transclusion role URI in the metadata at the start of the document. Within
                this extended link element add XLink resource elements which contain the XML text or elements for transclusion. (To refer
@@ -82,9 +77,9 @@
             <p>You should run this stylesheet after initial large scale, context-free transclusion. If any of your translation strings contain
                transclusion references, you may need to run this stylesheet after translation instead.
             </p>
-            <p>Small scale, inline transclusion can have linguistic consequences. See <a class="link" href="LingHead.xsl.html" title="LingHead">LingHead.xsl</a>, <a class="link" href="LingDepend.xsl.html" title="LingDepend">LingDepend.xsl</a>, <a class="link" href="LingCasing.xsl.html" title="LingCasing">LingCasing.xsl</a> and <a class="link" href="TextAbbrev.xsl.html" title="TextAbbrev">TextAbbrev.xsl</a> for details of stylesheets that attempt to deal with these problems.
+            <p>Small scale, inline transclusion can have linguistic consequences. See <a class="link" href="Linguistic-Processing.html" title="Linguistic Processing">Linguistic Processing</a> for details of the mechanism that PACBook attempts to deal with these problems.
             </p>
-            <div class="refsect2" id="d0e996">
+            <div class="refsect2" id="d0e1518">
                <h3>Notes</h3>
                <div class="itemizedlist">
                   <ul class="itemizedlist" type="disc">
@@ -107,7 +102,7 @@
                </div>
             </div>
          </div>
-         <div class="refsect1" id="d0e1027">
+         <div class="refsect1" id="d0e1549">
             <h2>Roadmap</h2>
             <p>Extended links are overloaded in PACBook. Perhaps find some other markup for parametrised transclusion definitions, e.g. <a class="link" href="http://purl.org/spar/doco" target="_blank">DoCO</a> or the <a class="link" href="http://www.essepuntato.it/2008/12/pattern" target="_blank">Document Structural Patterns Ontology</a>.
             </p>
@@ -118,7 +113,7 @@
          <table width="100%" summary="Navigation">
             <tr>
                <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
-               <td width="60%" align="right"><a accesskey="p" href="TransLinks.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.trans.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="pacbook.ling.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="TransLinks.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="Trans.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="Ling.html"><img src="files/icons/next.svg" alt="Next"></a></td>
             </tr>
          </table>
       </div>

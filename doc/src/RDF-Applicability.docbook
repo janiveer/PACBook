@@ -14,11 +14,11 @@
 	<title>RDF Applicability</title>
 	<para>You can add applicability metadata to a DocBook document to declare the hardware or software products that the document applies to.
 	</para>
-	<section>
+	<section xml:id="RDF-Applicability-Where">
 		<title>Where to Add Applicability Metadata</title>
 		<para>Applicability metadata takes the form of RDF triples. For a DocBook 5.0 document, you add it to the <tag class="element">info</tag> element at the start of the document.</para>
 	</section>
-	<section>
+	<section xml:id="RDF-Applicability-How">
 		<title>How to Write It</title>
 		<para>Typical applicability metadata for a DocBook document looks like this:</para>
 		<programlisting><![CDATA[
@@ -66,7 +66,7 @@
 			</listitem>
 		</itemizedlist>
 	</section>
-	<section>
+	<section xml:id="RDF-Applicability-Roadmap">
 		<title>Roadmap</title>
 		<para>The ultimate intention is that each <tag class="element">rdf:li</tag> could point to an external RDF resource which contains the details of the product in a single location, e.g. in a products database. This is not yet implemented.</para>
 	</section>

@@ -16,7 +16,7 @@
 	</para>
 	<para><filename>pacbook.rng</filename> adds the following features to the DocBook 5.0 <filename>docbookxi.rng</filename> schema.
 	</para>
-	<section>
+	<section xml:id="PACBook-Schema-Elements">
 		<title>Elements</title>
 		<para><filename>pacbook.rng</filename> adds the following elements in the DocBook namespace.</para>
 		<itemizedlist>
@@ -28,7 +28,7 @@
 			</listitem>
 		</itemizedlist>
 	</section>
-	<section>
+	<section xml:id="PACBook-Schema-Attributes">
 		<title>Attributes</title>
 		<para><filename>pacbook.rng</filename> adds the following to the DocBook common attributes.</para>
 		<itemizedlist>

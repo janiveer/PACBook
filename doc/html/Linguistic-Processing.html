@@ -1,0 +1,653 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Linguistic Processing</title>
+      <link rel="stylesheet" type="text/css" href="files/Website.css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+      <link rel="home" href="index.html" title="PACBook">
+      <link rel="up" href="Intro.html" title="Introduction">
+      <link rel="prev" href="Overview.html" title="Overview">
+      <link rel="next" href="PACBook-Schema.html" title="PACBook Schema">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="Overview.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="Intro.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="PACBook-Schema.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+      <hr>
+      <div class="section" id="Linguistic-Processing">
+         <div class="titlepage">
+            <div>
+               <div>
+                  <h2 class="title">Linguistic Processing</h2>
+               </div>
+            </div>
+         </div>
+         <div class="section" id="Linguistic-Processing-Intro">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">Introduction</h3>
+                  </div>
+               </div>
+            </div>
+            <p>Transclusion can be divided into large scale, <a class="link" href="http://en.wikipedia.org/wiki/Transclusion#Context_neutrality" target="_blank">context-free
+                      transclusion</a> and small scale, <a class="link" href="http://en.wikipedia.org/wiki/Transclusion#Parameterization" target="_blank">parametrised
+                      transclusion</a>. For example, in DocBook, using an assembly to include chapters
+               or sections in a book is large scale and context-free. Inserting a product name at
+                   multiple locations in the document is small scale, parametrised transclusion. Small
+                   snippets of text might be transcluded in several ways: via entities, <a class="link" href="http://www.w3.org/TR/xinclude/" target="_blank">XInclude</a> elements, or using the
+                   PACBook <a class="link" href="TransParam.xsl.html" title="TransParam">TransParam.xsl</a> stylesheet.
+            </p>
+            <p>All the examples on this page assume you are using the PACBook <a class="link" href="TransParam.xsl" target="_blank">TransParam.xsl</a> stylesheet and are marked up
+                   accordingly; you could almost as easily use entities or XInclude instead, but the
+                   markup would be different.
+            </p>
+            <p>It's sometimes desirable that the content of the transcluded term should vary
+                   in some way. Perhaps a different brand name is used for different markets; or perhaps
+                   a generic document is used for lots of different products, and you want to include
+                   the correct product name in each version of the document.
+            </p>
+            <p>There are several different methods that you could use to vary the content of
+                   the transcluded term. One is by local redefinition of the transclusion text. This is
+                   implemented by the PACBook <a class="link" href="TransParam.xsl.html" title="TransParam">TransParam.xsl</a>
+                   stylesheet. Another is by combining transclusion and conditional processing. For
+                   example, using the PACBook markup, you could create a transclusion resource called
+                   <code class="systemitem">Product_Name</code> containing the possible product names, like
+                   so:
+            </p><pre class="programlisting">
+&lt;resource xl:label="Product_Name"&gt;
+  &lt;phrase vendor="ACME"&gt;Euro 500&lt;/phrase&gt;
+  &lt;phrase vendor="Yoyodyne"&gt;Oz 500&lt;/phrase&gt;
+&lt;/resource&gt;
+    </pre><p>You would then use the <a class="link" href="TransParam.xsl.html" title="TransParam">TransParam.xsl</a>
+                   stylesheet to transclude the conditional phrases wherever the product name was
+                   required:
+            </p><pre class="programlisting">
+&lt;title&gt;Installing &lt;phrase content:ref="Product_Name"/&gt;&lt;/title&gt;
+    </pre><p>Parametrised transclusion gives:</p><pre class="programlisting">
+&lt;title&gt;Installing &lt;phrase&gt;
+  &lt;phrase vendor="ACME"&gt;Euro 500&lt;/phrase&gt;
+  &lt;phrase vendor="Yoyodyne"&gt;Oz 500&lt;/phrase&gt;
+&lt;/phrase&gt;&lt;/title&gt;
+    </pre><p>You would then use conditional processing, e.g. with the DocBook XSL parameter
+                   <em class="parameter"><code>profile.vendor</code></em>, to select the correct product name for the
+                   required vendor.
+            </p>
+            <p>Small scale, parametrised transclusion can have linguistic consequences. These
+                   problems can often be avoided by careful wording and translation. In some
+                   circumstances, though, they may be unavoidable.
+            </p>
+         </div>
+         <div class="section" id="Linguistic-Processing-Problem-1">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">Problem 1: Inflecting Dependent Words</h3>
+                  </div>
+               </div>
+            </div>
+            <p>If the transcluded word or phrase is the <a class="link" href="https://en.wikipedia.org/wiki/Head_(linguistics)" target="_blank">head</a> of a noun
+                   phrase, further changes may be required in <a class="link" href="https://en.wikipedia.org/wiki/Dependent_(grammar)" target="_blank">dependent</a> words.
+                   To take an obvious example from English:
+            </p><pre class="programlisting">
+&lt;title&gt;Configuring a &lt;phrase content:ref="Product_Name"/&gt; Server&lt;/title&gt;
+    </pre><p>Parametrised transclusion and profiling for the ACME vendor gives:</p><pre class="programlisting">
+&lt;title&gt;Configuring a &lt;phrase&gt;
+  &lt;phrase vendor="ACME"&gt;Euro 500&lt;/phrase&gt;
+&lt;/phrase&gt; Server&lt;/title&gt;
+    </pre><p>... which is correct. However, profiling for the Yoyodyne vendor gives:</p><pre class="programlisting">
+&lt;title&gt;Configuring a &lt;phrase&gt;
+  &lt;phrase vendor="Yoyodyne"&gt;Oz 500&lt;/phrase&gt;
+&lt;/phrase&gt; Server&lt;/title&gt;
+    </pre><p>... which is incorrect. The word <em class="wordasword">a</em> should be
+                   <em class="wordasword">an</em>.
+            </p>
+            <p>In languages other than English, dependent words can also vary according to the
+                   syntactic environment. For example, a document may use conditional processing to
+                   select the term <em class="wordasword">PC</em>, <em class="wordasword">tablet</em> or
+                   <em class="wordasword">phone</em>, depending on the operating system or architecture for
+                   which the document is published. The terms <em class="wordasword">PC</em>,
+                   <em class="wordasword">tablet</em> and <em class="wordasword">phone</em> may have different
+                   genders in other languages, so dependent articles and adjectives will also have to
+                   change in agreement with the selected term.
+            </p>
+         </div>
+         <div class="section" id="Linguistic-Processing-Problem-2">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">Problem 2: Declining the Head Word</h3>
+                  </div>
+               </div>
+            </div>
+            <p>In many languages other than English, the form of the transcluded snippet
+                   itself might vary, depending on the role of the term in the sentence. (This usually
+                   only applies if the transcluded text is a common noun, rather than a brand name.) For
+                   instance, in Swedish a definite term might need to take a different form to an
+                   indefinite term, e.g. <span class="foreignphrase"><em class="foreignphrase">organisationsenheten</em></span> <span class="quote">&#8220;<span class="quote">the
+                         organisational unit</span>&#8221;</span>, <span class="foreignphrase"><em class="foreignphrase">organisationsenhet</em></span>
+                   <span class="quote">&#8220;<span class="quote">organisational unit</span>&#8221;</span>. In German, a genitive or dative term might take a
+                   different form to the usual nominative form, e.g.
+                   <span class="foreignphrase"><em class="foreignphrase">Schl&uuml;sselinhaber</em></span> <span class="quote">&#8220;<span class="quote">keyholders</span>&#8221;</span>
+                   (nominative), <span class="foreignphrase"><em class="foreignphrase">Schl&uuml;sselinhabern</em></span>
+                   <span class="quote">&#8220;<span class="quote">keyholders</span>&#8221;</span> (dative).
+            </p>
+            <p>It is tempting for the author to attempt to work around this simply by
+                   including the word endings in the document outside of the transcluded text. This is
+                   inadvisable, as some terms may require different endings: for example in Swedish,
+                   neuter nouns have a different definite ending to common nouns. Also, some words may
+                   have internal changes as well as different endings, e.g. umlaut in German.
+            </p>
+            <p>This problem is acknowledged, in the context of translations, in the <a class="link" href="https://jfearn.fedorapeople.org/en-US/Publican/4.0/html/Users_Guide/chap-Publican-Users_Guide-Creating_a_document.html#sect-Publican-Users_Guide-Entities_and_translation" target="_blank">Publican documentation</a>.
+            </p>
+         </div>
+         <div class="section" id="Linguistic-Processing-Principles">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">Principles</h3>
+                  </div>
+               </div>
+            </div>
+            <p>PACBook uses the following mechanism to select the correct form of a
+                   transcluded head word and any dependent words:
+            </p>
+            <div class="itemizedlist">
+               <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                     <p>The author and&nbsp;/ or translator(s) must use the linguistic markup scheme
+                                described below. To decline a transcluded head word, you must mark up the
+                                different forms of the word to be transcluded <span class="emphasis"><em>and</em></span> mark up
+                                which form is required at every location where the term is to be transcluded. To
+                                inflect any dependent words, you need to mark up any linguistic features of the
+                                transcluded term which affect dependent words <span class="emphasis"><em>and</em></span> mark up
+                                the dependent words in the document.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>Linguistic pre-processing is broken down into several small steps: (1)
+                                performing parametrised transclusion; (2) selecting the correct form of head
+                                words; (3) conditional profiling; and (4) selecting the correct form of dependent
+                                words from a syntactic dictionary. The document is then passed on to the next
+                                step in the publication toolchain.
+                     </p>
+                  </li>
+                  <li class="listitem">
+                     <p>As pre-processing is not accomplished in a single step, it is necessary to
+                                use some kind of build script or <a class="link" href="http://www.w3.org/TR/xproc/" target="_blank">XProc</a> pipeline to automate the
+                                publication process.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="section" id="Linguistic-Processing-Markup">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">Linguistic Markup</h3>
+                  </div>
+               </div>
+            </div>
+            <p>PACBook linguistic markup consists of the following XML attributes. It may be
+                   necessary to customise or extend the markup schema of the document to include these
+                   attributes. These attributes are defined as name tokens (NMTOKEN); the possible
+                   values are not enumerated.
+            </p>
+            <p>The PACBook extension, which adds these attributes to the DocBook 5.0 schema,
+                   is described in <a class="link" href="PACBook-Schema.html" title="PACBook Schema">PACBook schema</a>.
+            </p>
+            <p>Linguistic attributes must be applied to a wrapper element. If no suitable
+                   in-line element is available, a generic element such as DocBook <code class="sgmltag-element">phrase</code>, DITA <code class="sgmltag-element">ph</code> or Mallard <code class="sgmltag-element">span</code> can be used.
+            </p>
+            <p>The namespace URI for the linguistic attributes is
+                   <code class="uri">http://stanleysecurity.github.io/PACBook/ns/linguistics</code>.
+            </p>
+            <div class="variablelist">
+               <table border="0" class="variablelist">
+                  <colgroup>
+                     <col align="left" valign="top">
+                     <col>
+                  </colgroup>
+                  <tbody>
+                     <tr>
+                        <td>
+                           <p><span class="term"><code class="sgmltag-attribute">ling:type</code></span></p>
+                        </td>
+                        <td>
+                           <p>Has two possible values: <code class="sgmltag-attvalue">head</code> is used to mark
+                                        the possible forms of a head word; <code class="sgmltag-attvalue">depend</code> is used
+                                        to mark a dependent word.
+                           </p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <p><span class="term"><code class="sgmltag-attribute">ling:pron</code></span></p>
+                        </td>
+                        <td>
+                           <p>Indicates the pronunciation or phonetic environment that the head word
+                                        governs. This is not the full pronunciation of the word. For most languages
+                                        that require this feature, <code class="sgmltag-attribute">ling:pron='V'</code> indicates
+                                        that the word is pronounced with an initial vowel; <code class="sgmltag-attribute">ling:pron='C'</code> that the word is pronounced with an
+                                        initial consonant. The value of the attribute can be tailored to the language.
+                                        So for Italian, <code class="sgmltag-attribute">ling:pron='S'</code> indicates that the
+                                        word is pronounced with an initial <span class="quote">&#8220;<span class="quote">s</span>&#8221;</span> cluster, <span class="quote">&#8220;<span class="quote">gn</span>&#8221;</span>,
+                                        <span class="quote">&#8220;<span class="quote">ps</span>&#8221;</span>, <span class="quote">&#8220;<span class="quote">x</span>&#8221;</span> or <span class="quote">&#8220;<span class="quote">z</span>&#8221;</span>. For Spanish, <code class="sgmltag-attribute">ling:pron='A'</code> indicates that the word has an initial
+                                        stressed <span class="quote">&#8220;<span class="quote">a</span>&#8221;</span>.
+                           </p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <p><span class="term"><code class="sgmltag-attribute">ling:num</code></span></p>
+                        </td>
+                        <td>
+                           <p>Indicates grammatical number. Possible values are <code class="sgmltag-attvalue">sg</code> singular, <code class="sgmltag-attvalue">pl</code> plural,
+                                        etc.
+                           </p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <p><span class="term"><code class="sgmltag-attribute">ling:case</code></span></p>
+                        </td>
+                        <td>
+                           <p>Indicates grammatical case. May have any string value, as long as it
+                                        matches a value used to mark case in the PACBook syntactic dictionary for the
+                                        current language. In the PACBook syntactic dictionaries, the values used are:
+                                        <code class="sgmltag-attvalue">nom</code> nominative,
+                                        <code class="sgmltag-attvalue">gen</code> genitive,
+                                        <code class="sgmltag-attvalue">dat</code> dative,
+                                        <code class="sgmltag-attvalue">acc</code> accusative.
+                                        You can use the <code class="sgmltag-attvalue">gen</code> case to mark the possessive in
+                                        English.
+                           </p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <p><span class="term">
+                                           <code class="sgmltag-attribute">ling:gen</code>
+                                         </span></p>
+                        </td>
+                        <td>
+                           <p>Indicates grammatical gender. Possible values are
+                                        <code class="sgmltag-attvalue">c</code> common,
+                                        <code class="sgmltag-attvalue">m</code> masculine,
+                                        <code class="sgmltag-attvalue">f</code> feminine,
+                                        <code class="sgmltag-attvalue">n</code> neutral, etc.
+                           </p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <p><span class="term">
+                                           <code class="sgmltag-attribute">ling:class</code>
+                                         </span></p>
+                        </td>
+                        <td>
+                           <p>Indicates the inflection class. May have any string value, as long as it
+                                        matches a value used to mark inflectional class in the PACBook syntactic
+                                        dictionary for the current language. In the PACBook syntactic dictionaries, the
+                                        values used in German are <code class="sgmltag-attvalue">strong</code>, <code class="sgmltag-attvalue">weak</code> and <code class="sgmltag-attvalue">mixed</code>; the values
+                                        used in Dutch, Swedish and Norwegian are <code class="sgmltag-attvalue">ind</code> for
+                                        indefinite, <code class="sgmltag-attvalue">def</code> for definite.
+                           </p>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+            <div class="sidebar">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <p class="title"><b>Why mark the pronunciation of the head word? Why not just look at the
+                                    spelling?</b></p>
+                     </div>
+                  </div>
+               </div>
+               <p>Because the spelling of a word doesn't necessarily indicate its
+                        pronunciation. For example, in English the word <em class="wordasword">Europe</em> is
+                        written with an initial vowel but pronounced with an initial consonant, i.e. a
+                        <span class="quote">&#8220;<span class="quote">y</span>&#8221;</span> sound. An acronym like <acronym class="acronym">XML</acronym> is written with an
+                        initial consonant but pronounced with an initial vowel, i.e. <span class="quote">&#8220;<span class="quote">ex em
+                              el</span>&#8221;</span>.
+               </p>
+            </div>
+         </div>
+         <div class="section" id="Linguistic-Processing-Head">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">Head Markup</h3>
+                  </div>
+               </div>
+            </div>
+            <p>When you define a transclusion resource containing a head word, you must also
+                   mark attributes on the head word to indicate any linguistic features which demand
+                   agreement from dependent words. The head word must be wrapped in a suitable spanning
+                   element.
+            </p>
+            <p>The linguistic features which demand agreement vary from language to language.
+                   In English, the only one you have to worry about is the pronunciation of the head
+                   word.
+            </p>
+            <div class="informalexample">
+               <p>This example in English shows the pronunciation of the transcluded terms:</p><pre class="programlisting">
+&lt;resource xl:label="Product_Name"&gt;
+  &lt;phrase vendor="ACME" ling:pron="C"&gt;Euro 500&lt;/phrase&gt;
+  &lt;phrase vendor="Yoyodyne" ling:pron="V"&gt;Oz 500&lt;/phrase&gt;
+&lt;/resource&gt;
+      </pre></div>
+         </div>
+         <div class="section" id="Linguistic-Processing-Depend">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">Dependent Markup</h3>
+                  </div>
+               </div>
+            </div>
+            <p>A dependent word should have the <code class="sgmltag-attribute">ling:type='depend'</code> attribute to indicate that it is a
+                   dependent word. Again, this linguistic attribute must be applied to a wrapper
+                   element.
+            </p>
+            <p>The content of this element must consist only of text. This text is used to
+                   look up the correct inflected form of the word in the dictionary.
+            </p>
+            <p>Other linguistic attributes, e.g. <code class="sgmltag-attribute">ling:class</code>, can
+                   be applied to this element if required.
+            </p>
+            <p>The words which you must mark up as dependent words vary from language to
+                   language. In English, the only one you have to worry about is the indefinite article
+                   <em class="wordasword">a</em>.
+            </p>
+            <div class="informalexample">
+               <p>This example in English shows that the word <em class="wordasword">a</em> is a
+                        dependent word:
+               </p><pre class="programlisting">
+&lt;title&gt;Configuring &lt;wordasword ling:type="depend"&gt;a&lt;/wordasword&gt;
+&lt;phrase content:ref="Product_Name"/&gt; Server&lt;/title&gt;
+      </pre></div>
+            <p>In sentences containing multiple head words, you must surround each head word
+                   and all its dependent words with another, semantically empty wrapper element, so that
+                   the stylesheet knows which words depend on which head. (This is not necessary with
+                   dependent words which vary only in relation to the phonetic environment; they always
+                   look for the nearest phonetic markup.)
+            </p>
+            <div class="informalexample">
+               <p>This example in German shows that the word <span class="foreignphrase"><em class="foreignphrase">ein</em></span>
+                        is dependent on the first instance of the transcluded term, and the word
+                        <span class="foreignphrase"><em class="foreignphrase">der</em></span> is dependent on the second instance, which takes
+                        the genitive case:
+               </p><pre class="programlisting">
+&lt;para&gt;Wenn &lt;phrase&gt;&lt;wordasword ling:type="depend"&gt;ein&lt;/wordasword&gt;
+&lt;phrase content:ref="Device"/&gt;&lt;/phrase&gt; konfiguriert wird,
+werden die Details &lt;phrase&gt;&lt;wordasword ling:type="depend"&gt;der&lt;/wordasword&gt;
+&lt;phrase content:ref="Device" ling:case="gen"/&gt;&lt;/phrase&gt; auf der Weboberfl&auml;che
+angezeigt.&lt;/para&gt;
+      </pre></div>
+         </div>
+         <div class="section" id="Linguistic-Processing-Definitions">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">Declension Markup</h3>
+                  </div>
+               </div>
+            </div>
+            <p>If the head noun is declinable, you must include in the transclusion resource
+                   all the possible forms of the noun in the current language. Again, each form must be
+                   wrapped in a suitable spanning element. Each form should have the <code class="sgmltag-attribute">ling:type='head'</code> attribute to indicate that it is a form of
+                   the head noun, and should also have <code class="sgmltag-attribute">ling:case</code> and <code class="sgmltag-attribute">ling:class</code> attributes to specify the case and / or
+                   definiteness of each form, depending on the language.
+            </p>
+            <div class="informalexample">
+               <p>This transclusion resource in Swedish specifies all the forms of the term
+                        <span class="quote">&#8220;<span class="quote">organisational unit</span>&#8221;</span>:
+               </p><pre class="programlisting">
+&lt;resource xl:label="Organisational_Unit"&gt;
+  &lt;phrase ling:gen="c" ling:num="sg"&gt;
+    &lt;phrase ling:type="head" ling:case="nom" ling:class="ind"&gt;organisationsenhet&lt;/phrase&gt;
+    &lt;phrase ling:type="head" ling:case="gen" ling:class="ind"&gt;organisationsenhets&lt;/phrase&gt;
+    &lt;phrase ling:type="head" ling:case="nom" ling:class="def"&gt;organisationsenheten&lt;/phrase&gt;
+    &lt;phrase ling:type="head" ling:case="gen" ling:class="def"&gt;organisationsenhetens&lt;/phrase&gt;
+  &lt;/phrase&gt;
+&lt;/resource&gt;
+      </pre><p>Note that for convenience the complete declension is wrapped again in an
+                        element which marks the gender and number. These are required for inflecting any
+                        dependent words.
+               </p>
+               <p>It is currently assumed that you will define separate transclusion resources
+                        for the singular and plural forms of a word.
+               </p>
+            </div>
+         </div>
+         <div class="section" id="Linguistic-Processing-References">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">Specifying the Required Form</h3>
+                  </div>
+               </div>
+            </div>
+            <p>At each location where a declinable term is to be transcluded, you must mark up
+                   the case and / or definiteness you require for this instance of the term, depending
+                   on the current language. This may require that you use another spanning element to
+                   wrap the location where the term is to be transcluded.
+            </p>
+            <div class="informalexample">
+               <p>This example in Swedish specifies that the transcluded term must be
+                        definite:
+               </p><pre class="programlisting">
+&lt;para&gt;Om n&ouml;dv&auml;ndigt, v&auml;lj &lt;phrase content:ref="Organisational_Unit" ling:class="def"/&gt;.&lt;/para&gt;
+      </pre></div>
+         </div>
+         <div class="section" id="Linguistic-Processing-Dictionary">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">Dictionary</h3>
+                  </div>
+               </div>
+            </div>
+            <p>The syntactic dictionaries are XML dictionaries using a schema which complies
+                   with the dictionary module of the <a class="link" href="http://www.tei-c.org/" target="_blank">Text Encoding
+                      Initiative</a> (TEI). The dictionaries are primarily designed to handle words in
+                   closed semantic categories, e.g. definite and indefinite articles, demonstrative
+                   adjectives.
+            </p>
+            <p>The dictionaries also contain common contractions, such as German
+                   <span class="foreignphrase"><em class="foreignphrase">im</em></span>, <span class="foreignphrase"><em class="foreignphrase">vom</em></span>,
+                   <span class="foreignphrase"><em class="foreignphrase">beim</em></span>, or French <span class="foreignphrase"><em class="foreignphrase">des</em></span>,
+                   <span class="foreignphrase"><em class="foreignphrase">aux</em></span>.
+            </p>
+            <p>Words in open semantic categories pose more of a problem. The dictionaries do
+                   not yet contain very many adjectives. It would be possible, but time consuming, to
+                   build comprehensive dictionaries by hand. Ideally this process could be automated by
+                   taking information from on-line dictionaries such as <a class="link" href="https://en.wiktionary.org" target="_blank">Wiktionary</a>.
+            </p>
+         </div>
+         <div class="section" id="Linguistic-Processing-Stylesheets">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">Stylesheets</h3>
+                  </div>
+               </div>
+            </div>
+            <p>The <a class="link" href="LingHead.xsl.html" title="LingHead">LingHead.xsl</a> stylesheet enables you to
+                   select the required declension of head nouns in an XML document, according to the
+                   case and / or definiteness required in the target sentence.
+            </p>
+            <p>The <a class="link" href="LingDepend.xsl.html" title="LingDepend">LingDepend.xsl</a> stylesheet enables
+                   you to inflect dependent words in an XML document, e.g. determiners, adjectives, and
+                   relative pronouns, according to the syntactic and / or phonetic environment for each
+                   dependent word.
+            </p>
+         </div>
+         <div class="section" id="Linguistic-Processing-Examples">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">Examples</h3>
+                  </div>
+               </div>
+            </div>
+            <div class="example" id="d0e711">
+               <p class="title"><b>Example&nbsp;1.&nbsp;French</b></p>
+               <div class="example-contents">
+                  <p>Original:</p><pre class="programlisting">
+&lt;title&gt;Pour configurer &lt;wordasword ling:type="depend"&gt;le&lt;/wordasword&gt;
+&lt;phrase content:ref="Device"/&gt;&lt;/title&gt;
+        </pre><p>After transclusion:</p><pre class="programlisting">
+&lt;title&gt;Pour configurer &lt;wordasword ling:type="depend"&gt;le&lt;/wordasword&gt;
+&lt;phrase&gt;
+  &lt;phrase os="tablet" ling:gen="f" ling:pron="C"&gt;tablette&lt;/phrase&gt;
+  &lt;phrase os="PC" ling:gen="m" ling:pron="V"&gt;ordinateur&lt;/phrase&gt;
+&lt;/phrase&gt;&lt;/title&gt;
+        </pre><p>(No head noun inflection necessary.)</p>
+                  <p>After conditional processing:</p><pre class="programlisting">
+&lt;title&gt;Pour configurer &lt;wordasword ling:type="depend"&gt;le&lt;/wordasword&gt;
+&lt;phrase&gt;
+  &lt;phrase os="tablet" ling:gen="f" ling:pron="C"&gt;tablette&lt;/phrase&gt;
+&lt;/phrase&gt;&lt;/title&gt;
+
+&lt;title&gt;Pour configurer &lt;wordasword ling:type="depend"&gt;le&lt;/wordasword&gt;
+&lt;phrase&gt;
+  &lt;phrase os="PC" ling:gen="m" ling:pron="V"&gt;ordinateur&lt;/phrase&gt;
+&lt;/phrase&gt;&lt;/title&gt;
+        </pre><p>After dependent word inflection:</p><pre class="programlisting">
+&lt;title&gt;Pour configurer &lt;wordasword ling:type="depend"&gt;la &lt;/wordasword&gt;
+&lt;phrase&gt;
+  &lt;phrase os="tablet" ling:gen="f" ling:pron="C"&gt;tablette&lt;/phrase&gt;
+&lt;/phrase&gt;&lt;/title&gt;
+
+&lt;title&gt;Pour configurer
+&lt;wordasword ling:type="depend"&gt;l&#8217;&lt;/wordasword&gt;
+&lt;phrase&gt;
+  &lt;phrase os="PC" ling:gen="m" ling:pron="V"&gt;ordinateur&lt;/phrase&gt;
+&lt;/phrase&gt;&lt;/title&gt;
+        </pre></div>
+            </div><br class="example-break"><div class="example" id="d0e732">
+               <p class="title"><b>Example&nbsp;2.&nbsp;German</b></p>
+               <div class="example-contents">
+                  <p>Original:</p><pre class="programlisting">
+&lt;para&gt;Die Einstellung der IP-Adresse ist in
+&lt;wordasword ling:type="depend"&gt;dies&lt;/wordasword&gt;
+&lt;phrase content:ref="Doc" ling:case="dat"/&gt;
+nicht enthalten.&lt;/para&gt;
+        </pre><p>After transclusion:</p><pre class="programlisting">
+&lt;para&gt;Die Einstellung der IP-Adresse ist in
+&lt;wordasword ling:type="depend"&gt;dies&lt;/wordasword&gt;
+&lt;phrase ling:case="dat"&gt;
+  &lt;phrase audience="PDF" ling:gen="n" ling:num="sg"&gt;
+    &lt;phrase ling:type="head" ling:case="nom"&gt;Dokument&lt;/phrase&gt;
+    &lt;phrase ling:type="head" ling:case="acc"&gt;Dokument&lt;/phrase&gt;
+    &lt;phrase ling:type="head" ling:case="gen"&gt;Dokuments&lt;/phrase&gt;
+    &lt;phrase ling:type="head" ling:case="dat"&gt;Dokument&lt;/phrase&gt;
+  &lt;/phrase&gt;
+  &lt;phrase audience="CHM" ling:gen="f" ling:num="sg"&gt;
+    &lt;phrase ling:type="head" ling:case="nom"&gt;Hilfedatei&lt;/phrase&gt;
+    &lt;phrase ling:type="head" ling:case="acc"&gt;Hilfedatei&lt;/phrase&gt;
+    &lt;phrase ling:type="head" ling:case="gen"&gt;Hilfedatei&lt;/phrase&gt;
+    &lt;phrase ling:type="head" ling:case="dat"&gt;Hilfedatei&lt;/phrase&gt;
+  &lt;/phrase&gt;
+&lt;/phrase&gt;
+nicht enthalten.&lt;/para&gt;
+        </pre><p>After head noun declension:</p><pre class="programlisting">
+&lt;para&gt;Die Einstellung der IP-Adresse ist in
+&lt;wordasword ling:type="depend"&gt;dies&lt;/wordasword&gt;
+&lt;phrase ling:case="dat"&gt;
+  &lt;phrase audience="PDF" ling:gen="n" ling:num="sg"&gt;
+    &lt;phrase ling:type="head" ling:case="dat"&gt;Dokument&lt;/phrase&gt;
+  &lt;/phrase&gt;
+  &lt;phrase audience="CHM" ling:gen="f" ling:num="sg"&gt;
+    &lt;phrase ling:type="head" ling:case="dat"&gt;Hilfedatei&lt;/phrase&gt;
+  &lt;/phrase&gt;
+&lt;/phrase&gt;
+nicht enthalten.&lt;/para&gt;
+        </pre><p>After conditional processing:</p><pre class="programlisting">
+&lt;para&gt;Die Einstellung der IP-Adresse ist in
+&lt;wordasword ling:type="depend"&gt;dies&lt;/wordasword&gt;
+&lt;phrase ling:case="dat"&gt;
+  &lt;phrase audience="PDF" ling:gen="n" ling:num="sg"&gt;
+    &lt;phrase ling:type="head" ling:case="dat"&gt;Dokument&lt;/phrase&gt;
+  &lt;/phrase&gt;
+&lt;/phrase&gt;
+nicht enthalten.&lt;/para&gt;
+
+&lt;para&gt;Die Einstellung der IP-Adresse ist in
+&lt;wordasword ling:type="depend"&gt;dies&lt;/wordasword&gt;
+&lt;phrase ling:case="dat"&gt;
+  &lt;phrase audience="CHM" ling:gen="f" ling:num="sg"&gt;
+    &lt;phrase ling:type="head" ling:case="dat"&gt;Hilfedatei&lt;/phrase&gt;
+  &lt;/phrase&gt;
+&lt;/phrase&gt;
+nicht enthalten.&lt;/para&gt;
+        </pre><p>After dependent word inflection:</p><pre class="programlisting">
+&lt;para&gt;Die Einstellung der IP-Adresse ist in
+&lt;wordasword ling:type="depend"&gt;diesem&lt;/wordasword&gt;
+&lt;phrase ling:case="dat"&gt;
+  &lt;phrase audience="PDF" ling:gen="n" ling:num="sg"&gt;
+    &lt;phrase ling:type="head" ling:case="dat"&gt;Dokument&lt;/phrase&gt;
+  &lt;/phrase&gt;
+&lt;/phrase&gt;
+nicht enthalten.&lt;/para&gt;
+
+&lt;para&gt;Die Einstellung der IP-Adresse ist in
+&lt;wordasword ling:type="depend"&gt;dieser&lt;/wordasword&gt;
+&lt;phrase ling:case="dat"&gt;
+  &lt;phrase audience="CHM" ling:gen="f" ling:num="sg"&gt;
+    &lt;phrase ling:type="head" ling:case="dat"&gt;Hilfedatei&lt;/phrase&gt;
+  &lt;/phrase&gt;
+&lt;/phrase&gt;
+nicht enthalten.&lt;/para&gt;
+        </pre></div>
+            </div><br class="example-break"></div>
+         <div class="section" id="Linguistic-Processing-Limitations">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h3 class="title">Limitations</h3>
+                  </div>
+               </div>
+            </div>
+            <p>This mechanism is only suited for inflecting the dependent words within a noun
+                   phrase, i.e. determiners and adjectives. It cannot conjugate verbs, e.g. to select
+                   the correct (singular or plural) form of the verb based on the number of the
+                   subject.
+            </p>
+            <p>The solution is has been developed primarily for western European languages. It
+                   has been tested with English, German, French, Spanish, Dutch, Swedish, Italian,
+                   Portuguese, Norwegian Bokm&aring;l and Finnish. It may be possible to use it with, for
+                   example, Arabic, Chinese or Japanese, but further development would be
+                   required.
+            </p>
+         </div>
+      </div>
+      <hr>
+      <div class="navigation">
+         <table width="100%" summary="Navigation">
+            <tr>
+               <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="Overview.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="Intro.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="PACBook-Schema.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

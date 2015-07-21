@@ -13,11 +13,11 @@
          xml:id="pacbook.rdf.translations">
 	<title>RDF Translations</title>
 	<para>To use the PACBook stylesheets to translate an XML document, you need to tell PACBook where the translations for that document are. You do this by adding translation metadata to the document.</para>
-	<section>
+	<section xml:id="RDF-Translations-Where">
 		<title>Where to Add Translation Metadata</title>
 		<para>Translation metadata takes the form of RDF triples. You add it to the metadata section of the XML document. So, for a DocBook 5.0 document, you add it to the <tag class="element">info</tag> element at the start of the document. For an SVG document, you add it to the <tag class="element">metadata</tag> element at the start of the document.</para>
 	</section>
-	<section>
+	<section xml:id="RDF-Translations-How">
 		<title>How to Write It</title>
 		<para>Typical translation metadata for a DocBook document looks like this:</para>
 		<programlisting><![CDATA[
@@ -56,7 +56,7 @@
 			</listitem>
 		</itemizedlist>
 	</section>
-	<section>
+	<section xml:id="RDF-Translations-Part">
 		<title>Translation Metadata for Part of a Document</title>
 		<para>Different parts of a document might store their translations in different <link xl:href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html">XLIFF</link> files. To specify translation metadata for part of a file, you add it to the metadata section for that part. So, to specify translation metadata that only applies to a particular chapter in a DocBook file, you would add the translation metadata to the <tag class="element">info</tag> element at the start of the chapter. This would override any translation metadata at the start of the book.</para>
 		<para>You could (but don’t have to) use <tag class="element">bibo:DocumentPart</tag> instead of <tag class="element">bibo:Document</tag> in translation metadata that only applies to part of a document.</para>
