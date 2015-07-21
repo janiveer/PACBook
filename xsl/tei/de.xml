@@ -1546,6 +1546,200 @@
           <orth>ausgewählten</orth>
         </form>
       </entry>
+      <entry n="bestätigt">
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigtes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="nom"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestätigte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigtes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="acc"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestätigte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="gen"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestätigter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigtem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigtem</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="strong"/><case value="dat"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestätigten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="nom"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="weak"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestätigten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigter</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="nom"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigtes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigte</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="acc"/><gen value="n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigtes</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="gen"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><case value="dat"/><gen value="m f n"/><num value="sg"/>
+          </gramGrp>
+          <orth>bestätigten</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <oVar value="mixed"/><num value="pl"/>
+          </gramGrp>
+          <orth>bestätigten</orth>
+        </form>
+      </entry>
       <entry n="gewählt">
         <form>
           <gramGrp>
