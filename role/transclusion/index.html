@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//XML-DEV//DTD XHTML RDDL 1.0//EN" "rddl-xhtml.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:rddl="http://www.rddl.org/"
+      xml:lang="en">
+
+	<head>
+		<title>PACBook Transclusion Resource Role</title>
+		<link rel="stylesheet" type="text/css" href="http://www.rddl.org/xrd.css" />
+	</head>
+
+	<body>
+		<h1>PACBook Transclusion Resource Role</h1>
+		<p>TThis XLink role is used in <a href="https://github.com/STANLEYSecurity/PACBook">PACBook</a> to define resources for transclusion.</p>
+		<rddl:resource xlink:title="Documentation"
+		               xlink:role="http://docbook.org/ns/docbook"
+		               xlink:arcrole="http://www.rddl.org/purposes#reference"
+		               xlink:href="http://stanleysecurity.github.io/PACBook/doc/index.html">
+			<h2>Documentation</h2>
+			<p>See <a href="http://stanleysecurity.github.io/PACBook/doc/index.html">PACBook.docbook</a> for documentation.</p>
+		</rddl:resource>
+		<rddl:resource xlink:title="Transformation"
+		               xlink:role="http://www.w3.org/1999/XSL/Transform"
+		               xlink:href="https://github.com/STANLEYSecurity/PACBook/blob/master/xsl/TransParam.xsl">
+			<h2>Transformation</h2>
+			<p>Use <a href="https://github.com/STANLEYSecurity/PACBook/blob/master/xsl/TransParam.xsl">TransParam.xsl</a> to transclude.</p>
+		</rddl:resource>
+	</body>
+</html>
