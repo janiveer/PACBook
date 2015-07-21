@@ -9,8 +9,8 @@
       <link rel="stylesheet" type="text/css" href="files/Website.css">
       <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
       <link rel="home" href="index.html" title="PACBook">
-      <link rel="up" href="pacbook.ling.html" title="Linguistic Stylesheets">
-      <link rel="prev" href="pacbook.ling.html" title="Linguistic Stylesheets">
+      <link rel="up" href="Ling.html" title="Linguistic Stylesheets">
+      <link rel="prev" href="Ling.html" title="Linguistic Stylesheets">
       <link rel="next" href="LingDepend.xsl.html" title="LingDepend">
       <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -21,7 +21,7 @@
          <table width="100%" summary="Navigation">
             <tr>
                <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
-               <td width="60%" align="right"><a accesskey="p" href="pacbook.ling.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.ling.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="LingDepend.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="Ling.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="Ling.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="LingDepend.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
             </tr>
          </table>
       </div>
@@ -42,17 +42,17 @@
                </ul>
             </div>
          </div>
-         <div class="refsect1" id="d0e1061">
+         <div class="refsect1" id="d0e1583">
             <h2>Input</h2>
             <p>An XML document. You must mark up the source document with linguistic attributes describing the orthographic case which is
                required for the specified text &#8212; see description below.
             </p>
          </div>
-         <div class="refsect1" id="d0e1066">
+         <div class="refsect1" id="d0e1588">
             <h2>Output</h2>
             <p>An XML document, identical to the input except that marked text is set to the required orthographic case.</p>
          </div>
-         <div class="refsect1" id="d0e1071">
+         <div class="refsect1" id="d0e1593">
             <h2>Description</h2>
             <p>The stylesheet recurses through the document and copies each element. If any element has the <code class="sgmltag-attribute">ling:orth</code> attribute, the stylesheet changes the case of the text nodes in this element and all descendent elements.
             </p>
@@ -83,26 +83,26 @@
                   </li>
                </ul>
             </div>
-            <div class="refsect2" id="d0e1109">
+            <div class="refsect2" id="d0e1631">
                <h3>Upper</h3>
                <p>Changes the case of text nodes to upper case. This is applied to text in the current element and all descendent elements,
                   unless any descendent elements have a different <code class="sgmltag-attribute">ling:orth</code> attribute.
                </p>
             </div>
-            <div class="refsect2" id="d0e1117">
+            <div class="refsect2" id="d0e1639">
                <h3>Lower</h3>
                <p>Changes the case of text nodes to lower case. This is applied to text in the current element and all descendent elements,
                   unless any descendent elements have a different <code class="sgmltag-attribute">ling:orth</code> attribute.
                </p>
             </div>
-            <div class="refsect2" id="d0e1125">
+            <div class="refsect2" id="d0e1647">
                <h3>Sentence</h3>
                <p>Finds the first text node child of the current element and changes the first character of the word to upper case. The rest
                   of the text nodes in this element and all descendent elements are left unchanged, unless any descendent elements have a different
                   <code class="sgmltag-attribute">ling:orth</code> attribute.
                </p>
             </div>
-            <div class="refsect2" id="d0e1133">
+            <div class="refsect2" id="d0e1655">
                <h3>Title</h3>
                <p>Splits the text into words (at spaces). If a word is <span class="emphasis"><em>not</em></span> listed in the <em class="parameter"><code>ShortWords</code></em> parameter, changes the first character of the word to upper case. This is applied to text nodes in the current element and
                   all descendent elements, unless any descendent elements have a different <code class="sgmltag-attribute">ling:orth</code> attribute.
@@ -117,7 +117,7 @@
          <table width="100%" summary="Navigation">
             <tr>
                <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
-               <td width="60%" align="right"><a accesskey="p" href="pacbook.ling.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.ling.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="LingDepend.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="Ling.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="Ling.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="LingDepend.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
             </tr>
          </table>
       </div>

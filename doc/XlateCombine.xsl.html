@@ -9,7 +9,7 @@
       <link rel="stylesheet" type="text/css" href="files/Website.css">
       <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
       <link rel="home" href="index.html" title="PACBook">
-      <link rel="up" href="pacbook.xlate.html" title="Translation Stylesheets">
+      <link rel="up" href="Xlate.html" title="Translation Stylesheets">
       <link rel="prev" href="XlateConvert.xsl.html" title="XlateConvert">
       <link rel="next" href="XlateID.xsl.html" title="XlateID">
       <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -21,7 +21,7 @@
          <table width="100%" summary="Navigation">
             <tr>
                <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
-               <td width="60%" align="right"><a accesskey="p" href="XlateConvert.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xlate.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XlateID.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XlateConvert.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="Xlate.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XlateID.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
             </tr>
          </table>
       </div>
@@ -35,7 +35,7 @@
          <div class="refsynopsisdiv">
             <h2>Parameters</h2><pre class="synopsis">Language</pre><p><em class="parameter"><code>Language</code></em> (string) &#8212; List of ISO language codes, separated by <code class="literal">;</code></p>
          </div>
-         <div class="refsect1" id="d0e2976">
+         <div class="refsect1" id="d0e3375">
             <h2>Input</h2>
             <p>An XML document. You must mark up the source document with:</p>
             <div class="orderedlist">
@@ -53,11 +53,11 @@
             <p>In the <a class="link" href="RDF-Translations.html" title="RDF Translations">translation metadata</a>, one of the specified translations should have the language code <code class="literal">zxx</code> and should point to a file which contains the separator text to display between each language.
             </p>
          </div>
-         <div class="refsect1" id="d0e3004">
+         <div class="refsect1" id="d0e3403">
             <h2>Output</h2>
             <p>A multi-lingual XML document.</p>
          </div>
-         <div class="refsect1" id="d0e3009">
+         <div class="refsect1" id="d0e3408">
             <h2>Description</h2>
             <p>The stylesheet reconstructs the structure of the source file. For each translatable string, it looks first for the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file that corresponds to the <code class="literal">zxx</code> output language. If the <a class="link" href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html" target="_blank">XLIFF</a> file is found, it searches for the translated string and sets that as the separator text; if the separator text is not specified
                for this translatable string, or if the separator text file is not found, a middle dot <code class="literal">&nbsp;&middot;&nbsp;</code> is set as the separator text.
@@ -67,7 +67,7 @@
             </p>
             <p>If the translatable string is marked with the <code class="sgmltag-attribute">its:translate='no'</code> attribute, the source string is simply copied to the output document and the list of output languages is not parsed.
             </p>
-            <div class="refsect2" id="d0e3042">
+            <div class="refsect2" id="d0e3441">
                <h3>Note</h3>
                <p>The language of the output document is set to <code class="sgmltag-attribute">xml:lang='mul'</code>, the ISO code for multiple languages.
                </p>
@@ -79,7 +79,7 @@
          <table width="100%" summary="Navigation">
             <tr>
                <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
-               <td width="60%" align="right"><a accesskey="p" href="XlateConvert.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.xlate.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XlateID.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="XlateConvert.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="Xlate.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="XlateID.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
             </tr>
          </table>
       </div>

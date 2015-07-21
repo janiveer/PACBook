@@ -9,7 +9,7 @@
       <link rel="stylesheet" type="text/css" href="files/Website.css">
       <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
       <link rel="home" href="index.html" title="PACBook">
-      <link rel="up" href="pacbook.docbook.html" title="DocBook Stylesheets">
+      <link rel="up" href="DB.html" title="DocBook Stylesheets">
       <link rel="prev" href="DBProfile.xsl.html" title="DBProfile">
       <link rel="next" href="RefResolve.xsl.html" title="RefResolve">
       <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -21,7 +21,7 @@
          <table width="100%" summary="Navigation">
             <tr>
                <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
-               <td width="60%" align="right"><a accesskey="p" href="DBProfile.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.docbook.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="RefResolve.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="DBProfile.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="DB.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="RefResolve.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
             </tr>
          </table>
       </div>
@@ -50,15 +50,15 @@
                </ul>
             </div>
          </div>
-         <div class="refsect1" id="d0e2404">
+         <div class="refsect1" id="d0e2803">
             <h2>Input</h2>
             <p>A DocBook document. The start locations and sections to be included in automatic links must be marked up as described below.</p>
          </div>
-         <div class="refsect1" id="d0e2409">
+         <div class="refsect1" id="d0e2808">
             <h2>Output</h2>
             <p>A DocBook document, identical to the input but with automatic links between sections of the document.</p>
          </div>
-         <div class="refsect1" id="d0e2414">
+         <div class="refsect1" id="d0e2813">
             <h2>Description</h2>
             <p>To use this stylesheet you must assign a name to each set of related sections. You mark up the location for a list of automatic
                links by adding, in the <code class="sgmltag-element">info</code> section at the start of a chapter or section, an <code class="sgmltag-element">extendedlink</code> element with the <code class="sgmltag-attribute">xl:role</code> attribute set to <code class="uri">http://www.iana.org/assignments/relation/item</code>.
@@ -76,20 +76,20 @@
             </p>
             <p>The list is positioned after any body text, but before any subsections. Each link in the list is an <code class="sgmltag-element">xref</code> element; the content is determined by the <code class="sgmltag-attribute">xrefstyle</code> attribute, which by default is set to <code class="sgmltag-attvalue">select: title</code>.
             </p>
-            <div class="refsect2" id="d0e2483">
+            <div class="refsect2" id="d0e2882">
                <h3>Resource Elements</h3>
                <p>DocBook 5.0 does not have XLink resource elements. For this purpose, PACBook provides a custom layer for the DocBook 5.0 chema
                   which adds a <code class="sgmltag-element">resource</code> element to the <code class="sgmltag-element">extendedlink</code> element. See the <a class="link" href="PACBook-Schema.html" title="PACBook Schema">PACBook RNG schema</a>. (In DocBook 5.1 it may be possible to use a <code class="sgmltag-element">link</code> element with the <code class="sgmltag-attribute">xl:type='resource'</code> attribute, but this has not been tested.)
                </p>
             </div>
-            <div class="refsect2" id="d0e2503">
+            <div class="refsect2" id="d0e2902">
                <h3>Link Titles</h3>
                <p>Before the <code class="sgmltag-element">itemizedlist</code> of links, the stylesheet creates an introductory <code class="sgmltag-element">para</code> element in the language determined by the nearest ancestor <code class="sgmltag-attribute">xml:lang</code> attribute. By default, this contains the text called <code class="systemitem">links</code> from <code class="filename">DataLabels.xml</code>. In English, this is <span class="quote">&#8220;<span class="quote">See the following sections:</span>&#8221;</span>. The supported languages are German, English, Spanish, French, Dutch and Swedish.
                </p>
                <p>It is possible to specify different text for the introductory paragraph by adding an XLink title element to the <code class="sgmltag-element">extendedlink</code> that marks the start of the automatic link. This is not possible in DocBook 5.0. The <a class="link" href="PACBook-Schema.html" title="PACBook Schema">PACBook RNG schema</a> adds a <code class="sgmltag-element">title</code> element to <code class="sgmltag-element">extendedlink</code> to enable this. (In DocBook 5.1, you may be able to use a <code class="sgmltag-element">link xl:type='title'</code> element within the <code class="sgmltag-element">extendedlink</code>, but this has not been tested.)
                </p>
             </div>
-            <div class="refsect2" id="d0e2546">
+            <div class="refsect2" id="d0e2945">
                <h3>Note</h3>
                <p><a class="link" href="https://tools.ietf.org/html/rfc6573" target="_blank">RFC 6573</a> specifies that the <code class="systemitem">item</code> relation points <span class="emphasis"><em>from</em></span> the collection <span class="emphasis"><em>towards</em></span> the item; the <code class="systemitem">collection</code> relation points <span class="emphasis"><em>from</em></span> the item <span class="emphasis"><em>towards</em></span> the collection.
                </p>
@@ -101,7 +101,7 @@
          <table width="100%" summary="Navigation">
             <tr>
                <td width="40%" align="left"><a accesskey="h" href="index.html"><img src="files/icons/home.svg" alt="Home"></a></td>
-               <td width="60%" align="right"><a accesskey="p" href="DBProfile.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="pacbook.docbook.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="RefResolve.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
+               <td width="60%" align="right"><a accesskey="p" href="DBProfile.xsl.html"><img src="files/icons/prev.svg" alt="Prev"></a>&nbsp;<a accesskey="u" href="DB.html"><img src="files/icons/up.svg" alt="Up"></a>&nbsp;<a accesskey="n" href="RefResolve.xsl.html"><img src="files/icons/next.svg" alt="Next"></a></td>
             </tr>
          </table>
       </div>
