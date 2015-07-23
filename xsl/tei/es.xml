@@ -361,6 +361,32 @@
           <orth>configuradas</orth>
         </form>
       </entry>
+      <entry n="confirmado">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>confirmado</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>confirmada</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>confirmados</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>confirmadas</orth>
+        </form>
+      </entry>
       <entry n="dicho">
         <form>
           <gramGrp>
