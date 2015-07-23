@@ -25,7 +25,7 @@
     xl:href="http://www.w3.org/TR/xinclude/">XInclude</link> elements, or using the
     PACBook <link xl:href="#TransParam.xsl">TransParam.xsl</link> stylesheet.</para>
     <para>All the examples on this page assume you are using the PACBook <link
-    xl:href="TransParam.xsl">TransParam.xsl</link> stylesheet and are marked up
+    xl:href="#TransParam.xsl">TransParam.xsl</link> stylesheet and are marked up
     accordingly; you could almost as easily use entities or XInclude instead, but the
     markup would be different.</para>
     <para>It's sometimes desirable that the content of the transcluded term should vary
