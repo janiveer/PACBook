@@ -476,6 +476,94 @@
           <orth>andra</orth>
         </form>
       </entry>
+      <entry n="ihopparad">
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>ihopparad</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>ihopparad</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>ihopparat</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="def"/>
+          </gramGrp>
+          <orth>ihopparade</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="def"/>
+          </gramGrp>
+          <orth>ihopparade</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="def"/>
+          </gramGrp>
+          <orth>ihopparade</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>ihopparade</orth>
+        </form>
+      </entry>
+      <entry n="önskad">
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>önskad</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>önskad</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="ind"/>
+          </gramGrp>
+          <orth>önskat</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="m"/><oVar value="def"/>
+          </gramGrp>
+          <orth>önskade</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="c"/><oVar value="def"/>
+          </gramGrp>
+          <orth>önskade</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="sg"/><gen value="n"/><oVar value="def"/>
+          </gramGrp>
+          <orth>önskade</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <num value="pl"/>
+          </gramGrp>
+          <orth>önskade</orth>
+        </form>
+      </entry>
       <entry n="överordnad">
         <form>
           <gramGrp>

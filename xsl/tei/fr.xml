@@ -392,6 +392,32 @@
           <orth>configurées</orth>
         </form>
       </entry>
+      <entry n="confirmé">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>confirmé</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>confirmée</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>confirmés</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>confirmées</orth>
+        </form>
+      </entry>
       <entry n="connecté">
         <form>
           <gramGrp>
@@ -496,6 +522,32 @@
           <orth>gérées</orth>
         </form>
       </entry>
+      <entry n="identifié">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>identifié</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>identifiée</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>identifiés</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>identifiées</orth>
+        </form>
+      </entry>
       <entry n="indiqué">
         <form>
           <gramGrp>
@@ -520,6 +572,32 @@
             <gen value="f"/><num value="pl"/>
           </gramGrp>
           <orth>indiquées</orth>
+        </form>
+      </entry>
+      <entry n="jumelé">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>jumelé</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>jumelée</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>jumelés</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>jumelées</orth>
         </form>
       </entry>
       <entry n="local">
@@ -638,6 +716,32 @@
           <orth>programmées</orth>
         </form>
       </entry>
+      <entry n="requis">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>requis</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>requise</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>requis</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>requises</orth>
+        </form>
+      </entry>
       <entry n="sélectionné">
         <form>
           <gramGrp>
@@ -662,6 +766,32 @@
             <gen value="f"/><num value="pl"/>
           </gramGrp>
           <orth>sélectionnées</orth>
+        </form>
+      </entry>
+      <entry n="seul">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>seul</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>seule</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>seuls</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>seules</orth>
         </form>
       </entry>
       <entry n="tout">

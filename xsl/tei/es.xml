@@ -257,6 +257,292 @@
           <orth>aquellas</orth>
         </form>
       </entry>
+      <entry n="activo">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>activo</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>activa</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>activos</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>activas</orth>
+        </form>
+      </entry>
+      <entry n="codificado">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>codificado</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>codificada</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>codificados</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>codificadas</orth>
+        </form>
+      </entry>
+      <entry n="conectado">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>conectado</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>conectada</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>conectados</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>conectadas</orth>
+        </form>
+      </entry>
+      <entry n="configurado">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>configurado</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>configurada</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>configurados</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>configuradas</orth>
+        </form>
+      </entry>
+      <entry n="dicho">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>dicho</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>dicha</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>dichos</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>dichas</orth>
+        </form>
+      </entry>
+      <entry n="emparejado">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>emparejado</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>emparejada</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>emparejados</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>emparejadas</orth>
+        </form>
+      </entry>
+      <entry n="específico">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>específico</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>específica</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>específicos</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>específicas</orth>
+        </form>
+      </entry>
+      <entry n="otro">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>otro</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>otra</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>otros</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>otras</orth>
+        </form>
+      </entry>
+      <entry n="predeterminado">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>predeterminado</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>predeterminada</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>predeterminados</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>predeterminadas</orth>
+        </form>
+      </entry>
+      <entry n="requerido">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>requerido</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>requerida</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>requeridos</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>requeridas</orth>
+        </form>
+      </entry>
+      <entry n="seleccionado">
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="sg"/>
+          </gramGrp>
+          <orth>seleccionado</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="sg"/>
+          </gramGrp>
+          <orth>seleccionada</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="m"/><num value="pl"/>
+          </gramGrp>
+          <orth>seleccionados</orth>
+        </form>
+        <form>
+          <gramGrp>
+            <gen value="f"/><num value="pl"/>
+          </gramGrp>
+          <orth>seleccionadas</orth>
+        </form>
+      </entry>
       <entry n="todo">
         <form>
           <gramGrp>
@@ -307,188 +593,6 @@
             <gen value="f"/><num value="pl"/>
           </gramGrp>
           <orth>varias</orth>
-        </form>
-      </entry>
-      <entry n="dicho">
-        <form>
-          <gramGrp>
-            <gen value="m"/><num value="sg"/>
-          </gramGrp>
-          <orth>dicho</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="f"/><num value="sg"/>
-          </gramGrp>
-          <orth>dicha</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="m"/><num value="pl"/>
-          </gramGrp>
-          <orth>dichos</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="f"/><num value="pl"/>
-          </gramGrp>
-          <orth>dichas</orth>
-        </form>
-      </entry>
-      <entry n="otro">
-        <form>
-          <gramGrp>
-            <gen value="m"/><num value="sg"/>
-          </gramGrp>
-          <orth>otro</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="f"/><num value="sg"/>
-          </gramGrp>
-          <orth>otra</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="m"/><num value="pl"/>
-          </gramGrp>
-          <orth>otros</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="f"/><num value="pl"/>
-          </gramGrp>
-          <orth>otras</orth>
-        </form>
-      </entry>
-      <entry n="activo">
-        <form>
-          <gramGrp>
-            <gen value="m"/><num value="sg"/>
-          </gramGrp>
-          <orth>activo</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="f"/><num value="sg"/>
-          </gramGrp>
-          <orth>activa</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="m"/><num value="pl"/>
-          </gramGrp>
-          <orth>activos</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="f"/><num value="pl"/>
-          </gramGrp>
-          <orth>activas</orth>
-        </form>
-      </entry>
-      <entry n="predeterminado">
-        <form>
-          <gramGrp>
-            <gen value="m"/><num value="sg"/>
-          </gramGrp>
-          <orth>predeterminado</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="f"/><num value="sg"/>
-          </gramGrp>
-          <orth>predeterminada</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="m"/><num value="pl"/>
-          </gramGrp>
-          <orth>predeterminados</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="f"/><num value="pl"/>
-          </gramGrp>
-          <orth>predeterminadas</orth>
-        </form>
-      </entry>
-      <entry n="conectado">
-        <form>
-          <gramGrp>
-            <gen value="m"/><num value="sg"/>
-          </gramGrp>
-          <orth>conectado</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="f"/><num value="sg"/>
-          </gramGrp>
-          <orth>conectada</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="m"/><num value="pl"/>
-          </gramGrp>
-          <orth>conectados</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="f"/><num value="pl"/>
-          </gramGrp>
-          <orth>conectadas</orth>
-        </form>
-      </entry>
-      <entry n="seleccionado">
-        <form>
-          <gramGrp>
-            <gen value="m"/><num value="sg"/>
-          </gramGrp>
-          <orth>seleccionado</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="f"/><num value="sg"/>
-          </gramGrp>
-          <orth>seleccionada</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="m"/><num value="pl"/>
-          </gramGrp>
-          <orth>seleccionados</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="f"/><num value="pl"/>
-          </gramGrp>
-          <orth>seleccionadas</orth>
-        </form>
-      </entry>
-      <entry n="específico">
-        <form>
-          <gramGrp>
-            <gen value="m"/><num value="sg"/>
-          </gramGrp>
-          <orth>específico</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="f"/><num value="sg"/>
-          </gramGrp>
-          <orth>específica</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="m"/><num value="pl"/>
-          </gramGrp>
-          <orth>específicos</orth>
-        </form>
-        <form>
-          <gramGrp>
-            <gen value="f"/><num value="pl"/>
-          </gramGrp>
-          <orth>específicas</orth>
         </form>
       </entry>
     </body>
