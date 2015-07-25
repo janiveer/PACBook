@@ -184,7 +184,9 @@
 					</xsl:message>
 				</xsl:if>
 				<xsl:variable name="my.pron">
-					<xsl:value-of select="following-sibling::*/descendant-or-self::db:phrase[@ling:pron][1]/@ling:pron"/>
+					<xsl:if test="following-sibling::*/descendant-or-self::*/@ling:pron">
+						<xsl:value-of select="following::text()[not(normalize-space(.)='')][1]/ancestor::*/@ling:pron"/>
+					</xsl:if>
 				</xsl:variable>
 				<xsl:choose>
 					<xsl:when test="$my.pron != ''">
