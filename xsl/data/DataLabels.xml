@@ -356,7 +356,7 @@
         <seg>or</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg><![CDATA[<wordasword>o</wordasword>]]></seg>
+        <seg><![CDATA[<wordasword ling:type="depend">o</wordasword>]]></seg>
       </tuv>
       <tuv xml:lang="fi">
         <seg>tai</seg>
@@ -365,7 +365,7 @@
         <seg>ou</seg>
       </tuv>
       <tuv xml:lang="it">
-        <seg><![CDATA[<wordasword>o</wordasword>]]></seg>
+        <seg><![CDATA[<wordasword ling:type="depend">o</wordasword>]]></seg>
       </tuv>
       <tuv xml:lang="nb">
         <seg>eller</seg>
