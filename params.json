@@ -1,1 +1,7 @@
-{"name":"PACBook","tagline":"Linguistic pre-processing for XML documentation","body":"PACBook is a suite of pre-processing tools for working with XML documentation. It deals with two inter-related areas:\r\n\r\n1. Translating documents;\r\n2. The linguistic consequences of transclusion and / or conditional profiling.","google":"","note":"Don't delete this file! It's used internally to help with page regeneration."}
+{
+  "name": "PACBook",
+  "tagline": "Linguistic pre-processing for XML documentation",
+  "body": "PACBook is a suite of pre-processing tools for working with XML documentation. It deals with two inter-related areas:\r\n\r\n1. Translating documents;\r\n2. The linguistic consequences of transclusion and / or conditional profiling.",
+  "google": "",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
