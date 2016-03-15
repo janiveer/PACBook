@@ -108,7 +108,7 @@
 						<xsl:for-each select="/*/db:info/db:revhistory/db:revision">
 							<row>
 								<entry>
-									<para><xsl:apply-templates select="db:revnumber"/></para>
+									<para><xsl:copy-of select="db:revnumber/child::node()"/></para>
 								</entry>
 								<entry>
 									<para><xsl:apply-templates select="db:date"/></para>
@@ -117,7 +117,7 @@
 									<para><xsl:apply-templates select="db:authorinitials"/></para>
 								</entry>
 								<entry>
-									<para><xsl:apply-templates select="db:revremark"/></para>
+									<para><xsl:copy-of select="db:revremark/child::node()"/></para>
 								</entry>
 							</row>
 						</xsl:for-each>
