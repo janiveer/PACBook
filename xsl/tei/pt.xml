@@ -27,25 +27,25 @@
       <entry n="o">
         <form>
           <gramGrp>
-            <gen value="m"/><num value="sg"/>
+            <gen value="m"/><number value="sg"/>
           </gramGrp>
           <orth>o</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="f"/><num value="sg"/>
+            <gen value="f"/><number value="sg"/>
           </gramGrp>
           <orth>a</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="m"/><num value="pl"/>
+            <gen value="m"/><number value="pl"/>
           </gramGrp>
           <orth>os</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="f"/><num value="pl"/>
+            <gen value="f"/><number value="pl"/>
           </gramGrp>
           <orth>as</orth>
         </form>
@@ -53,25 +53,25 @@
       <entry n="um">
         <form>
           <gramGrp>
-            <gen value="m"/><num value="sg"/>
+            <gen value="m"/><number value="sg"/>
           </gramGrp>
           <orth>um</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="f"/><num value="sg"/>
+            <gen value="f"/><number value="sg"/>
           </gramGrp>
           <orth>uma</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="m"/><num value="pl"/>
+            <gen value="m"/><number value="pl"/>
           </gramGrp>
           <orth>uns</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="f"/><num value="pl"/>
+            <gen value="f"/><number value="pl"/>
           </gramGrp>
           <orth>umas</orth>
         </form>
@@ -79,25 +79,25 @@
       <entry n="seu">
         <form>
           <gramGrp>
-            <gen value="m"/><num value="sg"/>
+            <gen value="m"/><number value="sg"/>
           </gramGrp>
           <orth>seu</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="f"/><num value="sg"/>
+            <gen value="f"/><number value="sg"/>
           </gramGrp>
           <orth>sua</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="m"/><num value="pl"/>
+            <gen value="m"/><number value="pl"/>
           </gramGrp>
           <orth>seus</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="f"/><num value="pl"/>
+            <gen value="f"/><number value="pl"/>
           </gramGrp>
           <orth>suas</orth>
         </form>
