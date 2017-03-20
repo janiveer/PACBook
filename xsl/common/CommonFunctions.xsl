@@ -208,15 +208,28 @@
 		<xsl:param name="start.id"/>
 		<xsl:param name="role.uri"/>
 		<xsl:variable name="start.ref" select="concat('#', $start.id)"/>
-		<xsl:variable name="start.loc" select="ancestor-or-self::*/db:info/db:extendedlink[@xl:role=$role.uri]/db:locator[@xl:href=$start.ref]"/>
-		<xsl:variable name="this.link" select="$start.loc/.."/>
+		<xsl:variable name="this.link" select="ancestor-or-self::*/db:info/db:extendedlink[@xl:role=$role.uri] |
+                                           ancestor-or-self::*//*[@xl:type='extended'][@xl:role=$role.uri]"/>
+		<xsl:variable name="start.loc" select="$this.link/db:locator[@xl:href=$start.ref][1] |
+                                           $this.link/*[xl:type='locator'][@xl:href=$start.ref][1]"/>
 		<xsl:variable name="start.lbl" select="$start.loc/@xl:label"/>
-		<xsl:variable name="start.arc" select="$this.link/db:arc[@xl:from=$start.lbl]"/>
+		<xsl:variable name="start.arc" select="$this.link/db:arc[@xl:from=$start.lbl][1] |
+                                           $this.link/*[xl:type='arc'][@xl:from=$start.lbl][1]"/>
 		<xsl:variable name="fixup.lbl" select="$start.arc/@xl:to"/>
-		<xsl:variable name="fixup.loc" select="$this.link/db:locator[@xl:label=$fixup.lbl]"/>
+		<xsl:variable name="fixup.loc" select="$this.link/db:locator[@xl:label=$fixup.lbl][1] |
+                                           $this.link/*[xl:type='locator'][@xl:label=$fixup.lbl][1]"/>
 		<xsl:variable name="fixup.ref" select="$fixup.loc/@xl:href"/>
 		<xsl:variable name="fixup.id"  select="substring-after($fixup.ref, '#')"/>
-		<func:result select="$fixup.id"/>
+		<func:result>
+			<xsl:choose>
+				<xsl:when test="$fixup.id">
+					<xsl:value-of select="$fixup.id"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="$start.id"/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</func:result>
 	</func:function>
 
 </xsl:stylesheet>
