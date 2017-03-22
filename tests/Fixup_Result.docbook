@@ -21,13 +21,22 @@
 			<arc xl:from="xid_3" xl:to="fix_3"/>
 		</extendedlink>
 	</info>
-	<section xml:id="fixup_id"><title>After Processing...</title><para>This section should have the ID <tag class="attvalue">fixup_id</tag>.</para><para>This <link xl:href="#fixup_link">link</link> should point to <tag class="attvalue">fixup_link</tag>.</para><para>This cross reference should point to <tag class="attvalue">fixup_xref</tag> — see <xref xl:href="#fixup_xref"/>.</para></section>
-	<section xml:id="fixup_end"><title>And...</title><para>This <link linkend="fixup_end">link</link> should point to <tag class="attvalue">fixup_end</tag>.</para><calloutlist>
+	<section xml:id="fixup_id">
+		<title>After Processing...</title>
+		<para>This section should have the ID <tag class="attvalue">fixup_id</tag>.</para>
+		<para>This <link xl:href="#fixup_link">link</link> should point to <tag class="attvalue">fixup_link</tag>.</para>
+		<para>This cross reference should point to <tag class="attvalue">fixup_xref</tag> — see <xref xl:href="#fixup_xref"/>.</para>
+	</section>
+	<section xml:id="fixup_end">
+		<title>And...</title>
+		<para>This <link linkend="fixup_end">link</link> should point to <tag class="attvalue">fixup_end</tag>.</para>
+		<calloutlist>
 			<callout arearefs="original_id">
 				<para>This callout should stay the same because no link fixup has been declared.</para>
 			</callout>
 			<callout arearefs="fixup_end">
 				<para>This callout should point to <tag class="attvalue">fixup_end</tag>.</para>
 			</callout>
-		</calloutlist></section>
+		</calloutlist>
+	</section>
 </article>
