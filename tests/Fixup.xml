@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="brand" default="main">
+<project name="Fixup" default="main">
 	<description>Tests the TransID.xsl and TransLinks.xsl stylesheets.</description>
 
 	<property environment="env"/>
