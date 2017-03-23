@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<project name="Params" default="main">
+	<description>Tests the TransParam.xsl stylesheets.</description>
+
+	<property environment="env"/>
+
+	<macrodef name="saxon">
+		<attribute name="in"/>
+		<attribute name="out"/>
+		<attribute name="style"/>
+		<element name="params" implicit="yes" optional="yes"/>
+		<sequential>
+			<xslt in="@{in}" out="@{out}" style="@{style}" force="true">
+				<classpath>
+					<pathelement location="/usr/share/java/saxon.jar"/>
+					<pathelement location="${env.ProgramData}/jing/bin/saxon.jar"/>
+				</classpath>
+				<!-- you need to specify the path to resolver.jar in the -lib -->
+				<factory name="com.icl.saxon.TransformerFactoryImpl"/>
+				<xmlcatalog>
+					<catalogpath>
+						<pathelement location="${env.XML_CATALOG_FILES}"/>
+					</catalogpath>
+				</xmlcatalog>
+				<outputproperty name="indent" value="no"/>
+				<params/>
+			</xslt>
+		</sequential>
+	</macrodef>
+
+	<property name="xslt_trans"  location="../xsl/TransParam.xsl"/>
+	<property name="test_50_in"  location="Param_50_Test.docbook"/>
+	<property name="test_50_out" location="Param_50_Expect.docbook"/>
+	<property name="test_51_in"  location="Param_51_Test.docbook"/>
+	<property name="test_51_out" location="Param_51_Expect.docbook"/>
+
+	<target name="test_50">
+		<echo>Testing parametic transclusion for PACBook 5.0...</echo>
+		<tempfile property="result_50" prefix="Param_" suffix=".docbook" deleteonexit="false"/>
+		<saxon in="${test_50_in}" out="${result_50}" style="${xslt_trans}"/>
+		<echo>Comparing output file with expected results...</echo>
+		<fail message="${result_50} does not match ${test_50_out}.">
+			<condition>
+				<not>
+					<filesmatch file1="${result_50}" file2="${test_50_out}" textfile="true"/>
+				</not>
+			</condition>
+		</fail>
+	</target>
+
+	<target name="test_51">
+		<echo>Testing parametic transclusion for PACBook 5.1...</echo>
+		<tempfile property="result_51" prefix="Param_" suffix=".docbook" deleteonexit="false"/>
+		<saxon in="${test_51_in}" out="${result_51}" style="${xslt_trans}"/>
+		<echo>Comparing output file with expected results...</echo>
+		<fail message="${result_51} does not match ${test_51_out}.">
+			<condition>
+				<not>
+					<filesmatch file1="${result_51}" file2="${test_51_out}" textfile="true"/>
+				</not>
+			</condition>
+		</fail>
+	</target>
+
+	<target name="main" depends="test_50,test_51"/>
+
+</project>
