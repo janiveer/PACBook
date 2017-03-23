@@ -11,9 +11,9 @@
          xml:lang="en-GB">
   <title>Parametric Transclusion Test</title>
   <info>
-    <link type="extended" xl:role="http://stanleysecurity.github.io/PACBook/role/transclusion">
-      <link type="resource" xl:label="res_1">Foo 2000</link>
-      <link type="resource" xl:label="res_2">Bar 2000</link>
+    <link xl:type="extended" xl:role="http://stanleysecurity.github.io/PACBook/role/transclusion">
+      <link xl:type="resource" xl:label="res_1">Foo 2000</link>
+      <link xl:type="resource" xl:label="res_2">Bar 2000</link>
     </link>
   </info>
   <section>
@@ -23,9 +23,9 @@
     <section>
       <title>And...</title>
       <info>
-        <link type="extended" xl:role="http://stanleysecurity.github.io/PACBook/role/transclusion">
-          <link type="resource" xl:label="res_1">Baz 2000</link>
-          <link type="resource" xl:label="res_2">Qux 2000</link>
+        <link xl:type="extended" xl:role="http://stanleysecurity.github.io/PACBook/role/transclusion">
+          <link xl:type="resource" xl:label="res_1">Baz 2000</link>
+          <link xl:type="resource" xl:label="res_2">Qux 2000</link>
         </link>
       </info>
       <para>This should say Baz 2000: <phrase content:ref="res_1"/>.</para>
