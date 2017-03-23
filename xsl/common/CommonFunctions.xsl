@@ -209,7 +209,7 @@
 		<xsl:param name="role.uri"/>
 		<xsl:variable name="start.ref" select="concat('#', $start.id)"/>
 		<xsl:variable name="this.link" select="ancestor-or-self::*/db:info/db:extendedlink[@xl:role=$role.uri] |
-                                           ancestor-or-self::*//*[@xl:type='extended'][@xl:role=$role.uri]"/>
+                                           ancestor-or-self::*/*/*[@xl:type='extended'][@xl:role=$role.uri]"/>
 		<xsl:variable name="start.loc" select="$this.link/db:locator[@xl:href=$start.ref][1] |
                                            $this.link/*[xl:type='locator'][@xl:href=$start.ref][1]"/>
 		<xsl:variable name="start.lbl" select="$start.loc/@xl:label"/>
