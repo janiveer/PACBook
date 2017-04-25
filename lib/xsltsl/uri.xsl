@@ -440,10 +440,16 @@
                   <xsl:if test="string-length($reference-authority) = 0 and
                                 substring($reference-path, 1, 1) != '/' and
                                 string-length($base-path) != 0">
-                    <xsl:call-template name="uri:get-path-without-file">
-                      <xsl:with-param name="path-with-file" select="$base-path"/>
-                    </xsl:call-template>
-                    <xsl:value-of select="'/'"/>
+                    <!-- Janiveer edited 25.04.2017 14:31:07 -->
+                    <xsl:variable name="d">
+                      <xsl:call-template name="uri:get-path-without-file">
+                        <xsl:with-param name="path-with-file" select="$base-path"/>
+                      </xsl:call-template>
+                    </xsl:variable>
+                    <xsl:if test="string-length($d)">
+                      <xsl:value-of select="concat($d, '/')"/>
+                    </xsl:if>
+                    <!-- [don't add a slash if the base path is just a file] -->
                   </xsl:if>
                   <xsl:value-of select="$reference-path"/>
                 </xsl:with-param>
