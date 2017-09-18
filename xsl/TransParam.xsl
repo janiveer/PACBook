@@ -62,7 +62,7 @@
 			<xsl:choose>
 				<xsl:when test="$def != ''">
 					<xsl:for-each select="$def[position() = last()]">
-						<xsl:copy-of select="*|text()|processing-instruction()|comment()"/>
+						<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="copy"/>
 					</xsl:for-each>
 				</xsl:when>
 				<xsl:otherwise>
@@ -75,6 +75,17 @@
 					</xsl:comment>
 				</xsl:otherwise>
 			</xsl:choose>
+		</xsl:copy>
+	</xsl:template>
+
+	<xsl:template match="text()" mode="copy">
+		<xsl:value-of select="normalize-space()"/>
+	</xsl:template>
+
+	<xsl:template match="*|processing-instruction()|comment()" mode="copy">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="copy"/>
 		</xsl:copy>
 	</xsl:template>
 
