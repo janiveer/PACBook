@@ -325,6 +325,10 @@ abstract > title,
 example > title{
 	font-size: 10pt
 }
+example > title:before{
+	counter-increment: example;
+	content: "Example " counter(example) ": "
+}
 table > title{
 	margin-top: 0em;
 	margin-bottom: 1px;
@@ -401,6 +405,31 @@ example{
 	display: block;
 	margin-left: 0.5cm
 }
+blockquote > *:not(attribution):first-of-type:before{
+	content: "❝ ";
+}
+blockquote > *:not(attribution):last-of-type:after{
+	content: " ❞";
+}
+blockquote{
+	display: block;
+	margin-left: 0.5cm
+}
+attribution:before{
+	content: "[";
+}
+attribution:after{
+	content: "]";
+}
+attribution{
+	display: block;
+	font-size: 10pt;
+	line-height: 12pt;
+	margin-bottom: 0em;
+	margin-top: 1em;
+	color: black;
+	clear: none
+}
 glossdef{
 	display: block;
 	margin-left: 0.5cm
@@ -423,7 +452,7 @@ simplelist[type="horiz"] > member{
 }
 programlisting{
 	display: block;
-	white-space: pre-line;
+	white-space: pre;
 	font-size: 10pt;
 	margin-top: 1em;
 	font-family: Courier, Courier New, monospace;
@@ -517,7 +546,7 @@ td.rotated{
 	overflow: hidden;
 	vertical-align: middle !important
 }
-rdf|Descrription[dc|type='applicability'],
+rdf|Description[dc|type='applicability'],
 biblioset[relation='applicability']{
 	display: table;
 	border-collapse: collapse;
@@ -809,6 +838,7 @@ tip:before{
 warning:before{
 	content: url('admon/warning.png');
 }
+biblioref:after,
 link:after{
 	content: "→"
 }
@@ -845,6 +875,19 @@ olink:after,
 xref:after{
 	content: attr(xrefstyle);
 	background-color: rgb(239,239,239);
+}
+biblioref:before{
+	display: inline-block;
+	padding: 1px;
+	border: thin gray solid;
+	color: black;
+	position: absolute;
+	-webkit-border-radius: 3px;
+	-webkit-box-shadow: 3px 3px 3px silver;
+	background-color: rgb(239,239,239);
+	left: 18cm;
+	font-size: 10pt;
+	content: "BIBLIO: " attr(linkend)
 }
 xref:before{
 	display: inline-block;

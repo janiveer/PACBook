@@ -1,0 +1,99 @@
+﻿@charset "utf-8";
+@namespace url(http://www.w3.org/1999/xhtml);
+@namespace xsl url(http://www.w3.org/1999/XSL/Transform);
+@namespace xd url(http://www.pnp-software.com/XSLTdoc);
+@namespace func url(http://exslt.org/functions);
+
+xd|*,
+func|function,
+func|function::before,
+func|function::after,
+xsl|*,
+xsl|*::before,
+xsl|*::after {
+	display: block;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+}
+
+xsl|stylesheet > xsl|* {
+	margin-left: 1cm;
+}
+
+xsl|stylesheet {
+	margin-left: 1cm;
+	max-width: 20cm;
+}
+
+xsl|stylesheet::before {
+	font-size: 18pt;
+	font-weight: bold;
+	content: 'Stylesheet';
+}
+
+xsl|output::after {
+	font-size: 10pt;
+	content: "Output: " attr(method) " | Version: " attr(version) " | Encoding: " attr(encoding) " | Indent: " attr(indent);
+}
+
+xsl|include::after {
+	font-size: 10pt;
+	content: "Includes " attr(href);
+}
+
+xsl|import::after {
+	font-size: 10pt;
+	content: "Imports " attr(href);
+}
+
+xsl|stylesheet > xsl|param {
+	margin-top: 1em;
+}
+
+xsl|stylesheet > xsl|param::before {
+	font-size: 10pt;
+	font-weight: bold;
+	content: "Parameter: " attr(name);
+}
+
+xsl|stylesheet > xsl|param[select]::after {
+	font-size: 10pt;
+	content: "Default: " attr(select);
+}
+
+func|function,
+xsl|template {
+	margin-top: 1em;
+}
+
+func|function::before,
+xsl|template::before {
+	font-weight: bold;
+}
+
+xsl|template::before {
+	content: 'Template'
+}
+
+xsl|template[name]::before {
+	content: 'Template: ' attr(name);
+}
+
+func|function::before {
+	content: 'Function: ' attr(name);
+}
+
+xsl|template[match]::after {
+	font-size: 10pt;
+	content: "Matches " attr(match);
+}
+
+xsl|text {
+	display: none;
+}
+
+xd|short {
+	font-size: 14pt;
+	font-weight: bold;
+	margin-top: 1em;
+}
