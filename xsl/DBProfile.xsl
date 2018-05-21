@@ -23,7 +23,7 @@
                 xmlns:xd="http://www.pnp-software.com/XSLTdoc"
                 exclude-result-prefixes="xd"
                 version="1.0">
-	<xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/profiling/profile.xsl"/>
+	<xsl:import href="http://cdn.docbook.org/release/xsl/current/profiling/profile.xsl"/>
 
 	<xd:doc>
 		==================
