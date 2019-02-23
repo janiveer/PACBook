@@ -125,7 +125,7 @@
 				</xsl:variable>
 				<xsl:for-each select="document($Diff, /)">
 					<xsl:choose>
-						<xsl:when test="key('trans_unit', $Id)/xlf:target/@state='translated'">
+						<xsl:when test="key('trans_unit', $Id)/xlf:source != ''">
 							<xsl:message terminate="no">
 								<xsl:value-of select="$Message"/>
 								<xsl:text>Merged</xsl:text>
