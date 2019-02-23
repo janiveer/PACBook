@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="http://www.jabadaw.com/PAC/files/Docbook.css" type="text/css"?><article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:its="http://www.w3.org/2005/11/its" xmlns:content="http://stanleysecurity.github.io/PACBook/ns/transclusion" xmlns:xlf="urn:oasis:names:tc:xliff:document:1.2" version="5.1-variant PACBook" xml:id="param_test" status="draft" xml:lang="en-GB">
+  <title>Parametric Transclusion Test</title>
+  <info>
+    <link xl:type="extended" xl:role="http://stanleysecurity.github.io/PACBook/role/transclusion">
+      <link xl:type="resource" xl:label="res_1">Foo 2000</link>
+      <link xl:type="resource" xl:label="res_2">Bar 2000</link>
+    </link>
+  </info>
+  <section>
+    <title>After Processing...</title>
+    <para>This should say Foo 2000: <phrase>Foo 2000</phrase>.</para>
+    <para>This should say Bar 2000: <phrase>Bar 2000</phrase>.</para>
+    <section>
+      <title>And...</title>
+      <info>
+        <link xl:type="extended" xl:role="http://stanleysecurity.github.io/PACBook/role/transclusion">
+          <link xl:type="resource" xl:label="res_1">Baz 2000</link>
+          <link xl:type="resource" xl:label="res_2">Qux 2000</link>
+        </link>
+      </info>
+      <para>This should say Baz 2000: <phrase>Baz 2000</phrase>.</para>
+      <para>This should say Qux 2000: <phrase>Qux 2000</phrase>.</para>
+    </section>
+  </section>
+</article>

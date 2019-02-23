@@ -91,7 +91,7 @@
 					<xsl:text> ... </xsl:text>
 				</xsl:variable>
 				<xsl:copy>
-					<xsl:copy-of select="$thisNode/@*"/>
+					<xsl:copy-of select="$thisNode/@*[not(name()='xml:lang')]"/>
 					<xsl:copy-of select="$thisNode/child::node()"/>
 					<xsl:variable name="zxxFile" select="pac:xliff('zxx')"/>
 					<xsl:variable name="zxxText">
@@ -154,7 +154,7 @@
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:copy>
-					<xsl:copy-of select="@*"/>
+					<xsl:copy-of select="@*[not(name()='xml:lang')]"/>
 					<xsl:apply-templates select="*|text()|processing-instruction()|comment()"/>
 				</xsl:copy>
 			</xsl:otherwise>

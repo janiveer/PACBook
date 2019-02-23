@@ -16,7 +16,7 @@ for general use with any XML documentation schema, even SVG images.
 ## Documentation
 
 For information on each stylesheet, see the
-[wiki](https://github.com/STANLEYSecurity/PACBook/wiki) or the Documentation folder.
+[wiki](wiki) or the Documentation folder.
 
 ## Prerequisites
 

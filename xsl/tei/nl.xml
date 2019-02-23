@@ -27,19 +27,19 @@
       <entry n="de">
         <form>
           <gramGrp>
-            <gen value="c"/><num value="sg"/>
+            <gen value="c"/><number value="sg"/>
           </gramGrp>
           <orth>de</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/>
+            <gen value="n"/><number value="sg"/>
           </gramGrp>
           <orth>het</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="c n"/><num value="pl"/>
+            <gen value="c n"/><number value="pl"/>
           </gramGrp>
           <orth>de</orth>
         </form>
@@ -47,19 +47,19 @@
       <entry n="deze">
         <form>
           <gramGrp>
-            <gen value="c"/><num value="sg"/>
+            <gen value="c"/><number value="sg"/>
           </gramGrp>
           <orth>deze</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/>
+            <gen value="n"/><number value="sg"/>
           </gramGrp>
           <orth>dit</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="c n"/><num value="pl"/>
+            <gen value="c n"/><number value="pl"/>
           </gramGrp>
           <orth>deze</orth>
         </form>
@@ -67,19 +67,19 @@
       <entry n="die">
         <form>
           <gramGrp>
-            <gen value="c"/><num value="sg"/>
+            <gen value="c"/><number value="sg"/>
           </gramGrp>
           <orth>die</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/>
+            <gen value="n"/><number value="sg"/>
           </gramGrp>
           <orth>dat</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="c n"/><num value="pl"/>
+            <gen value="c n"/><number value="pl"/>
           </gramGrp>
           <orth>die</orth>
         </form>
@@ -87,25 +87,25 @@
       <entry n="welk">
         <form>
           <gramGrp>
-            <gen value="c"/><num value="sg"/>
+            <gen value="c"/><number value="sg"/>
           </gramGrp>
           <orth>welke</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/><oVar value="def"/>
+            <gen value="n"/><number value="sg"/><oVar value="def"/>
           </gramGrp>
           <orth>welke</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/><oVar value="ind"/>
+            <gen value="n"/><number value="sg"/><oVar value="ind"/>
           </gramGrp>
           <orth>welk</orth>
         </form>
         <form>
           <gramGrp>
-            <num value="pl"/>
+            <number value="pl"/>
           </gramGrp>
           <orth>welke</orth>
         </form>
@@ -113,25 +113,25 @@
       <entry n="elk">
         <form>
           <gramGrp>
-            <gen value="c"/><num value="sg"/>
+            <gen value="c"/><number value="sg"/>
           </gramGrp>
           <orth>elke</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/><oVar value="def"/>
+            <gen value="n"/><number value="sg"/><oVar value="def"/>
           </gramGrp>
           <orth>elke</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/><oVar value="ind"/>
+            <gen value="n"/><number value="sg"/><oVar value="ind"/>
           </gramGrp>
           <orth>elk</orth>
         </form>
         <form>
           <gramGrp>
-            <num value="pl"/>
+            <number value="pl"/>
           </gramGrp>
           <orth>elke</orth>
         </form>
@@ -139,25 +139,25 @@
       <entry n="ander">
         <form>
           <gramGrp>
-            <gen value="c"/><num value="sg"/>
+            <gen value="c"/><number value="sg"/>
           </gramGrp>
           <orth>andere</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/><oVar value="def"/>
+            <gen value="n"/><number value="sg"/><oVar value="def"/>
           </gramGrp>
           <orth>andere</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/><oVar value="ind"/>
+            <gen value="n"/><number value="sg"/><oVar value="ind"/>
           </gramGrp>
           <orth>ander</orth>
         </form>
         <form>
           <gramGrp>
-            <num value="pl"/>
+            <number value="pl"/>
           </gramGrp>
           <orth>andere</orth>
         </form>
@@ -165,25 +165,25 @@
       <entry n="actueel">
         <form>
           <gramGrp>
-            <gen value="c"/><num value="sg"/>
+            <gen value="c"/><number value="sg"/>
           </gramGrp>
           <orth>actuele</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/><oVar value="def"/>
+            <gen value="n"/><number value="sg"/><oVar value="def"/>
           </gramGrp>
           <orth>actuele</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/><oVar value="ind"/>
+            <gen value="n"/><number value="sg"/><oVar value="ind"/>
           </gramGrp>
           <orth>actueel</orth>
         </form>
         <form>
           <gramGrp>
-            <num value="pl"/>
+            <number value="pl"/>
           </gramGrp>
           <orth>actuele</orth>
         </form>
@@ -191,25 +191,25 @@
       <entry n="bepaald">
         <form>
           <gramGrp>
-            <gen value="c"/><num value="sg"/>
+            <gen value="c"/><number value="sg"/>
           </gramGrp>
           <orth>bepaalde</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/><oVar value="def"/>
+            <gen value="n"/><number value="sg"/><oVar value="def"/>
           </gramGrp>
           <orth>bepaalde</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/><oVar value="ind"/>
+            <gen value="n"/><number value="sg"/><oVar value="ind"/>
           </gramGrp>
           <orth>bepaald</orth>
         </form>
         <form>
           <gramGrp>
-            <num value="pl"/>
+            <number value="pl"/>
           </gramGrp>
           <orth>bepaalde</orth>
         </form>
@@ -217,25 +217,25 @@
       <entry n="geselecteerd">
         <form>
           <gramGrp>
-            <gen value="c"/><num value="sg"/>
+            <gen value="c"/><number value="sg"/>
           </gramGrp>
           <orth>geselecteerde</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/><oVar value="def"/>
+            <gen value="n"/><number value="sg"/><oVar value="def"/>
           </gramGrp>
           <orth>geselecteerde</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/><oVar value="ind"/>
+            <gen value="n"/><number value="sg"/><oVar value="ind"/>
           </gramGrp>
           <orth>geselecteerd</orth>
         </form>
         <form>
           <gramGrp>
-            <num value="pl"/>
+            <number value="pl"/>
           </gramGrp>
           <orth>geselecteerde</orth>
         </form>
@@ -243,25 +243,25 @@
       <entry n="specifiek">
         <form>
           <gramGrp>
-            <gen value="c"/><num value="sg"/>
+            <gen value="c"/><number value="sg"/>
           </gramGrp>
           <orth>specifieke</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/><oVar value="def"/>
+            <gen value="n"/><number value="sg"/><oVar value="def"/>
           </gramGrp>
           <orth>specifieke</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/><oVar value="ind"/>
+            <gen value="n"/><number value="sg"/><oVar value="ind"/>
           </gramGrp>
           <orth>specifiek</orth>
         </form>
         <form>
           <gramGrp>
-            <num value="pl"/>
+            <number value="pl"/>
           </gramGrp>
           <orth>specifieke</orth>
         </form>
@@ -269,25 +269,25 @@
       <entry n="plaatselijk">
         <form>
           <gramGrp>
-            <gen value="c"/><num value="sg"/>
+            <gen value="c"/><number value="sg"/>
           </gramGrp>
           <orth>plaatselijke</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/><oVar value="def"/>
+            <gen value="n"/><number value="sg"/><oVar value="def"/>
           </gramGrp>
           <orth>plaatselijke</orth>
         </form>
         <form>
           <gramGrp>
-            <gen value="n"/><num value="sg"/><oVar value="ind"/>
+            <gen value="n"/><number value="sg"/><oVar value="ind"/>
           </gramGrp>
           <orth>plaatselijk</orth>
         </form>
         <form>
           <gramGrp>
-            <num value="pl"/>
+            <number value="pl"/>
           </gramGrp>
           <orth>plaatselijke</orth>
         </form>

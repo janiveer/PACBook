@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<project name="Fixup" default="main">
+	<description>Tests the TransID.xsl and TransLinks.xsl stylesheets.</description>
+
+	<property environment="env"/>
+
+	<macrodef name="saxon">
+		<attribute name="in"/>
+		<attribute name="out"/>
+		<attribute name="style"/>
+		<element name="params" implicit="yes" optional="yes"/>
+		<sequential>
+			<xslt in="@{in}" out="@{out}" style="@{style}" force="true">
+				<classpath>
+					<pathelement location="/usr/share/java/saxon.jar"/>
+					<pathelement location="${env.ProgramData}/jing/bin/saxon.jar"/>
+				</classpath>
+				<!-- you need to specify the path to resolver.jar in the -lib -->
+				<factory name="com.icl.saxon.TransformerFactoryImpl"/>
+				<xmlcatalog>
+					<catalogpath>
+						<pathelement location="${env.XML_CATALOG_FILES}"/>
+					</catalogpath>
+				</xmlcatalog>
+				<outputproperty name="indent" value="no"/>
+				<params/>
+			</xslt>
+		</sequential>
+	</macrodef>
+
+	<property name="xslt_ids"   location="../xsl/TransID.xsl"/>
+	<property name="xslt_links" location="../xsl/TransLinks.xsl"/>
+	<property name="test_in"    location="Fixup_Test.docbook"/>
+	<property name="test_out"   location="Fixup_Result.docbook"/>
+
+	<target name="ids">
+		<echo>Fixing up IDs...</echo>
+		<tempfile property="tmp_ids" prefix="Temp_" suffix=".docbook" deleteonexit="true"/>
+		<saxon in="${test_in}" out="${tmp_ids}" style="${xslt_ids}"/>
+	</target>
+
+	<target name="links" depends="ids">
+		<echo>Fixing up links...</echo>
+		<tempfile property="tmp_links" prefix="Fixup_" suffix=".docbook" deleteonexit="false"/>
+		<saxon in="${tmp_ids}" out="${tmp_links}" style="${xslt_links}"/>
+	</target>
+
+	<target name="main" depends="links">
+		<echo>Comparing output file with expected results...</echo>
+		<fail message="${tmp_links} does not match ${test_out}.">
+			<condition>
+				<not>
+					<filesmatch file1="${tmp_links}" file2="${test_out}" textfile="true"/>
+				</not>
+			</condition>
+		</fail>
+	</target>
+
+</project>

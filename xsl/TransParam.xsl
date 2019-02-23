@@ -53,13 +53,16 @@
 	</xd:doc>
 	<xsl:template match="*[@content:ref]">
 		<xsl:variable name="ref" select="@content:ref"/>
-		<xsl:variable name="def" select="ancestor-or-self::*/db:info/db:extendedlink[@xl:role=$defRole]/db:resource[@xl:label=$ref]"/>
+		<xsl:variable name="lnk" select="ancestor-or-self::*/db:info/db:extendedlink[@xl:role=$defRole] |
+                                     ancestor-or-self::*/*/*[@xl:type='extended'][@xl:role=$defRole]"/>
+		<xsl:variable name="def" select="$lnk/db:resource[@xl:label=$ref][1] |
+                                     $lnk/*[@xl:type='resource'][@xl:label=$ref][1]"/>
 		<xsl:copy>
 			<xsl:copy-of select="@*[not(name()='content:ref')]"/>
 			<xsl:choose>
 				<xsl:when test="$def != ''">
 					<xsl:for-each select="$def[position() = last()]">
-						<xsl:copy-of select="*|text()|processing-instruction()|comment()"/>
+						<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="copy"/>
 					</xsl:for-each>
 				</xsl:when>
 				<xsl:otherwise>
@@ -72,6 +75,17 @@
 					</xsl:comment>
 				</xsl:otherwise>
 			</xsl:choose>
+		</xsl:copy>
+	</xsl:template>
+
+	<xsl:template match="text()" mode="copy">
+		<xsl:value-of select="normalize-space()"/>
+	</xsl:template>
+
+	<xsl:template match="*|processing-instruction()|comment()" mode="copy">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates select="*|text()|processing-instruction()|comment()" mode="copy"/>
 		</xsl:copy>
 	</xsl:template>
 

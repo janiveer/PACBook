@@ -165,16 +165,21 @@
 												<source>
 													<xsl:value-of select="$LocalNorm"/>
 												</source>
-												<xsl:if test="$TargetNorm != ''">
-													<target>
-														<xsl:if test="$TargetNorm = $LocalNorm">
-															<xsl:attribute name="state">
-																<xsl:value-of select="'translated'"/>
-															</xsl:attribute>
-														</xsl:if>
-														<xsl:value-of select="$TargetNorm"/>
-													</target>
-												</xsl:if>
+												<alt-trans>
+													<source>
+														<xsl:value-of select="$SourceNorm"/>
+													</source>
+													<xsl:if test="$TargetNorm != ''">
+														<target>
+															<xsl:if test="$TargetNorm = $LocalNorm">
+																<xsl:attribute name="state">
+																	<xsl:value-of select="'translated'"/>
+																</xsl:attribute>
+															</xsl:if>
+															<xsl:value-of select="$TargetNorm"/>
+														</target>
+													</xsl:if>
+												</alt-trans>
 												<xsl:call-template name="SetTransUnitElements">
 													<xsl:with-param name="Id" select="$Id"/>
 												</xsl:call-template>

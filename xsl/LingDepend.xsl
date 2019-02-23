@@ -223,7 +223,7 @@
 		<xsl:param name="my.word"/>
 		<xsl:param name="my.tree"/>
 		<xsl:choose>
-			<xsl:when test="$my.tree//tei:gramGrp/tei:num">
+			<xsl:when test="$my.tree//tei:gramGrp/tei:number">
 				<xsl:if test="$Verbose=true()">
 					<xsl:message terminate="no">
 						<xsl:value-of select="$my.word"/>
@@ -235,7 +235,7 @@
 				</xsl:variable>
 				<xsl:choose>
 					<xsl:when test="$my.num != ''">
-						<xsl:copy-of select="$my.tree/tei:form[contains(tei:gramGrp/tei:num/@value, $my.num)]"/>
+						<xsl:copy-of select="$my.tree/tei:form[contains(tei:gramGrp/tei:number/@value, $my.num)]"/>
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:if test="$Verbose=true()">

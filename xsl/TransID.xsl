@@ -45,16 +45,9 @@
 			<xsl:if test="@xml:id">
 				<xsl:variable name="start.id" select="@xml:id"/>
 				<xsl:variable name="fixup.id" select="pac:fixup($start.id, $idRole)"/>
-				<xsl:choose>
-					<xsl:when test="$fixup.id">
-						<xsl:attribute name="xml:id">
-							<xsl:value-of select="$fixup.id"/>
-						</xsl:attribute>
-					</xsl:when>
-					<xsl:otherwise>
-						<xsl:copy-of select="@xml:id"/>
-					</xsl:otherwise>
-				</xsl:choose>
+				<xsl:attribute name="xml:id">
+					<xsl:value-of select="$fixup.id"/>
+				</xsl:attribute>
 			</xsl:if>
 			<xsl:apply-templates select="*|text()|processing-instruction()|comment()"/>
 		</xsl:copy>

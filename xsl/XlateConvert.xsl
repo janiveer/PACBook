@@ -87,7 +87,7 @@
 	</xd:doc>
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:copy>
-			<xsl:copy-of select="@*"/>
+			<xsl:copy-of select="@*[not(name()='xml:lang')]"/>
 			<xsl:choose>
 				<xsl:when test="@xlf:id and not(@its:translate='no')">
 					<xsl:variable name="El" select="local-name()"/>

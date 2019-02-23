@@ -108,7 +108,7 @@
 						<xsl:for-each select="/*/db:info/db:revhistory/db:revision">
 							<row>
 								<entry>
-									<para><xsl:apply-templates select="db:revnumber"/></para>
+									<para><xsl:copy-of select="db:revnumber/child::node()"/></para>
 								</entry>
 								<entry>
 									<para><xsl:apply-templates select="db:date"/></para>
@@ -117,7 +117,7 @@
 									<para><xsl:apply-templates select="db:authorinitials"/></para>
 								</entry>
 								<entry>
-									<para><xsl:apply-templates select="db:revremark"/></para>
+									<para><xsl:copy-of select="db:revremark/child::node()"/></para>
 								</entry>
 							</row>
 						</xsl:for-each>
@@ -151,48 +151,64 @@
 	</xsl:attribute-set>
 	<xsl:template match="processing-instruction('pac-applicability')">
 		<xsl:if test="//bibo:Document/vivo:hasSubjectArea">
-			<informaltable xsl:use-attribute-sets="pac.applicability.table">
-				<tgroup cols="4">
-					<colspec xsl:use-attribute-sets="pac.applicability.col.product"/>
-					<colspec xsl:use-attribute-sets="pac.applicability.col.name"/>
-					<colspec xsl:use-attribute-sets="pac.applicability.col.detail"/>
-					<colspec xsl:use-attribute-sets="pac.applicability.col.version"/>
-					<thead>
-						<row>
-							<entry>
-								<para><xsl:value-of select="pac:label(pac:lang(), 'product')"/></para>
-							</entry>
-							<entry>
-								<para><xsl:value-of select="pac:label(pac:lang(), 'name')"/></para>
-							</entry>
-							<entry>
-								<para><xsl:value-of select="pac:label(pac:lang(), 'detail')"/></para>
-							</entry>
-							<entry>
-								<para><xsl:value-of select="pac:label(pac:lang(), 'version')"/></para>
-							</entry>
-						</row>
-					</thead>
-					<tbody>
-						<xsl:for-each select="//bibo:Document/vivo:hasSubjectArea/rdf:Bag/rdf:li">
-							<row>
-								<entry>
-									<para><xsl:copy-of select="doap:shortdesc/child::node()"/></para>
-								</entry>
-								<entry>
-									<para><xsl:copy-of select="doap:name/child::node()"/></para>
-								</entry>
-								<entry>
-									<para><xsl:copy-of select="doap:description/child::node()"/></para>
-								</entry>
-								<entry>
-									<para><xsl:copy-of select="doap:revision/child::node()"/></para>
-								</entry>
-							</row>
-						</xsl:for-each>
-					</tbody>
-				</tgroup>
-			</informaltable>
+			<xsl:choose>
+				<xsl:when test=".='inline'">
+					<xsl:for-each select="//bibo:Document/vivo:hasSubjectArea/rdf:Bag/rdf:li">
+						<para>
+							<xsl:for-each select="doap:shortdesc|doap:name|doap:description|doap:revision">
+								<xsl:copy-of select="child::node()"/>
+								<xsl:if test="following-sibling::*">
+									<xsl:text> </xsl:text>
+								</xsl:if>
+							</xsl:for-each>
+						</para>
+					</xsl:for-each>
+				</xsl:when>
+				<xsl:otherwise>
+					<informaltable xsl:use-attribute-sets="pac.applicability.table">
+						<tgroup cols="4">
+							<colspec xsl:use-attribute-sets="pac.applicability.col.product"/>
+							<colspec xsl:use-attribute-sets="pac.applicability.col.name"/>
+							<colspec xsl:use-attribute-sets="pac.applicability.col.detail"/>
+							<colspec xsl:use-attribute-sets="pac.applicability.col.version"/>
+							<thead>
+								<row>
+									<entry>
+										<para><xsl:value-of select="pac:label(pac:lang(), 'product')"/></para>
+									</entry>
+									<entry>
+										<para><xsl:value-of select="pac:label(pac:lang(), 'name')"/></para>
+									</entry>
+									<entry>
+										<para><xsl:value-of select="pac:label(pac:lang(), 'detail')"/></para>
+									</entry>
+									<entry>
+										<para><xsl:value-of select="pac:label(pac:lang(), 'version')"/></para>
+									</entry>
+								</row>
+							</thead>
+							<tbody>
+								<xsl:for-each select="//bibo:Document/vivo:hasSubjectArea/rdf:Bag/rdf:li">
+									<row>
+										<entry>
+											<para><xsl:copy-of select="doap:shortdesc/child::node()"/></para>
+										</entry>
+										<entry>
+											<para><xsl:copy-of select="doap:name/child::node()"/></para>
+										</entry>
+										<entry>
+											<para><xsl:copy-of select="doap:description/child::node()"/></para>
+										</entry>
+										<entry>
+											<para><xsl:copy-of select="doap:revision/child::node()"/></para>
+										</entry>
+									</row>
+								</xsl:for-each>
+							</tbody>
+						</tgroup>
+					</informaltable>
+				</xsl:otherwise>
+			</xsl:choose>
 		</xsl:if>
 	</xsl:template>
 

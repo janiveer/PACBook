@@ -49,7 +49,7 @@
 	<xsl:template match="*|text()|processing-instruction()|comment()">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:if test="starts-with(@xl:href, '#') and not(self::db:locator)">
+			<xsl:if test="starts-with(@xl:href, '#') and not(self::db:locator or @xl:type='locator')">
 				<xsl:call-template name="Fix_XLink"/>
 			</xsl:if>
 			<xsl:if test="@linkend">
@@ -72,14 +72,7 @@
 		<xsl:variable name="fixup.id" select="pac:fixup($start.id, $linkRole)"/>
 		<xsl:attribute name="href" namespace="http://www.w3.org/1999/xlink">
 			<xsl:text>#</xsl:text>
-			<xsl:choose>
-				<xsl:when test="$fixup.id">
-					<xsl:value-of select="$fixup.id"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="$start.id"/>
-				</xsl:otherwise>
-			</xsl:choose>
+			<xsl:value-of select="$fixup.id"/>
 		</xsl:attribute>
 	</xsl:template>
 
@@ -92,14 +85,7 @@
 		<xsl:variable name="start.id" select="@linkend"/>
 		<xsl:variable name="fixup.id" select="pac:fixup($start.id, $linkRole)"/>
 		<xsl:attribute name="linkend">
-			<xsl:choose>
-				<xsl:when test="$fixup.id">
-					<xsl:value-of select="$fixup.id"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="$start.id"/>
-				</xsl:otherwise>
-			</xsl:choose>
+			<xsl:value-of select="$fixup.id"/>
 		</xsl:attribute>
 	</xsl:template>
 
@@ -139,15 +125,7 @@
 		<xsl:param name="pac.arearefs"/>
 		<xsl:variable name="start.id" select="."/>
 		<xsl:for-each select="$pac.arearefs">
-			<xsl:variable name="fixup.id" select="pac:fixup($start.id, $linkRole)"/>
-			<xsl:choose>
-				<xsl:when test="$fixup.id">
-					<xsl:value-of select="$fixup.id"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="$start.id"/>
-				</xsl:otherwise>
-			</xsl:choose>
+			<xsl:value-of select="pac:fixup($start.id, $linkRole)"/>
 		</xsl:for-each>
 		<xsl:if test="position() != last()">
 			<xsl:value-of select="' '"/>

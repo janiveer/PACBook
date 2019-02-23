@@ -58,49 +58,49 @@
         <note>For the singular form, there must be no space between the dependent word and the following word in the source document.</note>
         <form>
           <gramGrp>
-            <usg value="C"/><gen value="m"/><num value="sg"/>
+            <usg value="C"/><gen value="m"/><number value="sg"/>
           </gramGrp>
           <orth>il </orth>
         </form>
         <form>
           <gramGrp>
-            <usg value="S"/><gen value="m"/><num value="sg"/>
+            <usg value="S"/><gen value="m"/><number value="sg"/>
           </gramGrp>
           <orth>lo </orth>
         </form>
         <form>
           <gramGrp>
-            <usg value="V"/><gen value="m"/><num value="sg"/>
+            <usg value="V"/><gen value="m"/><number value="sg"/>
           </gramGrp>
           <orth>l’</orth>
         </form>
         <form>
           <gramGrp>
-            <usg value="C S"/><gen value="f"/><num value="sg"/>
+            <usg value="C S"/><gen value="f"/><number value="sg"/>
           </gramGrp>
           <orth>la </orth>
         </form>
         <form>
           <gramGrp>
-            <usg value="V"/><gen value="f"/><num value="sg"/>
+            <usg value="V"/><gen value="f"/><number value="sg"/>
           </gramGrp>
           <orth>l’</orth>
         </form>
         <form>
           <gramGrp>
-            <usg value="C"/><gen value="m"/><num value="pl"/>
+            <usg value="C"/><gen value="m"/><number value="pl"/>
           </gramGrp>
           <orth>i</orth>
         </form>
         <form>
           <gramGrp>
-            <usg value="S V"/><gen value="m"/><num value="pl"/>
+            <usg value="S V"/><gen value="m"/><number value="pl"/>
           </gramGrp>
           <orth>gli</orth>
         </form>
         <form>
           <gramGrp>
-            <usg value="C S V"/><gen value="f"/><num value="pl"/>
+            <usg value="C S V"/><gen value="f"/><number value="pl"/>
           </gramGrp>
           <orth>le</orth>
         </form>
